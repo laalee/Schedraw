@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */; };
 		9BB5D5DC2151FDD2005F225C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */; };
 		9BB5D5DE2151FDD2005F225C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DD2151FDD2005F225C /* ViewController.swift */; };
 		9BB5D5E12151FDD2005F225C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DF2151FDD2005F225C /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		139FF4D3292717CB87E4DA48 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB5D5D82151FDD2005F225C /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BB5D5DD2151FDD2005F225C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0520F2D37968833CB7B55D8F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				139FF4D3292717CB87E4DA48 /* Pods-Schedule.debug.xcconfig */,
+				70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A354633F6ECF4DD0E3637EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9BB5D5CF2151FDD2005F225C = {
 			isa = PBXGroup;
 			children = (
 				9BB5D5DA2151FDD2005F225C /* Schedule */,
 				9BB5D5D92151FDD2005F225C /* Products */,
+				0520F2D37968833CB7B55D8F /* Pods */,
+				4A354633F6ECF4DD0E3637EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BB5D5ED2151FDD8005F225C /* Build configuration list for PBXNativeTarget "Schedule" */;
 			buildPhases = (
+				90D100A62B82BB0D874634B6 /* [CP] Check Pods Manifest.lock */,
 				9BB5D5D42151FDD2005F225C /* Sources */,
 				9BB5D5D52151FDD2005F225C /* Frameworks */,
 				9BB5D5D62151FDD2005F225C /* Resources */,
+				9BB98790215219B000DE7A86 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90D100A62B82BB0D874634B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Schedule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BB98790215219B000DE7A86 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BB5D5D42151FDD2005F225C /* Sources */ = {
@@ -284,11 +349,13 @@
 		};
 		9BB5D5EE2151FDD8005F225C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 139FF4D3292717CB87E4DA48 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAV3SU72C4;
 				INFOPLIST_FILE = Schedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,11 +369,13 @@
 		};
 		9BB5D5EF2151FDD8005F225C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAV3SU72C4;
 				INFOPLIST_FILE = Schedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
