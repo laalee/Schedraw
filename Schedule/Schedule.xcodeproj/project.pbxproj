@@ -16,9 +16,13 @@
 		9BB5D5E92151FDD8005F225C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5D5E72151FDD8005F225C /* LaunchScreen.storyboard */; };
 		9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB88A1D21539EF100E5331E /* GanttTableViewCell.swift */; };
 		9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A1E21539EF100E5331E /* GanttTableViewCell.xib */; };
+		9BB88A232153F0CF00E5331E /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB88A212153F0CF00E5331E /* FooterCollectionReusableView.swift */; };
+		9BB88A242153F0CF00E5331E /* FooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */; };
+		9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB88A252154907400E5331E /* DateCollectionViewCell.swift */; };
+		9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A262154907400E5331E /* DateCollectionViewCell.xib */; };
 		9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502D42153445200701DA9 /* GanttViewController.swift */; };
-		9BD502DC215349B800701DA9 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DA215349B800701DA9 /* EventCollectionViewCell.swift */; };
-		9BD502DD215349B800701DA9 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD502DB215349B800701DA9 /* EventCollectionViewCell.xib */; };
+		9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */; };
+		9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */; };
 		9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */; };
 		9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502E02153791C00701DA9 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,9 +41,13 @@
 		9BB5D5EA2151FDD8005F225C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB88A1D21539EF100E5331E /* GanttTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttTableViewCell.swift; sourceTree = "<group>"; };
 		9BB88A1E21539EF100E5331E /* GanttTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GanttTableViewCell.xib; sourceTree = "<group>"; };
+		9BB88A212153F0CF00E5331E /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCollectionReusableView.xib; sourceTree = "<group>"; };
+		9BB88A252154907400E5331E /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		9BB88A262154907400E5331E /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		9BD502D42153445200701DA9 /* GanttViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttViewController.swift; sourceTree = "<group>"; };
-		9BD502DA215349B800701DA9 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
-		9BD502DB215349B800701DA9 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStoryboard.swift; sourceTree = "<group>"; };
 		9BD502E02153791C00701DA9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,14 +107,18 @@
 				9BB5D5EA2151FDD8005F225C /* Info.plist */,
 				9BB5D5E22151FDD2005F225C /* Schedule.xcdatamodeld */,
 				9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */,
+				9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */,
 				9BB5D5DF2151FDD2005F225C /* Main.storyboard */,
 				9BB5D5DD2151FDD2005F225C /* ViewController.swift */,
 				9BD502D42153445200701DA9 /* GanttViewController.swift */,
 				9BB88A1D21539EF100E5331E /* GanttTableViewCell.swift */,
 				9BB88A1E21539EF100E5331E /* GanttTableViewCell.xib */,
-				9BD502DA215349B800701DA9 /* EventCollectionViewCell.swift */,
-				9BD502DB215349B800701DA9 /* EventCollectionViewCell.xib */,
-				9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */,
+				9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */,
+				9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */,
+				9BB88A212153F0CF00E5331E /* FooterCollectionReusableView.swift */,
+				9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */,
+				9BB88A252154907400E5331E /* DateCollectionViewCell.swift */,
+				9BB88A262154907400E5331E /* DateCollectionViewCell.xib */,
 				9BD502E02153791C00701DA9 /* CalendarViewController.swift */,
 			);
 			path = Schedule;
@@ -173,8 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB5D5E92151FDD8005F225C /* LaunchScreen.storyboard in Resources */,
-				9BD502DD215349B800701DA9 /* EventCollectionViewCell.xib in Resources */,
+				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
+				9BB88A242153F0CF00E5331E /* FooterCollectionReusableView.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
+				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
 				9BB5D5E62151FDD8005F225C /* Assets.xcassets in Resources */,
 				9BB5D5E12151FDD2005F225C /* Main.storyboard in Resources */,
 			);
@@ -228,8 +242,10 @@
 			files = (
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* ViewController.swift in Sources */,
-				9BD502DC215349B800701DA9 /* EventCollectionViewCell.swift in Sources */,
+				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,
+				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
+				9BB88A232153F0CF00E5331E /* FooterCollectionReusableView.swift in Sources */,
 				9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */,
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,
 				9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  EventCollectionViewCell.swift
+//  ItemCollectionViewCell.swift
 //  Schedule
 //
 //  Created by HsinYuLi on 2018/9/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventCollectionViewCell: UICollectionViewCell {
+class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     

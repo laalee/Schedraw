@@ -19,6 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhu-8B-8se">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="43.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="sEd-X7-B9q"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-LE-cCP">
                         <rect key="frame" x="80" y="0.0" width="240" height="43.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,26 +50,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="KuF-MM-SCO">
-                        <rect key="frame" x="72" y="0.0" width="9" height="43.5"/>
-                        <color key="tintColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="9" id="LfJ-28-Opd"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="fLK-LE-cCP" firstAttribute="leading" secondItem="KuF-MM-SCO" secondAttribute="trailing" constant="-1" id="2NI-Bu-l1g"/>
-                    <constraint firstItem="KuF-MM-SCO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N99-dt-6zr"/>
-                    <constraint firstAttribute="bottom" secondItem="KuF-MM-SCO" secondAttribute="bottom" id="WbL-bc-IdV"/>
+                    <constraint firstAttribute="bottom" secondItem="Xhu-8B-8se" secondAttribute="bottom" id="1wo-4A-Qsc"/>
+                    <constraint firstItem="fLK-LE-cCP" firstAttribute="leading" secondItem="Xhu-8B-8se" secondAttribute="trailing" id="Mbf-AG-IK8"/>
+                    <constraint firstItem="Xhu-8B-8se" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y8N-7F-oe1"/>
                     <constraint firstItem="fLK-LE-cCP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aMK-cw-8QA"/>
                     <constraint firstAttribute="bottom" secondItem="fLK-LE-cCP" secondAttribute="bottom" id="bml-Z4-XpR"/>
                     <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dF7-NS-sfM"/>
                     <constraint firstItem="8sq-bk-Ijv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fFa-wp-CWL"/>
-                    <constraint firstItem="fLK-LE-cCP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="hzz-nZ-bNR"/>
                     <constraint firstAttribute="trailing" secondItem="fLK-LE-cCP" secondAttribute="trailing" id="qJD-sH-FSY"/>
+                    <constraint firstItem="Xhu-8B-8se" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tRP-C5-pNw"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                        <real key="value" value="0.0"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -63,7 +76,4 @@
             <point key="canvasLocation" x="56" y="48.575712143928037"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="vertical-ellipsis" width="512" height="512"/>
-    </resources>
 </document>

@@ -24,7 +24,7 @@ class CalendarViewController: UIViewController {
 
         ganttCollectionView.delegate = self
 
-        let identifier = String(describing: EventCollectionViewCell.self)
+        let identifier = String(describing: ItemCollectionViewCell.self)
 
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
@@ -60,9 +60,9 @@ extension CalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: EventCollectionViewCell.self), for: indexPath)
+            withReuseIdentifier: String(describing: ItemCollectionViewCell.self), for: indexPath)
 
-        guard let eventCell = cell as? EventCollectionViewCell else { return cell }
+        guard let eventCell = cell as? ItemCollectionViewCell else { return cell }
 
         eventCell.titleLabel.text = "\(indexPath.row), \(indexPath.section)"
 

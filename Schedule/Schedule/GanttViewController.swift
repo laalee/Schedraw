@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol TheDelegate: class {
-
-    func didScroll(to position: CGFloat)
-}
-
 class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
@@ -53,8 +48,6 @@ extension GanttViewController: UITableViewDataSource {
             return cell
         }
 
-        ganttCell.scrollDelegate = self
-
         return ganttCell
     }
 
@@ -66,8 +59,6 @@ extension GanttViewController: UITableViewDataSource {
             return cell
         }
 
-        ganttCell.scrollDelegate = self
-
         return ganttCell
     }
 
@@ -77,25 +68,12 @@ extension GanttViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return 40
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-
-}
-
-extension GanttViewController: TheDelegate {
-
-    func didScroll(to position: CGFloat) {
-
-        for cell in ganttTableView.visibleCells {
-
-            guard let ganttCell = cell as? GanttTableViewCell else { return }
-
-            (ganttCell.itemCollectionView as UIScrollView).contentOffset.x = position
-        }
+        
+        return 50
     }
 
 }

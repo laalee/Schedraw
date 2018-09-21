@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EventCollectionViewCell" customModule="Schedule" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ItemCollectionViewCell" customModule="Schedule" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="65" height="52"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -28,24 +28,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="wQE-El-Hsp">
-                                <rect key="frame" x="56" y="0.0" width="9" height="52"/>
-                                <color key="tintColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="9" id="EUG-dt-EsU"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.52156862749999999" green="0.83921568629999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.52156862749999999" green="0.83921568629999999" blue="0.7843137255" alpha="0.2537457191780822" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="wQE-El-Hsp" secondAttribute="bottom" id="958-FK-UEc"/>
                             <constraint firstAttribute="bottom" secondItem="tPG-pc-LRw" secondAttribute="bottom" constant="5" id="GY7-dV-Ldf"/>
                             <constraint firstItem="tPG-pc-LRw" firstAttribute="leading" secondItem="hMn-9o-JP6" secondAttribute="leading" constant="5" id="VSH-qQ-tRi"/>
-                            <constraint firstAttribute="trailing" secondItem="wQE-El-Hsp" secondAttribute="trailing" id="Xif-aS-ZNZ"/>
                             <constraint firstAttribute="trailing" secondItem="tPG-pc-LRw" secondAttribute="trailing" constant="5" id="dWr-4w-1J6"/>
                             <constraint firstItem="tPG-pc-LRw" firstAttribute="top" secondItem="hMn-9o-JP6" secondAttribute="top" constant="5" id="hzL-Ct-GO2"/>
-                            <constraint firstItem="wQE-El-Hsp" firstAttribute="top" secondItem="hMn-9o-JP6" secondAttribute="top" id="ip5-qJ-mdJ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -63,7 +61,4 @@
             <point key="canvasLocation" x="34" y="44"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="vertical-ellipsis" width="512" height="512"/>
-    </resources>
 </document>
