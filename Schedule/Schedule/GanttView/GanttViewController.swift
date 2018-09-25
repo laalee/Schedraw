@@ -11,14 +11,8 @@ import UIKit
 class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
-    
-    @IBAction func plusItem(_ sender: UIButton) {
-        print("plus +++++")
 
-        let name = NSNotification.Name("ADD_ITEM")
-
-        NotificationCenter.default.post(name: name, object: nil, userInfo: nil)
-    }
+    var numberOfRows: Int = 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +25,7 @@ class GanttViewController: UIViewController {
 
         view.layoutIfNeeded()
 
-        let name = NSNotification.Name("SCROLL_TO_TODAY")
-
-        NotificationCenter.default.post(name: name, object: nil)
+        scrollToToday(animated)
     }
 
     private func setupTableView() {
@@ -54,6 +46,14 @@ class GanttViewController: UIViewController {
 
         ganttTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
     }
+
+    @IBAction func scrollToToday(_ sender: Any) {
+
+        let name = NSNotification.Name("SCROLL_TO_TODAY")
+
+        NotificationCenter.default.post(name: name, object: nil)
+    }
+
 }
 
 extension GanttViewController: UITableViewDataSource {
@@ -64,7 +64,7 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 5
+        return numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +75,8 @@ extension GanttViewController: UITableViewDataSource {
         guard let ganttCell = cell as? GanttTableViewCell else {
             return cell
         }
+
+        ganttCell.tableViewTitleLabel.text = String(indexPath.row + 1)
 
         return ganttCell
     }

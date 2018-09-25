@@ -20,14 +20,10 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     var todayIndex: Int = 30
 
-    var flag: Bool = false
+    var postFlag: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-//        addBottomCells()
-
-//        addTopCells()
 
         collectionViewDidScroll()
 
@@ -43,44 +39,19 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (_) in
 
+            self.postFlag = true
+
             let todayIndex = IndexPath.init(row: self.todayIndex, section: 0)
 
             self.dateCollectionView.scrollToItem(at: todayIndex, at: .left, animated: true)
-
-            self.flag = true
         }
     }
 
     private func addBottomCells() {
 
-//        let name = NSNotification.Name("ADD_BOTTOM_CELLS")
-//
-//        _ = NotificationCenter.default.addObserver(
-//        forName: name, object: nil, queue: nil) { (notification) in
-//
-//            guard let userInfo = notification.userInfo else { return }
-//
-//            guard let number = userInfo["number"] as? Int else { return }
-//
-//            print("annie dateCollectionView addBottomCells: \(number)")
-//
-//            var indexPaths: [IndexPath] = []
-//
-//            for _ in self.numberOfCells..<number {
-//
-//                let indexPath = IndexPath(item: self.numberOfCells - 1, section: 0)
-//
-//                indexPaths.append(indexPath)
-//            }
-//
-//            self.numberOfCells = number
-//
-//            self.dateCollectionView.insertItems(at: indexPaths)
-//        }
+        self.numberOfCells += 30
 
         UIView.performWithoutAnimation {
-
-            self.numberOfCells += 30
 
             self.dateCollectionView.reloadData()
         }
@@ -88,53 +59,16 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     private func addTopCells() {
 
-//        let name = NSNotification.Name("ADD_TOP_CELLS")
-//
-//        _ = NotificationCenter.default.addObserver(
-//        forName: name, object: nil, queue: nil) { (notification) in
-//
-//            guard let userInfo = notification.userInfo else { return }
-//
-//            guard let number = userInfo["number"] as? Int else { return }
-//
-//            print("annie dateCollectionView addTopCells: \(number)")
-//
-//            var indexPaths: [IndexPath] = []
-//
-//            for item in 0..<number {
-//
-//                let indexPath = IndexPath(item: item, section: 0)
-//
-//                indexPaths.append(indexPath)
-//            }
-//
-//            self.numberOfCells += number
-//
-//            self.todayIndex += number
-//
-//            UIView.performWithoutAnimation {
-//                self.dateCollectionView.reloadData()
-//                self.dateCollectionView.scrollToItem(
-//                    at: IndexPath(row: 35, section: 0),
-//                    at: UICollectionView.ScrollPosition.left,
-//                    animated: false
-//                )
-//            }
-//
-////            let index = IndexPath.init(row: 35, section: 0)
-////
-////            self.dateCollectionView.scrollToItem(at: index, at: .left, animated: false)
-//        }
-
-        //--------
         self.numberOfCells += 30
 
         self.todayIndex += 30
 
         UIView.performWithoutAnimation {
+
             self.dateCollectionView.reloadData()
+
             self.dateCollectionView.scrollToItem(
-                at: IndexPath(row: 35, section: 0),
+                at: IndexPath(row: 32, section: 0),
                 at: UICollectionView.ScrollPosition.left,
                 animated: false
             )
@@ -226,28 +160,6 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
 extension HeaderTableViewCell: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-
-//        if indexPath.row == numberOfCells - 10 {
-//
-//            print("annie load bottom -------\(indexPath.row)")
-//
-//            let name = NSNotification.Name("ADD_BOTTOM_CELLS")
-//
-//            NotificationCenter.default.post(name: name, object: nil, userInfo: ["number": self.numberOfCells + 30])
-//
-//        } else if indexPath.row == 5 && flag {
-//
-//            print("annie load top -------\(indexPath.row)")
-//
-//            let name = NSNotification.Name("ADD_TOP_CELLS")
-//
-//            NotificationCenter.default.post(name: name, object: nil, userInfo: ["number": 30])
-//        }
-
-    }
 }
 
 extension HeaderTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -264,21 +176,54 @@ extension HeaderTableViewCell: UICollectionViewDelegateFlowLayout {
 
 extension HeaderTableViewCell: UIScrollViewDelegate {
 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+
+        self.postFlag = true
+
+        print("anniee HEADER BeginDragging, postFlag = \(postFlag)")
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        self.postFlag = decelerate
+
+        print("anniee HEADER decelerate: \(decelerate), postFlag = \(postFlag)")
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        self.postFlag = false
+
+        print("anniee HEADER EndDecelerating, postFlag = \(postFlag)")
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+
+        self.postFlag = false
+
+        print("anniee HEADER EndScrollingAnimation, postFlag = \(postFlag)")
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-//        let name = NSNotification.Name("DID_SCROLL")
-//
-//        NotificationCenter.default.post(
-//            name: name,
-//            object: nil,
-//            userInfo: ["contentOffset": scrollView.contentOffset.x]
-//        )
+        if postFlag {
 
-        if scrollView.contentOffset.x < 50 {
+//            print("anniee HEADER: \(scrollView.contentOffset.x)")
+
+            let name = NSNotification.Name("DID_SCROLL")
+
+            NotificationCenter.default.post(
+                name: name,
+                object: nil,
+                userInfo: ["contentOffset": scrollView.contentOffset.x]
+            )
+        }
+
+        if scrollView.contentOffset.x < 100 {
 
             addTopCells()
 
-        } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 50) {
+        } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100) {
 
             addBottomCells()
         }
