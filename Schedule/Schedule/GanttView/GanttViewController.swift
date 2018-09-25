@@ -12,6 +12,14 @@ class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
     
+    @IBAction func plusItem(_ sender: UIButton) {
+        print("plus +++++")
+
+        let name = NSNotification.Name("ADD_ITEM")
+
+        NotificationCenter.default.post(name: name, object: nil, userInfo: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,14 +37,24 @@ class GanttViewController: UIViewController {
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         ganttTableView.register(uiNib, forCellReuseIdentifier: identifier)
+
+        let headerIdentifier = String(describing: HeaderTableViewCell.self)
+
+        let headerNib = UINib(nibName: headerIdentifier, bundle: nil)
+
+        ganttTableView.register(headerNib, forCellReuseIdentifier: headerIdentifier)
     }
 }
 
 extension GanttViewController: UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 20
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,13 +71,13 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GanttTableViewCell.self))
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderTableViewCell.self))
 
-        guard let ganttCell = cell as? GanttTableViewCell else {
+        guard let headerCell = cell as? HeaderTableViewCell else {
             return cell
         }
 
-        return ganttCell
+        return headerCell
     }
 
 }

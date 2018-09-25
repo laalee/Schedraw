@@ -1,53 +1,49 @@
 //
-//  GanttTableViewCell.swift
+//  HeaderTableViewCell.swift
 //  Schedule
 //
-//  Created by HsinYuLi on 2018/9/20.
+//  Created by HsinYuLi on 2018/9/21.
 //  Copyright © 2018年 laalee. All rights reserved.
 //
 
 import UIKit
 
-class GanttTableViewCell: UITableViewCell {
+class HeaderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var itemCollectionView: UICollectionView!
+    @IBOutlet weak var dateCollectionView: UICollectionView!
 
     let footerViewReuseIdentifier = "RefreshFooterView"
 
     var footerView: FooterCollectionReusableView?
-
-    var isLoading: Bool = false
 
     var numberOfCells: Int = 50
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        setupCollectionView()
-
         updateNumberOfCells()
 
         collectionViewDidScroll()
+
+        setupCollectionView()
     }
 
     private func updateNumberOfCells() {
 
         let name = NSNotification.Name("UPDATE_ITEM_CELLS")
 
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { (notification) in
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (notification) in
 
             guard let userInfo = notification.userInfo else { return }
 
             guard let number = userInfo["number"] as? Int else { return }
 
-//            for item in self.numberOfCells...number {
-//                let indexPath = IndexPath(item: self.numberOfCells + 1, section: 0)
-//                self.itemCollectionView.insertItems(at: [indexPath])
-//            }
+            print("head number: \(number)")
 
-            self.numberOfCells = number
-
-            self.itemCollectionView.reloadData()
+//            self.numberOfCells = number
+//
+//            self.dateCollectionView.reloadData()
         }
     }
 
@@ -55,35 +51,36 @@ class GanttTableViewCell: UITableViewCell {
 
         let name = NSNotification.Name("DID_SCROLL")
 
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { (notification) in
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (notification) in
 
             guard let userInfo = notification.userInfo else { return }
 
             guard let contentOffset = userInfo["contentOffset"] as? CGFloat else { return }
 
-            self.itemCollectionView.contentOffset.x = contentOffset
+            self.dateCollectionView.contentOffset.x = contentOffset
         }
     }
 
     private func setupCollectionView() {
 
-        itemCollectionView.dataSource = self
+        dateCollectionView.dataSource = self
 
-        (itemCollectionView as UIScrollView).delegate = self
+        (dateCollectionView as UIScrollView).delegate = self
 
-        itemCollectionView.showsHorizontalScrollIndicator = false
+        dateCollectionView.showsHorizontalScrollIndicator = false
 
-        let identifier = String(describing: ItemCollectionViewCell.self)
+        let identifier = String(describing: DateCollectionViewCell.self)
 
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
-        itemCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
+        dateCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
 
         let footerIdentifier = String(describing: FooterCollectionReusableView.self)
 
         let footerNib = UINib(nibName: footerIdentifier, bundle: nil)
 
-        itemCollectionView.register(
+        dateCollectionView.register(
             footerNib,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
             withReuseIdentifier: footerViewReuseIdentifier
@@ -92,7 +89,7 @@ class GanttTableViewCell: UITableViewCell {
     
 }
 
-extension GanttTableViewCell: UICollectionViewDataSource {
+extension HeaderTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfCells
@@ -102,11 +99,11 @@ extension GanttTableViewCell: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: ItemCollectionViewCell.self), for: indexPath)
+            withReuseIdentifier: String(describing: DateCollectionViewCell.self), for: indexPath)
 
-        guard let eventCell = cell as? ItemCollectionViewCell else { return cell }
+        guard let eventCell = cell as? DateCollectionViewCell else { return cell }
 
-        eventCell.titleLabel.text = "\(indexPath.row), \(indexPath.section)"
+        eventCell.titleLabel.text = "\(indexPath.row)"
 
         return eventCell
     }
@@ -130,16 +127,25 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
 }
 
-extension GanttTableViewCell: UICollectionViewDelegate {
+extension HeaderTableViewCell: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+
+        if indexPath.row == numberOfCells - 10 {
+
+            print("load-------\(indexPath.row)")
+
+            let name = NSNotification.Name("UPDATE_ITEM_CELLS")
+
+            NotificationCenter.default.post(name: name, object: nil, userInfo: ["number": self.numberOfCells + 50])
+
+        }
+    }
 }
 
-extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+extension HeaderTableViewCell: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -151,7 +157,7 @@ extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension GanttTableViewCell: UIScrollViewDelegate {
+extension HeaderTableViewCell: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -164,23 +170,4 @@ extension GanttTableViewCell: UIScrollViewDelegate {
         )
     }
 
-    //compute the offset and call the load method
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
-        let contentOffset = scrollView.contentOffset.x
-        let contentWidth = scrollView.contentSize.width
-        let diffWidth = contentWidth - contentOffset
-        let frameWidth = scrollView.bounds.size.width
-        let pullWidth  = abs(diffWidth - frameWidth)
-
-        print("pullWidth:\(pullWidth)")
-
-        if pullWidth <= 100.0 {
-            print("load more trigger")
-
-            let name = NSNotification.Name("UPDATE_ITEM_CELLS")
-
-            NotificationCenter.default.post(name: name, object: nil, userInfo: ["number": self.numberOfCells + 50])
-        }
-    }
 }

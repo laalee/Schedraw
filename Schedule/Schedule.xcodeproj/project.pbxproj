@@ -20,6 +20,8 @@
 		9BB88A242153F0CF00E5331E /* FooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */; };
 		9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB88A252154907400E5331E /* DateCollectionViewCell.swift */; };
 		9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A262154907400E5331E /* DateCollectionViewCell.xib */; };
+		9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB88A292154999400E5331E /* HeaderTableViewCell.swift */; };
+		9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB88A2A2154999400E5331E /* HeaderTableViewCell.xib */; };
 		9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502D42153445200701DA9 /* GanttViewController.swift */; };
 		9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */; };
 		9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */; };
@@ -45,6 +47,8 @@
 		9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCollectionReusableView.xib; sourceTree = "<group>"; };
 		9BB88A252154907400E5331E /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BB88A262154907400E5331E /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
+		9BB88A292154999400E5331E /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		9BB88A2A2154999400E5331E /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		9BD502D42153445200701DA9 /* GanttViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttViewController.swift; sourceTree = "<group>"; };
 		9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -109,19 +113,53 @@
 				9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */,
 				9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */,
 				9BB5D5DF2151FDD2005F225C /* Main.storyboard */,
+				9BD502E02153791C00701DA9 /* CalendarViewController.swift */,
 				9BB5D5DD2151FDD2005F225C /* ViewController.swift */,
+				9BB88A2D21549B6500E5331E /* GanttView */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		9BB88A2D21549B6500E5331E /* GanttView */ = {
+			isa = PBXGroup;
+			children = (
 				9BD502D42153445200701DA9 /* GanttViewController.swift */,
+				9BB88A2F21549C3D00E5331E /* Body */,
+				9BB88A2E21549BFC00E5331E /* Header */,
+				9BB88A3021549C6700E5331E /* Footer */,
+			);
+			path = GanttView;
+			sourceTree = "<group>";
+		};
+		9BB88A2E21549BFC00E5331E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9BB88A292154999400E5331E /* HeaderTableViewCell.swift */,
+				9BB88A2A2154999400E5331E /* HeaderTableViewCell.xib */,
+				9BB88A252154907400E5331E /* DateCollectionViewCell.swift */,
+				9BB88A262154907400E5331E /* DateCollectionViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		9BB88A2F21549C3D00E5331E /* Body */ = {
+			isa = PBXGroup;
+			children = (
 				9BB88A1D21539EF100E5331E /* GanttTableViewCell.swift */,
 				9BB88A1E21539EF100E5331E /* GanttTableViewCell.xib */,
 				9BD502DA215349B800701DA9 /* ItemCollectionViewCell.swift */,
 				9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */,
+			);
+			path = Body;
+			sourceTree = "<group>";
+		};
+		9BB88A3021549C6700E5331E /* Footer */ = {
+			isa = PBXGroup;
+			children = (
 				9BB88A212153F0CF00E5331E /* FooterCollectionReusableView.swift */,
 				9BB88A222153F0CF00E5331E /* FooterCollectionReusableView.xib */,
-				9BB88A252154907400E5331E /* DateCollectionViewCell.swift */,
-				9BB88A262154907400E5331E /* DateCollectionViewCell.xib */,
-				9BD502E02153791C00701DA9 /* CalendarViewController.swift */,
 			);
-			path = Schedule;
+			path = Footer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +226,7 @@
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A242153F0CF00E5331E /* FooterCollectionReusableView.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
+				9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */,
 				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
 				9BB5D5E62151FDD8005F225C /* Assets.xcassets in Resources */,
 				9BB5D5E12151FDD2005F225C /* Main.storyboard in Resources */,
@@ -245,6 +284,7 @@
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,
 				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
+				9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */,
 				9BB88A232153F0CF00E5331E /* FooterCollectionReusableView.swift in Sources */,
 				9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */,
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,

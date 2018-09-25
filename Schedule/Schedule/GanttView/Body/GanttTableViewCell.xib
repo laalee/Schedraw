@@ -21,8 +21,18 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhu-8B-8se">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-bk-Ijv">
+                                <rect key="frame" x="36" y="11.5" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerX" secondItem="Xhu-8B-8se" secondAttribute="centerX" id="pOX-bC-SgL"/>
+                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerY" secondItem="Xhu-8B-8se" secondAttribute="centerY" id="rpI-NI-zI2"/>
                             <constraint firstAttribute="width" constant="80" id="sEd-X7-B9q"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -44,12 +54,6 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOYO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-bk-Ijv">
-                        <rect key="frame" x="20" y="11.5" width="45.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -58,8 +62,6 @@
                     <constraint firstItem="Xhu-8B-8se" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y8N-7F-oe1"/>
                     <constraint firstItem="fLK-LE-cCP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aMK-cw-8QA"/>
                     <constraint firstAttribute="bottom" secondItem="fLK-LE-cCP" secondAttribute="bottom" id="bml-Z4-XpR"/>
-                    <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dF7-NS-sfM"/>
-                    <constraint firstItem="8sq-bk-Ijv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fFa-wp-CWL"/>
                     <constraint firstAttribute="trailing" secondItem="fLK-LE-cCP" secondAttribute="trailing" id="qJD-sH-FSY"/>
                     <constraint firstItem="Xhu-8B-8se" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tRP-C5-pNw"/>
                 </constraints>
