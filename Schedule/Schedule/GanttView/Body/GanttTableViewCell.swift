@@ -16,65 +16,99 @@ class GanttTableViewCell: UITableViewCell {
 
     var footerView: FooterCollectionReusableView?
 
-    var numberOfCells: Int = 50
+    var numberOfCells: Int = 60
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
         setupCollectionView()
 
-        updateNumberOfCells()
+//        addBottomCells()
+
+//        addTopCells()
 
         collectionViewDidScroll()
-
-        plusACell()
     }
 
-    private func updateNumberOfCells() {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        print("annie point: \(point), event: \(event)")
 
-        let name = NSNotification.Name("UPDATE_ITEM_CELLS")
+        return nil
+    }
 
-        _ = NotificationCenter.default.addObserver(
-            forName: name, object: nil, queue: nil) { (notification) in
+    private func addBottomCells() {
 
-            guard let userInfo = notification.userInfo else { return }
+//        let name = NSNotification.Name("ADD_BOTTOM_CELLS")
+//
+//        _ = NotificationCenter.default.addObserver(
+//            forName: name, object: nil, queue: nil) { (notification) in
+//
+//                guard let userInfo = notification.userInfo else { return }
+//
+//                guard let number = userInfo["number"] as? Int else { return }
+//
+//                print("annie itemCollectionView addBottomCells: \(number)")
+//
+//                var indexPaths: [IndexPath] = []
+//
+//                for item in self.numberOfCells..<number {
+//
+//                    let indexPath = IndexPath(item: item - 1, section: 0)
+//
+//                    indexPaths.append(indexPath)
+//                }
+//
+//                self.numberOfCells = number
+//
+//                self.itemCollectionView.insertItems(at: indexPaths)
+//        }
 
-            guard let number = userInfo["number"] as? Int else { return }
+        UIView.performWithoutAnimation {
 
-                print("number: \(number)")
+            self.numberOfCells += 30
 
-
-                var indexPaths: [IndexPath] = []
-
-                for _ in self.numberOfCells..<number {
-
-                    let indexPath = IndexPath(item: self.numberOfCells - 1, section: 0)
-
-                    indexPaths.append(indexPath)
-                }
-
-                self.numberOfCells = number
-
-                self.itemCollectionView.insertItems(at: indexPaths)
+            self.itemCollectionView.reloadData()
         }
     }
 
-    private func plusACell() {
+    private func addTopCells() {
 
-        let name = NSNotification.Name("ADD_ITEM")
+//        let name = NSNotification.Name("ADD_TOP_CELLS")
+//
+//        _ = NotificationCenter.default.addObserver(
+//        forName: name, object: nil, queue: nil) { (notification) in
+//
+//            guard let userInfo = notification.userInfo else { return }
+//
+//            guard let number = userInfo["number"] as? Int else { return }
+//
+//            print("annie itemCollectionView addTopCells: \(number)")
+//
+//            var indexPaths: [IndexPath] = []
+//
+//            for _ in 0..<number {
+//
+//                let indexPath = IndexPath(item: 0, section: 0)
+//
+//                indexPaths.append(indexPath)
+//            }
+//
+//            self.numberOfCells += number
+//
+//            self.itemCollectionView.insertItems(at: indexPaths)
+//        }
 
-        _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (notification) in
+        UIView.performWithoutAnimation {
 
-            self.numberOfCells += 1
+            self.numberOfCells += 30
 
-            var indexPaths: [IndexPath] = []
+            self.itemCollectionView.reloadData()
 
-            let indexPath = IndexPath(item: self.numberOfCells - 1, section: 0)
-
-            indexPaths.append(indexPath)
-
-            self.itemCollectionView.insertItems(at: indexPaths)
+            self.itemCollectionView.scrollToItem(
+                at: IndexPath(row: 35, section: 0),
+                at: UICollectionView.ScrollPosition.left,
+                animated: false
+            )
         }
     }
 
@@ -123,6 +157,7 @@ class GanttTableViewCell: UITableViewCell {
 extension GanttTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("annie GanttTableViewCell numberOfCells: \(numberOfCells)")
         return numberOfCells
     }
 
@@ -160,21 +195,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
 extension GanttTableViewCell: UICollectionViewDelegate {
 
-//    func collectionView(_ collectionView: UICollectionView,
-//                        willDisplay cell: UICollectionViewCell,
-//                        forItemAt indexPath: IndexPath) {
-//
-//        if indexPath.row == numberOfCells - 10 {
-//
-//            print("load-------\(indexPath.row)")
-//
-//            let name = NSNotification.Name("UPDATE_ITEM_CELLS")
-//
-//            NotificationCenter.default.post(name: name, object: nil, userInfo: ["number": self.numberOfCells + 50])
-//
-//        }
-//    }
-
 }
 
 extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -193,13 +213,22 @@ extension GanttTableViewCell: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        let name = NSNotification.Name("DID_SCROLL")
+//        let name = NSNotification.Name("DID_SCROLL")
+//
+//        NotificationCenter.default.post(
+//            name: name,
+//            object: nil,
+//            userInfo: ["contentOffset": scrollView.contentOffset.x]
+//        )
 
-        NotificationCenter.default.post(
-            name: name,
-            object: nil,
-            userInfo: ["contentOffset": scrollView.contentOffset.x]
-        )
+        if scrollView.contentOffset.x < 50 {
+
+            addTopCells()
+
+        } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 50) {
+
+            addBottomCells()
+        }
     }
 
 }

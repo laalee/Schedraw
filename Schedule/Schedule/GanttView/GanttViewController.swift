@@ -26,6 +26,16 @@ class GanttViewController: UIViewController {
         setupTableView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        view.layoutIfNeeded()
+
+        let name = NSNotification.Name("SCROLL_TO_TODAY")
+
+        NotificationCenter.default.post(name: name, object: nil)
+    }
+
     private func setupTableView() {
 
         ganttTableView.dataSource = self
@@ -42,7 +52,7 @@ class GanttViewController: UIViewController {
 
         let headerNib = UINib(nibName: headerIdentifier, bundle: nil)
 
-        ganttTableView.register(headerNib, forCellReuseIdentifier: headerIdentifier)
+        ganttTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
     }
 }
 
@@ -71,13 +81,14 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderTableViewCell.self))
+        let view = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: HeaderTableViewCell.self))
 
-        guard let headerCell = cell as? HeaderTableViewCell else {
-            return cell
+        guard let headerView = view as? HeaderTableViewCell else {
+            return view
         }
 
-        return headerCell
+        return headerView
     }
 
 }

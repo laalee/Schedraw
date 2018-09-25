@@ -171,29 +171,13 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="547"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr7-jT-3cn">
-                                <rect key="frame" x="20" y="517" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="26U-J1-gWd"/>
-                                    <constraint firstAttribute="width" constant="30" id="XTu-BL-R4X"/>
-                                </constraints>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="plusItem:" destination="hm2-Sy-dOg" eventType="touchUpInside" id="AOo-mm-ILd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QbQ-LJ-VH8" firstAttribute="top" secondItem="wAz-hl-B8i" secondAttribute="top" id="6Ag-IF-90P"/>
-                            <constraint firstItem="wAz-hl-B8i" firstAttribute="bottom" secondItem="Yr7-jT-3cn" secondAttribute="bottom" constant="20" id="B0h-pT-evh"/>
                             <constraint firstItem="wAz-hl-B8i" firstAttribute="trailing" secondItem="QbQ-LJ-VH8" secondAttribute="trailing" id="IQF-vw-jfh"/>
                             <constraint firstItem="wAz-hl-B8i" firstAttribute="bottom" secondItem="QbQ-LJ-VH8" secondAttribute="bottom" id="NaP-S4-OFh"/>
                             <constraint firstItem="QbQ-LJ-VH8" firstAttribute="leading" secondItem="wAz-hl-B8i" secondAttribute="leading" id="tu1-Iz-9eG"/>
-                            <constraint firstItem="wAz-hl-B8i" firstAttribute="leading" secondItem="Yr7-jT-3cn" secondAttribute="leading" constant="-20" id="y2L-t9-9w5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wAz-hl-B8i"/>
                     </view>
