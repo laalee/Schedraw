@@ -123,29 +123,21 @@ extension GanttTableViewCell: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 
         self.postFlag = true
-
-//        print("anniee \(tableViewTitleLabel.text!): BeginDragging, postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
         self.postFlag = decelerate
-
-//        print("anniee \(tableViewTitleLabel.text!): decelerate: \(decelerate), postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
         self.postFlag = false
-
-//        print("anniee \(tableViewTitleLabel.text!): EndDecelerating, postFlag = \(postFlag)")
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         if postFlag {
-
-//            print("anniee \(tableViewTitleLabel.text!): \(scrollView.contentOffset.x)")
 
             let name = NSNotification.Name("DID_SCROLL")
 

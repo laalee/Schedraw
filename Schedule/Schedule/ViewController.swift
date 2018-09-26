@@ -14,14 +14,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var calendarView: UIView!
 
-    @IBOutlet weak var modeButton: UIButton!
-    
     @IBOutlet weak var yearLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        switchMode()
 
         yearLabel.text = String(Calendar.current.component(.year, from: Date()))
 
@@ -43,32 +39,18 @@ class ViewController: UIViewController {
         }
     }
 
-    private func switchMode() {
-
-        print(modeButton.isSelected)
-
-        if modeButton.isSelected {
-
-            changeContentAnimated(showGanttPage: false)
-
-        } else {
-
-            changeContentAnimated(showGanttPage: true)
-        }
-    }
-
     @IBAction func modeButtonPressed(_ sender: UIButton) {
 
         sender.isSelected = !sender.isSelected
 
-        switchMode()
+        changeContentAnimated(showGanttPage: sender.isSelected)
     }
 
     private func changeContentAnimated(showGanttPage flag: Bool) {
 
-        let scheduleAlpha: CGFloat = flag ? 1.0 : 0.0
+        let scheduleAlpha: CGFloat = !flag ? 1.0 : 0.0
 
-        let calendarAlpha: CGFloat = !flag ? 1.0 : 0.0
+        let calendarAlpha: CGFloat = flag ? 1.0 : 0.0
 
         UIView.animate(withDuration: 0.2) { [weak self] in
 

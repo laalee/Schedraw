@@ -119,7 +119,6 @@
                     <connections>
                         <outlet property="calendarView" destination="esT-V0-Zb3" id="bPn-Xw-WP5"/>
                         <outlet property="ganttView" destination="eW8-6Y-tOW" id="hYU-wY-oRM"/>
-                        <outlet property="modeButton" destination="xUa-ba-aKn" id="Oqy-34-mex"/>
                         <outlet property="yearLabel" destination="Br5-Qo-O6g" id="0He-0J-st0"/>
                     </connections>
                 </viewController>
