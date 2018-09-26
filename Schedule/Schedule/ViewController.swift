@@ -15,11 +15,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendarView: UIView!
 
     @IBOutlet weak var modeButton: UIButton!
-
+    
+    @IBOutlet weak var yearLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         switchMode()
+
+        yearLabel.text = String(Calendar.current.component(.year, from: Date()))
+
+        changeYear()
+    }
+
+    func changeYear() {
+        
+        let name = NSNotification.Name("YEAR_CHANGED")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (notification) in
+
+            guard let userInfo = notification.userInfo else { return }
+
+            guard let year = userInfo["year"] as? String else { return }
+
+            self.yearLabel.text = year
+        }
     }
 
     private func switchMode() {

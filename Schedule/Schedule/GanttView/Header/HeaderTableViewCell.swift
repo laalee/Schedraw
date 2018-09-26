@@ -12,22 +12,26 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var dateCollectionView: UICollectionView!
 
-    let footerViewReuseIdentifier = "RefreshFooterView"
-
-    var footerView: FooterCollectionReusableView?
+    @IBOutlet weak var monthLabel: UILabel!
 
     var numberOfCells: Int = 60
 
     var todayIndex: Int = 30
 
     var postFlag: Bool = false
-    
+
+    var currentYear: String = ""
+
+    var currentMonth: String = ""
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         collectionViewDidScroll()
 
         setupCollectionView()
+
+        setCurrentDate()
 
         gotoToday()
     }
@@ -103,16 +107,70 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         dateCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
+    }
 
-        let footerIdentifier = String(describing: FooterCollectionReusableView.self)
+    func setCurrentDate() {
 
-        let footerNib = UINib(nibName: footerIdentifier, bundle: nil)
+        let currentDate = Date()
 
-        dateCollectionView.register(
-            footerNib,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-            withReuseIdentifier: footerViewReuseIdentifier
-        )
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.locale = Locale(identifier: "en_US")
+
+        dateFormatter.dateFormat = "YYYY"
+
+        currentYear = dateFormatter.string(from: currentDate)
+
+        dateFormatter.dateFormat = "MMM"
+
+        currentMonth = dateFormatter.string(from: currentDate)
+
+        monthLabel.text = currentMonth
+    }
+
+    func getTheDate(componentsDay: Int) -> Date? {
+
+        let currentDate = Date()
+
+        var newDateComponents = DateComponents()
+
+        newDateComponents.day = componentsDay
+
+        guard let date = Calendar.current.date(
+            byAdding: newDateComponents, to: currentDate) else { return nil }
+
+        return date
+    }
+
+    func updateMonthAndYear() {
+
+        let visibleIndexPath = dateCollectionView.indexPathsForVisibleItems
+
+        guard let firstIndexPath = visibleIndexPath.min() else { return }
+
+        guard let item = dateCollectionView.cellForItem(at: firstIndexPath) as? DateCollectionViewCell else { return }
+
+        let itemMonth = item.getMonth()
+
+        if currentMonth != itemMonth {
+
+            currentMonth = itemMonth
+
+            monthLabel.text = currentMonth
+        }
+
+        let itemYear = item.getYear()
+
+        if currentYear != itemYear {
+
+            currentYear = itemYear
+
+            NotificationCenter.default.post(
+                name: NSNotification.Name("YEAR_CHANGED"),
+                object: nil,
+                userInfo: ["year": item.getYear()]
+            )
+        }
     }
     
 }
@@ -132,33 +190,23 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
         guard let eventCell = cell as? DateCollectionViewCell else { return cell }
 
-        let date = indexPath.row - todayIndex
+        guard let date = getTheDate(componentsDay: indexPath.row - todayIndex) else { return eventCell }
 
-        eventCell.titleLabel.text = String(date)
+        eventCell.date = date
+
+        eventCell.setContent()
 
         return eventCell
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-
-        let view = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionFooter,
-            withReuseIdentifier: footerViewReuseIdentifier, for: indexPath)
-
-        guard let footerView = view as? FooterCollectionReusableView else {
-            return view
-        }
-
-        self.footerView = footerView
-
-        return footerView
     }
 
 }
 
 extension HeaderTableViewCell: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        updateMonthAndYear()
+    }
 
 }
 
@@ -168,10 +216,6 @@ extension HeaderTableViewCell: UICollectionViewDelegateFlowLayout {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-
-        return CGSize(width: 10, height: 50)
-    }
 }
 
 extension HeaderTableViewCell: UIScrollViewDelegate {
@@ -179,41 +223,29 @@ extension HeaderTableViewCell: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 
         self.postFlag = true
-
-        print("anniee HEADER BeginDragging, postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
         self.postFlag = decelerate
-
-        print("anniee HEADER decelerate: \(decelerate), postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
         self.postFlag = false
-
-        print("anniee HEADER EndDecelerating, postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
 
         self.postFlag = false
-
-        print("anniee HEADER EndScrollingAnimation, postFlag = \(postFlag)")
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         if postFlag {
 
-//            print("anniee HEADER: \(scrollView.contentOffset.x)")
-
-            let name = NSNotification.Name("DID_SCROLL")
-
             NotificationCenter.default.post(
-                name: name,
+                name: NSNotification.Name("DID_SCROLL"),
                 object: nil,
                 userInfo: ["contentOffset": scrollView.contentOffset.x]
             )

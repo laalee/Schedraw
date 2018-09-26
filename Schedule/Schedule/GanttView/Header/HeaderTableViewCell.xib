@@ -61,6 +61,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateCollectionView" destination="kV7-8W-h2A" id="p0Q-tb-dQe"/>
+                <outlet property="monthLabel" destination="L7y-xT-aIo" id="t5v-7X-W78"/>
             </connections>
             <point key="canvasLocation" x="52.799999999999997" y="111.54422788605699"/>
         </tableViewCell>

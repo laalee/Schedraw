@@ -14,10 +14,6 @@ class GanttTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableViewTitleLabel: UILabel!
 
-    let footerViewReuseIdentifier = "RefreshFooterView"
-
-    var footerView: FooterCollectionReusableView?
-
     var numberOfCells: Int = 60
 
     var postFlag: Bool = false
@@ -84,16 +80,6 @@ class GanttTableViewCell: UITableViewCell {
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         itemCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
-
-        let footerIdentifier = String(describing: FooterCollectionReusableView.self)
-
-        let footerNib = UINib(nibName: footerIdentifier, bundle: nil)
-
-        itemCollectionView.register(
-            footerNib,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-            withReuseIdentifier: footerViewReuseIdentifier
-        )
     }
     
 }
@@ -118,23 +104,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         return eventCell
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-
-        let view = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionFooter,
-            withReuseIdentifier: footerViewReuseIdentifier, for: indexPath)
-
-        guard let footerView = view as? FooterCollectionReusableView else {
-            return view
-        }
-
-        self.footerView = footerView
-
-        return footerView
-    }
-
 }
 
 extension GanttTableViewCell: UICollectionViewDelegate {
@@ -147,10 +116,6 @@ extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-
-        return CGSize(width: 10, height: 50)
-    }
 }
 
 extension GanttTableViewCell: UIScrollViewDelegate {
@@ -159,21 +124,21 @@ extension GanttTableViewCell: UIScrollViewDelegate {
 
         self.postFlag = true
 
-        print("anniee \(tableViewTitleLabel.text!): BeginDragging, postFlag = \(postFlag)")
+//        print("anniee \(tableViewTitleLabel.text!): BeginDragging, postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 
         self.postFlag = decelerate
 
-        print("anniee \(tableViewTitleLabel.text!): decelerate: \(decelerate), postFlag = \(postFlag)")
+//        print("anniee \(tableViewTitleLabel.text!): decelerate: \(decelerate), postFlag = \(postFlag)")
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
         self.postFlag = false
 
-        print("anniee \(tableViewTitleLabel.text!): EndDecelerating, postFlag = \(postFlag)")
+//        print("anniee \(tableViewTitleLabel.text!): EndDecelerating, postFlag = \(postFlag)")
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

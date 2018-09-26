@@ -18,6 +18,8 @@ class GanttViewController: UIViewController {
         super.viewDidLoad()
 
         setupTableView()
+
+        print()
     }
 
     override func viewWillAppear(_ animated: Bool) {

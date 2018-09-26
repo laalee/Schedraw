@@ -23,16 +23,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psy-Xh-n3D">
-                                <rect key="frame" x="22" y="18" width="6" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="21.5" y="13" width="7" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahk-gZ-yvh">
+                                <rect key="frame" x="16.5" y="34.5" width="17" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Ahk-gZ-yvh" firstAttribute="centerX" secondItem="vH8-ca-Y2c" secondAttribute="centerX" id="BL9-0u-fJ9"/>
                             <constraint firstItem="psy-Xh-n3D" firstAttribute="centerX" secondItem="vH8-ca-Y2c" secondAttribute="centerX" id="CWg-II-lBA"/>
-                            <constraint firstItem="psy-Xh-n3D" firstAttribute="centerY" secondItem="vH8-ca-Y2c" secondAttribute="centerY" id="bWg-ui-mxF"/>
+                            <constraint firstItem="Ahk-gZ-yvh" firstAttribute="centerY" secondItem="vH8-ca-Y2c" secondAttribute="centerY" multiplier="1.6" id="Mph-gw-GvT"/>
+                            <constraint firstItem="psy-Xh-n3D" firstAttribute="centerY" secondItem="vH8-ca-Y2c" secondAttribute="centerY" multiplier="0.9" id="bWg-ui-mxF"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -50,7 +58,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="titleLabel" destination="psy-Xh-n3D" id="BJF-wR-dkF"/>
+                <outlet property="dayLabel" destination="psy-Xh-n3D" id="BJF-wR-dkF"/>
+                <outlet property="weekLabel" destination="Ahk-gZ-yvh" id="I8u-MW-PEv"/>
             </connections>
             <point key="canvasLocation" x="56" y="111.54422788605699"/>
         </collectionViewCell>
