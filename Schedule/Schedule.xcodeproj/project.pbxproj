@@ -27,6 +27,8 @@
 		9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */; };
 		9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */; };
 		9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502E02153791C00701DA9 /* CalendarViewController.swift */; };
+		9BF12423215C7EC400AC1C6A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12422215C7EC400AC1C6A /* Event.swift */; };
+		9BF12425215C81AC00AC1C6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12424215C81AC00AC1C6A /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		9BD502DB215349B800701DA9 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStoryboard.swift; sourceTree = "<group>"; };
 		9BD502E02153791C00701DA9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		9BF12422215C7EC400AC1C6A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9BF12424215C81AC00AC1C6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				9BD502D42153445200701DA9 /* GanttViewController.swift */,
+				9BF12422215C7EC400AC1C6A /* Event.swift */,
+				9BF12424215C81AC00AC1C6A /* Data.swift */,
 				9BB88A2F21549C3D00E5331E /* Body */,
 				9BB88A2E21549BFC00E5331E /* Header */,
 				9BB88A3021549C6700E5331E /* Footer */,
@@ -283,9 +289,11 @@
 				9BB5D5DE2151FDD2005F225C /* ViewController.swift in Sources */,
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,
+				9BF12423215C7EC400AC1C6A /* Event.swift in Sources */,
 				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
 				9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */,
 				9BB88A232153F0CF00E5331E /* FooterCollectionReusableView.swift in Sources */,
+				9BF12425215C81AC00AC1C6A /* Data.swift in Sources */,
 				9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */,
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,
 				9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */,

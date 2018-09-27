@@ -16,7 +16,19 @@ class GanttTableViewCell: UITableViewCell {
 
     var numberOfCells: Int = 60
 
+    var todayIndex: Int = 30
+
     var postFlag: Bool = false
+
+    var events: [Event] = []
+
+    let currentDate = Date()
+
+    var dateComponents = DateComponents()
+
+    var dateformatter = DateFormatter()
+
+    weak var theDelegate: TheDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +51,8 @@ class GanttTableViewCell: UITableViewCell {
     private func addTopCells() {
 
         self.numberOfCells += 30
+
+        self.todayIndex += 30
 
         UIView.performWithoutAnimation {
 
@@ -81,6 +95,27 @@ class GanttTableViewCell: UITableViewCell {
 
         itemCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
     }
+
+    func setEventTitle(type: String) {
+
+        tableViewTitleLabel.text = type
+    }
+
+    func getEvent(componentsDay: Int) -> Event? {
+
+        dateComponents.day = componentsDay
+
+        guard let date = Calendar.current.date(
+            byAdding: dateComponents, to: currentDate) else { return nil }
+
+        dateformatter.dateFormat = "yyyyMMMdd"
+
+        let targetDate = dateformatter.string(from: date)
+
+        let event = events.filter { dateformatter.string(from: $0.date) == targetDate }
+
+        return event.first
+    }
     
 }
 
@@ -99,7 +134,13 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         guard let eventCell = cell as? ItemCollectionViewCell else { return cell }
 
-        eventCell.titleLabel.text = "\(indexPath.row)"
+        guard let theDelegate = theDelegate else { return cell }
+
+        let componentsDay = indexPath.row - theDelegate.todayIndex()
+
+        let event = getEvent(componentsDay: componentsDay)
+
+        eventCell.setEvent(event: event)
 
         return eventCell
     }

@@ -22,19 +22,44 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMn-9o-JP6">
                         <rect key="frame" x="0.0" y="0.0" width="65" height="52"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPG-pc-LRw">
-                                <rect key="frame" x="5" y="5" width="55" height="42"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCG-9n-JO0">
+                                <rect key="frame" x="17.5" y="11" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.83921568629999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ij2-sH-j4c"/>
+                                    <constraint firstAttribute="height" constant="30" id="xND-gF-Ccs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一二三四" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPG-pc-LRw">
+                                <rect key="frame" x="20" y="13.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="O05-1k-zvf"/>
+                                    <constraint firstAttribute="width" constant="25" id="dDJ-wc-JE8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w6-gf-IE7">
+                                <rect key="frame" x="21" y="41" width="23" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="tPG-pc-LRw" secondAttribute="bottom" constant="5" id="GY7-dV-Ldf"/>
-                            <constraint firstItem="tPG-pc-LRw" firstAttribute="leading" secondItem="hMn-9o-JP6" secondAttribute="leading" constant="5" id="VSH-qQ-tRi"/>
-                            <constraint firstAttribute="trailing" secondItem="tPG-pc-LRw" secondAttribute="trailing" constant="5" id="dWr-4w-1J6"/>
-                            <constraint firstItem="tPG-pc-LRw" firstAttribute="top" secondItem="hMn-9o-JP6" secondAttribute="top" constant="5" id="hzL-Ct-GO2"/>
+                            <constraint firstItem="tPG-pc-LRw" firstAttribute="centerY" secondItem="hMn-9o-JP6" secondAttribute="centerY" id="19B-NK-FLH"/>
+                            <constraint firstItem="yCG-9n-JO0" firstAttribute="centerY" secondItem="hMn-9o-JP6" secondAttribute="centerY" id="CU2-Og-cbp"/>
+                            <constraint firstItem="5w6-gf-IE7" firstAttribute="centerX" secondItem="hMn-9o-JP6" secondAttribute="centerX" id="mWe-AD-OEg"/>
+                            <constraint firstItem="yCG-9n-JO0" firstAttribute="centerX" secondItem="hMn-9o-JP6" secondAttribute="centerX" id="q09-Lj-3kJ"/>
+                            <constraint firstItem="5w6-gf-IE7" firstAttribute="top" secondItem="yCG-9n-JO0" secondAttribute="bottom" id="uj8-sV-zwU"/>
+                            <constraint firstItem="tPG-pc-LRw" firstAttribute="centerX" secondItem="hMn-9o-JP6" secondAttribute="centerX" id="yxU-gV-UUd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -53,9 +78,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="65" height="52"/>
             <connections>
+                <outlet property="backgroungView" destination="yCG-9n-JO0" id="yxS-TT-qPp"/>
+                <outlet property="timeLabel" destination="5w6-gf-IE7" id="GxJ-W8-oqF"/>
                 <outlet property="titleLabel" destination="tPG-pc-LRw" id="ve8-WH-cfB"/>
             </connections>
-            <point key="canvasLocation" x="34" y="44"/>
+            <point key="canvasLocation" x="32.799999999999997" y="43.178410794602705"/>
         </collectionViewCell>
     </objects>
 </document>

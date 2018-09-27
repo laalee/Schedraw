@@ -8,18 +8,29 @@
 
 import UIKit
 
+protocol TheDelegate: class {
+
+    func todayIndex() -> Int
+}
+
 class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
 
     var numberOfRows: Int = 20
 
+    var types: [EventType] = []
+
+    var datas: [[Event]] = []
+
+    var header: HeaderTableViewCell?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
 
-        print()
+        getDatas()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +46,8 @@ class GanttViewController: UIViewController {
         ganttTableView.dataSource = self
 
         ganttTableView.delegate = self
+
+//        ganttTableView.bounces = false
 
         let identifier = String(describing: GanttTableViewCell.self)
 
@@ -56,6 +69,20 @@ class GanttViewController: UIViewController {
         NotificationCenter.default.post(name: name, object: nil)
     }
 
+    func getDatas() {
+
+        types = Data.share.getTypes()
+
+        let events = Data.share.gatEvents()
+
+        for type in types {
+            let array = events.filter { $0.type.title == type.title }
+            datas.append(array)
+        }
+
+        ganttTableView.reloadData()
+    }
+
 }
 
 extension GanttViewController: UITableViewDataSource {
@@ -66,7 +93,7 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return numberOfRows
+        return types.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +105,10 @@ extension GanttViewController: UITableViewDataSource {
             return cell
         }
 
-        ganttCell.tableViewTitleLabel.text = String(indexPath.row + 1)
+        ganttCell.setEventTitle(type: types[indexPath.row].title)
+        ganttCell.events = datas[indexPath.row]
+
+        ganttCell.theDelegate = self
 
         return ganttCell
     }
@@ -91,6 +121,8 @@ extension GanttViewController: UITableViewDataSource {
         guard let headerView = view as? HeaderTableViewCell else {
             return view
         }
+
+        self.header = headerView
 
         return headerView
     }
@@ -107,6 +139,17 @@ extension GanttViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 51
+    }
+
+}
+
+extension GanttViewController: TheDelegate {
+
+    func todayIndex() -> Int {
+
+        guard let header = header else { return 0 }
+
+        return header.todayIndex
     }
 
 }

@@ -45,9 +45,9 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
             self.postFlag = true
 
-            let todayIndex = IndexPath.init(row: self.todayIndex, section: 0)
+            let index = IndexPath.init(row: self.todayIndex, section: 0)
 
-            self.dateCollectionView.scrollToItem(at: todayIndex, at: .left, animated: true)
+            self.dateCollectionView.scrollToItem(at: index, at: .left, animated: true)
         }
     }
 
@@ -197,6 +197,13 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
         eventCell.setContent()
 
         return eventCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let item = dateCollectionView.cellForItem(at: indexPath) as? DateCollectionViewCell else { return }
+
+//        let date = item.date
     }
 
 }
