@@ -23,7 +23,8 @@ class Data {
             EventType(title: "School", color: .blue),
             EventType(title: "Haha", color: .orange),
             EventType(title: "Four", color: .yellow),
-            EventType(title: "Five", color: .purple)
+            EventType(title: "Five", color: .purple),
+            EventType(title: "Six", color: .green)
         ]
 
         return types
@@ -51,7 +52,7 @@ class Data {
             Event(title: "yo", type: types[3], date: date6, time: nil),
             Event(title: "yoo", type: types[2], date: date7, time: "19:00"),
             Event(title: "yooo", type: types[4], date: date8, time: nil),
-            Event(title: "yoooo", type: types[2], date: date9, time: nil),
+            Event(title: "yoooo", type: types[5], date: date9, time: nil),
             Event(title: "yooooo", type: types[3], date: date10, time: "19:00")
         ]
 

@@ -35,6 +35,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNv-GK-2ks">
+                                <rect key="frame" x="-216" y="-235" width="512" height="512"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="plus_circle"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -86,4 +91,7 @@
             <point key="canvasLocation" x="56" y="48.575712143928037"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus_circle" width="512" height="512"/>
+    </resources>
 </document>

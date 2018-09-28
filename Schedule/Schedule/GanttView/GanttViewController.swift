@@ -25,6 +25,8 @@ class GanttViewController: UIViewController {
 
     var header: HeaderTableViewCell?
 
+    var emptyRows: Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +41,12 @@ class GanttViewController: UIViewController {
         view.layoutIfNeeded()
 
         scrollToToday(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        updateEmptyCells()
     }
 
     private func setupTableView() {
@@ -79,6 +87,15 @@ class GanttViewController: UIViewController {
             let array = events.filter { $0.type.title == type.title }
             datas.append(array)
         }
+    }
+
+    func updateEmptyCells() {
+
+        let tableViewHeight = Int(ganttTableView.frame.size.height)
+
+        self.emptyRows = (tableViewHeight / 50) - datas.count
+
+        print(tableViewHeight, emptyRows)
 
         ganttTableView.reloadData()
     }
@@ -93,7 +110,7 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return types.count
+        return types.count + emptyRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,8 +122,16 @@ extension GanttViewController: UITableViewDataSource {
             return cell
         }
 
-        ganttCell.setEventTitle(type: types[indexPath.row].title)
-        ganttCell.events = datas[indexPath.row]
+        if indexPath.row < types.count {
+
+            ganttCell.setEventTitle(type: types[indexPath.row].title)
+            ganttCell.events = datas[indexPath.row]
+
+        } else {
+
+            ganttCell.setEventTitle(type: "")
+            ganttCell.events = []
+        }
 
         ganttCell.theDelegate = self
 

@@ -103,10 +103,7 @@ class GanttTableViewCell: UITableViewCell {
 
     func getEvent(componentsDay: Int) -> Event? {
 
-        dateComponents.day = componentsDay
-
-        guard let date = Calendar.current.date(
-            byAdding: dateComponents, to: currentDate) else { return nil }
+        guard let date = getDate(componentsDay: componentsDay) else { return nil }
 
         dateformatter.dateFormat = "yyyyMMMdd"
 
@@ -115,6 +112,16 @@ class GanttTableViewCell: UITableViewCell {
         let event = events.filter { dateformatter.string(from: $0.date) == targetDate }
 
         return event.first
+    }
+
+    func getDate(componentsDay: Int) -> Date? {
+
+        dateComponents.day = componentsDay
+
+        guard let date = Calendar.current.date(
+            byAdding: dateComponents, to: currentDate) else { return nil }
+
+        return date
     }
     
 }
@@ -143,6 +150,22 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         eventCell.setEvent(event: event)
 
         return eventCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+
+        guard let theDelegate = theDelegate else { return }
+
+        guard let date = getDate(componentsDay: indexPath.row - theDelegate.todayIndex()) else { return }
+
+        let selectedCategory: String? = tableViewTitleLabel.text
+
+        let selectedDate: Date = date
+
+        let taskViewController = TaskViewController.taskViewControllerForEdit(category: selectedCategory, date: selectedDate)
+
+        self.window?.rootViewController?.show(taskViewController, sender: nil)
     }
 
 }
