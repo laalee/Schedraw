@@ -34,7 +34,7 @@ class Data {
         let date1 = theDate(year: 2018, month: 10, days: 10, hour: 12, minute: 00)
         let date2 = theDate(year: 2018, month: 9, days: 28, hour: nil, minute: nil)
         let date3 = theDate(year: 2018, month: 9, days: 25, hour: 18, minute: 00)
-        let date4 = theDate(year: 2018, month: 9, days: 27, hour: 19, minute: 00)
+        let date4 = theDate(year: 2018, month: 9, days: 28, hour: 19, minute: 00)
         let date5 = theDate(year: 2018, month: 9, days: 28, hour: 20, minute: 30)
         let date6 = theDate(year: 2018, month: 9, days: 26, hour: 20, minute: 30)
         let date7 = theDate(year: 2018, month: 9, days: 29, hour: 20, minute: 30)
@@ -45,7 +45,7 @@ class Data {
         events = [
             Event(title: "吃飯", type: types[0], date: date1, time: "12:00"),
             Event(title: "睡覺", type: types[0], date: date2, time: nil),
-            Event(title: "寫扣", type: types[1], date: date3, time: nil),
+            Event(title: "寫扣寫扣", type: types[1], date: date3, time: nil),
             Event(title: "pizza", type: types[1], date: date4, time: "19:00"),
             Event(title: "y", type: types[2], date: date5, time: "20:30"),
             Event(title: "yo", type: types[3], date: date6, time: nil),
