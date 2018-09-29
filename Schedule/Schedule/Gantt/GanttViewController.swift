@@ -17,7 +17,7 @@ class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
 
-    var numberOfRows: Int = 20
+    var firstFlag: Bool = true
 
     var types: [EventType] = []
 
@@ -40,7 +40,13 @@ class GanttViewController: UIViewController {
 
         view.layoutIfNeeded()
 
-        scrollToToday(animated)
+        if firstFlag {
+
+            scrollToToday(animated)
+
+            firstFlag = false
+        }
+
     }
 
     override func viewDidLayoutSubviews() {

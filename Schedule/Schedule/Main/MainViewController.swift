@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var ganttView: UIView!
 
@@ -39,6 +39,19 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func showSetting(_ sender: Any) {
+
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+
+        guard let viewController = storyboard.instantiateViewController(
+            withIdentifier: "SettingViewController")
+            as? SettingViewController
+            else { return
+        }
+
+        self.show(viewController, sender: nil)
+    }
+    
     @IBAction func modeButtonPressed(_ sender: UIButton) {
 
         sender.isSelected = !sender.isSelected

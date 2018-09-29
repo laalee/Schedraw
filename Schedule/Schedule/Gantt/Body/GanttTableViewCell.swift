@@ -136,8 +136,6 @@ class GanttTableViewCell: UITableViewCell {
 
     @objc func tapAction() {
 
-        print("tapAction")
-
         let selectedCategory: EventType? = self.eventType
 
         let categoryViewController = CategoryViewController.detailViewControllerForCategory(eventType: selectedCategory)
