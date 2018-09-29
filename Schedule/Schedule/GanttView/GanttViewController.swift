@@ -43,8 +43,7 @@ class GanttViewController: UIViewController {
         scrollToToday(animated)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLayoutSubviews() {
 
         updateEmptyCells()
     }
@@ -95,7 +94,10 @@ class GanttViewController: UIViewController {
 
         self.emptyRows = (tableViewHeight / 50) - datas.count
 
-        print(tableViewHeight, emptyRows)
+        if emptyRows <= 0 {
+
+            emptyRows = 1
+        }
 
         ganttTableView.reloadData()
     }
@@ -124,16 +126,22 @@ extension GanttViewController: UITableViewDataSource {
 
         if indexPath.row < types.count {
 
-            ganttCell.setEventTitle(type: types[indexPath.row].title)
+            ganttCell.setEventTitle(type: types[indexPath.row])
             ganttCell.events = datas[indexPath.row]
+            ganttCell.addButton.isHidden = true
+            ganttCell.tableViewTitleLabel.isHidden = false
 
         } else {
 
-            ganttCell.setEventTitle(type: "")
+            ganttCell.setEventTitle(type: nil)
             ganttCell.events = []
+            ganttCell.addButton.isHidden = indexPath.row != types.count
+            ganttCell.tableViewTitleLabel.isHidden = indexPath.row != types.count
         }
 
         ganttCell.theDelegate = self
+
+        ganttCell.tableViewTitleLabel.isUserInteractionEnabled = true
 
         return ganttCell
     }
@@ -151,6 +159,16 @@ extension GanttViewController: UITableViewDataSource {
 
         return headerView
     }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
+//
+//        let selectedCategory: EventType? = types[indexPath.row]
+//
+//        let categoryViewController = CategoryViewController.detailViewControllerForCategory(eventType: selectedCategory)
+//
+//        self.show(categoryViewController, sender: nil)
+//    }
 
 }
 

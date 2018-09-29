@@ -22,6 +22,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhu-8B-8se">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="43.5"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNv-GK-2ks">
+                                <rect key="frame" x="32.5" y="14.5" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="4wh-Uf-DOM"/>
+                                    <constraint firstAttribute="width" constant="15" id="HCX-yF-pP3"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <state key="normal" image="plus_one"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-bk-Ijv">
+                                <rect key="frame" x="0.0" y="0.0" width="79" height="43.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-Ux-VrE">
                                 <rect key="frame" x="79" y="-1" width="1" height="44.5"/>
                                 <color key="backgroundColor" red="0.83189244923857864" green="0.83189244923857864" blue="0.83189244923857864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -29,25 +44,18 @@
                                     <constraint firstAttribute="width" constant="1" id="UcZ-K8-v5d"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-bk-Ijv">
-                                <rect key="frame" x="35" y="9.5" width="10" height="24.5"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNv-GK-2ks">
-                                <rect key="frame" x="-216" y="-235" width="512" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus_circle"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="top" secondItem="Xhu-8B-8se" secondAttribute="top" id="3PV-tZ-vFr"/>
                             <constraint firstAttribute="bottom" secondItem="EIQ-Ux-VrE" secondAttribute="bottom" id="Eh0-oG-wIf"/>
+                            <constraint firstAttribute="bottom" secondItem="8sq-bk-Ijv" secondAttribute="bottom" id="KYp-Hy-uT1"/>
+                            <constraint firstItem="EIQ-Ux-VrE" firstAttribute="leading" secondItem="8sq-bk-Ijv" secondAttribute="trailing" id="KZZ-kN-MxU"/>
                             <constraint firstItem="EIQ-Ux-VrE" firstAttribute="top" secondItem="Xhu-8B-8se" secondAttribute="top" constant="-1" id="Ky9-7R-hY9"/>
+                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="leading" secondItem="Xhu-8B-8se" secondAttribute="leading" id="ezt-T8-NDO"/>
                             <constraint firstAttribute="trailing" secondItem="EIQ-Ux-VrE" secondAttribute="trailing" id="l2p-4y-BTc"/>
-                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerX" secondItem="Xhu-8B-8se" secondAttribute="centerX" id="pOX-bC-SgL"/>
-                            <constraint firstItem="8sq-bk-Ijv" firstAttribute="centerY" secondItem="Xhu-8B-8se" secondAttribute="centerY" id="rpI-NI-zI2"/>
+                            <constraint firstItem="MNv-GK-2ks" firstAttribute="centerY" secondItem="Xhu-8B-8se" secondAttribute="centerY" id="oVl-dh-RJc"/>
+                            <constraint firstItem="MNv-GK-2ks" firstAttribute="centerX" secondItem="Xhu-8B-8se" secondAttribute="centerX" id="pHf-48-4nS"/>
                             <constraint firstAttribute="width" constant="80" id="sEd-X7-B9q"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -85,6 +93,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addButton" destination="MNv-GK-2ks" id="u6Z-Ta-GD6"/>
                 <outlet property="itemCollectionView" destination="fLK-LE-cCP" id="epo-wT-YlP"/>
                 <outlet property="tableViewTitleLabel" destination="8sq-bk-Ijv" id="6us-QE-kAx"/>
             </connections>
@@ -92,6 +101,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="plus_circle" width="512" height="512"/>
+        <image name="plus_one" width="512" height="512"/>
     </resources>
 </document>

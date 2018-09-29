@@ -14,6 +14,8 @@ class GanttTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableViewTitleLabel: UILabel!
 
+    @IBOutlet weak var addButton: UIButton!
+
     var numberOfCells: Int = 60
 
     var todayIndex: Int = 30
@@ -21,6 +23,8 @@ class GanttTableViewCell: UITableViewCell {
     var postFlag: Bool = false
 
     var events: [Event] = []
+
+    var eventType: EventType?
 
     let currentDate = Date()
 
@@ -36,6 +40,10 @@ class GanttTableViewCell: UITableViewCell {
         setupCollectionView()
 
         collectionViewDidScroll()
+
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+
+        tableViewTitleLabel.addGestureRecognizer(gestureRecognizer)
     }
 
     private func addBottomCells() {
@@ -96,9 +104,11 @@ class GanttTableViewCell: UITableViewCell {
         itemCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
     }
 
-    func setEventTitle(type: String) {
+    func setEventTitle(type: EventType?) {
 
-        tableViewTitleLabel.text = type
+        self.eventType = type
+
+        tableViewTitleLabel.text = type?.title
     }
 
     func getEvent(componentsDay: Int) -> Event? {
@@ -122,6 +132,17 @@ class GanttTableViewCell: UITableViewCell {
             byAdding: dateComponents, to: currentDate) else { return nil }
 
         return date
+    }
+
+    @objc func tapAction() {
+
+        print("tapAction")
+
+        let selectedCategory: EventType? = self.eventType
+
+        let categoryViewController = CategoryViewController.detailViewControllerForCategory(eventType: selectedCategory)
+
+        self.window?.rootViewController?.show(categoryViewController, sender: nil)
     }
     
 }
@@ -155,15 +176,18 @@ extension GanttTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
 
+        guard let selectedCategory = self.eventType else { return }
+
         guard let theDelegate = theDelegate else { return }
 
         guard let date = getDate(componentsDay: indexPath.row - theDelegate.todayIndex()) else { return }
 
-        let selectedCategory: String? = tableViewTitleLabel.text
-
         let selectedDate: Date = date
 
-        let taskViewController = TaskViewController.taskViewControllerForEdit(category: selectedCategory, date: selectedDate)
+        let taskViewController = TaskViewController.detailViewControllerForTask(
+            category: selectedCategory,
+            date: selectedDate
+        )
 
         self.window?.rootViewController?.show(taskViewController, sender: nil)
     }

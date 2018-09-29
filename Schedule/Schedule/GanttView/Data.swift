@@ -24,7 +24,11 @@ class Data {
             EventType(title: "Haha", color: .orange),
             EventType(title: "Four", color: .yellow),
             EventType(title: "Five", color: .purple),
-            EventType(title: "Six", color: .green)
+            EventType(title: "66", color: .green),
+            EventType(title: "77", color: .green),
+            EventType(title: "88", color: .green),
+            EventType(title: "99", color: .green),
+            EventType(title: "1010", color: .green)
         ]
 
         return types

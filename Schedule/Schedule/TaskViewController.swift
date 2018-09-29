@@ -10,7 +10,7 @@ import UIKit
 
 class TaskViewController: UIViewController {
 
-    var category: String?
+    var category: EventType?
 
     var date: Date?
 
@@ -23,7 +23,7 @@ class TaskViewController: UIViewController {
 
     // MARK: Initialization
 
-    class func taskViewControllerForEdit(category: String?, date: Date?) -> TaskViewController {
+    class func detailViewControllerForTask(category: EventType?, date: Date?) -> TaskViewController {
 
         let storyboard = UIStoryboard(name: "Task", bundle: nil)
 

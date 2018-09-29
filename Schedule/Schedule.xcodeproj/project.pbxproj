@@ -10,6 +10,7 @@
 		132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
+		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
 		9BB5D5DC2151FDD2005F225C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */; };
 		9BB5D5DE2151FDD2005F225C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DD2151FDD2005F225C /* ViewController.swift */; };
 		9BB5D5E12151FDD2005F225C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB5D5DF2151FDD2005F225C /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
+		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		9BB5D5D82151FDD2005F225C /* Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BB5D5DD2151FDD2005F225C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				9BAF763C215E23AE00101BBA /* Category.storyboard */,
 				9BAF7637215E227900101BBA /* Task.storyboard */,
 				9BB5D5DD2151FDD2005F225C /* ViewController.swift */,
+				9BAF763F215E9F7900101BBA /* CategoryViewController.swift */,
 				9BF12428215CE86300AC1C6A /* TaskViewController.swift */,
 				9BD502E02153791C00701DA9 /* CalendarViewController.swift */,
 				9BB88A2D21549B6500E5331E /* GanttView */,
@@ -283,6 +286,7 @@
 			files = (
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* ViewController.swift in Sources */,
+				9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */,
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,
 				9BF12423215C7EC400AC1C6A /* Event.swift in Sources */,
