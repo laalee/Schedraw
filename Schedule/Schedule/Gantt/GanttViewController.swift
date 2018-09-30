@@ -60,13 +60,15 @@ class GanttViewController: UIViewController {
 
         ganttTableView.delegate = self
 
-//        ganttTableView.bounces = false
+        // task cell
 
         let identifier = String(describing: GanttTableViewCell.self)
 
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         ganttTableView.register(uiNib, forCellReuseIdentifier: identifier)
+
+        // header cell
 
         let headerIdentifier = String(describing: HeaderTableViewCell.self)
 
@@ -165,16 +167,6 @@ extension GanttViewController: UITableViewDataSource {
 
         return headerView
     }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//
-//        let selectedCategory: EventType? = types[indexPath.row]
-//
-//        let categoryViewController = CategoryViewController.detailViewControllerForCategory(eventType: selectedCategory)
-//
-//        self.show(categoryViewController, sender: nil)
-//    }
 
 }
 

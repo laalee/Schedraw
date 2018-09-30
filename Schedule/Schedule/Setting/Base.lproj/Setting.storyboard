@@ -26,13 +26,15 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-CK-WtE">
-                                        <rect key="frame" x="15" y="11.5" width="60" height="37"/>
+                                        <rect key="frame" x="339" y="11.5" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="efG-rY-riJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Back"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="0.89057133030000002" blue="0.46812387280000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="ZjX-WB-S0Q" eventType="touchUpInside" id="euc-Cc-X4g"/>
                                         </connections>
@@ -49,13 +51,14 @@
                                     <constraint firstItem="6wI-CK-WtE" firstAttribute="centerY" secondItem="e0C-5h-DSO" secondAttribute="centerY" id="4JZ-k7-Lt6"/>
                                     <constraint firstAttribute="height" constant="60" id="AFp-bq-koM"/>
                                     <constraint firstItem="z0w-So-jAE" firstAttribute="centerY" secondItem="6wI-CK-WtE" secondAttribute="centerY" id="BZV-hT-p3g"/>
+                                    <constraint firstAttribute="trailing" secondItem="6wI-CK-WtE" secondAttribute="trailing" constant="15" id="Oip-eA-8ee"/>
                                     <constraint firstItem="z0w-So-jAE" firstAttribute="centerX" secondItem="e0C-5h-DSO" secondAttribute="centerX" id="cvY-kQ-DUN"/>
-                                    <constraint firstItem="6wI-CK-WtE" firstAttribute="leading" secondItem="e0C-5h-DSO" secondAttribute="leading" constant="15" id="li9-2e-s3g"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bH7-Re-v0W">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bH7-Re-v0W">
                                 <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
