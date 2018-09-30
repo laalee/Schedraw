@@ -6,11 +6,17 @@
 //  Copyright © 2018年 laalee. All rights reserved.
 //
 
+//swiftlint:disable variable_name
+
 import UIKit
 
 class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
+
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+
+    @IBOutlet weak var buttonView: UIView!
 
     var currentMonthIndex: Int = 5
 
@@ -26,6 +32,14 @@ class CalendarViewController: UIViewController {
         setupCollectionView()
 
         getDates()
+
+        categoryPickerView.dataSource = self
+
+        categoryPickerView.delegate = self
+
+        self.categoryPickerView.isHidden = true
+
+        self.buttonView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +80,11 @@ class CalendarViewController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: monthIdentifier
         )
+    }
+
+    @IBAction func goToday(_ sender: Any) {
+
+        scrollToToday()
     }
 
     private func scrollToToday() {
@@ -250,6 +269,26 @@ class CalendarViewController: UIViewController {
         }
     }
 
+    @IBAction func selectCategory(_ sender: Any) {
+
+        self.categoryPickerView.isHidden = false
+
+        self.buttonView.isHidden = false
+    }
+
+    @IBAction func catrgoryDidSelect(_ sender: Any) {
+
+        self.categoryPickerView.isHidden = true
+
+        self.buttonView.isHidden = true
+    }
+
+    @IBAction func calcelSelect(_ sender: Any) {
+
+        self.categoryPickerView.isHidden = true
+
+        self.buttonView.isHidden = true
+    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource {
@@ -361,5 +400,33 @@ extension CalendarViewController: UIScrollViewDelegate {
             addBottomCells()
         }
     }
+
+}
+
+extension CalendarViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+        return Data.share.getTypes().count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        return Data.share.getTypes()[row].title
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        let minute = row
+        print("hour: \(minute)")
+    }
+
+}
+
+extension CalendarViewController: UIPickerViewDelegate {
 
 }

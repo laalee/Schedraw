@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */; };
+		9B3B916721611F3B00C9B3EF /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B916521611F3A00C9B3EF /* TaskTableViewCell.swift */; };
+		9B3B916821611F3B00C9B3EF /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B916621611F3A00C9B3EF /* TaskTableViewCell.xib */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -43,6 +45,8 @@
 		139FF4D3292717CB87E4DA48 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 		70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B3B916521611F3A00C9B3EF /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9B3B916621611F3A00C9B3EF /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 			children = (
 				9BAF7637215E227900101BBA /* Task.storyboard */,
 				9BF12428215CE86300AC1C6A /* TaskViewController.swift */,
+				9B3B916521611F3A00C9B3EF /* TaskTableViewCell.swift */,
+				9B3B916621611F3A00C9B3EF /* TaskTableViewCell.xib */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
 				9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */,
 				9BAF7644215F3C5300101BBA /* Setting.storyboard in Resources */,
+				9B3B916821611F3B00C9B3EF /* TaskTableViewCell.xib in Resources */,
 				9BB5D5E62151FDD8005F225C /* Assets.xcassets in Resources */,
 				9BB5D5E12151FDD2005F225C /* Main.storyboard in Resources */,
 			);
@@ -347,6 +354,7 @@
 			files = (
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* MainViewController.swift in Sources */,
+				9B3B916721611F3B00C9B3EF /* TaskTableViewCell.swift in Sources */,
 				9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */,
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,

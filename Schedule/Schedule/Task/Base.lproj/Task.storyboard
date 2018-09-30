@@ -105,6 +105,7 @@
                                     <constraint firstAttribute="height" constant="90" id="f8G-01-psI"/>
                                     <constraint firstItem="zzF-GI-dtJ" firstAttribute="leading" secondItem="vym-Gh-3FB" secondAttribute="leading" constant="15" id="tOs-PT-Bkv"/>
                                     <constraint firstItem="Vsn-1F-avE" firstAttribute="leading" secondItem="vym-Gh-3FB" secondAttribute="leading" constant="15" id="vJf-cr-Fx6"/>
+                                    <constraint firstItem="dEb-hD-SqD" firstAttribute="top" secondItem="zzF-GI-dtJ" secondAttribute="bottom" constant="7" id="wNh-X1-xHv"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V3-kO-yPi">
