@@ -155,7 +155,7 @@
                                     <constraint firstAttribute="width" constant="50" id="Wiv-gV-dJ0"/>
                                     <constraint firstAttribute="height" constant="50" id="wTg-Fu-Xvi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="10"/>
                                 <state key="normal" title="TODAY">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

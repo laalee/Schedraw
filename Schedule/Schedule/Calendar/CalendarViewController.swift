@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
 
-    let currentMonthIndex: Int = 5
+    var currentMonthIndex: Int = 5
 
     var calendarDates: [[Date?]] = []
 
@@ -68,7 +68,7 @@ class CalendarViewController: UIViewController {
         )
     }
 
-    func scrollToToday() {
+    private func scrollToToday() {
 
         let indexPath = IndexPath.init(row: 0, section: currentMonthIndex)
 
@@ -84,9 +84,9 @@ class CalendarViewController: UIViewController {
         )
     }
 
-    func getDates() {
+    private func getDates() {
 
-        for month in -5...5 {
+        for month in (-currentMonthIndex)...currentMonthIndex {
 
             let theDate = dateByAddingMonth(componentsMonth: month)
 
@@ -116,7 +116,7 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    func dateByAddingMonth(componentsMonth: Int) -> Date {
+    private func dateByAddingMonth(componentsMonth: Int) -> Date {
 
         let currentDate = Date()
 
@@ -130,14 +130,14 @@ class CalendarViewController: UIViewController {
         return date
     }
 
-    func numberOfDaysInTheMonth(date: Date) -> Int {
+    private func numberOfDaysInTheMonth(date: Date) -> Int {
 
         let range = Calendar.current.range(of: .day, in: .month, for: date)
 
         return range?.count ?? 0
     }
 
-    func firseWeekDayInTheMonth(year: Int, month: Int) -> Int {
+    private func firseWeekDayInTheMonth(year: Int, month: Int) -> Int {
 
         let dateComponents = DateComponents(year: year, month: month)
 
@@ -146,7 +146,7 @@ class CalendarViewController: UIViewController {
         return Calendar.current.component(.weekday, from: date)
     }
 
-    func gatTheDate(year: Int, month: Int, days: Int) -> Date {
+    private func gatTheDate(year: Int, month: Int, days: Int) -> Date {
 
         var components = DateComponents()
 
@@ -157,6 +157,97 @@ class CalendarViewController: UIViewController {
         guard let date = Calendar.current.date(from: components) else { return Date() }
 
         return date
+    }
+
+    private func addTopCells() {
+
+        self.currentMonthIndex += 6
+
+        let firstMonth = -currentMonthIndex
+
+        let lastMonyh = firstMonth + 5
+
+        for month in (firstMonth...lastMonyh).reversed() {
+
+            let theDate = dateByAddingMonth(componentsMonth: month)
+
+            let year = Calendar.current.component(.year, from: theDate)
+
+            let month = Calendar.current.component(.month, from: theDate)
+
+            let weekDay = firseWeekDayInTheMonth(year: year, month: month)
+
+            let numberOfDays = numberOfDaysInTheMonth(date: theDate)
+
+            var datesInMonth: [Date?] = []
+
+            for _ in 0..<(weekDay - 1) {
+
+                datesInMonth.append(nil)
+            }
+
+            for theDay in 1...(numberOfDays) {
+
+                let date = gatTheDate(year: year, month: month, days: theDay)
+
+                datesInMonth.append(date)
+            }
+
+            self.calendarDates.insert(datesInMonth, at: 0)
+        }
+
+        UIView.performWithoutAnimation {
+
+            self.calendarCollectionView.reloadData()
+
+            self.calendarCollectionView.scrollToItem(
+                at: IndexPath(row: 14, section: 6),
+                at: UICollectionView.ScrollPosition.top,
+                animated: false
+            )
+        }
+    }
+
+    private func addBottomCells() {
+
+        let firstMonth = calendarDates.count - currentMonthIndex
+
+        let lastMonyh = firstMonth + 5
+
+        for month in firstMonth...lastMonyh {
+
+            let theDate = dateByAddingMonth(componentsMonth: month)
+
+            let year = Calendar.current.component(.year, from: theDate)
+
+            let month = Calendar.current.component(.month, from: theDate)
+
+            let weekDay = firseWeekDayInTheMonth(year: year, month: month)
+
+            let numberOfDays = numberOfDaysInTheMonth(date: theDate)
+
+            var datesInMonth: [Date?] = []
+
+            for _ in 0..<(weekDay - 1) {
+
+                datesInMonth.append(nil)
+            }
+
+            for theDay in 1...(numberOfDays) {
+
+                let date = gatTheDate(year: year, month: month, days: theDay)
+
+                datesInMonth.append(date)
+            }
+
+            self.calendarDates.append(datesInMonth)
+        }
+
+        UIView.performWithoutAnimation {
+
+            self.calendarCollectionView.reloadData()
+
+        }
     }
 
 }
@@ -263,15 +354,11 @@ extension CalendarViewController: UIScrollViewDelegate {
 
         if scrollView.contentOffset.y < 100 {
 
-//            addTopCells()
-
-            print("aaaaa")
+            addTopCells()
 
         } else if scrollView.contentOffset.y > (scrollView.contentSize.height - UIScreen.main.bounds.size.height - 100) {
 
-//            addBottomCells()
-
-            print("bbbbb")
+            addBottomCells()
         }
     }
 
