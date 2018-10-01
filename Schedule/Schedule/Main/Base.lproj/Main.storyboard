@@ -175,46 +175,47 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnx-ES-rW7">
                                         <rect key="frame" x="0.0" y="13.5" width="53.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c58-X9-MsY">
                                         <rect key="frame" x="53.5" y="13" width="53.5" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kes-Pd-UbW">
                                         <rect key="frame" x="107" y="13" width="53.5" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpD-8p-rWZ">
                                         <rect key="frame" x="160.5" y="13" width="54" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-BQ-vkp">
                                         <rect key="frame" x="214.5" y="13" width="53.5" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5q-sZ-bg8">
                                         <rect key="frame" x="268" y="13" width="53.5" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-3V-WOv">
                                         <rect key="frame" x="321.5" y="13.5" width="53.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.2274509804" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="c58-X9-MsY" firstAttribute="centerY" secondItem="dnx-ES-rW7" secondAttribute="centerY" id="0rh-bw-S3g"/>
                                     <constraint firstItem="jvV-BQ-vkp" firstAttribute="leading" secondItem="SpD-8p-rWZ" secondAttribute="trailing" id="18Z-hs-rnI"/>
@@ -240,35 +241,8 @@
                                     <constraint firstItem="SpD-8p-rWZ" firstAttribute="leading" secondItem="Kes-Pd-UbW" secondAttribute="trailing" id="yy2-FC-jvE"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHP-bB-fGc">
-                                <rect key="frame" x="305" y="537" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.98823529409999999" green="0.56078431370000004" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Wiv-gV-dJ0"/>
-                                    <constraint firstAttribute="height" constant="60" id="wTg-Fu-Xvi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
-                                <state key="normal" title="TODAY">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="goToday:" destination="Zsq-se-TGL" eventType="touchUpInside" id="qcH-WQ-2uH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-V9-dju">
                                 <rect key="frame" x="-35" y="542" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.47251532831331738" green="0.75865175863502532" blue="0.71586183613175858" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Kx7-vk-ANF"/>
                                     <constraint firstAttribute="width" constant="100" id="NqU-wD-GQS"/>
@@ -298,6 +272,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agO-NN-yV8">
+                                <rect key="frame" x="0.0" y="567" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.2274509804" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eRv-rg-UGM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Select Category">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectCategory:" destination="Zsq-se-TGL" eventType="touchUpInside" id="7JF-Wy-z3C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-da-BOC">
+                                <rect key="frame" x="90" y="579.5" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="9o2-Ha-JGp"/>
+                                    <constraint firstAttribute="width" constant="15" id="Wkf-KN-a0w"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="magnifying-glass"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRY-C5-n2g">
                                 <rect key="frame" x="15" y="51" width="345" height="1"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -305,7 +302,33 @@
                                     <constraint firstAttribute="height" constant="1" id="hHU-KQ-fmc"/>
                                 </constraints>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTm-gV-Ywo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHP-bB-fGc">
+                                <rect key="frame" x="305" y="537" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.56078431370000004" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Wiv-gV-dJ0"/>
+                                    <constraint firstAttribute="height" constant="60" id="wTg-Fu-Xvi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
+                                <state key="normal" title="TODAY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToday:" destination="Zsq-se-TGL" eventType="touchUpInside" id="qcH-WQ-2uH"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="playback" translatesAutoresizingMaskIntoConstraints="NO" id="XTm-gV-Ywo">
                                 <rect key="frame" x="0.0" y="347" width="375" height="210"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -317,8 +340,10 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUw-5I-vFa">
                                         <rect key="frame" x="8" y="2" width="175.5" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.97858502540000003" green="0.63186750879999998" blue="0.56509253140000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.98823529409999999" green="0.56078431370000004" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -332,13 +357,15 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="calcelSelect:" destination="Zsq-se-TGL" eventType="touchUpInside" id="oFE-bn-uqt"/>
+                                            <action selector="cancelSelect:" destination="Zsq-se-TGL" eventType="touchUpInside" id="oFE-bn-uqt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53L-MX-twl">
                                         <rect key="frame" x="191.5" y="2" width="175.5" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                         <state key="normal" title="OK">
-                                            <color key="titleColor" red="0.52156862749999999" green="0.83921568629999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.47043650713630897" green="0.75531408629441621" blue="0.71271241714872813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -378,6 +405,7 @@
                             <constraint firstItem="tiP-4A-2r6" firstAttribute="bottom" secondItem="O39-oe-2o8" secondAttribute="bottom" id="CA4-Ge-5MX"/>
                             <constraint firstItem="tiP-4A-2r6" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" id="Dct-PA-nS3"/>
                             <constraint firstItem="gdo-V9-dju" firstAttribute="bottom" secondItem="HB5-gv-BJT" secondAttribute="bottom" constant="35" id="Ijs-xU-zse"/>
+                            <constraint firstItem="exZ-da-BOC" firstAttribute="centerY" secondItem="agO-NN-yV8" secondAttribute="centerY" id="InV-C3-D6s"/>
                             <constraint firstItem="tiP-4A-2r6" firstAttribute="trailing" secondItem="O39-oe-2o8" secondAttribute="trailing" id="K1q-xC-3bL"/>
                             <constraint firstItem="O39-oe-2o8" firstAttribute="trailing" secondItem="bRY-C5-n2g" secondAttribute="trailing" constant="15" id="KbQ-4M-BGf"/>
                             <constraint firstItem="Icl-n3-mwF" firstAttribute="bottom" secondItem="HB5-gv-BJT" secondAttribute="bottom" constant="-16" id="N8y-A2-4nd"/>
@@ -387,13 +415,17 @@
                             <constraint firstItem="Icl-n3-mwF" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" constant="6" id="W04-Bk-MTC"/>
                             <constraint firstAttribute="bottom" secondItem="XTm-gV-Ywo" secondAttribute="bottom" constant="50" id="XRO-uD-Xf1"/>
                             <constraint firstItem="O39-oe-2o8" firstAttribute="bottom" secondItem="HHP-bB-fGc" secondAttribute="bottom" constant="10" id="ZJD-Qw-40c"/>
+                            <constraint firstItem="agO-NN-yV8" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" id="alM-xu-2d5"/>
                             <constraint firstItem="XTm-gV-Ywo" firstAttribute="leading" secondItem="HB5-gv-BJT" secondAttribute="leading" id="bCX-6p-Ke9"/>
                             <constraint firstItem="dUU-Aj-TkE" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" id="frQ-jx-CbU"/>
+                            <constraint firstItem="exZ-da-BOC" firstAttribute="centerX" secondItem="agO-NN-yV8" secondAttribute="centerX" constant="-90" id="grJ-DG-F7f"/>
+                            <constraint firstItem="agO-NN-yV8" firstAttribute="bottom" secondItem="O39-oe-2o8" secondAttribute="bottom" id="guT-9p-B0l"/>
                             <constraint firstItem="ueH-wm-x4q" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" id="hIT-A1-SXR"/>
                             <constraint firstItem="gdo-V9-dju" firstAttribute="leading" secondItem="O39-oe-2o8" secondAttribute="leading" constant="-35" id="jGP-fX-Tuk"/>
                             <constraint firstItem="ueH-wm-x4q" firstAttribute="bottom" secondItem="HB5-gv-BJT" secondAttribute="bottom" id="r6Z-9r-Aqh"/>
                             <constraint firstItem="ueH-wm-x4q" firstAttribute="top" secondItem="dUU-Aj-TkE" secondAttribute="bottom" id="rRY-au-gWh"/>
                             <constraint firstItem="ueH-wm-x4q" firstAttribute="trailing" secondItem="O39-oe-2o8" secondAttribute="trailing" id="vpD-AY-0cE"/>
+                            <constraint firstAttribute="trailing" secondItem="agO-NN-yV8" secondAttribute="trailing" id="xT0-oA-OhX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O39-oe-2o8"/>
                     </view>
@@ -405,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM6-ry-8A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909.60000000000002" y="145.27736131934034"/>
+            <point key="canvasLocation" x="484" y="876"/>
         </scene>
         <!--Gantt View Controller-->
         <scene sceneID="yAt-cm-k3c">
@@ -464,10 +496,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh2-1D-9uC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8" y="145.56650246305421"/>
+            <point key="canvasLocation" x="-209" y="876"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magnifying-glass" width="512" height="512"/>
         <image name="settings_black" width="512" height="512"/>
         <image name="table-grid" width="512" height="512"/>
         <image name="tasks-list" width="512" height="512"/>

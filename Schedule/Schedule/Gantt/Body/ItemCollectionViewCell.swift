@@ -14,7 +14,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
 
-    @IBOutlet weak var backgroungView: UIView!
+    @IBOutlet weak var centerBackgroundView: UIView!
+
+    @IBOutlet weak var leftBackgroundView: UIView!
+
+    @IBOutlet weak var rightBackgroundView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +32,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
             timeLabel.text = event.time
 
-            backgroungView.backgroundColor = event.type.color.getColor()
+            centerBackgroundView.backgroundColor = event.type.color.getColor()
 
         } else {
 
@@ -36,7 +40,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
             timeLabel.text = ""
             
-            backgroungView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
 

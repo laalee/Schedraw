@@ -26,6 +26,8 @@ class CalendarViewController: UIViewController {
 
     var currentMonth = Calendar.current.component(.month, from: Date())
 
+    var pickerBackground: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -271,6 +273,10 @@ class CalendarViewController: UIViewController {
 
     @IBAction func selectCategory(_ sender: Any) {
 
+        guard let parentView = self.parent?.view else { return }
+
+        pickerBackground = UIViewController.displayPicker(onView: parentView)
+
         self.categoryPickerView.isHidden = false
 
         self.buttonView.isHidden = false
@@ -281,13 +287,17 @@ class CalendarViewController: UIViewController {
         self.categoryPickerView.isHidden = true
 
         self.buttonView.isHidden = true
+
+        UIViewController.removePicker(picker: pickerBackground)
     }
 
-    @IBAction func calcelSelect(_ sender: Any) {
+    @IBAction func cancelSelect(_ sender: Any) {
 
         self.categoryPickerView.isHidden = true
 
         self.buttonView.isHidden = true
+
+        UIViewController.removePicker(picker: pickerBackground)
     }
 }
 

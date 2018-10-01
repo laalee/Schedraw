@@ -241,6 +241,8 @@ extension GanttTableViewCell: UIScrollViewDelegate {
         } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100) {
 
             addBottomCells()
+
+            scrollView.bounds.origin = CGPoint(x: 200, y: 200)
         }
     }
 
