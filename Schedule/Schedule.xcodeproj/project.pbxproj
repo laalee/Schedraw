@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */; };
 		9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */; };
-		9B0DA52121620E4500369FF1 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA52021620E4500369FF1 /* DateManager.swift */; };
 		9B3B916721611F3B00C9B3EF /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B916521611F3A00C9B3EF /* TaskTableViewCell.swift */; };
 		9B3B916821611F3B00C9B3EF /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B916621611F3A00C9B3EF /* TaskTableViewCell.xib */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
@@ -48,7 +47,6 @@
 		70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
-		9B0DA52021620E4500369FF1 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		9B3B916521611F3A00C9B3EF /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		9B3B916621611F3A00C9B3EF /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				9BB5D5E72151FDD8005F225C /* LaunchScreen.storyboard */,
 				9BB5D5DF2151FDD2005F225C /* Main.storyboard */,
 				9BB5D5DD2151FDD2005F225C /* MainViewController.swift */,
-				9B0DA52021620E4500369FF1 /* DateManager.swift */,
 				9BF12422215C7EC400AC1C6A /* Event.swift */,
 				9BF12424215C81AC00AC1C6A /* Data.swift */,
 			);
@@ -359,7 +356,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
-				9B0DA52121620E4500369FF1 /* DateManager.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* MainViewController.swift in Sources */,
 				9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */,
 				9B3B916721611F3B00C9B3EF /* TaskTableViewCell.swift in Sources */,

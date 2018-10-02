@@ -28,11 +28,38 @@ class ItemCollectionViewCell: UICollectionViewCell {
         
         if let event = event {
 
-            titleLabel.text = event.title
+            if let status = event.consecutiveStatus {
 
-            timeLabel.text = event.time
+                switch status {
+                case .first:
+                    titleLabel.text = event.title
+                    timeLabel.text = ""
+                    centerBackgroundView.backgroundColor = event.type.color.getColor()
+                    leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+                    rightBackgroundView.backgroundColor = event.type.color.getColor()
 
-            centerBackgroundView.backgroundColor = event.type.color.getColor()
+                case .middle:
+                    titleLabel.text = ""
+                    timeLabel.text = ""
+                    centerBackgroundView.backgroundColor = event.type.color.getColor()
+                    leftBackgroundView.backgroundColor = event.type.color.getColor()
+                    rightBackgroundView.backgroundColor = event.type.color.getColor()
+
+                case .last:
+                    titleLabel.text = ""
+                    timeLabel.text = ""
+                    centerBackgroundView.backgroundColor = event.type.color.getColor()
+                    leftBackgroundView.backgroundColor = event.type.color.getColor()
+                    rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+                }
+            } else {
+
+                titleLabel.text = event.title
+                timeLabel.text = event.time
+                centerBackgroundView.backgroundColor = event.type.color.getColor()
+                leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+                rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+            }
 
         } else {
 
@@ -41,6 +68,32 @@ class ItemCollectionViewCell: UICollectionViewCell {
             timeLabel.text = ""
             
             centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+
+            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+        }
+    }
+
+    func setBackgroundViews(type: String, event: Event) {
+
+        switch type {
+        case "start":
+            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+            rightBackgroundView.backgroundColor = event.type.color.getColor()
+        case "mid":
+            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            leftBackgroundView.backgroundColor = event.type.color.getColor()
+            rightBackgroundView.backgroundColor = event.type.color.getColor()
+        case "end":
+            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            leftBackgroundView.backgroundColor = event.type.color.getColor()
+            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+        default:
+            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
         }
     }
 

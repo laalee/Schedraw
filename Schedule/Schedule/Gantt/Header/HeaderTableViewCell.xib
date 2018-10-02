@@ -21,7 +21,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kV7-8W-h2A">
                         <rect key="frame" x="80" y="0.0" width="240" height="43.5"/>
-                        <color key="backgroundColor" red="0.25098039220000001" green="0.2274509804" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g5k-kB-jhx">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -35,21 +35,30 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7y-xT-aIo">
                                 <rect key="frame" x="24" y="9.5" width="32.5" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.25098039220000001" green="0.2274509804" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="L7y-xT-aIo" firstAttribute="centerX" secondItem="qZ6-kz-oD1" secondAttribute="centerX" id="mtP-fg-XKV"/>
                             <constraint firstAttribute="width" constant="80" id="tBq-rR-TXE"/>
                             <constraint firstItem="L7y-xT-aIo" firstAttribute="centerY" secondItem="qZ6-kz-oD1" secondAttribute="centerY" id="xpc-zB-AkJ"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUG-SQ-9xJ">
+                        <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.83189244920000005" green="0.83189244920000005" blue="0.83189244920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="rKg-Wb-dFu"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.25098039220000001" green="0.3803921569" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="NUG-SQ-9xJ" secondAttribute="bottom" id="0Z3-TL-810"/>
                     <constraint firstItem="qZ6-kz-oD1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0hK-kH-TVc"/>
+                    <constraint firstItem="NUG-SQ-9xJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GVn-c3-mbA"/>
+                    <constraint firstAttribute="trailing" secondItem="NUG-SQ-9xJ" secondAttribute="trailing" id="Mbt-4O-Aec"/>
                     <constraint firstItem="kV7-8W-h2A" firstAttribute="leading" secondItem="qZ6-kz-oD1" secondAttribute="trailing" id="RTn-X4-eIg"/>
                     <constraint firstItem="kV7-8W-h2A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bDW-nQ-3kA"/>
                     <constraint firstAttribute="bottom" secondItem="kV7-8W-h2A" secondAttribute="bottom" id="hxi-WZ-8dJ"/>

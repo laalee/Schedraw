@@ -124,6 +124,11 @@ class GanttTableViewCell: UITableViewCell {
         return event.first
     }
 
+    func checkEventType(componentsDay: Int) -> String {
+
+        return "Default"
+    }
+
     func getDate(componentsDay: Int) -> Date? {
 
         dateComponents.day = componentsDay

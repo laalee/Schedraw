@@ -38,8 +38,10 @@ class Data {
 
         let date1 = theDate(year: 2018, month: 10, days: 10, hour: 12, minute: 00)
         let date2 = theDate(year: 2018, month: 9, days: 28, hour: nil, minute: nil)
-        let date3 = theDate(year: 2018, month: 9, days: 25, hour: 18, minute: 00)
-        let date4 = theDate(year: 2018, month: 9, days: 28, hour: 19, minute: 00)
+        let date31 = theDate(year: 2018, month: 9, days: 25, hour: nil, minute: nil)
+        let date32 = theDate(year: 2018, month: 9, days: 26, hour: nil, minute: nil)
+        let date33 = theDate(year: 2018, month: 9, days: 27, hour: nil, minute: nil)
+        let date34 = theDate(year: 2018, month: 9, days: 28, hour: nil, minute: nil)
         let date5 = theDate(year: 2018, month: 9, days: 28, hour: 20, minute: 30)
         let date6 = theDate(year: 2018, month: 9, days: 26, hour: 20, minute: 30)
         let date7 = theDate(year: 2018, month: 9, days: 29, hour: 20, minute: 30)
@@ -48,16 +50,18 @@ class Data {
         let date10 = theDate(year: 2018, month: 9, days: 23, hour: 20, minute: 30)
 
         events = [
-            Event(title: "吃飯", type: types[0], date: date1, time: "12:00"),
-            Event(title: "睡覺", type: types[0], date: date2, time: nil),
-            Event(title: "寫扣寫扣", type: types[1], date: date3, time: nil),
-            Event(title: "pizza", type: types[1], date: date4, time: "19:00"),
-            Event(title: "y", type: types[2], date: date5, time: "20:30"),
-            Event(title: "yo", type: types[3], date: date6, time: nil),
-            Event(title: "yoo", type: types[2], date: date7, time: "19:00"),
-            Event(title: "yooo", type: types[4], date: date8, time: nil),
-            Event(title: "yoooo", type: types[5], date: date9, time: nil),
-            Event(title: "yooooo", type: types[3], date: date10, time: "19:00")
+            Event(title: "吃飯", type: types[0], date: date1, endDate: nil, consecutiveStatus: nil, time: "12:00"),
+            Event(title: "睡覺", type: types[0], date: date2, endDate: nil, consecutiveStatus: nil, time: nil),
+            Event(title: "寫扣寫扣", type: types[1], date: date31, endDate: nil, consecutiveStatus: .first, time: nil),
+            Event(title: "寫扣寫扣", type: types[1], date: date32, endDate: nil, consecutiveStatus: .middle, time: nil),
+            Event(title: "寫扣寫扣", type: types[1], date: date33, endDate: nil, consecutiveStatus: .middle, time: nil),
+            Event(title: "寫扣寫扣", type: types[1], date: date34, endDate: nil, consecutiveStatus: .last, time: nil),
+            Event(title: "y", type: types[2], date: date5, endDate: nil, consecutiveStatus: nil, time: "20:30"),
+            Event(title: "yo", type: types[3], date: date6, endDate: nil, consecutiveStatus: nil, time: nil),
+            Event(title: "yoo", type: types[2], date: date7, endDate: nil, consecutiveStatus: nil, time: "19:00"),
+            Event(title: "yooo", type: types[4], date: date8, endDate: nil, consecutiveStatus: nil, time: nil),
+            Event(title: "yoooo", type: types[5], date: date9, endDate: nil, consecutiveStatus: nil, time: nil),
+            Event(title: "yooooo", type: types[3], date: date10, endDate: nil, consecutiveStatus: nil, time: "19:00")
         ]
 
         return events

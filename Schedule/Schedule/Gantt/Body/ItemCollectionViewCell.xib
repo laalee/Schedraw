@@ -56,11 +56,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGb-nE-5R0">
                                 <rect key="frame" x="32.5" y="9" width="32.5" height="34"/>
-                                <color key="backgroundColor" red="0.54344142461920375" green="0.87252786904111668" blue="0.82331503921075533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxU-co-YjF">
                                 <rect key="frame" x="0.0" y="9" width="32.5" height="34"/>
-                                <color key="backgroundColor" red="0.5434414246" green="0.87252786900000001" blue="0.82331503920000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCG-9n-JO0">
                                 <rect key="frame" x="15.5" y="9" width="34" height="34"/>

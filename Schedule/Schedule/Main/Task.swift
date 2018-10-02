@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 
-struct Event {
+struct Task {
 
     var title: String
 
     var type: EventType
 
     var date: Date
+
+    var endDate: Date?
+
+    var consecutiveStatus: ConsecutiveStatus?
 
     var time: String?
 }
@@ -25,6 +29,15 @@ struct EventType {
     var title: String
 
     var color: TypeColor
+}
+
+enum ConsecutiveStatus {
+
+    case first
+
+    case middle
+    
+    case last
 }
 
 enum TypeColor {
