@@ -22,7 +22,7 @@ class GanttTableViewCell: UITableViewCell {
 
     var postFlag: Bool = false
 
-    var events: [Event] = []
+    var events: [Task] = []
 
     var eventType: EventType?
 
@@ -111,7 +111,7 @@ class GanttTableViewCell: UITableViewCell {
         tableViewTitleLabel.text = type?.title
     }
 
-    func getEvent(componentsDay: Int) -> Event? {
+    func getEvent(componentsDay: Int) -> Task? {
 
         guard let date = getDate(componentsDay: componentsDay) else { return nil }
 

@@ -21,7 +21,7 @@ class GanttViewController: UIViewController {
 
     var types: [EventType] = []
 
-    var datas: [[Event]] = []
+    var datas: [[Task]] = []
 
     var header: HeaderTableViewCell?
 
@@ -88,7 +88,7 @@ class GanttViewController: UIViewController {
 
         types = Data.share.getTypes()
 
-        let events = Data.share.gatEvents()
+        let events = Data.share.gatTasks()
 
         for type in types {
             let array = events.filter { $0.type.title == type.title }

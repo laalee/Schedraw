@@ -14,7 +14,7 @@ class Data {
 
     var types: [EventType] = []
 
-    var events: [Event] = []
+    var events: [Task] = []
 
     func getTypes() -> [EventType] {
 
@@ -34,7 +34,7 @@ class Data {
         return types
     }
 
-    func gatEvents() -> [Event] {
+    func gatTasks() -> [Task] {
 
         let date1 = theDate(year: 2018, month: 10, days: 10, hour: 12, minute: 00)
         let date2 = theDate(year: 2018, month: 9, days: 28, hour: nil, minute: nil)
@@ -50,18 +50,18 @@ class Data {
         let date10 = theDate(year: 2018, month: 9, days: 23, hour: 20, minute: 30)
 
         events = [
-            Event(title: "吃飯", type: types[0], date: date1, endDate: nil, consecutiveStatus: nil, time: "12:00"),
-            Event(title: "睡覺", type: types[0], date: date2, endDate: nil, consecutiveStatus: nil, time: nil),
-            Event(title: "寫扣寫扣", type: types[1], date: date31, endDate: nil, consecutiveStatus: .first, time: nil),
-            Event(title: "寫扣寫扣", type: types[1], date: date32, endDate: nil, consecutiveStatus: .middle, time: nil),
-            Event(title: "寫扣寫扣", type: types[1], date: date33, endDate: nil, consecutiveStatus: .middle, time: nil),
-            Event(title: "寫扣寫扣", type: types[1], date: date34, endDate: nil, consecutiveStatus: .last, time: nil),
-            Event(title: "y", type: types[2], date: date5, endDate: nil, consecutiveStatus: nil, time: "20:30"),
-            Event(title: "yo", type: types[3], date: date6, endDate: nil, consecutiveStatus: nil, time: nil),
-            Event(title: "yoo", type: types[2], date: date7, endDate: nil, consecutiveStatus: nil, time: "19:00"),
-            Event(title: "yooo", type: types[4], date: date8, endDate: nil, consecutiveStatus: nil, time: nil),
-            Event(title: "yoooo", type: types[5], date: date9, endDate: nil, consecutiveStatus: nil, time: nil),
-            Event(title: "yooooo", type: types[3], date: date10, endDate: nil, consecutiveStatus: nil, time: "19:00")
+            Task(title: "吃飯", type: types[0], date: date1, endDate: nil, consecutiveStatus: nil, time: "12:00"),
+            Task(title: "睡覺", type: types[0], date: date2, endDate: nil, consecutiveStatus: nil, time: nil),
+            Task(title: "寫扣寫扣", type: types[1], date: date31, endDate: nil, consecutiveStatus: .first, time: nil),
+            Task(title: "寫扣寫扣", type: types[1], date: date32, endDate: nil, consecutiveStatus: .middle, time: nil),
+            Task(title: "寫扣寫扣", type: types[1], date: date33, endDate: nil, consecutiveStatus: .middle, time: nil),
+            Task(title: "寫扣寫扣", type: types[1], date: date34, endDate: nil, consecutiveStatus: .last, time: nil),
+            Task(title: "y", type: types[2], date: date5, endDate: nil, consecutiveStatus: nil, time: "20:30"),
+            Task(title: "yo", type: types[3], date: date6, endDate: nil, consecutiveStatus: nil, time: nil),
+            Task(title: "yoo", type: types[2], date: date7, endDate: nil, consecutiveStatus: nil, time: "19:00"),
+            Task(title: "yooo", type: types[4], date: date8, endDate: nil, consecutiveStatus: nil, time: nil),
+            Task(title: "yoooo", type: types[5], date: date9, endDate: nil, consecutiveStatus: nil, time: nil),
+            Task(title: "yooooo", type: types[3], date: date10, endDate: nil, consecutiveStatus: nil, time: "19:00")
         ]
 
         return events

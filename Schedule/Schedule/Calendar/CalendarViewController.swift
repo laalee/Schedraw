@@ -313,7 +313,8 @@ extension CalendarViewController: UICollectionViewDataSource {
         return calendarDates[section].count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: DayCollectionViewCell.self), for: indexPath)
@@ -324,8 +325,18 @@ extension CalendarViewController: UICollectionViewDataSource {
 
             dayCell.dayLabel.text = ""
 
-            return cell
+            dayCell.centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+            dayCell.secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
+            dayCell.thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
+            return dayCell
         }
+
+        let tasks = TaskManager.share.getTask(by: theDate)
+
+        dayCell.setTask(tasks: tasks)
 
         let theday = Calendar.current.component(.day, from: theDate)
 
@@ -334,7 +345,9 @@ extension CalendarViewController: UICollectionViewDataSource {
         return dayCell
     }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
 
         if kind == UICollectionView.elementKindSectionHeader {
 
@@ -367,6 +380,20 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         return UICollectionReusableView()
 
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+
+        guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
+            return
+        }
+
+        let task = TaskManager.share.getTask(by: theDate)
+
+        let theday = Calendar.current.component(.day, from: theDate)
+
+        print("theday: \(theday), task: \(task)")
     }
 
 }

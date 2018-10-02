@@ -24,7 +24,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func setEvent(event: Event?) {
+    func setEvent(event: Task?) {
         
         if let event = event {
 
@@ -75,7 +75,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func setBackgroundViews(type: String, event: Event) {
+    func setBackgroundViews(type: String, event: Task) {
 
         switch type {
         case "start":
