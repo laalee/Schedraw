@@ -20,43 +20,47 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
+    var task: Task?
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func setEvent(event: Task?) {
-        
-        if let event = event {
+    func setTask(task: Task?) {
 
-            if let status = event.consecutiveStatus {
+        self.task = task
+        
+        if let task = task {
+
+            if let status = task.consecutiveStatus {
 
                 switch status {
                 case .first:
-                    titleLabel.text = event.title
+                    titleLabel.text = task.title
                     timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = event.type.color.getColor()
+                    centerBackgroundView.backgroundColor = task.type.color.getColor()
                     leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-                    rightBackgroundView.backgroundColor = event.type.color.getColor()
+                    rightBackgroundView.backgroundColor = task.type.color.getColor()
 
                 case .middle:
                     titleLabel.text = ""
                     timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = event.type.color.getColor()
-                    leftBackgroundView.backgroundColor = event.type.color.getColor()
-                    rightBackgroundView.backgroundColor = event.type.color.getColor()
+                    centerBackgroundView.backgroundColor = task.type.color.getColor()
+                    leftBackgroundView.backgroundColor = task.type.color.getColor()
+                    rightBackgroundView.backgroundColor = task.type.color.getColor()
 
                 case .last:
                     titleLabel.text = ""
                     timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = event.type.color.getColor()
-                    leftBackgroundView.backgroundColor = event.type.color.getColor()
+                    centerBackgroundView.backgroundColor = task.type.color.getColor()
+                    leftBackgroundView.backgroundColor = task.type.color.getColor()
                     rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
                 }
             } else {
 
-                titleLabel.text = event.title
-                timeLabel.text = event.time
-                centerBackgroundView.backgroundColor = event.type.color.getColor()
+                titleLabel.text = task.title
+                timeLabel.text = task.time
+                centerBackgroundView.backgroundColor = task.type.color.getColor()
                 leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
                 rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
             }
@@ -75,23 +79,23 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func setBackgroundViews(type: String, event: Task) {
+    func setBackgroundViews(type: String, task: Task) {
 
         switch type {
         case "start":
-            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            centerBackgroundView.backgroundColor = task.type.color.getColor()
             leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-            rightBackgroundView.backgroundColor = event.type.color.getColor()
+            rightBackgroundView.backgroundColor = task.type.color.getColor()
         case "mid":
-            centerBackgroundView.backgroundColor = event.type.color.getColor()
-            leftBackgroundView.backgroundColor = event.type.color.getColor()
-            rightBackgroundView.backgroundColor = event.type.color.getColor()
+            centerBackgroundView.backgroundColor = task.type.color.getColor()
+            leftBackgroundView.backgroundColor = task.type.color.getColor()
+            rightBackgroundView.backgroundColor = task.type.color.getColor()
         case "end":
-            centerBackgroundView.backgroundColor = event.type.color.getColor()
-            leftBackgroundView.backgroundColor = event.type.color.getColor()
+            centerBackgroundView.backgroundColor = task.type.color.getColor()
+            leftBackgroundView.backgroundColor = task.type.color.getColor()
             rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
         default:
-            centerBackgroundView.backgroundColor = event.type.color.getColor()
+            centerBackgroundView.backgroundColor = task.type.color.getColor()
             leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
             rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
         }

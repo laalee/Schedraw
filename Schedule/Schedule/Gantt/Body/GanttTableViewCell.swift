@@ -147,13 +147,43 @@ class GanttTableViewCell: UITableViewCell {
 
         self.window?.rootViewController?.show(categoryViewController, sender: nil)
     }
+
+    func updateConsecutiveLabel() {
+
+
+//        guard let firstIndexPath = visibleIndexPath.min() else { return }
+//
+//        guard let item = dateCollectionView.cellForItem(at: firstIndexPath) as? DateCollectionViewCell else { return }
+//
+//        let itemMonth = item.getMonth()
+//
+//        if currentMonth != itemMonth {
+//
+//            currentMonth = itemMonth
+//
+//            monthLabel.text = currentMonth
+//        }
+//
+//        let itemYear = item.getYear()
+//
+//        if currentYear != itemYear {
+//
+//            currentYear = itemYear
+//
+//            NotificationCenter.default.post(
+//                name: NSNotification.Name("YEAR_CHANGED"),
+//                object: nil,
+//                userInfo: ["year": item.getYear()]
+//            )
+//        }
+    }
     
 }
 
 extension GanttTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("annie GanttTableViewCell numberOfCells: \(numberOfCells)")
+//        print("annie GanttTableViewCell numberOfCells: \(numberOfCells)")
         return numberOfCells
     }
 
@@ -171,7 +201,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         let event = getEvent(componentsDay: componentsDay)
 
-        eventCell.setEvent(event: event)
+        eventCell.setTask(task: event)
 
         return eventCell
     }
@@ -199,6 +229,24 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
 extension GanttTableViewCell: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        let visibleItem = itemCollectionView.visibleCells
+
+        for item in visibleItem {
+
+            guard let item = item as? ItemCollectionViewCell else { break }
+
+            guard let task = item.task else { break }
+
+            if let status = task.consecutiveStatus {
+
+                print(status)
+            }
+        }
+
+        updateConsecutiveLabel()
+    }
 }
 
 extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {

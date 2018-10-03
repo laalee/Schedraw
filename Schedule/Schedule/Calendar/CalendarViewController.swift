@@ -14,9 +14,17 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
 
-    @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var categorySelectorView: UIView!
 
-    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var dailyTaskView: UIView!
+
+    @IBOutlet weak var dailyTaskHeightConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var dailyTaskBottomConstraint: NSLayoutConstraint!
+
+    //    @IBOutlet weak var categoryPickerView: UIPickerView!
+
+//    @IBOutlet weak var buttonView: UIView!
 
     var currentMonthIndex: Int = 5
 
@@ -35,13 +43,19 @@ class CalendarViewController: UIViewController {
 
         getDates()
 
-        categoryPickerView.dataSource = self
+//        categoryPickerView.dataSource = self
 
-        categoryPickerView.delegate = self
+//        categoryPickerView.delegate = self
 
-        self.categoryPickerView.isHidden = true
+//        self.categoryPickerView.isHidden = true
 
-        self.buttonView.isHidden = true
+//        self.buttonView.isHidden = true
+
+        self.categorySelectorView.isHidden = true
+
+        dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height / 3
+
+        dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -273,32 +287,34 @@ class CalendarViewController: UIViewController {
 
     @IBAction func selectCategory(_ sender: Any) {
 
+        self.categorySelectorView.isHidden = false
+
         guard let parentView = self.parent?.view else { return }
-
+//
         pickerBackground = UIViewController.displayPicker(onView: parentView)
-
-        self.categoryPickerView.isHidden = false
-
-        self.buttonView.isHidden = false
+//
+//        self.categoryPickerView.isHidden = false
+//
+//        self.buttonView.isHidden = false
     }
-
-    @IBAction func catrgoryDidSelect(_ sender: Any) {
-
-        self.categoryPickerView.isHidden = true
-
-        self.buttonView.isHidden = true
-
-        UIViewController.removePicker(picker: pickerBackground)
-    }
-
-    @IBAction func cancelSelect(_ sender: Any) {
-
-        self.categoryPickerView.isHidden = true
-
-        self.buttonView.isHidden = true
-
-        UIViewController.removePicker(picker: pickerBackground)
-    }
+//
+//    @IBAction func catrgoryDidSelect(_ sender: Any) {
+//
+//        self.categoryPickerView.isHidden = true
+//
+//        self.buttonView.isHidden = true
+//
+//        UIViewController.removePicker(picker: pickerBackground)
+//    }
+//
+//    @IBAction func cancelSelect(_ sender: Any) {
+//
+//        self.categoryPickerView.isHidden = true
+//
+//        self.buttonView.isHidden = true
+//
+//        UIViewController.removePicker(picker: pickerBackground)
+//    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource {
@@ -383,6 +399,7 @@ extension CalendarViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         print(indexPath)
 
         guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
@@ -393,7 +410,27 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         let theday = Calendar.current.component(.day, from: theDate)
 
-        print("theday: \(theday), task: \(task)")
+        if task.count != 0 {
+
+            self.dailyTaskBottomConstraint.constant = 0
+
+            NotificationCenter.default.post(
+                name: NSNotification.Name("DAILY_TASK_UPDATE"),
+                object: nil,
+                userInfo: ["task": task]
+            )
+
+        } else {
+
+            self.dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
+        }
+
+        UIView.animate(withDuration: 0.5) {
+
+            self.view.layoutIfNeeded()
+        }
+
+//        print("theday: \(theday), task: \(task)")
     }
 
 }

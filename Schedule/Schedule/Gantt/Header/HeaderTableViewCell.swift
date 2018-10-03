@@ -178,7 +178,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 extension HeaderTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("annie HeaderTableViewCell numberOfCells: \(numberOfCells)")
+//        print("annie HeaderTableViewCell numberOfCells: \(numberOfCells)")
         return numberOfCells
     }
 
