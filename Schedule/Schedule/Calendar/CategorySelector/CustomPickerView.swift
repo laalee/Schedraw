@@ -14,7 +14,7 @@ extension UIViewController {
     class func displayPicker(onView: UIView) -> UIView {
 
         let size = CGSize(width: UIScreen.main.bounds.size.width,
-                          height: UIScreen.main.bounds.size.height - 260)
+                          height: UIScreen.main.bounds.size.height)
 
         let point = CGPoint(x: 0, y: 0)
 

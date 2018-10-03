@@ -88,8 +88,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="4hT-qt-OwL"/>
             <connections>
-                <outlet property="timeButton" destination="Fuf-oG-cEG" id="D3H-Su-wgw"/>
-                <outlet property="timeTextField" destination="QPv-ae-sQ9" id="r24-gh-oyS"/>
+                <outlet property="timingButton" destination="Fuf-oG-cEG" id="D3H-Su-wgw"/>
+                <outlet property="timingTextField" destination="QPv-ae-sQ9" id="r24-gh-oyS"/>
             </connections>
             <point key="canvasLocation" x="98" y="121"/>
         </tableViewCell>

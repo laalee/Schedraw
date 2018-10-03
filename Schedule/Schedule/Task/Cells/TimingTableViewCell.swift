@@ -10,9 +10,9 @@ import UIKit
 
 class TimingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var timingTextField: UITextField!
 
-    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet weak var timingButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

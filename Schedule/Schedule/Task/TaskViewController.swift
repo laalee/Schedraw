@@ -6,6 +6,8 @@
 //  Copyright © 2018年 laalee. All rights reserved.
 //
 
+//swiftlint:disable variable_name
+
 import UIKit
 
 class TaskViewController: UIViewController {
@@ -19,6 +21,10 @@ class TaskViewController: UIViewController {
     var category: EventType?
 
     var date: Date?
+
+    var pickerView: UIPickerView!
+
+    var alertController: UIAlertController?
 
     let identifiers = [
         String(describing: TaskTitleTableViewCell.self),
@@ -35,6 +41,8 @@ class TaskViewController: UIViewController {
         print(date!)
 
         setupTableView()
+
+        setupPickerAlert()
     }
 
     // MARK: Initialization
@@ -86,6 +94,57 @@ class TaskViewController: UIViewController {
         print("hahaha")
     }
 
+    func setupPickerAlert() {
+
+        pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+
+        alertController = UIAlertController(
+            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+
+        alertController?.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
+
+        alertController?.view.addSubview(pickerView)
+    }
+
+    @objc func showTimingPicker() {
+
+        pickerView.selectRow(12, inComponent: 0, animated: true)
+        pickerView.selectRow(30, inComponent: 1, animated: true)
+
+        let okAction = UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+
+            print("date select hh:" + String(self.pickerView.selectedRow(inComponent: 0)))
+            print("date select mm:" + String(self.pickerView.selectedRow(inComponent: 1)))
+
+        }
+
+        var flag = true
+
+        if let actions = alertController?.actions {
+
+            for action in actions where action.title == okAction.title {
+
+                flag = false
+            }
+        }
+
+        if flag {
+
+            alertController?.addAction(okAction)
+        }
+
+        if let timingAlertController = alertController {
+
+            self.show(timingAlertController, sender: nil)
+        }
+    }
+
 }
 
 extension TaskViewController: UITableViewDataSource {
@@ -115,6 +174,8 @@ extension TaskViewController: UITableViewDataSource {
         case 1:
             guard let timingCell = cell as? TimingTableViewCell else { return cell }
 
+            timingCell.timingButton.addTarget(self, action: #selector(showTimingPicker), for: .touchUpInside)
+
             return timingCell
 
         case 2:
@@ -137,5 +198,33 @@ extension TaskViewController: UITableViewDataSource {
 }
 
 extension TaskViewController: UITableViewDelegate {
+
+}
+
+extension TaskViewController: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
+        return 2
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+        if component == 0 {
+            return 24
+        }
+
+        return 60
+    }
+
+}
+
+extension TaskViewController: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+
+        return String(format: "%02d", row)
+    }
 
 }
