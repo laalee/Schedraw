@@ -32,25 +32,35 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Task Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-GY-gjS">
-                                        <rect key="frame" x="15" y="44" width="381" height="28.5"/>
+                                        <rect key="frame" x="15" y="44" width="356" height="28.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-WF-ZP0">
-                                        <rect key="frame" x="15" y="74.5" width="371" height="1"/>
+                                        <rect key="frame" x="15" y="74.5" width="381" height="1"/>
                                         <color key="backgroundColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="6a3-vd-l1v"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-UO-gWI">
+                                        <rect key="frame" x="371" y="46" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="IaL-yO-QCj"/>
+                                            <constraint firstAttribute="width" constant="25" id="znX-6e-Mhg"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="time_button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Uv9-WF-ZP0" firstAttribute="top" secondItem="dT3-GY-gjS" secondAttribute="bottom" constant="2" id="3R2-bA-bBZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="dT3-GY-gjS" secondAttribute="trailing" constant="15" id="DJi-IG-7ZQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="uTY-UO-gWI" secondAttribute="trailing" constant="15" id="3V6-jL-uSj"/>
+                                    <constraint firstItem="uTY-UO-gWI" firstAttribute="leading" secondItem="dT3-GY-gjS" secondAttribute="trailing" id="DJi-IG-7ZQ"/>
+                                    <constraint firstItem="uTY-UO-gWI" firstAttribute="centerY" secondItem="dT3-GY-gjS" secondAttribute="centerY" id="Je7-MB-kNW"/>
                                     <constraint firstItem="80e-nU-RUY" firstAttribute="leading" secondItem="5Kv-Cu-2Jk" secondAttribute="leading" constant="15" id="NJq-k8-0Zs"/>
-                                    <constraint firstAttribute="trailing" secondItem="Uv9-WF-ZP0" secondAttribute="trailing" constant="25" id="P0b-SV-Bmy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uv9-WF-ZP0" secondAttribute="trailing" constant="15" id="P0b-SV-Bmy"/>
                                     <constraint firstAttribute="bottom" secondItem="Uv9-WF-ZP0" secondAttribute="bottom" constant="20" id="bZQ-5d-sXj"/>
                                     <constraint firstItem="dT3-GY-gjS" firstAttribute="top" secondItem="80e-nU-RUY" secondAttribute="bottom" constant="7" id="e8s-d2-eMP"/>
                                     <constraint firstItem="Uv9-WF-ZP0" firstAttribute="leading" secondItem="dT3-GY-gjS" secondAttribute="leading" id="qbL-N4-oi0"/>
@@ -76,7 +86,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="32.799999999999997" y="156.52173913043478"/>
+            <connections>
+                <outlet property="contentTextField" destination="dT3-GY-gjS" id="R5n-dV-fdp"/>
+                <outlet property="timeButton" destination="uTY-UO-gWI" id="x6o-gr-6ec"/>
+                <outlet property="titleLabel" destination="80e-nU-RUY" id="NM1-zh-yCe"/>
+            </connections>
+            <point key="canvasLocation" x="32.799999999999997" y="155.62218890554723"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="time_button" width="512" height="512"/>
+    </resources>
 </document>

@@ -36,7 +36,7 @@ class Data {
 
     func gatTasks() -> [Task] {
 
-        let date1 = theDate(year: 2018, month: 10, days: 10, hour: 12, minute: 00)
+        let date1 = theDate(year: 2018, month: 10, days: 8, hour: 12, minute: 00)
         let date2 = theDate(year: 2018, month: 9, days: 28, hour: nil, minute: nil)
         let date31 = theDate(year: 2018, month: 9, days: 25, hour: nil, minute: nil)
         let date32 = theDate(year: 2018, month: 9, days: 26, hour: nil, minute: nil)

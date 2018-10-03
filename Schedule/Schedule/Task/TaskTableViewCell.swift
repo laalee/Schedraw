@@ -10,7 +10,14 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var contentTextField: UITextField!
+
+    @IBOutlet weak var timeButton: UIButton!
+    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
     }
 

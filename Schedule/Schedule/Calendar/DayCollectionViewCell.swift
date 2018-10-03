@@ -55,54 +55,54 @@ class DayCollectionViewCell: UICollectionViewCell {
 
             thirdCenterView.setCornerRadius(value: bigSize / 2)
         }
+    }
 
+    func setDayLabel(date: Date?) {
+
+        guard let theDate = date else {
+
+            self.dayLabel.text = ""
+
+            return
+        }
+
+        let theday = Calendar.current.component(.day, from: theDate)
+
+        self.dayLabel.text = String(theday)
     }
 
     func setTask(tasks: [Task]) {
 
         self.tasks = tasks
 
-        if tasks.count == 0 {
+        centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
-            centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
-            secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
-            thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        dayLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
-        } else if tasks.count == 1 {
+        for index in 0..<tasks.count {
 
-            centerBackgroundView.backgroundColor = tasks.first?.type.color.getColor()
+            if index == 0 {
 
-            secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                centerBackgroundView.backgroundColor = tasks[index].type.color.getColor()
 
-            thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
+                thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
+            } else if index == 1 {
+
+                secondCenterView.backgroundColor = tasks[index].type.color.getColor()
+
+            } else if index == 2 {
+
+                thirdCenterView.backgroundColor = tasks[index].type.color.getColor()
+            }
 
             dayLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-
-        } else {
-
-            for index in 0..<tasks.count {
-
-                if index == 0 {
-
-                    centerBackgroundView.backgroundColor = tasks[index].type.color.getColor()
-
-                    secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-                    thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-                } else if index == 1 {
-                    
-                    secondCenterView.backgroundColor = tasks[index].type.color.getColor()
-
-                } else if index == 2 {
-
-                    thirdCenterView.backgroundColor = tasks[index].type.color.getColor()
-                }
-
-                dayLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            }
         }
     }
 

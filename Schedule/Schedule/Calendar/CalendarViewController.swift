@@ -36,6 +36,8 @@ class CalendarViewController: UIViewController {
 
     var pickerBackground: UIView!
 
+    var dailyTaskIndex: IndexPath?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,9 +55,15 @@ class CalendarViewController: UIViewController {
 
         self.categorySelectorView.isHidden = true
 
-        dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height / 3
+        dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
         dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
+
+        dailyTaskView.layer.shadowColor = #colorLiteral(red: 0.741996612, green: 0.741996612, blue: 0.741996612, alpha: 1)
+        dailyTaskView.layer.shadowOpacity = 0.5
+        dailyTaskView.layer.shadowRadius = 5.0
+        dailyTaskView.layer.shadowOffset = CGSize(width: 0, height: 0 )
+        dailyTaskView.layer.masksToBounds = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -339,7 +347,7 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
 
-            dayCell.dayLabel.text = ""
+            dayCell.setDayLabel(date: nil)
 
             dayCell.centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
@@ -354,9 +362,7 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         dayCell.setTask(tasks: tasks)
 
-        let theday = Calendar.current.component(.day, from: theDate)
-
-        dayCell.dayLabel.text = String(theday)
+        dayCell.setDayLabel(date: theDate)
 
         return dayCell
     }
@@ -400,17 +406,15 @@ extension CalendarViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        print(indexPath)
-
         guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
             return
         }
 
         let task = TaskManager.share.getTask(by: theDate)
 
-        let theday = Calendar.current.component(.day, from: theDate)
+        if task.count != 0 && dailyTaskIndex != indexPath {
 
-        if task.count != 0 {
+            self.dailyTaskIndex = indexPath
 
             self.dailyTaskBottomConstraint.constant = 0
 
@@ -420,39 +424,56 @@ extension CalendarViewController: UICollectionViewDataSource {
                 userInfo: ["task": task]
             )
 
+            let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
+
+            if let item = calendarCollectionView.cellForItem(at: indexPath) {
+                self.calendarCollectionView.setContentOffset(
+                    CGPoint(x: 0, y: item.frame.origin.y - calendarCollectionView.contentInset.top),
+                    animated: true
+                )
+            }
+
         } else {
+
+            self.dailyTaskIndex = nil
 
             self.dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
         }
 
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
 
             self.view.layoutIfNeeded()
         }
-
-//        print("theday: \(theday), task: \(task)")
     }
 
 }
 
 extension CalendarViewController: UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let width = calendarCollectionView.frame.width / 7
 
         return CGSize(width: width, height: 50)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
 
         let width = calendarCollectionView.frame.width
 
@@ -469,7 +490,7 @@ extension CalendarViewController: UIScrollViewDelegate {
 
             addTopCells()
 
-        } else if scrollView.contentOffset.y > (scrollView.contentSize.height - UIScreen.main.bounds.size.height - 100) {
+        } else if scrollView.contentOffset.y > (scrollView.contentSize.height - UIScreen.main.bounds.height - 100) {
 
             addBottomCells()
         }

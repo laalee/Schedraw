@@ -14,6 +14,8 @@ class DailyTaskViewController: UIViewController {
 
     var tasks: [Task] = []
 
+    var date: String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +60,16 @@ class DailyTaskViewController: UIViewController {
 
             self.tasks = task
 
+            let dateFormatter = DateFormatter()
+
+            dateFormatter.locale = Locale(identifier: "en_US")
+
+            dateFormatter.dateFormat = "MMMM d, YYYY"
+
+            let date = dateFormatter.string(from: task[0].date)
+
+            self.date = date
+
             self.taskTableView.reloadData()
         }
     }
@@ -81,7 +93,12 @@ extension DailyTaskViewController: UITableViewDataSource {
 
         let task = tasks[indexPath.row]
 
-        taskCell.setView(title: task.title, subTitle: task.type.title, time: task.time, color: task.type.color.getColor())
+        taskCell.setView(
+            title: task.title,
+            subTitle: task.type.title,
+            time: task.time,
+            color: task.type.color.getColor()
+        )
 
         return taskCell
     }
@@ -95,7 +112,7 @@ extension DailyTaskViewController: UITableViewDataSource {
             return view
         }
 
-        headerView.setTitle(title: "Coming")
+        headerView.setTitle(title: date)
 
         return headerView
     }
