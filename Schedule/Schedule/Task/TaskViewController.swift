@@ -6,26 +6,35 @@
 //  Copyright © 2018年 laalee. All rights reserved.
 //
 
-//swiftlint:disable variable_name
-
 import UIKit
 
 class TaskViewController: UIViewController {
+
+    @IBOutlet weak var taskTableView: UITableView!
+
+    @IBOutlet weak var categoryLabel: UILabel!
+
+    @IBOutlet weak var dateButton: UIButton!
 
     var category: EventType?
 
     var date: Date?
 
-    let timePicker: UIPickerView = UIPickerView()
+    let identifiers = [
+        String(describing: TaskTitleTableViewCell.self),
+        String(describing: TimingTableViewCell.self),
+        String(describing: ConsecutiveTableViewCell.self),
+        String(describing: NotesTableViewCell.self),
+        String(describing: DeleteTableViewCell.self)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(category)
-        print(date)
+        print(category!)
+        print(date!)
 
-        timePicker.delegate = self
-        timePicker.dataSource = self
+        setupTableView()
     }
 
     // MARK: Initialization
@@ -48,14 +57,6 @@ class TaskViewController: UIViewController {
         return viewController
     }
 
-    @IBAction func addPickerView(_ sender: Any) {
-
-        timePicker.frame = CGRect(x: 0, y: 150, width: self.view.frame.width, height: 200)
-        timePicker.backgroundColor = .white
-
-        self.view.addSubview(timePicker)
-    }
-
     @IBAction func saveTask(_ sender: Any) {
 
         dismiss(animated: true, completion: nil)
@@ -66,44 +67,75 @@ class TaskViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-}
+    func setupTableView() {
 
-extension TaskViewController: UIPickerViewDataSource {
+        taskTableView.dataSource = self
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        taskTableView.delegate = self
 
-        return 2
-    }
+        for identifier in identifiers {
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
-        if component == 0 {
-            return 24
+            taskTableView.register(
+                UINib(nibName: identifier, bundle: nil),
+                forCellReuseIdentifier: identifier)
         }
-
-        return 60
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(format: "%02d", row)
-    }
+    @IBAction func dateButtonPressed(_ sender: Any) {
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        if component == 0 {
-
-            let minute = row
-            print("hour: \(minute)")
-
-        } else {
-
-            let second = row
-            print("minute: \(second)")
-        }
+        print("hahaha")
     }
 
 }
 
-extension TaskViewController: UIPickerViewDelegate {
+extension TaskViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: identifiers[indexPath.section], for: indexPath)
+
+        switch indexPath.section {
+
+        case 0:
+            guard let titleCell = cell as? TaskTitleTableViewCell else { return cell }
+
+            return titleCell
+
+        case 1:
+            guard let timingCell = cell as? TimingTableViewCell else { return cell }
+
+            return timingCell
+
+        case 2:
+            guard let consecutiveCell = cell as? ConsecutiveTableViewCell else { return cell }
+
+            return consecutiveCell
+
+        case 3:
+            guard let notesCell = cell as? NotesTableViewCell else { return cell }
+
+            return notesCell
+
+        default:
+            guard let deleteCell = cell as? DeleteTableViewCell else { return cell }
+
+            return deleteCell
+        }
+    }
+
+}
+
+extension TaskViewController: UITableViewDelegate {
 
 }

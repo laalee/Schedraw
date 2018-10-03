@@ -207,6 +207,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         print(indexPath)
 
         guard let selectedCategory = self.eventType else { return }
@@ -229,7 +230,9 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
 extension GanttTableViewCell: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
 
         let visibleItem = itemCollectionView.visibleCells
 
@@ -251,7 +254,9 @@ extension GanttTableViewCell: UICollectionViewDelegate {
 
 extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
