@@ -60,6 +60,7 @@
 		9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */; };
 		9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502E02153791C00701DA9 /* CalendarViewController.swift */; };
 		9BE1F7D9216640B600194FAF /* UIColor+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F7D8216640B600194FAF /* UIColor+AN.swift */; };
+		9BE1F7DB2166810700194FAF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F7DA2166810700194FAF /* Category.swift */; };
 		9BF12423215C7EC400AC1C6A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12422215C7EC400AC1C6A /* Task.swift */; };
 		9BF12425215C81AC00AC1C6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12424215C81AC00AC1C6A /* Data.swift */; };
 		9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12428215CE86300AC1C6A /* TaskViewController.swift */; };
@@ -123,6 +124,7 @@
 		9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStoryboard.swift; sourceTree = "<group>"; };
 		9BD502E02153791C00701DA9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		9BE1F7D8216640B600194FAF /* UIColor+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AN.swift"; sourceTree = "<group>"; };
+		9BE1F7DA2166810700194FAF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9BF12422215C7EC400AC1C6A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9BF12424215C81AC00AC1C6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9BF12428215CE86300AC1C6A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -168,8 +170,6 @@
 				9B0C6A18216502EF0055A7CD /* ConsecutiveTableViewCell.xib */,
 				9B0C6A1B216507C10055A7CD /* NotesTableViewCell.swift */,
 				9B0C6A1C216507C10055A7CD /* NotesTableViewCell.xib */,
-				9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */,
-				9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -181,6 +181,8 @@
 				9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */,
 				9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */,
 				9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */,
+				9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */,
+				9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -219,6 +221,7 @@
 				9BE1F7D8216640B600194FAF /* UIColor+AN.swift */,
 				9B17F50D2165E68900991C1E /* CategoryManager.swift */,
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
+				9BE1F7DA2166810700194FAF /* Category.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				9B0C6A15216501970055A7CD /* TimingTableViewCell.swift in Sources */,
 				9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */,
 				9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */,
+				9BE1F7DB2166810700194FAF /* Category.swift in Sources */,
 				9BE1F7D9216640B600194FAF /* UIColor+AN.swift in Sources */,
 				9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */,
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,

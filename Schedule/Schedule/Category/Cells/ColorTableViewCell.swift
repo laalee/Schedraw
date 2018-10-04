@@ -12,6 +12,18 @@ class ColorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var orangeButton: UIButton!
 
+    @IBOutlet weak var pinkButton: UIButton!
+
+    @IBOutlet weak var purpleButton: UIButton!
+
+    @IBOutlet weak var blueButton: UIButton!
+
+    @IBOutlet weak var yellowButton: UIButton!
+
+    @IBOutlet weak var greenButton: UIButton!
+
+    @IBOutlet weak var editView: UIView!
+
     var selectedColor: UIColor?
 
     var selectedButton: UIButton?
@@ -19,7 +31,35 @@ class ColorTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        editView.isHidden = true
+
         setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+    }
+
+    func updateView(color: UIColor, enabled: Bool) {
+
+        editView.isHidden = enabled
+
+        switch color {
+
+        case UIColor.ANColor.pink:
+            setSelectedButton(button: pinkButton, color: UIColor.ANColor.pink)
+
+        case UIColor.ANColor.purple:
+            setSelectedButton(button: purpleButton, color: UIColor.ANColor.purple)
+
+        case UIColor.ANColor.blue:
+            setSelectedButton(button: blueButton, color: UIColor.ANColor.blue)
+
+        case UIColor.ANColor.yellow:
+            setSelectedButton(button: yellowButton, color: UIColor.ANColor.yellow)
+
+        case UIColor.ANColor.green:
+            setSelectedButton(button: greenButton, color: UIColor.ANColor.green)
+
+        default:
+            setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+        }
     }
 
     @IBAction func orangeButtonPressed(_ sender: UIButton) {

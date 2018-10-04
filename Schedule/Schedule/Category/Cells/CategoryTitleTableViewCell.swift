@@ -16,6 +16,13 @@ class CategoryTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    func updateView(title: String?, enabled: Bool) {
+
+        titleTextField.text = title
+
+        titleTextField.isEnabled = enabled
+    }
+
 }
 
 extension CategoryTitleTableViewCell: CategoryDelegate {

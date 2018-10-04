@@ -25,26 +25,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-cg-QFq">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNc-xb-mCK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNc-xb-mCK">
                                         <rect key="frame" x="15" y="11.5" width="60" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="GeU-sb-xN2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="cancelPressed:" destination="n0B-dw-eRK" eventType="touchUpInside" id="Gs1-R8-mJg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-6t-Xdz">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-6t-Xdz">
                                         <rect key="frame" x="339" y="17.5" width="60" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="325-cM-SXJ"/>
                                             <constraint firstAttribute="height" constant="25" id="cXd-BA-0Me"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveCategory:" destination="n0B-dw-eRK" eventType="touchUpInside" id="HMb-CS-yxm"/>
@@ -56,15 +56,31 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE3-Ky-JEa">
+                                        <rect key="frame" x="339" y="17.5" width="60" height="25"/>
+                                        <color key="backgroundColor" red="0.97254901960784312" green="0.5607843137254902" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editCategory:" destination="n0B-dw-eRK" eventType="touchUpInside" id="v5l-VS-v0l"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.5607843137254902" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wNc-xb-mCK" firstAttribute="leading" secondItem="OqS-cg-QFq" secondAttribute="leading" constant="15" id="7y3-sc-ifD"/>
                                     <constraint firstItem="a0I-6t-Xdz" firstAttribute="centerY" secondItem="6WW-d7-A4M" secondAttribute="centerY" id="C6O-Hh-HWj"/>
+                                    <constraint firstItem="fE3-Ky-JEa" firstAttribute="leading" secondItem="a0I-6t-Xdz" secondAttribute="leading" id="NXa-aB-Iq0"/>
                                     <constraint firstItem="wNc-xb-mCK" firstAttribute="centerY" secondItem="OqS-cg-QFq" secondAttribute="centerY" id="WEB-PD-dCO"/>
+                                    <constraint firstItem="fE3-Ky-JEa" firstAttribute="top" secondItem="a0I-6t-Xdz" secondAttribute="top" id="e7r-Yh-hdL"/>
                                     <constraint firstItem="6WW-d7-A4M" firstAttribute="centerX" secondItem="OqS-cg-QFq" secondAttribute="centerX" id="eFH-vh-Rkg"/>
                                     <constraint firstAttribute="height" constant="60" id="gh3-zk-nIO"/>
+                                    <constraint firstItem="fE3-Ky-JEa" firstAttribute="trailing" secondItem="a0I-6t-Xdz" secondAttribute="trailing" id="iBF-Fd-9IQ"/>
                                     <constraint firstAttribute="trailing" secondItem="a0I-6t-Xdz" secondAttribute="trailing" constant="15" id="nAA-RN-8lD"/>
+                                    <constraint firstItem="fE3-Ky-JEa" firstAttribute="bottom" secondItem="a0I-6t-Xdz" secondAttribute="bottom" id="t9u-Ny-QJX"/>
                                     <constraint firstItem="6WW-d7-A4M" firstAttribute="centerY" secondItem="wNc-xb-mCK" secondAttribute="centerY" id="v5S-Dq-HD1"/>
                                 </constraints>
                             </view>
@@ -91,6 +107,8 @@
                     </view>
                     <connections>
                         <outlet property="categoryTableView" destination="bJd-Ws-fbi" id="uuS-6J-cNL"/>
+                        <outlet property="editButton" destination="fE3-Ky-JEa" id="XPN-Rz-DDl"/>
+                        <outlet property="pageTitleLabel" destination="6WW-d7-A4M" id="lHN-s7-zIa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TB-kE-ioj" userLabel="First Responder" sceneMemberID="firstResponder"/>

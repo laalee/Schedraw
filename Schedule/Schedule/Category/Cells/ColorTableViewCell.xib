@@ -153,6 +153,9 @@
                                             <constraint firstItem="a94-Z8-v0e" firstAttribute="width" secondItem="vCW-Eq-e5T" secondAttribute="width" id="uzg-qt-oLJ"/>
                                         </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5c-dm-VW7">
+                                        <rect key="frame" x="80.5" y="47.5" width="250" height="36"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -162,8 +165,12 @@
                                     <constraint firstItem="SHE-uH-rIy" firstAttribute="leading" secondItem="Ujt-NV-8MZ" secondAttribute="leading" id="Pbr-Ki-CCx"/>
                                     <constraint firstItem="B6J-er-43F" firstAttribute="top" secondItem="Ujt-NV-8MZ" secondAttribute="bottom" constant="6" id="Se0-t5-87I"/>
                                     <constraint firstItem="SHE-uH-rIy" firstAttribute="top" secondItem="B6J-er-43F" secondAttribute="bottom" constant="2" id="Tv5-tr-FQl"/>
+                                    <constraint firstItem="K5c-dm-VW7" firstAttribute="bottom" secondItem="B6J-er-43F" secondAttribute="bottom" id="aTb-CC-f6A"/>
+                                    <constraint firstItem="K5c-dm-VW7" firstAttribute="top" secondItem="B6J-er-43F" secondAttribute="top" id="bbJ-s5-NOC"/>
                                     <constraint firstAttribute="bottom" secondItem="SHE-uH-rIy" secondAttribute="bottom" constant="20" id="ftZ-AW-6Ci"/>
+                                    <constraint firstItem="K5c-dm-VW7" firstAttribute="leading" secondItem="B6J-er-43F" secondAttribute="leading" id="hCI-o9-zTg"/>
                                     <constraint firstItem="Ujt-NV-8MZ" firstAttribute="leading" secondItem="ytF-yx-OvY" secondAttribute="leading" constant="15" id="iyT-N2-r2D"/>
+                                    <constraint firstItem="K5c-dm-VW7" firstAttribute="trailing" secondItem="B6J-er-43F" secondAttribute="trailing" id="oSg-hE-mHD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -185,7 +192,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="sPC-mR-Boj"/>
             <connections>
+                <outlet property="blueButton" destination="XVR-jH-qEJ" id="CNl-PL-Zjz"/>
+                <outlet property="editView" destination="K5c-dm-VW7" id="ZwY-di-IJd"/>
+                <outlet property="greenButton" destination="LE4-vM-z3p" id="tPa-Sf-Rs7"/>
                 <outlet property="orangeButton" destination="vCW-Eq-e5T" id="yI3-4Q-WK6"/>
+                <outlet property="pinkButton" destination="TOS-aG-MQ7" id="4Cd-nq-Jbp"/>
+                <outlet property="purpleButton" destination="a94-Z8-v0e" id="t9s-KE-WEY"/>
+                <outlet property="yellowButton" destination="QuW-So-zPc" id="XjV-4p-zJq"/>
             </connections>
             <point key="canvasLocation" x="96.799999999999997" y="125.4872563718141"/>
         </tableViewCell>

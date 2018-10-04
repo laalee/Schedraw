@@ -24,7 +24,7 @@ class GanttTableViewCell: UITableViewCell {
 
     var events: [Task] = []
 
-    var eventType: EventType?
+    var category: CategoryMO?
 
     let currentDate = Date()
 
@@ -104,11 +104,11 @@ class GanttTableViewCell: UITableViewCell {
         itemCollectionView.register(uiNib, forCellWithReuseIdentifier: identifier)
     }
 
-    func setEventTitle(type: EventType?) {
+    func setCategoryTitle(category: CategoryMO?) {
 
-        self.eventType = type
+        self.category = category
 
-        tableViewTitleLabel.text = type?.title
+        tableViewTitleLabel.text = category?.title
     }
 
     func getEvent(componentsDay: Int) -> Task? {
@@ -141,15 +141,14 @@ class GanttTableViewCell: UITableViewCell {
 
     @objc func tapAction() {
 
-        let selectedCategory: EventType? = self.eventType
+        let selectedCategory: CategoryMO? = self.category
 
-        let categoryViewController = CategoryViewController.detailViewControllerForCategory(eventType: selectedCategory)
+        let categoryViewController = CategoryViewController.detailViewControllerForCategory(category: selectedCategory)
 
         self.window?.rootViewController?.show(categoryViewController, sender: nil)
     }
 
     func updateConsecutiveLabel() {
-
 
 //        guard let firstIndexPath = visibleIndexPath.min() else { return }
 //
@@ -210,7 +209,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         print(indexPath)
 
-        guard let selectedCategory = self.eventType else { return }
+        guard let selectedCategory = self.category else { return }
 
         guard let theDelegate = theDelegate else { return }
 

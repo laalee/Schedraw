@@ -102,11 +102,6 @@ class GanttViewController: UIViewController {
 
                 self.categorys = categorys
 
-                for category in categorys {
-
-                    print(category.title)
-                }
-
             }, failure: {
 
             // TODO
@@ -117,7 +112,7 @@ class GanttViewController: UIViewController {
 
         let tableViewHeight = Int(ganttTableView.frame.size.height)
 
-        self.emptyRows = (tableViewHeight / 50) - datas.count
+        self.emptyRows = (tableViewHeight / 50) - categorys.count
 
         if emptyRows <= 0 {
 
@@ -137,7 +132,7 @@ extension GanttViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return types.count + emptyRows
+        return categorys.count + emptyRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,19 +144,19 @@ extension GanttViewController: UITableViewDataSource {
             return cell
         }
 
-        if indexPath.row < types.count {
+        if indexPath.row < categorys.count {
 
-            ganttCell.setEventTitle(type: types[indexPath.row])
+            ganttCell.setCategoryTitle(category: categorys[indexPath.row])
             ganttCell.events = datas[indexPath.row]
             ganttCell.addButton.isHidden = true
             ganttCell.tableViewTitleLabel.isHidden = false
 
         } else {
 
-            ganttCell.setEventTitle(type: nil)
+            ganttCell.setCategoryTitle(category: nil)
             ganttCell.events = []
-            ganttCell.addButton.isHidden = indexPath.row != types.count
-            ganttCell.tableViewTitleLabel.isHidden = indexPath.row != types.count
+            ganttCell.addButton.isHidden = indexPath.row != categorys.count
+            ganttCell.tableViewTitleLabel.isHidden = indexPath.row != categorys.count
         }
 
         ganttCell.theDelegate = self

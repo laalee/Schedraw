@@ -17,7 +17,11 @@ class CategoryViewController: UIViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
 
-    let identifiers = [
+    @IBOutlet weak var pageTitleLabel: UILabel!
+
+    @IBOutlet weak var editButton: UIButton!
+
+    var identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
         String(describing: ColorTableViewCell.self)
     ]
@@ -26,9 +30,9 @@ class CategoryViewController: UIViewController {
 
     weak var colorDelegate: CategoryDelegate?
 
-    var eventType: EventType?
-
     var category: CategoryMO?
+
+    var newCategory: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +42,7 @@ class CategoryViewController: UIViewController {
 
     // MARK: Initialization
 
-    class func detailViewControllerForCategory(eventType: EventType?) -> CategoryViewController {
+    class func detailViewControllerForCategory(category: CategoryMO?) -> CategoryViewController {
 
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
 
@@ -49,7 +53,7 @@ class CategoryViewController: UIViewController {
                 return CategoryViewController()
         }
 
-        viewController.eventType = eventType
+        viewController.category = category
 
         return viewController
     }
@@ -79,13 +83,29 @@ class CategoryViewController: UIViewController {
 
         guard let newColor = colorDelegate?.getContent() as? UIColor else { return }
 
-        let newId = CategoryManager.share.numberOfCategory() + 1
+        if newCategory {
 
-        CategoryManager.share.setCategory(id: newId, title: newTitle, color: newColor)
+            let newId = CategoryManager.share.numberOfCategory() + 1
+
+            CategoryManager.share.addCategory(id: newId, title: newTitle, color: newColor)
+        }
 
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func editCategory(_ sender: UIButton) {
+
+        self.newCategory = false
+
+        self.editButton.isHidden = true
+
+        identifiers.append(String(describing: DeleteTableViewCell.self))
+
+        setupTableView()
+
+        categoryTableView.reloadData()
+    }
+    
     @IBAction func cancelPressed(_ sender: Any) {
 
         dismiss(animated: true, completion: nil)
@@ -131,6 +151,24 @@ extension CategoryViewController: UITableViewDataSource {
 
             self.titleDelegate = titleCell
 
+            guard let category = self.category else {
+
+                self.editButton.isHidden = true
+
+                return titleCell
+            }
+
+            if editButton.isHidden {
+
+                titleCell.updateView(title: category.title, enabled: true)
+
+            } else {
+
+                titleCell.updateView(title: category.title, enabled: false)
+
+                self.pageTitleLabel.text = category.title
+            }
+
             return titleCell
 
         case 1:
@@ -138,10 +176,25 @@ extension CategoryViewController: UITableViewDataSource {
 
             self.colorDelegate = colorCell
 
+            guard let category = self.category else { return colorCell }
+
+            guard let color = category.color as? UIColor else { return colorCell}
+
+            if editButton.isHidden {
+
+                colorCell.updateView(color: color, enabled: true)
+
+            } else {
+
+                colorCell.updateView(color: color, enabled: false)
+            }
+
             return colorCell
 
         default:
             guard let deleteCell = cell as? DeleteTableViewCell else { return cell }
+
+            deleteCell.delegate = self
 
             return deleteCell
         }
@@ -150,5 +203,20 @@ extension CategoryViewController: UITableViewDataSource {
 }
 
 extension CategoryViewController: UITableViewDelegate {
+
+}
+
+extension CategoryViewController: DeleteDelegate {
+
+    func deleteObject() {
+
+        guard let category = self.category else { return }
+
+        let id = Int(category.id)
+
+        CategoryManager.share.deleteCategory(id: id)
+
+        dismiss(animated: true, completion: nil)
+    }
 
 }

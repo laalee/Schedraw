@@ -31,14 +31,7 @@ struct EventType {
     var color: TypeColor
 }
 
-struct Category {
 
-    let id: Int
-
-    var title: String
-
-    var color: UIColor
-}
 
 enum ConsecutiveStatus {
 

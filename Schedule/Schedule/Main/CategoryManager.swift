@@ -15,11 +15,16 @@ class CategoryManager {
 
     let dataProvider = CoreDataProvider()
 
-    func setCategory(id: Int, title: String, color: UIColor) {
+    func addCategory(id: Int, title: String, color: UIColor) {
 
         let category = Category(id: id, title: title, color: color)
 
         dataProvider.addCategory(category: category)
+    }
+
+    func deleteCategory(id: Int) {
+
+        dataProvider.deleteCategory(id: id)
     }
 
     func getAllCategory(

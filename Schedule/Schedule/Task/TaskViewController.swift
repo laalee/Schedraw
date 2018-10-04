@@ -18,7 +18,7 @@ class TaskViewController: UIViewController {
 
     @IBOutlet weak var dateButton: UIButton!
 
-    var category: EventType?
+    var category: CategoryMO?
 
     var date: Date?
 
@@ -47,7 +47,7 @@ class TaskViewController: UIViewController {
 
     // MARK: Initialization
 
-    class func detailViewControllerForTask(category: EventType?, date: Date?) -> TaskViewController {
+    class func detailViewControllerForTask(category: CategoryMO?, date: Date?) -> TaskViewController {
 
         let storyboard = UIStoryboard(name: "Task", bundle: nil)
 
