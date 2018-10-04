@@ -20,6 +20,10 @@
 		9B0C6A22216509B10055A7CD /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */; };
 		9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */; };
 		9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA52421634FE500369FF1 /* TaskManager.swift */; };
+		9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */; };
+		9B17F5072165BAF100991C1E /* CategoryTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */; };
+		9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */; };
+		9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */; };
 		9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD236216370540021EA27 /* UIView+AN.swift */; };
 		9B7AD2392163D6330021EA27 /* DailyTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */; };
 		9B7AD23B2163D8620021EA27 /* CategorySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD23A2163D8620021EA27 /* CategorySelectorViewController.swift */; };
@@ -74,6 +78,10 @@
 		9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		9B0DA52421634FE500369FF1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTitleTableViewCell.swift; sourceTree = "<group>"; };
+		9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTitleTableViewCell.xib; sourceTree = "<group>"; };
+		9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		9B7AD236216370540021EA27 /* UIView+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AN.swift"; sourceTree = "<group>"; };
 		9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskViewController.swift; sourceTree = "<group>"; };
 		9B7AD23A2163D8620021EA27 /* CategorySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectorViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +168,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9B17F50C2165BE5F00991C1E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */,
+				9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */,
+				9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */,
+				9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9B7AD23C2163DA910021EA27 /* DailyTask */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +252,7 @@
 			children = (
 				9BAF763C215E23AE00101BBA /* Category.storyboard */,
 				9BAF763F215E9F7900101BBA /* CategoryViewController.swift */,
+				9B17F50C2165BE5F00991C1E /* Cells */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -373,12 +393,14 @@
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
+				9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */,
 				9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */,
 				9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */,
 				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
 				9B0C6A16216501970055A7CD /* TimingTableViewCell.xib in Resources */,
 				9B7AD24521644C390021EA27 /* DailyHeaderTableViewCell.xib in Resources */,
 				9B0C6A1A216502EF0055A7CD /* ConsecutiveTableViewCell.xib in Resources */,
+				9B17F5072165BAF100991C1E /* CategoryTitleTableViewCell.xib in Resources */,
 				9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */,
 				9BAF7644215F3C5300101BBA /* Setting.storyboard in Resources */,
 				9BB5D5E62151FDD8005F225C /* Assets.xcassets in Resources */,
@@ -444,9 +466,11 @@
 				9BD502D52153445200701DA9 /* GanttViewController.swift in Sources */,
 				9B7AD24421644C390021EA27 /* DailyHeaderTableViewCell.swift in Sources */,
 				9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */,
+				9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */,
 				9BAF7646215F55DC00101BBA /* SettingViewController.swift in Sources */,
 				9BF12423215C7EC400AC1C6A /* Task.swift in Sources */,
 				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
+				9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */,
 				9BAF7656215F8BC100101BBA /* MonthCollectionViewCell.swift in Sources */,
 				9BAF7652215F85D000101BBA /* DayCollectionViewCell.swift in Sources */,
 				9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */,

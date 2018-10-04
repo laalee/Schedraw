@@ -12,8 +12,8 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     @IBOutlet weak var consecutiveButton: UIButton!
 
-    @IBOutlet weak var endDateLabel: UILabel!
-    
+    @IBOutlet weak var lastDateButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

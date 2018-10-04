@@ -24,6 +24,8 @@ class TaskViewController: UIViewController {
 
     var pickerView: UIPickerView!
 
+    var datePicker: UIDatePicker!
+
     var pickerType: PickerAlertType = .timing
 
     let identifiers = [
@@ -89,7 +91,31 @@ class TaskViewController: UIViewController {
 
     @IBAction func dateButtonPressed(_ sender: Any) {
 
-        print("hahaha")
+        datePicker = UIDatePicker(frame: CGRect(
+            x: 0, y: 0,
+            width: UIScreen.main.bounds.width - 5, height: 250))
+
+        datePicker.datePickerMode = .date
+
+        datePicker.date = Date()
+
+        datePicker.locale = Locale(identifier: "en_US")
+
+        let alertController: UIAlertController = UIAlertController(
+            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+
+        alertController.addAction(UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+
+            print(self.datePicker.date)
+        })
+
+        alertController.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        alertController.view.addSubview(datePicker)
+
+        self.show(alertController, sender: nil)
     }
 
     @objc func showTimingPicker() {
@@ -101,10 +127,6 @@ class TaskViewController: UIViewController {
         pickerView.dataSource = self
 
         pickerView.delegate = self
-
-        pickerView.selectRow(12, inComponent: 0, animated: true)
-
-        pickerView.selectRow(30, inComponent: 1, animated: true)
 
         pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
 
@@ -135,8 +157,6 @@ class TaskViewController: UIViewController {
         pickerView.dataSource = self
 
         pickerView.delegate = self
-
-        pickerView.selectRow(0, inComponent: 0, animated: true)
 
         pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
 
@@ -197,6 +217,9 @@ extension TaskViewController: UITableViewDataSource {
             consecutiveCell.consecutiveButton.addTarget(self,
                 action: #selector(showConsecutivePicker), for: .touchUpInside)
 
+            consecutiveCell.lastDateButton.addTarget(self,
+                action: #selector(dateButtonPressed), for: .touchUpInside)
+
             return consecutiveCell
 
         case 3:
@@ -236,7 +259,7 @@ extension TaskViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
                     forComponent component: Int) -> String? {
 
-        return String(format: "%02d", row)
+        return pickerType.titleForRowFormat(row: row)
     }
 
 }
@@ -244,26 +267,53 @@ extension TaskViewController: UIPickerViewDelegate {
 enum PickerAlertType {
     case timing
     case consecutive
-    case date
 
     func numberOfComponents() -> Int {
+
         switch self {
+
         case .timing: return 2
+
         case .consecutive: return 1
-        case .date: return 1
         }
     }
 
     func numberOfRowsInComponent(component: Int) -> Int {
+
         switch self {
+
         case .timing:
+
             if component == 0 {
+
                 return 24
+
             } else {
+
                 return 60
             }
+
         case .consecutive: return 999
-        case .date: return 1
         }
     }
+
+    func titleForRowFormat(row: Int) -> String {
+
+        switch self {
+
+        case .timing: return String(format: "%02d", row)
+
+        case .consecutive: return String(format: "%d", row + 1)
+        }
+    }
+
+//    func plusRows() -> Int {
+//
+//        switch self {
+//
+//        case .timing: return 0
+//
+//        case .consecutive: return 1
+//        }
+//    }
 }

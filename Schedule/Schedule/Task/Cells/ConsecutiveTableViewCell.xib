@@ -43,21 +43,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="1fn-aC-6ad"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
                                         <state key="normal" title="1 Day">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Q2-Spc">
                                         <rect key="frame" x="116" y="44.5" width="14" height="22"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, 28 Sep 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldW-ty-nL5">
-                                        <rect key="frame" x="135" y="42" width="228" height="24.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wre-8r-tg3">
@@ -67,15 +61,22 @@
                                             <constraint firstAttribute="height" constant="1" id="RyA-NN-Kqd"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBF-6R-m2C">
+                                        <rect key="frame" x="135" y="38.5" width="228" height="28"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
+                                        <state key="normal" title="Friday, 28 Sep 2018">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="9d0-tI-bxU" firstAttribute="top" secondItem="G9r-31-YUQ" secondAttribute="bottom" constant="7" id="7GR-8y-mCq"/>
-                                    <constraint firstAttribute="trailing" secondItem="ldW-ty-nL5" secondAttribute="trailing" constant="15" id="AFz-JO-znC"/>
                                     <constraint firstItem="Clm-Q2-Spc" firstAttribute="leading" secondItem="yGD-yI-L1o" secondAttribute="trailing" constant="5" id="FwX-3E-mdT"/>
                                     <constraint firstItem="yGD-yI-L1o" firstAttribute="top" secondItem="Clm-Q2-Spc" secondAttribute="bottom" id="HeY-9p-EXb"/>
                                     <constraint firstItem="G9r-31-YUQ" firstAttribute="top" secondItem="XwO-8K-8oo" secondAttribute="top" constant="10" id="IWB-h1-ddi"/>
                                     <constraint firstItem="9d0-tI-bxU" firstAttribute="leading" secondItem="G9r-31-YUQ" secondAttribute="leading" id="LtZ-th-M77"/>
+                                    <constraint firstItem="VBF-6R-m2C" firstAttribute="bottom" secondItem="9d0-tI-bxU" secondAttribute="bottom" id="NMs-rI-U9m"/>
                                     <constraint firstItem="Wre-8r-tg3" firstAttribute="centerY" secondItem="yGD-yI-L1o" secondAttribute="centerY" id="O9v-p5-T9W"/>
                                     <constraint firstAttribute="trailing" secondItem="Wre-8r-tg3" secondAttribute="trailing" constant="15" id="Obr-2F-V3s"/>
                                     <constraint firstItem="G9r-31-YUQ" firstAttribute="leading" secondItem="XwO-8K-8oo" secondAttribute="leading" constant="15" id="Phk-W2-xzj"/>
@@ -83,10 +84,11 @@
                                     <constraint firstAttribute="bottom" secondItem="yGD-yI-L1o" secondAttribute="bottom" constant="20" id="Z0L-sD-3SY"/>
                                     <constraint firstItem="Wre-8r-tg3" firstAttribute="leading" secondItem="Clm-Q2-Spc" secondAttribute="trailing" constant="5" id="bP2-Ar-Eap"/>
                                     <constraint firstItem="yGD-yI-L1o" firstAttribute="leading" secondItem="9d0-tI-bxU" secondAttribute="leading" id="gn3-nh-fyj"/>
+                                    <constraint firstItem="VBF-6R-m2C" firstAttribute="top" secondItem="9d0-tI-bxU" secondAttribute="top" id="jsW-QP-Bzd"/>
+                                    <constraint firstItem="VBF-6R-m2C" firstAttribute="trailing" secondItem="Wre-8r-tg3" secondAttribute="trailing" id="r07-c7-S2g"/>
+                                    <constraint firstItem="VBF-6R-m2C" firstAttribute="leading" secondItem="Wre-8r-tg3" secondAttribute="leading" id="ryl-8l-dr1"/>
                                     <constraint firstItem="Clm-Q2-Spc" firstAttribute="centerX" secondItem="XwO-8K-8oo" secondAttribute="centerX" multiplier="0.65" id="u1q-Rh-Q2A"/>
-                                    <constraint firstItem="ldW-ty-nL5" firstAttribute="leading" secondItem="Wre-8r-tg3" secondAttribute="leading" id="v8y-G0-YlH"/>
                                     <constraint firstItem="Clm-Q2-Spc" firstAttribute="leading" secondItem="9d0-tI-bxU" secondAttribute="trailing" constant="5" id="wPI-la-Zsv"/>
-                                    <constraint firstItem="ldW-ty-nL5" firstAttribute="bottom" secondItem="Clm-Q2-Spc" secondAttribute="bottom" id="xGm-bY-jPN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,7 +111,7 @@
             <viewLayoutGuide key="safeArea" id="Awo-OU-oGn"/>
             <connections>
                 <outlet property="consecutiveButton" destination="9d0-tI-bxU" id="lFA-kO-Kfq"/>
-                <outlet property="endDateLabel" destination="ldW-ty-nL5" id="xZf-kv-L7D"/>
+                <outlet property="lastDateButton" destination="VBF-6R-m2C" id="Yyg-CO-gLO"/>
             </connections>
             <point key="canvasLocation" x="-9.5999999999999996" y="88.15592203898052"/>
         </tableViewCell>
