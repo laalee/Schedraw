@@ -17,3 +17,21 @@ class CategoryTitleTableViewCell: UITableViewCell {
     }
 
 }
+
+extension CategoryTitleTableViewCell: CategoryDelegate {
+
+    func getContent() -> Any? {
+
+        var title = titleTextField.text
+
+        title = title?.trimmingCharacters(in: .whitespaces)
+
+        if title == "" {
+            
+            return nil
+        }
+
+        return title
+    }
+
+}

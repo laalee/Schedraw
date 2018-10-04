@@ -47,12 +47,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vCW-Eq-e5T" secondAttribute="height" multiplier="1:1" id="LQj-He-XRI"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="orangeButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="nHt-AZ-ZIL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-aG-MQ7">
                                                 <rect key="frame" x="43" y="0.0" width="35.5" height="36"/>
@@ -60,12 +64,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="TOS-aG-MQ7" secondAttribute="height" multiplier="1:1" id="E8U-D2-CqC"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="pinkButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="OcY-2C-nvM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a94-Z8-v0e">
                                                 <rect key="frame" x="85.5" y="0.0" width="36" height="36"/>
@@ -73,12 +81,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="a94-Z8-v0e" secondAttribute="height" multiplier="1:1" id="zem-0a-vSs"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="purpleButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="iEk-qf-DNY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVR-jH-qEJ">
                                                 <rect key="frame" x="128.5" y="0.0" width="36" height="36"/>
@@ -86,12 +98,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="XVR-jH-qEJ" secondAttribute="height" multiplier="1:1" id="SYo-7O-To6"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="blueButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="oDZ-4N-Kna"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuW-So-zPc">
                                                 <rect key="frame" x="171.5" y="0.0" width="35.5" height="36"/>
@@ -99,12 +115,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="QuW-So-zPc" secondAttribute="height" multiplier="1:1" id="bKI-s9-FzC"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="yellowButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="ptT-iM-Nn7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-vM-z3p">
                                                 <rect key="frame" x="214" y="0.0" width="36" height="36"/>
@@ -112,12 +132,16 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="LE4-vM-z3p" secondAttribute="height" multiplier="1:1" id="o45-3m-qjK"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="selected" image="checkmark"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="greenButtonPressed:" destination="CQ2-oL-pQW" eventType="touchUpInside" id="Fb2-wm-5vu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -160,7 +184,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="sPC-mR-Boj"/>
+            <connections>
+                <outlet property="orangeButton" destination="vCW-Eq-e5T" id="yI3-4Q-WK6"/>
+            </connections>
             <point key="canvasLocation" x="96.799999999999997" y="125.4872563718141"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark" width="50" height="50"/>
+    </resources>
 </document>

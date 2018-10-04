@@ -8,17 +8,27 @@
 
 import UIKit
 
+protocol CategoryDelegate: AnyObject {
+
+    func getContent() -> Any?
+}
+
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
 
     let identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
-        String(describing: ColorTableViewCell.self),
-        String(describing: DeleteTableViewCell.self)
+        String(describing: ColorTableViewCell.self)
     ]
-    
+
+    weak var titleDelegate: CategoryDelegate?
+
+    weak var colorDelegate: CategoryDelegate?
+
     var eventType: EventType?
+
+    var category: CategoryMO?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +70,40 @@ class CategoryViewController: UIViewController {
 
     @IBAction func saveCategory(_ sender: Any) {
 
+        guard let newTitle = titleDelegate?.getContent() as? String else {
+
+            showToast()
+
+            return
+        }
+
+        guard let newColor = colorDelegate?.getContent() as? UIColor else { return }
+
+        let newId = CategoryManager.share.numberOfCategory() + 1
+
+        CategoryManager.share.setCategory(id: newId, title: newTitle, color: newColor)
+
         dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelPressed(_ sender: Any) {
 
         dismiss(animated: true, completion: nil)
+    }
+
+    func showToast() {
+
+        let alertToast = UIAlertController(
+            title: "Save failed!",
+            message: "Title should not be blank.",
+            preferredStyle: .alert
+        )
+
+        present(alertToast, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            alertToast.dismiss(animated: false, completion: nil)
+        }
     }
 
 }
@@ -91,10 +129,14 @@ extension CategoryViewController: UITableViewDataSource {
         case 0:
             guard let titleCell = cell as? CategoryTitleTableViewCell else { return cell }
 
+            self.titleDelegate = titleCell
+
             return titleCell
 
         case 1:
             guard let colorCell = cell as? ColorTableViewCell else { return cell }
+
+            self.colorDelegate = colorCell
 
             return colorCell
 

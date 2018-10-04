@@ -27,6 +27,8 @@ class GanttViewController: UIViewController {
 
     var emptyRows: Int = 0
 
+    var categorys: [CategoryMO] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -94,6 +96,21 @@ class GanttViewController: UIViewController {
             let array = events.filter { $0.type.title == type.title }
             datas.append(array)
         }
+
+        CategoryManager.share.getAllCategory(
+            success: { (categorys) in
+
+                self.categorys = categorys
+
+                for category in categorys {
+
+                    print(category.title)
+                }
+
+            }, failure: {
+
+            // TODO
+        })
     }
 
     func updateEmptyCells() {
