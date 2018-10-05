@@ -22,16 +22,16 @@ class CategoryManager {
         dataProvider.addCategory(category: category)
     }
 
-    func deleteCategory(id: Int) {
+    func updateCategory(categoryMO: CategoryMO, title: String, color: UIColor) {
 
-        dataProvider.deleteCategory(id: id)
+        let category = Category(id: Int(categoryMO.id), title: title, color: color)
+
+        dataProvider.updateCategory(categoryMO: categoryMO, category: category)
     }
 
-    func updateCategory(id: Int, title: String, color: UIColor) {
+    func deleteCategory(categoryMO: CategoryMO) {
 
-        let category = Category(id: id, title: title, color: color)
-
-        dataProvider.updateCategory(category: category)
+        dataProvider.deleteCategory(categoryMO: categoryMO)
     }
 
     func getAllCategory(

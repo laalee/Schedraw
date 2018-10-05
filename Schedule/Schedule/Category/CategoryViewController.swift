@@ -91,9 +91,18 @@ class CategoryViewController: UIViewController {
 
         } else {
 
-            guard let id = category?.id else { return }
+//            category?.title = newTitle
+//
+//            category?.color = newColor
+//
+//            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//
+//                appDelegate.saveContext()
+//            }
 
-            CategoryManager.share.updateCategory(id: Int(id), title: newTitle, color: newColor)
+            guard let category = category else { return }
+
+            CategoryManager.share.updateCategory(categoryMO: category, title: newTitle, color: newColor)
         }
 
         dismiss(animated: true, completion: nil)
@@ -224,9 +233,9 @@ extension CategoryViewController: DeleteDelegate {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            let id = Int(category.id)
+//            let id = Int(category.id)
 
-            CategoryManager.share.deleteCategory(id: id)
+            CategoryManager.share.deleteCategory(categoryMO: category)
 
             self.dismiss(animated: true, completion: nil)
         })

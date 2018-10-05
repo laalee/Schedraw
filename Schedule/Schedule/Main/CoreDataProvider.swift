@@ -34,80 +34,27 @@ class CoreDataProvider {
         }
     }
 
-    func deleteCategory(id: Int) {
-
-        let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
-
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
+    func updateCategory(categoryMO: CategoryMO, category: Category) {
 
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
 
-            let context = appDelegate.persistentContainer.viewContext
+            categoryMO.title = category.title
 
-            fetchResultController = NSFetchedResultsController(
-                fetchRequest: fetchRequest,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil, cacheName: nil)
+            categoryMO.color = category.color
 
-            fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-            do {
-                try fetchResultController.performFetch()
-
-                if let fetchedObjects = fetchResultController.fetchedObjects {
-
-                    for index in 0..<fetchedObjects.count {
-                        
-                        context.delete(fetchedObjects[index])
-                    }
-
-                    appDelegate.saveContext()
-                }
-            } catch {
-                print(error)
-            }
+            appDelegate.saveContext()
         }
     }
 
-    func updateCategory(category: Category) {
-
-        let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
-
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        fetchRequest.predicate = NSPredicate(format: "id == %i", category.id)
+    func deleteCategory(categoryMO: CategoryMO) {
 
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
 
             let context = appDelegate.persistentContainer.viewContext
 
-            fetchResultController = NSFetchedResultsController(
-                fetchRequest: fetchRequest,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil, cacheName: nil)
+            context.delete(categoryMO)
 
-            fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-            do {
-                try fetchResultController.performFetch()
-
-                if let fetchedObjects = fetchResultController.fetchedObjects {
-
-                    fetchedObjects.first?.title = category.title
-
-                    fetchedObjects.first?.color = category.color
-
-                    appDelegate.saveContext()
-                }
-            } catch {
-                print(error)
-            }
+            appDelegate.saveContext()
         }
     }
 
