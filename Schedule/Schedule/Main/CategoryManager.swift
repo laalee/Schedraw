@@ -27,6 +27,13 @@ class CategoryManager {
         dataProvider.deleteCategory(id: id)
     }
 
+    func updateCategory(id: Int, title: String, color: UIColor) {
+
+        let category = Category(id: id, title: title, color: color)
+
+        dataProvider.updateCategory(category: category)
+    }
+
     func getAllCategory(
         success: ([CategoryMO]) -> Void,
         failure: () -> Void

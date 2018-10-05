@@ -73,6 +73,44 @@ class CoreDataProvider {
         }
     }
 
+    func updateCategory(category: Category) {
+
+        let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
+
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        fetchRequest.predicate = NSPredicate(format: "id == %i", category.id)
+
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+
+            let context = appDelegate.persistentContainer.viewContext
+
+            fetchResultController = NSFetchedResultsController(
+                fetchRequest: fetchRequest,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil, cacheName: nil)
+
+            fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
+
+            do {
+                try fetchResultController.performFetch()
+
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+
+                    fetchedObjects.first?.title = category.title
+
+                    fetchedObjects.first?.color = category.color
+
+                    appDelegate.saveContext()
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+
     func fetchAllCategory(
         success: ([CategoryMO]) -> Void,
         failure: () -> Void

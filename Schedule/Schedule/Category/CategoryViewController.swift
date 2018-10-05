@@ -10,7 +10,7 @@ import UIKit
 
 protocol CategoryDelegate: AnyObject {
 
-    func getContent() -> Any?
+    func getContent<T>() -> T?
 }
 
 class CategoryViewController: UIViewController {
@@ -74,20 +74,26 @@ class CategoryViewController: UIViewController {
 
     @IBAction func saveCategory(_ sender: Any) {
 
-        guard let newTitle = titleDelegate?.getContent() as? String else {
+        guard let newTitle: String = titleDelegate?.getContent() else {
 
             showToast()
 
             return
         }
 
-        guard let newColor = colorDelegate?.getContent() as? UIColor else { return }
+        guard let newColor: UIColor = colorDelegate?.getContent() else { return }
 
         if newCategory {
 
             let newId = CategoryManager.share.numberOfCategory() + 1
 
             CategoryManager.share.addCategory(id: newId, title: newTitle, color: newColor)
+
+        } else {
+
+            guard let id = category?.id else { return }
+
+            CategoryManager.share.updateCategory(id: Int(id), title: newTitle, color: newColor)
         }
 
         dismiss(animated: true, completion: nil)
@@ -212,11 +218,23 @@ extension CategoryViewController: DeleteDelegate {
 
         guard let category = self.category else { return }
 
-        let id = Int(category.id)
+        let alertController: UIAlertController = UIAlertController(
+            title: "Delete this category?", message: nil, preferredStyle: .alert)
 
-        CategoryManager.share.deleteCategory(id: id)
+        alertController.addAction(UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-        dismiss(animated: true, completion: nil)
+            let id = Int(category.id)
+
+            CategoryManager.share.deleteCategory(id: id)
+
+            self.dismiss(animated: true, completion: nil)
+        })
+
+        alertController.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.show(alertController, sender: nil)
     }
 
 }

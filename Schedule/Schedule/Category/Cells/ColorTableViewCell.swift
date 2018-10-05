@@ -107,9 +107,9 @@ class ColorTableViewCell: UITableViewCell {
 
 extension ColorTableViewCell: CategoryDelegate {
 
-    func getContent() -> Any? {
+    func getContent<T>() -> T? {
 
-        return selectedColor
+        return selectedColor as? T
     }
 
 }

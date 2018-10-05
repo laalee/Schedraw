@@ -27,7 +27,7 @@ class CategoryTitleTableViewCell: UITableViewCell {
 
 extension CategoryTitleTableViewCell: CategoryDelegate {
 
-    func getContent() -> Any? {
+    func getContent<T>() -> T? {
 
         var title = titleTextField.text
 
@@ -38,7 +38,7 @@ extension CategoryTitleTableViewCell: CategoryDelegate {
             return nil
         }
 
-        return title
+        return title as? T
     }
 
 }
