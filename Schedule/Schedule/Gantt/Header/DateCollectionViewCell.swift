@@ -14,7 +14,7 @@ class DateCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var weekLabel: UILabel!
 
-    var date = Date()
+//    var date = Date()
 
     let dateFormatter = DateFormatter()
     
@@ -24,7 +24,7 @@ class DateCollectionViewCell: UICollectionViewCell {
         dateFormatter.locale = Locale(identifier: "en_US")
     }
 
-    func setContent() {
+    func setContent(date: Date) {
 
         dateFormatter.dateFormat = "d"
 
@@ -35,14 +35,14 @@ class DateCollectionViewCell: UICollectionViewCell {
         weekLabel.text = dateFormatter.string(from: date)
     }
 
-    func getMonth() -> String {
+    func getMonth(date: Date) -> String {
 
         dateFormatter.dateFormat = "MMM"
 
         return dateFormatter.string(from: date)
     }
 
-    func getYear() -> String {
+    func getYear(date: Date) -> String {
 
         dateFormatter.dateFormat = "YYYY"
 

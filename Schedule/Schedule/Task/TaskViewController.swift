@@ -39,8 +39,8 @@ class TaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(category!)
-        print(date!)
+//        print(category!)
+//        print(date!)
 
         setupTableView()
     }

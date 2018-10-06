@@ -64,6 +64,7 @@
 		9BF12423215C7EC400AC1C6A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12422215C7EC400AC1C6A /* Task.swift */; };
 		9BF12425215C81AC00AC1C6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12424215C81AC00AC1C6A /* Data.swift */; };
 		9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12428215CE86300AC1C6A /* TaskViewController.swift */; };
+		9BFDBC2521673C21004132D2 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFDBC2421673C21004132D2 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		9BF12422215C7EC400AC1C6A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9BF12424215C81AC00AC1C6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9BF12428215CE86300AC1C6A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		9BFDBC2421673C21004132D2 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +218,10 @@
 				9BB5D5DD2151FDD2005F225C /* MainViewController.swift */,
 				9BF12422215C7EC400AC1C6A /* Task.swift */,
 				9BF12424215C81AC00AC1C6A /* Data.swift */,
-				9B0DA52421634FE500369FF1 /* TaskManager.swift */,
 				9B7AD236216370540021EA27 /* UIView+AN.swift */,
 				9BE1F7D8216640B600194FAF /* UIColor+AN.swift */,
+				9BFDBC2421673C21004132D2 /* DateManager.swift */,
+				9B0DA52421634FE500369FF1 /* TaskManager.swift */,
 				9B17F50D2165E68900991C1E /* CategoryManager.swift */,
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
 				9BE1F7DA2166810700194FAF /* Category.swift */,
@@ -492,6 +495,7 @@
 				9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */,
 				9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */,
 				9BF12425215C81AC00AC1C6A /* Data.swift in Sources */,
+				9BFDBC2521673C21004132D2 /* DateManager.swift in Sources */,
 				9B0C6A1D216507C10055A7CD /* NotesTableViewCell.swift in Sources */,
 				9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */,
 				9B0C6A21216509B10055A7CD /* DeleteTableViewCell.swift in Sources */,

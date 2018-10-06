@@ -31,8 +31,6 @@ struct EventType {
     var color: TypeColor
 }
 
-
-
 enum ConsecutiveStatus {
 
     case first

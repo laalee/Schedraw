@@ -33,6 +33,8 @@ class GanttTableViewCell: UITableViewCell {
     var dateformatter = DateFormatter()
 
     weak var theDelegate: TheDelegate?
+
+    let dateManager = DateManager.share
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -183,7 +185,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        print("annie GanttTableViewCell numberOfCells: \(numberOfCells)")
-        return numberOfCells
+        return dateManager.numberOfDates()
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -211,11 +213,13 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         guard let selectedCategory = self.category else { return }
 
-        guard let theDelegate = theDelegate else { return }
+//        guard let theDelegate = theDelegate else { return }
 
-        guard let date = getDate(componentsDay: indexPath.row - theDelegate.todayIndex()) else { return }
+//        guard let date = getDate(componentsDay: indexPath.row - theDelegate.todayIndex()) else { return }
 
-        let selectedDate: Date = date
+        let selectedDate = dateManager.getDate(atIndex: indexPath.row)
+        print("Gantt - indexPath.row: ", indexPath.row)
+        print("Gantt - selectedDate: ", selectedDate)
 
         let taskViewController = TaskViewController.detailViewControllerForTask(
             category: selectedCategory,

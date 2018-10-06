@@ -14,7 +14,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var monthLabel: UILabel!
 
-    var numberOfCells: Int = 60
+    var dates: [Date] = []
 
     var todayIndex: Int = 30
 
@@ -23,6 +23,8 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
     var currentYear: String = ""
 
     var currentMonth: String = ""
+
+    let dateManager = DateManager.share
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +36,8 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         setCurrentDate()
 
         gotoToday()
+
+        dateManager.addDates(from: -todayIndex, to: todayIndex)
     }
 
     func gotoToday() {
@@ -53,7 +57,8 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     private func addBottomCells() {
 
-        self.numberOfCells += 30
+        dateManager.addDates(from: dateManager.numberOfDates() - todayIndex,
+                             to: dateManager.numberOfDates() - todayIndex + 29)
 
         UIView.performWithoutAnimation {
 
@@ -63,7 +68,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     private func addTopCells() {
 
-        self.numberOfCells += 30
+        dateManager.addEarlyDates(from: -todayIndex - 30, to: -todayIndex - 1)
 
         self.todayIndex += 30
 
@@ -128,20 +133,6 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         monthLabel.text = currentMonth
     }
 
-    func getTheDate(componentsDay: Int) -> Date? {
-
-        let currentDate = Date()
-
-        var newDateComponents = DateComponents()
-
-        newDateComponents.day = componentsDay
-
-        guard let date = Calendar.current.date(
-            byAdding: newDateComponents, to: currentDate) else { return nil }
-
-        return date
-    }
-
     func updateMonthAndYear() {
 
         let visibleIndexPath = dateCollectionView.indexPathsForVisibleItems
@@ -150,7 +141,9 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
         guard let item = dateCollectionView.cellForItem(at: firstIndexPath) as? DateCollectionViewCell else { return }
 
-        let itemMonth = item.getMonth()
+        let date = dateManager.getDate(atIndex: firstIndexPath.row)
+
+        let itemMonth = item.getMonth(date: date)
 
         if currentMonth != itemMonth {
 
@@ -159,7 +152,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
             monthLabel.text = currentMonth
         }
 
-        let itemYear = item.getYear()
+        let itemYear = item.getYear(date: date)
 
         if currentYear != itemYear {
 
@@ -168,7 +161,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
             NotificationCenter.default.post(
                 name: NSNotification.Name("YEAR_CHANGED"),
                 object: nil,
-                userInfo: ["year": item.getYear()]
+                userInfo: ["year": itemYear]
             )
         }
     }
@@ -178,8 +171,10 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 extension HeaderTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("annie HeaderTableViewCell numberOfCells: \(numberOfCells)")
-        return numberOfCells
+
+//        print("annie HeaderTableViewCell numberOfCells: \(dates.count)")
+
+        return dateManager.numberOfDates()
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -190,27 +185,31 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
         guard let eventCell = cell as? DateCollectionViewCell else { return cell }
 
-        guard let date = getTheDate(componentsDay: indexPath.row - todayIndex) else { return eventCell }
+        let date = dateManager.getDate(atIndex: indexPath.row) //dates[indexPath.row]
 
-        eventCell.date = date
-
-        eventCell.setContent()
+        eventCell.setContent(date: date)
 
         return eventCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        guard let item = dateCollectionView.cellForItem(at: indexPath) as? DateCollectionViewCell else { return }
+//        guard let item = dateCollectionView.cellForItem(at: indexPath) as? DateCollectionViewCell else { return }
 
 //        let date = item.date
+
+        let selectedDate = dateManager.getDate(atIndex: indexPath.row)
+
+        print("selectedDate - ", selectedDate)
     }
 
 }
 
 extension HeaderTableViewCell: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
 
         updateMonthAndYear()
     }
@@ -219,7 +218,10 @@ extension HeaderTableViewCell: UICollectionViewDelegate {
 
 extension HeaderTableViewCell: UICollectionViewDelegateFlowLayout {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
         return 0
     }
 
