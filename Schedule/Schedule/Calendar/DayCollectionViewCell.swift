@@ -22,8 +22,8 @@ class DayCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
-    var tasks: [Task] = []
-    
+//    var tasks: [Task] = []
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -71,9 +71,9 @@ class DayCollectionViewCell: UICollectionViewCell {
         self.dayLabel.text = String(theday)
     }
 
-    func setTask(tasks: [Task]) {
+    func setTask(tasks: [TaskMO]) {
 
-        self.tasks = tasks
+//        self.tasks = tasks
 
         centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
@@ -87,19 +87,24 @@ class DayCollectionViewCell: UICollectionViewCell {
 
             if index == 0 {
 
-                centerBackgroundView.backgroundColor = tasks[index].type.color.getColor()
+                if let categoryColor = tasks[index].category?.color as? UIColor {
 
-                secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-                thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    centerBackgroundView.backgroundColor = categoryColor
+                }
 
             } else if index == 1 {
 
-                secondCenterView.backgroundColor = tasks[index].type.color.getColor()
+                if let categoryColor = tasks[index].category?.color as? UIColor {
+
+                    secondCenterView.backgroundColor = categoryColor
+                }
 
             } else if index == 2 {
 
-                thirdCenterView.backgroundColor = tasks[index].type.color.getColor()
+                if let categoryColor = tasks[index].category?.color as? UIColor {
+
+                    thirdCenterView.backgroundColor = categoryColor
+                }
             }
 
             dayLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

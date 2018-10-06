@@ -8,20 +8,11 @@
 
 import UIKit
 
-protocol TheDelegate: class {
-
-    func todayIndex() -> Int
-}
-
 class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
 
     var firstFlag: Bool = true
-
-    var types: [EventType] = []
-
-    var datas: [[Task]] = []
 
     var header: HeaderTableViewCell?
 
@@ -34,7 +25,7 @@ class GanttViewController: UIViewController {
 
         setupTableView()
 
-        getDatas()
+        getCategorys()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,26 +77,11 @@ class GanttViewController: UIViewController {
         NotificationCenter.default.post(name: name, object: nil)
     }
 
-    func getDatas() {
+    func getCategorys() {
 
-        types = Data.share.getTypes()
+        guard let categorys = CategoryManager.share.getAllCategory() else { return }
 
-        let events = Data.share.gatTasks()
-
-        for type in types {
-            let array = events.filter { $0.type.title == type.title }
-            datas.append(array)
-        }
-
-        CategoryManager.share.getAllCategory(
-            success: { (categorys) in
-
-                self.categorys = categorys
-
-            }, failure: {
-
-            // TODO
-        })
+        self.categorys = categorys
     }
 
     func updateEmptyCells() {
@@ -147,19 +123,15 @@ extension GanttViewController: UITableViewDataSource {
         if indexPath.row < categorys.count {
 
             ganttCell.setCategoryTitle(category: categorys[indexPath.row])
-            ganttCell.events = datas[indexPath.row]
             ganttCell.addButton.isHidden = true
             ganttCell.tableViewTitleLabel.isHidden = false
 
         } else {
 
             ganttCell.setCategoryTitle(category: nil)
-            ganttCell.events = []
             ganttCell.addButton.isHidden = indexPath.row != categorys.count
             ganttCell.tableViewTitleLabel.isHidden = indexPath.row != categorys.count
         }
-
-        ganttCell.theDelegate = self
 
         ganttCell.tableViewTitleLabel.isUserInteractionEnabled = true
 
@@ -192,17 +164,6 @@ extension GanttViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 51
-    }
-
-}
-
-extension GanttViewController: TheDelegate {
-
-    func todayIndex() -> Int {
-
-        guard let header = header else { return 0 }
-
-        return header.todayIndex
     }
 
 }

@@ -17,3 +17,21 @@ class TaskTitleTableViewCell: UITableViewCell {
     }
     
 }
+
+extension TaskTitleTableViewCell: TaskDelegate {
+
+    func getContent<T>() -> T? {
+
+        var title = titleTextField.text
+
+        title = title?.trimmingCharacters(in: .whitespaces)
+
+        if title == "" {
+
+            return nil
+        }
+
+        return title as? T
+    }
+
+}

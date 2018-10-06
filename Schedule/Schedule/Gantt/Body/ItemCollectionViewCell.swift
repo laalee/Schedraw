@@ -20,84 +20,95 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
-    var task: Task?
+    let firstDay: Int = 1
+
+    let middleDay: Int = 2
+
+    let lastDay: Int = 3
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func setTask(task: Task?) {
+    func setTask(task: TaskMO?) {
 
-        self.task = task
-        
-        if let task = task {
+        centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
-            if let status = task.consecutiveStatus {
+        leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
 
-                switch status {
-                case .first:
-                    titleLabel.text = task.title
-                    timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = task.type.color.getColor()
-                    leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-                    rightBackgroundView.backgroundColor = task.type.color.getColor()
+        rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
 
-                case .middle:
-                    titleLabel.text = ""
-                    timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = task.type.color.getColor()
-                    leftBackgroundView.backgroundColor = task.type.color.getColor()
-                    rightBackgroundView.backgroundColor = task.type.color.getColor()
-
-                case .last:
-                    titleLabel.text = ""
-                    timeLabel.text = ""
-                    centerBackgroundView.backgroundColor = task.type.color.getColor()
-                    leftBackgroundView.backgroundColor = task.type.color.getColor()
-                    rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-                }
-            } else {
-
-                titleLabel.text = task.title
-                timeLabel.text = task.time
-                centerBackgroundView.backgroundColor = task.type.color.getColor()
-                leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-                rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-            }
-
-        } else {
+        guard let task = task else {
 
             titleLabel.text = ""
 
             timeLabel.text = ""
-            
-            centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
-            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-
-            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+            return
         }
-    }
 
-    func setBackgroundViews(type: String, task: Task) {
+        let status = Int(task.consecutiveStatus)
 
-        switch type {
-        case "start":
-            centerBackgroundView.backgroundColor = task.type.color.getColor()
-            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-            rightBackgroundView.backgroundColor = task.type.color.getColor()
-        case "mid":
-            centerBackgroundView.backgroundColor = task.type.color.getColor()
-            leftBackgroundView.backgroundColor = task.type.color.getColor()
-            rightBackgroundView.backgroundColor = task.type.color.getColor()
-        case "end":
-            centerBackgroundView.backgroundColor = task.type.color.getColor()
-            leftBackgroundView.backgroundColor = task.type.color.getColor()
-            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+        guard status != 0 else {
+
+            titleLabel.text = task.title
+
+            timeLabel.text = task.time
+
+            if let categoryColor = task.category?.color as? UIColor {
+
+                centerBackgroundView.backgroundColor = categoryColor
+            }
+
+            return
+        }
+
+        switch status {
+
+        case firstDay:
+
+            titleLabel.text = task.title
+
+            timeLabel.text = ""
+
+            if let categoryColor = task.category?.color as? UIColor {
+
+                centerBackgroundView.backgroundColor = categoryColor
+
+                rightBackgroundView.backgroundColor = categoryColor
+            }
+
+        case middleDay:
+
+            titleLabel.text = ""
+
+            timeLabel.text = ""
+
+            if let categoryColor = task.category?.color as? UIColor {
+
+                centerBackgroundView.backgroundColor = categoryColor
+
+                leftBackgroundView.backgroundColor = categoryColor
+
+                rightBackgroundView.backgroundColor = categoryColor
+            }
+
+        case lastDay:
+
+            titleLabel.text = ""
+
+            timeLabel.text = ""
+
+            if let categoryColor = task.category?.color as? UIColor {
+
+                centerBackgroundView.backgroundColor = categoryColor
+
+                leftBackgroundView.backgroundColor = categoryColor
+            }
+
         default:
-            centerBackgroundView.backgroundColor = task.type.color.getColor()
-            leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
-            rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
+
+            break
         }
     }
 

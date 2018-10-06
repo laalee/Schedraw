@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var dailyTaskBottomConstraint: NSLayoutConstraint!
 
-    //    @IBOutlet weak var categoryPickerView: UIPickerView!
+//    @IBOutlet weak var categoryPickerView: UIPickerView!
 
 //    @IBOutlet weak var buttonView: UIView!
 
@@ -358,7 +358,7 @@ extension CalendarViewController: UICollectionViewDataSource {
             return dayCell
         }
 
-        let tasks = TaskManager.share.getTask(by: theDate)
+        guard let tasks = TaskManager.share.fetchTask(byDate: theDate) else { return dayCell }
 
         dayCell.setTask(tasks: tasks)
 
@@ -410,9 +410,9 @@ extension CalendarViewController: UICollectionViewDataSource {
             return
         }
 
-        let task = TaskManager.share.getTask(by: theDate)
+        let tasks = TaskManager.share.fetchTask(byDate: theDate)
 
-        if task.count != 0 && dailyTaskIndex != indexPath {
+        if tasks?.count != 0 && dailyTaskIndex != indexPath {
 
             self.dailyTaskIndex = indexPath
 
@@ -421,7 +421,7 @@ extension CalendarViewController: UICollectionViewDataSource {
             NotificationCenter.default.post(
                 name: NSNotification.Name("DAILY_TASK_UPDATE"),
                 object: nil,
-                userInfo: ["task": task]
+                userInfo: ["task": tasks as Any]
             )
 
             let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
@@ -506,12 +506,12 @@ extension CalendarViewController: UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        return Data.share.getTypes().count
+        return CategoryManager.share.numberOfCategory()
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
-        return Data.share.getTypes()[row].title
+        return CategoryManager.share.getAllCategory()?[row].title
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

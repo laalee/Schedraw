@@ -85,20 +85,15 @@ class CategoryViewController: UIViewController {
 
         if newCategory {
 
-            let newId = CategoryManager.share.numberOfCategory() + 1
+            let current: Date = Date()
+
+            let timeInterval: TimeInterval = current.timeIntervalSince1970
+
+            let newId = Int(timeInterval)
 
             CategoryManager.share.addCategory(id: newId, title: newTitle, color: newColor)
 
         } else {
-
-//            category?.title = newTitle
-//
-//            category?.color = newColor
-//
-//            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-//
-//                appDelegate.saveContext()
-//            }
 
             guard let category = category else { return }
 

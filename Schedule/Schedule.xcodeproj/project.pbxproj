@@ -216,6 +216,7 @@
 				9BB5D5E72151FDD8005F225C /* LaunchScreen.storyboard */,
 				9BB5D5DF2151FDD2005F225C /* Main.storyboard */,
 				9BB5D5DD2151FDD2005F225C /* MainViewController.swift */,
+				9BE1F7DA2166810700194FAF /* Category.swift */,
 				9BF12422215C7EC400AC1C6A /* Task.swift */,
 				9BF12424215C81AC00AC1C6A /* Data.swift */,
 				9B7AD236216370540021EA27 /* UIView+AN.swift */,
@@ -224,7 +225,6 @@
 				9B0DA52421634FE500369FF1 /* TaskManager.swift */,
 				9B17F50D2165E68900991C1E /* CategoryManager.swift */,
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
-				9BE1F7DA2166810700194FAF /* Category.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

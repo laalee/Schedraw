@@ -10,10 +10,10 @@
         <attribute name="consecutiveStatus" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" attributeType="Transformable" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="task" inverseEntity="Category" syncable="YES"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="task" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="105"/>

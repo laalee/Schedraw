@@ -34,19 +34,9 @@ class CategoryManager {
         dataProvider.deleteCategory(categoryMO: categoryMO)
     }
 
-    func getAllCategory(
-        success: ([CategoryMO]) -> Void,
-        failure: () -> Void
-        ) {
+    func getAllCategory() -> [CategoryMO]? {
 
-        dataProvider.fetchAllCategory(success: { (result) in
-
-            success(result)
-
-        }, failure: {
-
-            print("ERROR!! Get all category Fail!")
-        })
+        return dataProvider.fetchAllCategory()
     }
 
     func numberOfCategory() -> Int {

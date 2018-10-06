@@ -22,8 +22,6 @@ class GanttTableViewCell: UITableViewCell {
 
     var postFlag: Bool = false
 
-    var events: [Task] = []
-
     var category: CategoryMO?
 
     let currentDate = Date()
@@ -31,8 +29,6 @@ class GanttTableViewCell: UITableViewCell {
     var dateComponents = DateComponents()
 
     var dateformatter = DateFormatter()
-
-    weak var theDelegate: TheDelegate?
 
     let dateManager = DateManager.share
     
@@ -113,34 +109,6 @@ class GanttTableViewCell: UITableViewCell {
         tableViewTitleLabel.text = category?.title
     }
 
-    func getEvent(componentsDay: Int) -> Task? {
-
-        guard let date = getDate(componentsDay: componentsDay) else { return nil }
-
-        dateformatter.dateFormat = "yyyyMMMdd"
-
-        let targetDate = dateformatter.string(from: date)
-
-        let event = events.filter { dateformatter.string(from: $0.date) == targetDate }
-
-        return event.first
-    }
-
-    func checkEventType(componentsDay: Int) -> String {
-
-        return "Default"
-    }
-
-    func getDate(componentsDay: Int) -> Date? {
-
-        dateComponents.day = componentsDay
-
-        guard let date = Calendar.current.date(
-            byAdding: dateComponents, to: currentDate) else { return nil }
-
-        return date
-    }
-
     @objc func tapAction() {
 
         let selectedCategory: CategoryMO? = self.category
@@ -150,35 +118,6 @@ class GanttTableViewCell: UITableViewCell {
         self.window?.rootViewController?.show(categoryViewController, sender: nil)
     }
 
-    func updateConsecutiveLabel() {
-
-//        guard let firstIndexPath = visibleIndexPath.min() else { return }
-//
-//        guard let item = dateCollectionView.cellForItem(at: firstIndexPath) as? DateCollectionViewCell else { return }
-//
-//        let itemMonth = item.getMonth()
-//
-//        if currentMonth != itemMonth {
-//
-//            currentMonth = itemMonth
-//
-//            monthLabel.text = currentMonth
-//        }
-//
-//        let itemYear = item.getYear()
-//
-//        if currentYear != itemYear {
-//
-//            currentYear = itemYear
-//
-//            NotificationCenter.default.post(
-//                name: NSNotification.Name("YEAR_CHANGED"),
-//                object: nil,
-//                userInfo: ["year": item.getYear()]
-//            )
-//        }
-    }
-    
 }
 
 extension GanttTableViewCell: UICollectionViewDataSource {
@@ -196,13 +135,18 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         guard let eventCell = cell as? ItemCollectionViewCell else { return cell }
 
-        guard let theDelegate = theDelegate else { return cell }
+        guard let category = self.category else {
 
-        let componentsDay = indexPath.row - theDelegate.todayIndex()
+            eventCell.setTask(task: nil)
 
-        let event = getEvent(componentsDay: componentsDay)
+            return cell
+        }
 
-        eventCell.setTask(task: event)
+        let date = dateManager.getDate(atIndex: indexPath.row)
+
+        let task = TaskManager.share.fetchTask(byCategory: category, date: date)
+
+        eventCell.setTask(task: task?.first)
 
         return eventCell
     }
@@ -212,10 +156,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         print(indexPath)
 
         guard let selectedCategory = self.category else { return }
-
-//        guard let theDelegate = theDelegate else { return }
-
-//        guard let date = getDate(componentsDay: indexPath.row - theDelegate.todayIndex()) else { return }
 
         let selectedDate = dateManager.getDate(atIndex: indexPath.row)
         print("Gantt - indexPath.row: ", indexPath.row)
@@ -237,21 +177,21 @@ extension GanttTableViewCell: UICollectionViewDelegate {
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
 
-        let visibleItem = itemCollectionView.visibleCells
-
-        for item in visibleItem {
-
-            guard let item = item as? ItemCollectionViewCell else { break }
-
-            guard let task = item.task else { break }
-
-            if let status = task.consecutiveStatus {
-
-                print(status)
-            }
-        }
-
-        updateConsecutiveLabel()
+//        let visibleItem = itemCollectionView.visibleCells
+//
+//        for item in visibleItem {
+//
+//            guard let item = item as? ItemCollectionViewCell else { break }
+//
+//            guard let task = item.task else { break }
+//
+//            if let status = task.consecutiveStatus {
+//
+//                print(status)
+//            }
+//        }
+//
+//        updateConsecutiveLabel()
     }
 }
 

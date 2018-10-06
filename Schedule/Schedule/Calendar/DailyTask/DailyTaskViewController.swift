@@ -12,9 +12,9 @@ class DailyTaskViewController: UIViewController {
 
     @IBOutlet weak var taskTableView: UITableView!
 
-    var tasks: [Task] = []
+    var tasks: [TaskMO] = []
 
-    var date: String = ""
+    var titleDate: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class DailyTaskViewController: UIViewController {
 
             guard let userInfo = notification.userInfo else { return }
 
-            guard let task = userInfo["task"] as? [Task] else { return }
+            guard let task = userInfo["task"] as? [TaskMO] else { return }
 
             self.tasks = task
 
@@ -66,9 +66,11 @@ class DailyTaskViewController: UIViewController {
 
             dateFormatter.dateFormat = "MMMM d, YYYY"
 
-            let date = dateFormatter.string(from: task[0].date)
+            guard let date = task[0].date as? Date else { return }
 
-            self.date = date
+            let titleDate = dateFormatter.string(from: date)
+
+            self.titleDate = titleDate
 
             self.taskTableView.reloadData()
         }
@@ -93,11 +95,17 @@ extension DailyTaskViewController: UITableViewDataSource {
 
         let task = tasks[indexPath.row]
 
+        guard let title = task.title else { return cell }
+
+        guard let subTitle = task.category?.title else { return cell }
+
+        guard let categoryColor = task.category?.color as? UIColor else { return cell }
+
         taskCell.setView(
-            title: task.title,
-            subTitle: task.type.title,
+            title: title,
+            subTitle: subTitle,
             time: task.time,
-            color: task.type.color.getColor()
+            color: categoryColor
         )
 
         return taskCell
@@ -112,7 +120,7 @@ extension DailyTaskViewController: UITableViewDataSource {
             return view
         }
 
-        headerView.setTitle(title: date)
+        headerView.setTitle(title: titleDate)
 
         return headerView
     }

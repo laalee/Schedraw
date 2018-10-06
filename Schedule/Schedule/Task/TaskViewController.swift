@@ -10,6 +10,11 @@
 
 import UIKit
 
+protocol TaskDelegate: AnyObject {
+
+    func getContent<T>() -> T?
+}
+
 class TaskViewController: UIViewController {
 
     @IBOutlet weak var taskTableView: UITableView!

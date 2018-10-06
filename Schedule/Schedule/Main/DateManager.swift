@@ -30,7 +30,9 @@ class DateManager {
 
         for theDay in first...last {
 
-            let date = DateManager.share.getDate(byAdding: theDay)
+            var date = getDate(byAdding: theDay)
+
+            date = transformDate(date: date)
 
             dates.append(date)
         }
@@ -40,7 +42,9 @@ class DateManager {
 
         for theDay in (first...last).reversed() {
 
-            let date  = DateManager.share.getDate(byAdding: theDay)
+            var date  = getDate(byAdding: theDay)
+
+            date = transformDate(date: date)
 
             dates.insert(date, at: 0)
         }
@@ -58,6 +62,20 @@ class DateManager {
             byAdding: dateComponents, to: currentDate) else { return currentDate }
 
         return theDate
+    }
+
+    func transformDate(date: Date) -> Date {
+
+        var components = DateComponents()
+        components.day = Calendar.current.component(.day, from: date)
+        components.month = Calendar.current.component(.month, from: date)
+        components.year = Calendar.current.component(.year, from: date)
+        components.hour = 12
+        components.minute = 00
+
+        guard let newDate = Calendar.current.date(from: components) else { return date }
+
+        return newDate
     }
 
 }
