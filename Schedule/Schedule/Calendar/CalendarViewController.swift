@@ -22,10 +22,6 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var dailyTaskBottomConstraint: NSLayoutConstraint!
 
-//    @IBOutlet weak var categoryPickerView: UIPickerView!
-
-//    @IBOutlet weak var buttonView: UIView!
-
     var currentMonthIndex: Int = 5
 
     var calendarDates: [[Date?]] = []
@@ -38,6 +34,8 @@ class CalendarViewController: UIViewController {
 
     var dailyTaskIndex: IndexPath?
 
+    var monthTaskSection: Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,8 +47,6 @@ class CalendarViewController: UIViewController {
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
-        dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
-
         dailyTaskView.layer.shadowColor = #colorLiteral(red: 0.741996612, green: 0.741996612, blue: 0.741996612, alpha: 1)
         dailyTaskView.layer.shadowOpacity = 0.5
         dailyTaskView.layer.shadowRadius = 5.0
@@ -59,6 +55,7 @@ class CalendarViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         view.layoutIfNeeded()
 
@@ -142,9 +139,16 @@ class CalendarViewController: UIViewController {
 
             for theDay in 1...(numberOfDays) {
 
-                let date = gatTheDate(year: year, month: month, days: theDay)
+                var date = gatTheDate(year: year, month: month, days: theDay)
+
+                date = DateManager.share.transformDate(date: date)
 
                 datesInMonth.append(date)
+            }
+
+            for _ in 1 ... -(datesInMonth.count % 7 - 7) {
+
+                datesInMonth.append(nil)
             }
 
             self.calendarDates.append(datesInMonth)
@@ -228,6 +232,11 @@ class CalendarViewController: UIViewController {
                 datesInMonth.append(date)
             }
 
+            for _ in 1 ... -(datesInMonth.count % 7 - 7) {
+
+                datesInMonth.append(nil)
+            }
+
             self.calendarDates.insert(datesInMonth, at: 0)
         }
 
@@ -275,6 +284,11 @@ class CalendarViewController: UIViewController {
                 datesInMonth.append(date)
             }
 
+            for _ in 1 ... -(datesInMonth.count % 7 - 7) {
+
+                datesInMonth.append(nil)
+            }
+
             self.calendarDates.append(datesInMonth)
         }
 
@@ -287,34 +301,116 @@ class CalendarViewController: UIViewController {
 
     @IBAction func selectCategory(_ sender: Any) {
 
-        self.categorySelectorView.isHidden = false
-
-        guard let parentView = self.parent?.view else { return }
-//
-        pickerBackground = UIViewController.displayPicker(onView: parentView)
-//
-//        self.categoryPickerView.isHidden = false
-//
-//        self.buttonView.isHidden = false
     }
-//
-//    @IBAction func catrgoryDidSelect(_ sender: Any) {
-//
-//        self.categoryPickerView.isHidden = true
-//
-//        self.buttonView.isHidden = true
-//
-//        UIViewController.removePicker(picker: pickerBackground)
-//    }
-//
-//    @IBAction func cancelSelect(_ sender: Any) {
-//
-//        self.categoryPickerView.isHidden = true
-//
-//        self.buttonView.isHidden = true
-//
-//        UIViewController.removePicker(picker: pickerBackground)
-//    }
+
+    func fetchByDate(indexPath: IndexPath) {
+
+        guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
+
+            self.dailyTaskIndex = nil
+
+            self.monthTaskSection = nil
+
+            self.dailyTaskBottomConstraint.constant = 0
+
+            UIView.animate(withDuration: 0.3) {
+
+                self.view.layoutIfNeeded()
+            }
+
+            return
+        }
+
+        let tasks = TaskManager.share.fetchTask(byDate: theDate)
+
+        if tasks?.count != 0 && dailyTaskIndex != indexPath {
+
+            self.dailyTaskIndex = indexPath
+
+            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
+
+            NotificationCenter.default.post(
+                name: NSNotification.Name("DAILY_TASK_UPDATE"),
+                object: nil,
+                userInfo: ["task": tasks as Any]
+            )
+
+            let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
+
+            if let item = calendarCollectionView.cellForItem(at: indexPath) {
+                self.calendarCollectionView.setContentOffset(
+                    CGPoint(x: 0, y: item.frame.origin.y - calendarCollectionView.contentInset.top),
+                    animated: true
+                )
+            }
+
+        } else {
+
+            self.dailyTaskIndex = nil
+
+            self.monthTaskSection = nil
+
+            self.dailyTaskBottomConstraint.constant = 0
+        }
+
+        UIView.animate(withDuration: 0.3) {
+
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    @objc func tapMonthAction(sender: UIButton) {
+
+        var tasks: [TaskMO] = []
+
+        for date in calendarDates[sender.tag] {
+
+            if let date = date {
+
+                if let task = TaskManager.share.fetchTask(byDate: date) {
+
+                    tasks += task
+                }
+            }
+        }
+
+        if tasks.count != 0 && monthTaskSection != sender.tag {
+
+            self.monthTaskSection = sender.tag
+
+            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
+
+            NotificationCenter.default.post(
+                name: NSNotification.Name("MONYH_TASK_UPDATE"),
+                object: nil,
+                userInfo: ["task": tasks as Any]
+            )
+
+            let indexPath = IndexPath.init(row: 0, section: sender.tag)
+
+            guard let attributes =
+                calendarCollectionView.layoutAttributesForSupplementaryElement(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    at: indexPath
+                ) else { return }
+
+            self.calendarCollectionView.setContentOffset(
+                CGPoint(x: 0, y: attributes.frame.origin.y - calendarCollectionView.contentInset.top),
+                animated: true
+            )
+        } else {
+
+            self.monthTaskSection = nil
+
+            self.dailyTaskBottomConstraint.constant = 0
+        }
+
+        UIView.animate(withDuration: 0.3) {
+
+            self.view.layoutIfNeeded()
+        }
+    }
+
 }
 
 extension CalendarViewController: UICollectionViewDataSource {
@@ -387,7 +483,11 @@ extension CalendarViewController: UICollectionViewDataSource {
 
             let month = dateFormatter.string(from: date)
 
-            headerView.monthLabel.text = year + " " + month
+            headerView.monthButton.setTitle(year + " " + month, for: .normal)
+
+            headerView.monthButton.tag = indexPath.section
+
+            headerView.monthButton.addTarget(self, action: #selector(tapMonthAction(sender:)), for: .touchUpInside)
 
             return headerView
         }
@@ -398,44 +498,7 @@ extension CalendarViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
-            return
-        }
-
-        let tasks = TaskManager.share.fetchTask(byDate: theDate)
-
-        if tasks?.count != 0 && dailyTaskIndex != indexPath {
-
-            self.dailyTaskIndex = indexPath
-
-            self.dailyTaskBottomConstraint.constant = 0
-
-            NotificationCenter.default.post(
-                name: NSNotification.Name("DAILY_TASK_UPDATE"),
-                object: nil,
-                userInfo: ["task": tasks as Any]
-            )
-
-            let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
-
-            if let item = calendarCollectionView.cellForItem(at: indexPath) {
-                self.calendarCollectionView.setContentOffset(
-                    CGPoint(x: 0, y: item.frame.origin.y - calendarCollectionView.contentInset.top),
-                    animated: true
-                )
-            }
-
-        } else {
-
-            self.dailyTaskIndex = nil
-
-            self.dailyTaskBottomConstraint.constant = -(dailyTaskView.bounds.height)
-        }
-
-        UIView.animate(withDuration: 0.3) {
-
-            self.view.layoutIfNeeded()
-        }
+        fetchByDate(indexPath: indexPath)
     }
 
 }

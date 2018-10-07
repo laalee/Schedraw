@@ -164,8 +164,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         guard let selectedCategory = self.category else { return }
 
         let selectedDate = dateManager.getDate(atIndex: indexPath.row)
-        print("Gantt - indexPath.row: ", indexPath.row)
-        print("Gantt - selectedDate: ", selectedDate)
 
         let taskViewController = TaskViewController.detailViewControllerForTask(
             category: selectedCategory,
@@ -182,22 +180,6 @@ extension GanttTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
-
-//        let visibleItem = itemCollectionView.visibleCells
-//
-//        for item in visibleItem {
-//
-//            guard let item = item as? ItemCollectionViewCell else { break }
-//
-//            guard let task = item.task else { break }
-//
-//            if let status = task.consecutiveStatus {
-//
-//                print(status)
-//            }
-//        }
-//
-//        updateConsecutiveLabel()
     }
 }
 

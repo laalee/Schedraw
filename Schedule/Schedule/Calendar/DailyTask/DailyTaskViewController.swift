@@ -14,7 +14,13 @@ class DailyTaskViewController: UIViewController {
 
     var tasks: [TaskMO] = []
 
-    var titleDate: String = ""
+    var titleString: String = ""
+
+    let dailyMode: Int = 0
+
+    let monthMode: Int = 1
+
+    var currentMode: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,8 @@ class DailyTaskViewController: UIViewController {
         setupTableView()
 
         updateTask()
+
+        updateMonthTask()
     }
 
     private func setupTableView() {
@@ -54,26 +62,60 @@ class DailyTaskViewController: UIViewController {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (notification) in
 
+            self.currentMode = self.dailyMode
+
             guard let userInfo = notification.userInfo else { return }
 
             guard let task = userInfo["task"] as? [TaskMO] else { return }
 
             self.tasks = task
 
-            let dateFormatter = DateFormatter()
-
-            dateFormatter.locale = Locale(identifier: "en_US")
-
-            dateFormatter.dateFormat = "MMMM d, YYYY"
-
             guard let date = task[0].date as? Date else { return }
 
-            let titleDate = dateFormatter.string(from: date)
-
-            self.titleDate = titleDate
+            self.titleString = self.formatDate(from: date)
 
             self.taskTableView.reloadData()
         }
+    }
+
+    func updateMonthTask() {
+
+        let name = NSNotification.Name("MONYH_TASK_UPDATE")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (notification) in
+
+            self.currentMode = self.monthMode
+
+            guard let userInfo = notification.userInfo else { return }
+
+            guard let tasks = userInfo["task"] as? [TaskMO] else { return }
+
+            self.tasks = []
+
+            for task in tasks {
+
+                if task.consecutiveStatus == 0 || task.consecutiveStatus == 1 {
+
+                    self.tasks.append(task)
+                }
+            }
+
+            self.titleString = "Upcoming"
+
+            self.taskTableView.reloadData()
+        }
+    }
+
+    func formatDate(from date: Date) -> String {
+
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.locale = Locale(identifier: "en_US")
+
+        dateFormatter.dateFormat = "MMMM d, YYYY"
+
+        return dateFormatter.string(from: date)
     }
 
 }
@@ -97,7 +139,14 @@ extension DailyTaskViewController: UITableViewDataSource {
 
         guard let title = task.title else { return cell }
 
-        guard let subTitle = task.category?.title else { return cell }
+        guard var subTitle = task.category?.title else { return cell }
+
+        if currentMode == monthMode {
+
+            guard let date = task.date as? Date else { return cell }
+
+            subTitle = formatDate(from: date)
+        }
 
         guard let categoryColor = task.category?.color as? UIColor else { return cell }
 
@@ -120,7 +169,7 @@ extension DailyTaskViewController: UITableViewDataSource {
             return view
         }
 
-        headerView.setTitle(title: titleDate)
+        headerView.setTitle(title: titleString)
 
         return headerView
     }

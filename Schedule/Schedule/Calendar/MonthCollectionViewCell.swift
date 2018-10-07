@@ -9,8 +9,8 @@
 import UIKit
 
 class MonthCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var monthLabel: UILabel!
+    
+    @IBOutlet weak var monthButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
