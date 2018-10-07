@@ -89,17 +89,36 @@ class DailyTaskViewController: UIViewController {
 
             guard let userInfo = notification.userInfo else { return }
 
-            guard let tasks = userInfo["task"] as? [TaskMO] else { return }
+            guard let taskMOs = userInfo["task"] as? [TaskMO] else { return }
 
-            self.tasks = []
+            self.tasks = [taskMOs[0]]
 
-            for task in tasks {
+            for taskMO in taskMOs {
 
-                if task.consecutiveStatus == 0 || task.consecutiveStatus == 1 {
+                if taskMO.consecutiveStatus == 0 || taskMO.consecutiveStatus == 1 {
 
-                    self.tasks.append(task)
+                    self.tasks.append(taskMO)
                 }
             }
+
+//            for taskMO in taskMOs {
+//
+//                for task in self.tasks {
+//
+//                    if taskMO.consecutiveId == 0 {
+//
+//                        self.tasks.append(taskMO)
+//
+//                        continue
+//
+//                    } else if taskMO.consecutiveId == task.consecutiveId {
+//
+//                        continue
+//                    }
+//
+//                    self.tasks.append(taskMO)
+//                }
+//            }
 
             self.titleString = "Upcoming"
 

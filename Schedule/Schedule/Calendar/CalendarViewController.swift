@@ -30,6 +30,8 @@ class CalendarViewController: UIViewController {
 
     var currentMonth = Calendar.current.component(.month, from: Date())
 
+    var currentDate = DateManager.share.transformDate(date: Date())
+
     var pickerBackground: UIView!
 
     var dailyTaskIndex: IndexPath?
@@ -458,6 +460,8 @@ extension CalendarViewController: UICollectionViewDataSource {
 
             dayCell.thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
+            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0)
+
             return dayCell
         }
 
@@ -466,6 +470,16 @@ extension CalendarViewController: UICollectionViewDataSource {
         dayCell.setTask(tasks: tasks)
 
         dayCell.setDayLabel(date: theDate)
+
+        if DateManager.share.formatDate(forTaskPage: theDate) == DateManager.share.formatDate(forTaskPage: currentDate) {
+
+            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+            dayCell.dayLabel.textColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+
+        } else {
+
+            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0)
+        }
 
         return dayCell
     }

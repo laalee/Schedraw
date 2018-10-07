@@ -22,7 +22,7 @@ class DayCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
-//    var tasks: [Task] = []
+    @IBOutlet weak var todayBackgroundView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +45,8 @@ class DayCollectionViewCell: UICollectionViewCell {
 
             thirdCenterView.setCornerRadius(value: smallSize / 2)
 
+            todayBackgroundView.setCornerRadius(value: smallSize / 2)
+
         } else {
 
             let bigSize: CGFloat = 45
@@ -54,6 +56,8 @@ class DayCollectionViewCell: UICollectionViewCell {
             secondCenterView.setCornerRadius(value: bigSize / 2)
 
             thirdCenterView.setCornerRadius(value: bigSize / 2)
+
+            todayBackgroundView.setCornerRadius(value: bigSize / 2)
         }
     }
 
@@ -72,8 +76,6 @@ class DayCollectionViewCell: UICollectionViewCell {
     }
 
     func setTask(tasks: [TaskMO]) {
-
-//        self.tasks = tasks
 
         centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
