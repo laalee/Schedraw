@@ -52,6 +52,8 @@ class GanttTableViewCell: UITableViewCell {
         forName: name, object: nil, queue: nil) { (_) in
 
             self.itemCollectionView.reloadData()
+
+            self.itemCollectionView.collectionViewLayout.invalidateLayout()
         }
     }
 
@@ -150,7 +152,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         let date = dateManager.getDate(atIndex: indexPath.row)
 
-        let task = TaskManager.share.fetchTask(byCategory: category, date: date)
+        let task = TaskManager.share.fetchTask(byCategory: category, andDate: date)
 
         eventCell.setTask(task: task?.first)
 

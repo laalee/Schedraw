@@ -222,19 +222,31 @@ extension CategoryViewController: DeleteDelegate {
 
         guard let category = self.category else { return }
 
-        let alertController: UIAlertController = UIAlertController(
-            title: "Delete this category?", message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "OK", style: .default) { (_) in
 
-        alertController.addAction(UIAlertAction(
-        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+            if let tasks = TaskManager.share.fetchTask(byCategory: category) {
+
+                for task in tasks {
+
+                    TaskManager.share.deleteTask(taskMO: task)
+                }
+            }
 
             CategoryManager.share.deleteCategory(categoryMO: category)
 
-            self.dismiss(animated: true, completion: nil)
-        })
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_CATEGORYS"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
 
-        alertController.addAction(UIAlertAction(
-            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.dismiss(animated: true, completion: nil)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        let alertController: UIAlertController = UIAlertController(
+            title: "Delete this category and all tasks?", message: nil, preferredStyle: .alert)
+
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
 
         self.show(alertController, sender: nil)
     }

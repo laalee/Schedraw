@@ -186,7 +186,7 @@ class CoreDataProvider {
         return nil
     }
 
-    func fetchTask(byDate date: Date) -> [TaskMO]? {
+    func fetchTask(byDate date: Date?, orCategory category: CategoryMO?) -> [TaskMO]? {
 
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
 
@@ -194,7 +194,14 @@ class CoreDataProvider {
 
         fetchRequest.sortDescriptors = [sortDescriptor]
 
-        fetchRequest.predicate = NSPredicate(format: "date == %@", date as CVarArg)
+        if let date = date {
+
+            fetchRequest.predicate = NSPredicate(format: "date == %@", date as CVarArg)
+
+        } else if let category = category {
+
+            fetchRequest.predicate = NSPredicate(format: "category == %@", category)
+        }
 
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return nil }
 

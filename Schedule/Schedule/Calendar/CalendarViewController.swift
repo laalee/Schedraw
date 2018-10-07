@@ -43,6 +43,8 @@ class CalendarViewController: UIViewController {
 
         getDates()
 
+        updateDatas()
+
         self.categorySelectorView.isHidden = true
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
@@ -114,6 +116,19 @@ class CalendarViewController: UIViewController {
             CGPoint(x: 0, y: attributes.frame.origin.y - calendarCollectionView.contentInset.top),
             animated: true
         )
+    }
+
+    private func updateDatas() {
+
+        let name = NSNotification.Name("UPDATE_TASKS")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (_) in
+
+            self.calendarCollectionView.reloadData()
+
+            self.calendarCollectionView.collectionViewLayout.invalidateLayout()
+        }
     }
 
     private func getDates() {

@@ -40,30 +40,19 @@ class TaskManager {
         dataProvider.deleteTask(byConsecutiveId: consecutiveId)
     }
 
-    func fetchTask(byCategory category: CategoryMO, date: Date) -> [TaskMO]? {
+    func fetchTask(byCategory category: CategoryMO, andDate date: Date) -> [TaskMO]? {
 
         return dataProvider.fetchTask(byCategory: category, date: date)
     }
 
     func fetchTask(byDate date: Date) -> [TaskMO]? {
 
-        return dataProvider.fetchTask(byDate: date)
+        return dataProvider.fetchTask(byDate: date, orCategory: nil)
     }
 
-//    func getTask(by date: Date) -> [Task] {
-//
-//        let tasks = Data.share.gatTasks()
-//
-//        let dateformatter = DateFormatter()
-//
-//        dateformatter.dateFormat = "yyyyMMMdd"
-//
-//        let targetDate = dateformatter.string(from: date)
-//
-//        let task = tasks.filter { dateformatter.string(from: $0.date) == targetDate }
-//
-//        return task
-//
-//
-//    }
+    func fetchTask(byCategory category: CategoryMO) -> [TaskMO]? {
+
+        return dataProvider.fetchTask(byDate: nil, orCategory: category)
+    }
+
 }

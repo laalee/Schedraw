@@ -74,7 +74,7 @@ class TaskViewController: UIViewController {
 
         categoryLabel.text = category.title
 
-        let tasks = TaskManager.share.fetchTask(byCategory: category, date: date)
+        let tasks = TaskManager.share.fetchTask(byCategory: category, andDate: date)
 
         if tasks?.count != 0 {
 
@@ -576,6 +576,8 @@ extension TaskViewController: DeleteDelegate {
 
                 TaskManager.share.deleteTask(byConsecutiveId: Int(id))
             }
+
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
 
             self.dismiss(animated: true, completion: nil)
         })
