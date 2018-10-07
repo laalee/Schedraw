@@ -20,9 +20,14 @@ class ConsecutiveTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func updateView(byConsecutiveDay consecutiveDay: Int, to currentDate: Date) {
+    func setupEnabled(enabled: Bool) {
 
-        self.consecutiveDay = consecutiveDay + 1
+        consecutiveButton.isEnabled = enabled
+
+        lastDateButton.isEnabled = enabled
+    }
+
+    func updateView(byConsecutiveDay consecutiveDay: Int, to currentDate: Date) {
 
         updateConsecutiveButton(consecutiveDay: consecutiveDay + 1)
 
@@ -47,6 +52,8 @@ class ConsecutiveTableViewCell: UITableViewCell {
     }
 
     func updateConsecutiveButton(consecutiveDay: Int) {
+
+        self.consecutiveDay = consecutiveDay
 
         if consecutiveDay < 2 {
 

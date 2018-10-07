@@ -16,6 +16,13 @@ class NotesTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    func updateView(notes: String?, enabled: Bool) {
+
+        notesTextView.text = notes
+
+        notesTextView.isEditable = enabled
+    }
+
 }
 
 extension NotesTableViewCell: TaskDelegate {

@@ -18,9 +18,11 @@ class TimingTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func updateView(timing: String) {
+    func updateView(timing: String?, enabled: Bool) {
 
         timingTextField.text = timing
+
+        timingButton.isEnabled = enabled
     }
 
 }

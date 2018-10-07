@@ -109,6 +109,7 @@
                         <outlet property="categoryTableView" destination="bJd-Ws-fbi" id="uuS-6J-cNL"/>
                         <outlet property="editButton" destination="fE3-Ky-JEa" id="XPN-Rz-DDl"/>
                         <outlet property="pageTitleLabel" destination="6WW-d7-A4M" id="lHN-s7-zIa"/>
+                        <outlet property="saveButton" destination="a0I-6t-Xdz" id="K2V-mi-WwZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TB-kE-ioj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,8 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var pageTitleLabel: UILabel!
 
     @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
 
     var identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
@@ -85,11 +87,7 @@ class CategoryViewController: UIViewController {
 
         if newCategory {
 
-            let current: Date = Date()
-
-            let timeInterval: TimeInterval = current.timeIntervalSince1970
-
-            let newId = Int(timeInterval)
+            let newId = Int(Date().timeIntervalSince1970)
 
             CategoryManager.share.addCategory(id: newId, title: newTitle, color: newColor)
 
@@ -229,8 +227,6 @@ extension CategoryViewController: DeleteDelegate {
 
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
-
-//            let id = Int(category.id)
 
             CategoryManager.share.deleteCategory(categoryMO: category)
 

@@ -23,7 +23,13 @@ class TaskViewController: UIViewController {
 
     @IBOutlet weak var dateButton: UIButton!
 
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
     var category: CategoryMO?
+
+    var task: TaskMO?
 
     var date: Date?
 
@@ -39,12 +45,13 @@ class TaskViewController: UIViewController {
 
     weak var notesDelegate: TaskDelegate?
 
-    let identifiers = [
+    var isNewTask: Bool = true
+
+    var identifiers = [
         String(describing: TaskTitleTableViewCell.self),
         String(describing: TimingTableViewCell.self),
         String(describing: ConsecutiveTableViewCell.self),
-        String(describing: NotesTableViewCell.self),
-        String(describing: DeleteTableViewCell.self)
+        String(describing: NotesTableViewCell.self)
     ]
 
     override func viewDidLoad() {
@@ -52,11 +59,43 @@ class TaskViewController: UIViewController {
 
         setupTableView()
 
-        let titleDate = DateManager.share.formatDate(forTaskPage: date ?? Date())
+        setupCategoryAndTask()
+    }
+
+    func setupCategoryAndTask() {
+
+        guard let date = date else { return }
+
+        guard let category = category else { return }
+
+        let titleDate = DateManager.share.formatDate(forTaskPage: date)
 
         dateButton.setTitle(titleDate, for: .normal)
 
-        categoryLabel.text = category?.title
+        categoryLabel.text = category.title
+
+        let tasks = TaskManager.share.fetchTask(byCategory: category, date: date)
+
+        if tasks?.count != 0 {
+
+            self.task = tasks?.first
+
+            self.isNewTask = false
+
+            if let status = self.task?.consecutiveStatus {
+
+                if status != 0 && status != TaskManager.firstDay {
+
+                    self.editButton.isHidden = true
+
+                    self.saveButton.isHidden = true
+                }
+            }
+
+        } else {
+
+            self.editButton.isHidden = true
+        }
     }
 
     // MARK: Initialization
@@ -77,73 +116,6 @@ class TaskViewController: UIViewController {
         viewController.date = date
 
         return viewController
-    }
-
-    @IBAction func saveTask(_ sender: Any) {
-
-        guard let newTitle: String = titleDelegate?.getContent() else { return }
-
-        guard let category = self.category else { return }
-
-        guard let newDate: Date = self.date else { return }
-
-        let timing: String? = timingDelegate?.getContent()
-
-        let note: String? = notesDelegate?.getContent()
-
-        if let consecutiveDay: Int = consecutiveDelegate?.getContent() {
-
-            let endDate: Date? = DateManager.share.getDate(byAdding: consecutiveDay)
-
-            let lastDay = consecutiveDay - 1
-
-            for addingDay in 0...lastDay {
-
-                let date = DateManager.share.getDate(byAdding: addingDay, to: newDate)
-
-                var consecutiveStatus: Int?
-
-                switch addingDay {
-
-                case 0: consecutiveStatus = TaskManager.firstDay
-
-                case lastDay: consecutiveStatus = TaskManager.lastDay
-
-                default: consecutiveStatus = TaskManager.middleDay
-                }
-
-                let newTask = Task(title: newTitle,
-                                   category: category,
-                                   date: date,
-                                   endDate: endDate,
-                                   consecutiveStatus: consecutiveStatus,
-                                   time: timing,
-                                   note: note)
-
-                TaskManager.share.addTask(task: newTask)
-            }
-
-        } else {
-
-            let newTask = Task(title: newTitle,
-                               category: category,
-                               date: newDate,
-                               endDate: nil,
-                               consecutiveStatus: nil,
-                               time: timing,
-                               note: note)
-
-            TaskManager.share.addTask(task: newTask)
-        }
-
-        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
-
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func cancelPressed(_ sender: Any) {
-
-        dismiss(animated: true, completion: nil)
     }
 
     func setupTableView() {
@@ -256,7 +228,7 @@ class TaskViewController: UIViewController {
 
             let timing = dateFormatter.string(from: self.datePicker.date)
 
-            cell.updateView(timing: timing)
+            cell.updateView(timing: timing, enabled: true)
         })
 
         alertController.addAction(UIAlertAction(
@@ -303,13 +275,130 @@ class TaskViewController: UIViewController {
         self.show(alertController, sender: nil)
     }
 
+    @IBAction func editButtonPressed(_ sender: Any) {
+
+        self.editButton.isHidden = true
+
+        identifiers.append(String(describing: DeleteTableViewCell.self))
+
+        setupTableView()
+
+        taskTableView.reloadData()
+    }
+
+    @IBAction func saveTask(_ sender: Any) {
+
+        guard let newTitle: String = titleDelegate?.getContent() else {
+
+            showToast()
+
+            return
+        }
+
+        guard let category = self.category else { return }
+
+        guard let newDate: Date = self.date else { return }
+
+        let timing: String? = timingDelegate?.getContent()
+
+        let note: String? = notesDelegate?.getContent()
+
+        if let consecutiveDay: Int = consecutiveDelegate?.getContent() {
+
+            let consecutiveId: Int = Int(Date().timeIntervalSince1970)
+
+            let lastDay = consecutiveDay - 1
+
+            let endDate: Date? = DateManager.share.getDate(byAdding: lastDay, to: newDate)
+
+            for addingDay in 0...lastDay {
+
+                let date = DateManager.share.getDate(byAdding: addingDay, to: newDate)
+
+                var consecutiveStatus: Int?
+
+                switch addingDay {
+
+                case 0: consecutiveStatus = TaskManager.firstDay
+
+                case lastDay: consecutiveStatus = TaskManager.lastDay
+
+                default: consecutiveStatus = TaskManager.middleDay
+                }
+
+                let newTask = Task(title: newTitle,
+                                   category: category,
+                                   date: date,
+                                   endDate: endDate,
+                                   consecutiveStatus: consecutiveStatus,
+                                   consecutiveId: consecutiveId,
+                                   time: timing,
+                                   note: note)
+
+                TaskManager.share.addTask(task: newTask)
+            }
+        } else {
+
+            let newTask = Task(title: newTitle,
+                               category: category,
+                               date: newDate,
+                               endDate: nil,
+                               consecutiveStatus: nil,
+                               consecutiveId: nil,
+                               time: timing,
+                               note: note)
+
+            TaskManager.share.addTask(task: newTask)
+        }
+
+        if !isNewTask {
+
+            guard let id = self.task?.consecutiveId else { return }
+
+            guard let taskMO = self.task else { return }
+
+            if id == 0 {
+
+                TaskManager.share.deleteTask(taskMO: taskMO)
+
+            } else {
+
+                TaskManager.share.deleteTask(byConsecutiveId: Int(id))
+            }
+        }
+
+        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func cancelPressed(_ sender: Any) {
+
+        dismiss(animated: true, completion: nil)
+    }
+
+    func showToast() {
+
+        let alertToast = UIAlertController(
+            title: "Save failed!",
+            message: "Title should not be blank.",
+            preferredStyle: .alert
+        )
+
+        present(alertToast, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            alertToast.dismiss(animated: false, completion: nil)
+        }
+    }
+
 }
 
 extension TaskViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 5
+        return identifiers.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -329,6 +418,15 @@ extension TaskViewController: UITableViewDataSource {
 
             self.titleDelegate = titleCell
 
+            if editButton.isHidden && !saveButton.isHidden {
+
+                titleCell.updateView(title: task?.title, enabled: true)
+
+            } else {
+
+                titleCell.updateView(title: task?.title, enabled: false)
+            }
+
             return titleCell
 
         case 1:
@@ -338,6 +436,15 @@ extension TaskViewController: UITableViewDataSource {
                 action: #selector(showTimingPicker), for: .touchUpInside)
 
             self.timingDelegate = timingCell
+
+            if editButton.isHidden && !saveButton.isHidden {
+
+                timingCell.updateView(timing: task?.time, enabled: true)
+
+            } else {
+
+                timingCell.updateView(timing: task?.time, enabled: false)
+            }
 
             return timingCell
 
@@ -352,7 +459,27 @@ extension TaskViewController: UITableViewDataSource {
 
             guard let date = self.date else { return cell }
 
-            consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
+            if let endDate = self.task?.endDate as? Date {
+
+                consecutiveCell.updateView(byLastDate: endDate, from: date)
+
+                consecutiveCell.setupEnabled(enabled: false)
+
+            } else {
+
+                consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
+
+                consecutiveCell.setupEnabled(enabled: true)
+            }
+
+            if editButton.isHidden && !saveButton.isHidden {
+
+                consecutiveCell.setupEnabled(enabled: true)
+
+            } else {
+
+                consecutiveCell.setupEnabled(enabled: false)
+            }
 
             self.consecutiveDelegate = consecutiveCell
 
@@ -360,6 +487,15 @@ extension TaskViewController: UITableViewDataSource {
 
         case 3:
             guard let notesCell = cell as? NotesTableViewCell else { return cell }
+
+            if editButton.isHidden && !saveButton.isHidden {
+
+                notesCell.updateView(notes: task?.note, enabled: true)
+
+            } else {
+
+                notesCell.updateView(notes: task?.note, enabled: false)
+            }
 
             self.notesDelegate = notesCell
 
@@ -422,7 +558,32 @@ extension TaskViewController: DeleteDelegate {
 
     func deleteObject() {
 
-        print("DELETE!!!!!")
+        guard let task = self.task else { return }
+
+        let alertController: UIAlertController = UIAlertController(
+            title: "Delete this task?", message: nil, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+
+            guard let id = self.task?.consecutiveId else { return }
+
+            if id == 0 {
+
+                TaskManager.share.deleteTask(taskMO: task)
+
+            } else {
+
+                TaskManager.share.deleteTask(byConsecutiveId: Int(id))
+            }
+
+            self.dismiss(animated: true, completion: nil)
+        })
+
+        alertController.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.show(alertController, sender: nil)
     }
 
 }

@@ -15,6 +15,13 @@ class TaskTitleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
+    func updateView(title: String?, enabled: Bool) {
+
+        titleTextField.text = title
+
+        titleTextField.isEnabled = enabled
+    }
     
 }
 

@@ -35,6 +35,11 @@ class TaskManager {
         dataProvider.deleteTask(taskMO: taskMO)
     }
 
+    func deleteTask(byConsecutiveId consecutiveId: Int) {
+
+        dataProvider.deleteTask(byConsecutiveId: consecutiveId)
+    }
+
     func fetchTask(byCategory category: CategoryMO, date: Date) -> [TaskMO]? {
 
         return dataProvider.fetchTask(byCategory: category, date: date)

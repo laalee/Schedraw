@@ -64,6 +64,11 @@ class CoreDataProvider {
                 self.task.consecutiveStatus = Int64(consecutiveStatus)
             }
 
+            if let consecutiveId = task.consecutiveId {
+
+                self.task.consecutiveId = Int64(consecutiveId)
+            }
+
             appDelegate.saveContext()
         }
     }
@@ -92,7 +97,7 @@ class CoreDataProvider {
 
             taskMO.note = task.note
 
-            self.task.category = task.category
+            taskMO.category = task.category
 
             if let endDate = task.endDate as NSObject? {
 
@@ -102,6 +107,11 @@ class CoreDataProvider {
             if let consecutiveStatus = task.consecutiveStatus {
 
                 taskMO.consecutiveStatus = Int64(consecutiveStatus)
+            }
+
+            if let consecutiveId = task.consecutiveId {
+
+                taskMO.consecutiveId = Int64(consecutiveId)
             }
 
             appDelegate.saveContext()
@@ -212,6 +222,45 @@ class CoreDataProvider {
         }
 
         return nil
+    }
+
+    func deleteTask(byConsecutiveId consecutiveId: Int) {
+
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+
+        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
+
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        fetchRequest.predicate = NSPredicate(format: "consecutiveId == %i", consecutiveId)
+
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
+
+        let context = appDelegate.persistentContainer.viewContext
+
+        taskFetchResultController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil, cacheName: nil)
+
+        taskFetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
+
+        do {
+            try taskFetchResultController.performFetch()
+
+            if let fetchedObjects = taskFetchResultController.fetchedObjects {
+
+                for object in fetchedObjects {
+
+                    context.delete(object)
+                }
+
+                appDelegate.saveContext()
+            }
+        } catch {
+
+            print("FetchTask Fail!!")
+        }
     }
 
     func fetchAllCategory() -> [CategoryMO]? {

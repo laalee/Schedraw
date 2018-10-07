@@ -45,7 +45,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Done"/>
+                                        <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveTask:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="Gs9-MB-KrC"/>
                                         </connections>
@@ -56,16 +56,31 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-3Z-7zX">
+                                        <rect key="frame" x="300" y="10" width="60" height="25"/>
+                                        <color key="backgroundColor" red="0.98039215686274506" green="0.5607843137254902" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="hnt-xV-1VV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.56078431370000004" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="0kE-Eg-hnf" firstAttribute="leading" secondItem="VMp-Xj-Lrk" secondAttribute="leading" constant="15" id="5ca-Wy-KBU"/>
                                     <constraint firstAttribute="height" constant="45" id="B4L-c8-us9"/>
+                                    <constraint firstItem="gQj-3Z-7zX" firstAttribute="leading" secondItem="fSr-DD-Qro" secondAttribute="leading" id="EpK-Yr-Ird"/>
+                                    <constraint firstItem="gQj-3Z-7zX" firstAttribute="top" secondItem="fSr-DD-Qro" secondAttribute="top" id="FGE-il-UBP"/>
                                     <constraint firstAttribute="trailing" secondItem="fSr-DD-Qro" secondAttribute="trailing" constant="15" id="KjL-0z-SPE"/>
                                     <constraint firstItem="lK8-AH-ExC" firstAttribute="centerY" secondItem="0kE-Eg-hnf" secondAttribute="centerY" id="PGt-lW-yuk"/>
                                     <constraint firstItem="fSr-DD-Qro" firstAttribute="centerY" secondItem="lK8-AH-ExC" secondAttribute="centerY" id="S6i-q2-Gvt"/>
+                                    <constraint firstItem="gQj-3Z-7zX" firstAttribute="bottom" secondItem="fSr-DD-Qro" secondAttribute="bottom" id="T55-DL-cja"/>
                                     <constraint firstItem="lK8-AH-ExC" firstAttribute="centerX" secondItem="VMp-Xj-Lrk" secondAttribute="centerX" id="nCW-F7-rHi"/>
                                     <constraint firstItem="0kE-Eg-hnf" firstAttribute="centerY" secondItem="VMp-Xj-Lrk" secondAttribute="centerY" id="sNf-xw-4Xu"/>
+                                    <constraint firstItem="gQj-3Z-7zX" firstAttribute="trailing" secondItem="fSr-DD-Qro" secondAttribute="trailing" id="zAh-IW-V5R"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aqh-9j-bKa">
@@ -75,7 +90,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYQ-uD-Ppv">
                                 <rect key="frame" x="0.0" y="89" width="375" height="34"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETc-ee-bSB">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETc-ee-bSB">
                                         <rect key="frame" x="109" y="-1.3333333333333286" width="157" height="37"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <state key="normal" title="Friday, 28 Sep 2018">
@@ -116,6 +131,8 @@
                     <connections>
                         <outlet property="categoryLabel" destination="lK8-AH-ExC" id="t7Q-5f-tIZ"/>
                         <outlet property="dateButton" destination="ETc-ee-bSB" id="58M-eI-BvS"/>
+                        <outlet property="editButton" destination="gQj-3Z-7zX" id="3dC-GM-e0A"/>
+                        <outlet property="saveButton" destination="fSr-DD-Qro" id="b43-7x-8iz"/>
                         <outlet property="taskTableView" destination="aqh-9j-bKa" id="dnf-eA-mXF"/>
                     </connections>
                 </viewController>
