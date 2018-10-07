@@ -172,8 +172,6 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-//        print("annie HeaderTableViewCell numberOfCells: \(dates.count)")
-
         return dateManager.numberOfDates()
     }
 
@@ -185,7 +183,7 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
         guard let eventCell = cell as? DateCollectionViewCell else { return cell }
 
-        let date = dateManager.getDate(atIndex: indexPath.row) //dates[indexPath.row]
+        let date = dateManager.getDate(atIndex: indexPath.row)
 
         eventCell.setContent(date: date)
 

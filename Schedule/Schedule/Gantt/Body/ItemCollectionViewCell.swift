@@ -20,12 +20,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
-    let firstDay: Int = 1
-
-    let middleDay: Int = 2
-
-    let lastDay: Int = 3
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -65,7 +59,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         switch status {
 
-        case firstDay:
+        case TaskManager.firstDay:
 
             titleLabel.text = task.title
 
@@ -78,7 +72,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
                 rightBackgroundView.backgroundColor = categoryColor
             }
 
-        case middleDay:
+        case TaskManager.middleDay:
 
             titleLabel.text = ""
 
@@ -93,7 +87,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
                 rightBackgroundView.backgroundColor = categoryColor
             }
 
-        case lastDay:
+        case TaskManager.lastDay:
 
             titleLabel.text = ""
 

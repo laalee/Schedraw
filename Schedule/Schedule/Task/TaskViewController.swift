@@ -31,7 +31,13 @@ class TaskViewController: UIViewController {
 
     var datePicker: UIDatePicker!
 
-    var pickerType: PickerAlertType = .timing
+    weak var titleDelegate: TaskDelegate?
+
+    weak var timingDelegate: TaskDelegate?
+
+    weak var consecutiveDelegate: TaskDelegate?
+
+    weak var notesDelegate: TaskDelegate?
 
     let identifiers = [
         String(describing: TaskTitleTableViewCell.self),
@@ -44,10 +50,13 @@ class TaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        print(category!)
-//        print(date!)
-
         setupTableView()
+
+        let titleDate = DateManager.share.formatDate(forTaskPage: date ?? Date())
+
+        dateButton.setTitle(titleDate, for: .normal)
+
+        categoryLabel.text = category?.title
     }
 
     // MARK: Initialization
@@ -71,6 +80,63 @@ class TaskViewController: UIViewController {
     }
 
     @IBAction func saveTask(_ sender: Any) {
+
+        guard let newTitle: String = titleDelegate?.getContent() else { return }
+
+        guard let category = self.category else { return }
+
+        guard let newDate: Date = self.date else { return }
+
+        let timing: String? = timingDelegate?.getContent()
+
+        let note: String? = notesDelegate?.getContent()
+
+        if let consecutiveDay: Int = consecutiveDelegate?.getContent() {
+
+            let endDate: Date? = DateManager.share.getDate(byAdding: consecutiveDay)
+
+            let lastDay = consecutiveDay - 1
+
+            for addingDay in 0...lastDay {
+
+                let date = DateManager.share.getDate(byAdding: addingDay, to: newDate)
+
+                var consecutiveStatus: Int?
+
+                switch addingDay {
+
+                case 0: consecutiveStatus = TaskManager.firstDay
+
+                case lastDay: consecutiveStatus = TaskManager.lastDay
+
+                default: consecutiveStatus = TaskManager.middleDay
+                }
+
+                let newTask = Task(title: newTitle,
+                                   category: category,
+                                   date: date,
+                                   endDate: endDate,
+                                   consecutiveStatus: consecutiveStatus,
+                                   time: timing,
+                                   note: note)
+
+                TaskManager.share.addTask(task: newTask)
+            }
+
+        } else {
+
+            let newTask = Task(title: newTitle,
+                               category: category,
+                               date: newDate,
+                               endDate: nil,
+                               consecutiveStatus: nil,
+                               time: timing,
+                               note: note)
+
+            TaskManager.share.addTask(task: newTask)
+        }
+
+        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
 
         dismiss(animated: true, completion: nil)
     }
@@ -104,7 +170,40 @@ class TaskViewController: UIViewController {
 
         datePicker.date = Date()
 
-        datePicker.locale = Locale(identifier: "en_US")
+        let alertController: UIAlertController = UIAlertController(
+            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+
+        alertController.addAction(UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+
+            let pickerDate = DateManager.share.transformDate(date: self.datePicker.date)
+
+            self.date = pickerDate
+
+            print(pickerDate)
+
+            let titleDate = DateManager.share.formatDate(forTaskPage: pickerDate)
+
+            self.dateButton.setTitle(titleDate, for: .normal)
+        })
+
+        alertController.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        alertController.view.addSubview(datePicker)
+
+        self.show(alertController, sender: nil)
+    }
+
+    @objc func lastDateButtonPressed(_ sender: Any) {
+
+        datePicker = UIDatePicker(frame: CGRect(
+            x: 0, y: 0,
+            width: UIScreen.main.bounds.width - 5, height: 250))
+
+        datePicker.datePickerMode = .date
+
+        datePicker.date = Date()
 
         let alertController: UIAlertController = UIAlertController(
             title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
@@ -112,7 +211,14 @@ class TaskViewController: UIViewController {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            print(self.datePicker.date)
+            guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 2))
+                as? ConsecutiveTableViewCell else { return }
+
+            let pickerDate = DateManager.share.transformDate(date: self.datePicker.date)
+
+            print(pickerDate)
+
+            cell.updateView(byLastDate: pickerDate, from: self.date ?? Date())
         })
 
         alertController.addAction(UIAlertAction(
@@ -125,15 +231,13 @@ class TaskViewController: UIViewController {
 
     @objc func showTimingPicker() {
 
-        pickerType = .timing
+        datePicker = UIDatePicker(frame: CGRect(
+            x: 0, y: 0,
+            width: UIScreen.main.bounds.width - 5, height: 250))
 
-        pickerView = UIPickerView()
+        datePicker.datePickerMode = .time
 
-        pickerView.dataSource = self
-
-        pickerView.delegate = self
-
-        pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
+        datePicker.date = Date()
 
         let alertController: UIAlertController = UIAlertController(
             title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
@@ -141,22 +245,30 @@ class TaskViewController: UIViewController {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            print("date select hh:" + String(self.pickerView.selectedRow(inComponent: 0)))
-            print("date select mm:" + String(self.pickerView.selectedRow(inComponent: 1)))
+            print(self.datePicker.date)
+
+            guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 1))
+                as? TimingTableViewCell else { return }
+
+            let dateFormatter = DateFormatter()
+
+            dateFormatter.dateFormat = "HH : mm"
+
+            let timing = dateFormatter.string(from: self.datePicker.date)
+
+            cell.updateView(timing: timing)
         })
 
         alertController.addAction(UIAlertAction(
             title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
 
-        alertController.view.addSubview(pickerView)
+        alertController.view.addSubview(datePicker)
 
         self.show(alertController, sender: nil)
     }
 
     @objc func showConsecutivePicker() {
 
-        pickerType = .consecutive
-
         pickerView = UIPickerView()
 
         pickerView.dataSource = self
@@ -171,7 +283,16 @@ class TaskViewController: UIViewController {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            print("date select cd:" + String(self.pickerView.selectedRow(inComponent: 0)))
+            print("date select cd:", self.pickerView.selectedRow(inComponent: 0))
+
+            let consecutiveDay = self.pickerView.selectedRow(inComponent: 0)
+
+            guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 2))
+                as? ConsecutiveTableViewCell else { return }
+
+            guard let date = self.date else { return }
+
+            cell.updateView(byConsecutiveDay: consecutiveDay, to: date)
         })
 
         alertController.addAction(UIAlertAction(
@@ -206,6 +327,8 @@ extension TaskViewController: UITableViewDataSource {
         case 0:
             guard let titleCell = cell as? TaskTitleTableViewCell else { return cell }
 
+            self.titleDelegate = titleCell
+
             return titleCell
 
         case 1:
@@ -213,6 +336,8 @@ extension TaskViewController: UITableViewDataSource {
 
             timingCell.timingButton.addTarget(self,
                 action: #selector(showTimingPicker), for: .touchUpInside)
+
+            self.timingDelegate = timingCell
 
             return timingCell
 
@@ -223,17 +348,27 @@ extension TaskViewController: UITableViewDataSource {
                 action: #selector(showConsecutivePicker), for: .touchUpInside)
 
             consecutiveCell.lastDateButton.addTarget(self,
-                action: #selector(dateButtonPressed), for: .touchUpInside)
+                action: #selector(lastDateButtonPressed), for: .touchUpInside)
+
+            guard let date = self.date else { return cell }
+
+            consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
+
+            self.consecutiveDelegate = consecutiveCell
 
             return consecutiveCell
 
         case 3:
             guard let notesCell = cell as? NotesTableViewCell else { return cell }
 
+            self.notesDelegate = notesCell
+
             return notesCell
 
         default:
             guard let deleteCell = cell as? DeleteTableViewCell else { return cell }
+
+            deleteCell.delegate = self
 
             return deleteCell
         }
@@ -249,12 +384,19 @@ extension TaskViewController: UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
-        return pickerType.numberOfComponents()
+        return 2
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        return pickerType.numberOfRowsInComponent(component: component)
+        if component == 0 {
+
+            return 999
+            
+        } else {
+
+            return 1
+        }
     }
 
 }
@@ -264,61 +406,23 @@ extension TaskViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
                     forComponent component: Int) -> String? {
 
-        return pickerType.titleForRowFormat(row: row)
+        if component == 0 {
+
+            return String(format: "%d", row + 1)
+
+        } else {
+
+            return "Day"
+        }
     }
 
 }
 
-enum PickerAlertType {
-    case timing
-    case consecutive
+extension TaskViewController: DeleteDelegate {
 
-    func numberOfComponents() -> Int {
+    func deleteObject() {
 
-        switch self {
-
-        case .timing: return 2
-
-        case .consecutive: return 1
-        }
+        print("DELETE!!!!!")
     }
 
-    func numberOfRowsInComponent(component: Int) -> Int {
-
-        switch self {
-
-        case .timing:
-
-            if component == 0 {
-
-                return 24
-
-            } else {
-
-                return 60
-            }
-
-        case .consecutive: return 999
-        }
-    }
-
-    func titleForRowFormat(row: Int) -> String {
-
-        switch self {
-
-        case .timing: return String(format: "%02d", row)
-
-        case .consecutive: return String(format: "%d", row + 1)
-        }
-    }
-
-//    func plusRows() -> Int {
-//
-//        switch self {
-//
-//        case .timing: return 0
-//
-//        case .consecutive: return 1
-//        }
-//    }
 }

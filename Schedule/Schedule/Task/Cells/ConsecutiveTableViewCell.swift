@@ -14,8 +14,69 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lastDateButton: UIButton!
 
+    var consecutiveDay: Int = 0
+
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    func updateView(byConsecutiveDay consecutiveDay: Int, to currentDate: Date) {
+
+        self.consecutiveDay = consecutiveDay + 1
+
+        updateConsecutiveButton(consecutiveDay: consecutiveDay + 1)
+
+        let lastDate = DateManager.share.getDate(byAdding: consecutiveDay, to: currentDate)
+
+        updateLastDateButton(date: lastDate)
+    }
+
+    func updateView(byLastDate lastDate: Date, from startDate: Date) {
+
+        let dateComponentsFormatter = DateComponentsFormatter()
+
+        dateComponentsFormatter.allowedUnits = [.day]
+
+        guard let consecutiveDay = dateComponentsFormatter.string(from: startDate, to: lastDate) else { return }
+
+        let consecutive: Int = Int(consecutiveDay.dropLast()) ?? 1
+
+        updateConsecutiveButton(consecutiveDay: consecutive + 1)
+
+        updateLastDateButton(date: lastDate)
+    }
+
+    func updateConsecutiveButton(consecutiveDay: Int) {
+
+        if consecutiveDay < 2 {
+
+            consecutiveButton.setTitle(String(consecutiveDay) + " Day", for: .normal)
+
+        } else {
+
+            consecutiveButton.setTitle(String(consecutiveDay) + " Days", for: .normal)
+        }
+    }
+
+    func updateLastDateButton(date: Date) {
+
+        let lastDateTitle = DateManager.share.formatDate(forTaskPage: date)
+
+        lastDateButton.setTitle(lastDateTitle, for: .normal)
+    }
+
+}
+
+extension ConsecutiveTableViewCell: TaskDelegate {
+
+    func getContent<T>() -> T? {
+
+        if consecutiveDay < 2 {
+
+            return nil
+        }
+
+        return self.consecutiveDay as? T
     }
 
 }

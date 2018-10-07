@@ -17,3 +17,12 @@ class NotesTableViewCell: UITableViewCell {
     }
 
 }
+
+extension NotesTableViewCell: TaskDelegate {
+
+    func getContent<T>() -> T? {
+
+        return notesTextView?.text as? T
+    }
+
+}

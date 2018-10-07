@@ -16,8 +16,6 @@ class GanttTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addButton: UIButton!
 
-    var numberOfCells: Int = 60
-
     var todayIndex: Int = 30
 
     var postFlag: Bool = false
@@ -39,14 +37,25 @@ class GanttTableViewCell: UITableViewCell {
 
         collectionViewDidScroll()
 
+        updateDatas()
+
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
 
         tableViewTitleLabel.addGestureRecognizer(gestureRecognizer)
     }
 
-    private func addBottomCells() {
+    private func updateDatas() {
 
-        self.numberOfCells += 30
+        let name = NSNotification.Name("UPDATE_TASKS")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (_) in
+
+            self.itemCollectionView.reloadData()
+        }
+    }
+
+    private func addBottomCells() {
 
         UIView.performWithoutAnimation {
 
@@ -55,8 +64,6 @@ class GanttTableViewCell: UITableViewCell {
     }
 
     private func addTopCells() {
-
-        self.numberOfCells += 30
 
         self.todayIndex += 30
 
@@ -123,7 +130,6 @@ class GanttTableViewCell: UITableViewCell {
 extension GanttTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("annie GanttTableViewCell numberOfCells: \(numberOfCells)")
         return dateManager.numberOfDates()
     }
 
@@ -242,8 +248,6 @@ extension GanttTableViewCell: UIScrollViewDelegate {
         } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100) {
 
             addBottomCells()
-
-            scrollView.bounds.origin = CGPoint(x: 200, y: 200)
         }
     }
 

@@ -26,6 +26,8 @@ class GanttViewController: UIViewController {
         setupTableView()
 
         getCategorys()
+
+        updateDatas()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +45,7 @@ class GanttViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
         updateEmptyCells()
     }
@@ -96,6 +99,19 @@ class GanttViewController: UIViewController {
         }
 
         ganttTableView.reloadData()
+    }
+
+    private func updateDatas() {
+
+        let name = NSNotification.Name("UPDATE_CATEGORYS")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (_) in
+
+            self.getCategorys()
+
+            self.updateEmptyCells()
+        }
     }
 
 }

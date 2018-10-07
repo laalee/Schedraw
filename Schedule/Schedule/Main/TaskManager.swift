@@ -12,6 +12,12 @@ class TaskManager {
 
     static let share = TaskManager()
 
+    static let firstDay: Int = 1
+
+    static let middleDay: Int = 2
+
+    static let lastDay: Int = 3
+
     let dataProvider = CoreDataProvider()
 
     func addTask(task: Task) {

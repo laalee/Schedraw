@@ -18,4 +18,18 @@ class TimingTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    func updateView(timing: String) {
+
+        timingTextField.text = timing
+    }
+
+}
+
+extension TimingTableViewCell: TaskDelegate {
+
+    func getContent<T>() -> T? {
+
+        return timingTextField.text as? T
+    }
+
 }

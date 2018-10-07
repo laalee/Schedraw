@@ -45,14 +45,6 @@ class CalendarViewController: UIViewController {
 
         getDates()
 
-//        categoryPickerView.dataSource = self
-
-//        categoryPickerView.delegate = self
-
-//        self.categoryPickerView.isHidden = true
-
-//        self.buttonView.isHidden = true
-
         self.categorySelectorView.isHidden = true
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5

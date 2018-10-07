@@ -100,6 +100,8 @@ class CategoryViewController: UIViewController {
             CategoryManager.share.updateCategory(categoryMO: category, title: newTitle, color: newColor)
         }
 
+        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_CATEGORYS"), object: nil)
+        
         dismiss(animated: true, completion: nil)
     }
 
