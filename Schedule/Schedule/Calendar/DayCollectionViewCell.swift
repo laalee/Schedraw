@@ -22,8 +22,6 @@ class DayCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
-    @IBOutlet weak var todayBackgroundView: UIView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -45,8 +43,6 @@ class DayCollectionViewCell: UICollectionViewCell {
 
             thirdCenterView.setCornerRadius(value: smallSize / 2)
 
-            todayBackgroundView.setCornerRadius(value: smallSize / 2)
-
         } else {
 
             let bigSize: CGFloat = 45
@@ -56,8 +52,6 @@ class DayCollectionViewCell: UICollectionViewCell {
             secondCenterView.setCornerRadius(value: bigSize / 2)
 
             thirdCenterView.setCornerRadius(value: bigSize / 2)
-
-            todayBackgroundView.setCornerRadius(value: bigSize / 2)
         }
     }
 
@@ -75,15 +69,26 @@ class DayCollectionViewCell: UICollectionViewCell {
         self.dayLabel.text = String(theday)
     }
 
-    func setTask(tasks: [TaskMO]) {
+    func clearBackgroundViews() {
 
-        centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
 
-        secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        centerBackgroundView.backgroundColor = backgroundColor
 
-        thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        secondCenterView.backgroundColor = backgroundColor
+
+        thirdCenterView.backgroundColor = backgroundColor
+
+        leftBackgroundView.backgroundColor = backgroundColor
+
+        rightBackgroundView.backgroundColor = backgroundColor
 
         dayLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+
+    func setTask(tasks: [TaskMO]?) {
+
+        guard let tasks = tasks else { return }
 
         for index in 0..<tasks.count {
 
@@ -110,6 +115,50 @@ class DayCollectionViewCell: UICollectionViewCell {
             }
 
             dayLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+    }
+
+    func setCategoryTask(tasks: [TaskMO]?) {
+
+        guard let task = tasks?.first else { return }
+
+        dayLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+        let status = Int(task.consecutiveStatus)
+
+        guard status != 0 else {
+
+            if let categoryColor = task.category?.color as? UIColor {
+
+                centerBackgroundView.backgroundColor = categoryColor
+            }
+
+            return
+        }
+
+        guard let categoryColor = task.category?.color as? UIColor else { return }
+
+        centerBackgroundView.backgroundColor = categoryColor
+
+        switch status {
+
+        case TaskManager.firstDay:
+
+            rightBackgroundView.backgroundColor = categoryColor
+
+        case TaskManager.middleDay:
+
+            leftBackgroundView.backgroundColor = categoryColor
+
+            rightBackgroundView.backgroundColor = categoryColor
+
+        case TaskManager.lastDay:
+
+            leftBackgroundView.backgroundColor = categoryColor
+
+        default:
+
+            break
         }
     }
 

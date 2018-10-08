@@ -11,42 +11,49 @@ import UIKit
 extension UIView {
 
     @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
+
+        get { return layer.cornerRadius }
+
         set {
+
             layer.cornerRadius = newValue
+
             layer.masksToBounds = newValue > 0
-        }}
+        }
+    }
 
     @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }}
+
+        get { return layer.borderWidth }
+
+        set { layer.borderWidth = newValue }
+    }
 
     @IBInspectable var borderColor: UIColor? {
-        get {
-            return UIColor(cgColor: layer.borderColor!)
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }}
+
+        get { return UIColor(cgColor: layer.borderColor!) }
+        set { layer.borderColor = newValue?.cgColor }
+    }
+
 }
 
 extension UILabel {
 
     @IBInspectable
     var letterSpace: CGFloat {
+
         set {
+
             let attributedString: NSMutableAttributedString!
+
             if let currentAttrString = attributedText {
+
                 attributedString = NSMutableAttributedString(attributedString: currentAttrString)
-            }
-            else {
+
+            } else {
+
                 attributedString = NSMutableAttributedString(string: text ?? "")
+
                 text = nil
             }
 
@@ -58,10 +65,17 @@ extension UILabel {
         }
 
         get {
-            if let currentLetterSpace = attributedText?.attribute(NSAttributedString.Key.kern, at: 0, effectiveRange: .none) as? CGFloat {
+
+            if let currentLetterSpace = attributedText?.attribute(
+                NSAttributedString.Key.kern,
+                at: 0,
+                effectiveRange: .none
+                ) as? CGFloat {
+
                 return currentLetterSpace
-            }
-            else {
+
+            } else {
+
                 return 0
             }
         }

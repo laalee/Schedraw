@@ -18,7 +18,6 @@
 		9B0C6A1E216507C10055A7CD /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C6A1C216507C10055A7CD /* NotesTableViewCell.xib */; };
 		9B0C6A21216509B10055A7CD /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */; };
 		9B0C6A22216509B10055A7CD /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */; };
-		9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */; };
 		9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA52421634FE500369FF1 /* TaskManager.swift */; };
 		9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */; };
 		9B17F5072165BAF100991C1E /* CategoryTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */; };
@@ -28,7 +27,6 @@
 		9B17F5102165E6B100991C1E /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */; };
 		9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD236216370540021EA27 /* UIView+AN.swift */; };
 		9B7AD2392163D6330021EA27 /* DailyTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */; };
-		9B7AD23B2163D8620021EA27 /* CategorySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD23A2163D8620021EA27 /* CategorySelectorViewController.swift */; };
 		9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */; };
 		9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7AD23F2163DB2A0021EA27 /* DailyTaskTableViewCell.xib */; };
 		9B7AD24421644C390021EA27 /* DailyHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD24221644C390021EA27 /* DailyHeaderTableViewCell.swift */; };
@@ -81,7 +79,6 @@
 		9B0C6A1C216507C10055A7CD /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
 		9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
-		9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		9B0DA52421634FE500369FF1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTitleTableViewCell.swift; sourceTree = "<group>"; };
 		9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
 		9B7AD236216370540021EA27 /* UIView+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AN.swift"; sourceTree = "<group>"; };
 		9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskViewController.swift; sourceTree = "<group>"; };
-		9B7AD23A2163D8620021EA27 /* CategorySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectorViewController.swift; sourceTree = "<group>"; };
 		9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskTableViewCell.swift; sourceTree = "<group>"; };
 		9B7AD23F2163DB2A0021EA27 /* DailyTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTaskTableViewCell.xib; sourceTree = "<group>"; };
 		9B7AD24221644C390021EA27 /* DailyHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,15 +197,6 @@
 			path = DailyTask;
 			sourceTree = "<group>";
 		};
-		9B7AD23D2163DAA20021EA27 /* CategorySelector */ = {
-			isa = PBXGroup;
-			children = (
-				9B7AD23A2163D8620021EA27 /* CategorySelectorViewController.swift */,
-				9B0DA51E2161E93800369FF1 /* CustomPickerView.swift */,
-			);
-			path = CategorySelector;
-			sourceTree = "<group>";
-		};
 		9BAF7647215F560300101BBA /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +225,6 @@
 				9BAF7654215F8BC100101BBA /* MonthCollectionViewCell.swift */,
 				9BAF7655215F8BC100101BBA /* MonthCollectionViewCell.xib */,
 				9B7AD23C2163DA910021EA27 /* DailyTask */,
-				9B7AD23D2163DAA20021EA27 /* CategorySelector */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -475,7 +461,6 @@
 				9BB5D5DE2151FDD2005F225C /* MainViewController.swift in Sources */,
 				9B0C6A15216501970055A7CD /* TimingTableViewCell.swift in Sources */,
 				9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */,
-				9B0DA51F2161E93800369FF1 /* CustomPickerView.swift in Sources */,
 				9BE1F7DB2166810700194FAF /* Category.swift in Sources */,
 				9BE1F7D9216640B600194FAF /* UIColor+AN.swift in Sources */,
 				9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */,
@@ -501,7 +486,6 @@
 				9B0C6A21216509B10055A7CD /* DeleteTableViewCell.swift in Sources */,
 				9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */,
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,
-				9B7AD23B2163D8620021EA27 /* CategorySelectorViewController.swift in Sources */,
 				9B0C6A19216502EF0055A7CD /* ConsecutiveTableViewCell.swift in Sources */,
 				9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */,
 				9BB5D5DC2151FDD2005F225C /* AppDelegate.swift in Sources */,

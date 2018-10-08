@@ -168,13 +168,9 @@ extension CategoryViewController: UITableViewDataSource {
                 return titleCell
             }
 
-            if editButton.isHidden {
+            titleCell.updateView(title: category.title, enabled: editButton.isHidden)
 
-                titleCell.updateView(title: category.title, enabled: true)
-
-            } else {
-
-                titleCell.updateView(title: category.title, enabled: false)
+            if !editButton.isHidden {
 
                 self.pageTitleLabel.text = category.title
             }
@@ -190,14 +186,7 @@ extension CategoryViewController: UITableViewDataSource {
 
             guard let color = category.color as? UIColor else { return colorCell}
 
-            if editButton.isHidden {
-
-                colorCell.updateView(color: color, enabled: true)
-
-            } else {
-
-                colorCell.updateView(color: color, enabled: false)
-            }
+            colorCell.updateView(color: color, enabled: editButton.isHidden)
 
             return colorCell
 

@@ -66,11 +66,34 @@ class DailyTaskViewController: UIViewController {
 
             guard let userInfo = notification.userInfo else { return }
 
-            guard let task = userInfo["task"] as? [TaskMO] else { return }
+            guard let taskMOs = userInfo["task"] as? [TaskMO] else { return }
 
-            self.tasks = task
+            var category: CategoryMO?
 
-            guard let date = task[0].date as? Date else { return }
+            if let selectedCategory = userInfo["selectedCategory"] as? CategoryMO {
+
+                category = selectedCategory
+            }
+
+            self.tasks = []
+
+            for taskMO in taskMOs {
+
+                if category != nil {
+
+                    if taskMO.category == category {
+
+                        self.tasks.append(taskMO)
+                    }
+                } else {
+
+                    self.tasks.append(taskMO)
+                }
+            }
+
+            guard self.tasks.count > 0 else { return }
+
+            guard let date = self.tasks[0].date as? Date else { return }
 
             self.titleString = self.formatDate(from: date)
 
@@ -91,13 +114,29 @@ class DailyTaskViewController: UIViewController {
 
             guard let taskMOs = userInfo["task"] as? [TaskMO] else { return }
 
-            self.tasks = [taskMOs[0]]
+            var category: CategoryMO?
+
+            if let selectedCategory = userInfo["selectedCategory"] as? CategoryMO {
+
+                category = selectedCategory
+            }
+
+            self.tasks = []
 
             for taskMO in taskMOs {
 
                 if taskMO.consecutiveStatus == 0 || taskMO.consecutiveStatus == 1 {
 
-                    self.tasks.append(taskMO)
+                    if category != nil {
+
+                        if taskMO.category == category {
+
+                            self.tasks.append(taskMO)
+                        }
+                    } else {
+
+                        self.tasks.append(taskMO)
+                    }
                 }
             }
 
@@ -149,6 +188,8 @@ extension DailyTaskViewController: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: DailyTaskTableViewCell.self), for: indexPath)
+
+        cell.selectionStyle = .none
 
         guard let taskCell = cell as? DailyTaskTableViewCell else {
             return cell
@@ -205,5 +246,17 @@ extension DailyTaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
         return 50
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let task = tasks[indexPath.row]
+
+        let taskViewController = TaskViewController.detailViewControllerForTask(
+            category: task.category,
+            date: task.date as? Date
+        )
+
+        self.show(taskViewController, sender: nil)
     }
 }

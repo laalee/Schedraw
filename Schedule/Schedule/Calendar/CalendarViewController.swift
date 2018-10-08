@@ -14,8 +14,6 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
 
-    @IBOutlet weak var categorySelectorView: UIView!
-
     @IBOutlet weak var dailyTaskView: UIView!
 
     @IBOutlet weak var dailyTaskHeightConstraint: NSLayoutConstraint!
@@ -38,6 +36,10 @@ class CalendarViewController: UIViewController {
 
     var monthTaskSection: Int?
 
+    var categorys: [Any] = []
+
+    var selectedCategory: CategoryMO?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,7 +49,7 @@ class CalendarViewController: UIViewController {
 
         updateDatas()
 
-        self.categorySelectorView.isHidden = true
+        getCategorys()
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
@@ -56,6 +58,15 @@ class CalendarViewController: UIViewController {
         dailyTaskView.layer.shadowRadius = 5.0
         dailyTaskView.layer.shadowOffset = CGSize(width: 0, height: 0 )
         dailyTaskView.layer.masksToBounds = false
+    }
+
+    func getCategorys() {
+
+        guard let categorys = CategoryManager.share.getAllCategory() else { return }
+
+        self.categorys = categorys
+
+        self.categorys.insert("ALL", at: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -316,10 +327,6 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    @IBAction func selectCategory(_ sender: Any) {
-
-    }
-
     func fetchByDate(indexPath: IndexPath) {
 
         guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
@@ -349,7 +356,7 @@ class CalendarViewController: UIViewController {
             NotificationCenter.default.post(
                 name: NSNotification.Name("DAILY_TASK_UPDATE"),
                 object: nil,
-                userInfo: ["task": tasks as Any]
+                userInfo: ["task": tasks as Any, "selectedCategory": self.selectedCategory as Any]
             )
 
             let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
@@ -400,7 +407,7 @@ class CalendarViewController: UIViewController {
             NotificationCenter.default.post(
                 name: NSNotification.Name("MONYH_TASK_UPDATE"),
                 object: nil,
-                userInfo: ["task": tasks as Any]
+                userInfo: ["task": tasks as Any, "selectedCategory": self.selectedCategory as Any]
             )
 
             let indexPath = IndexPath.init(row: 0, section: sender.tag)
@@ -428,6 +435,52 @@ class CalendarViewController: UIViewController {
         }
     }
 
+    @IBAction func selectCategory(_ sender: Any) {
+
+        print("qqqqq")
+
+        let pickerView = UIPickerView()
+
+        pickerView.dataSource = self
+
+        pickerView.delegate = self
+
+        pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
+
+        let alertController: UIAlertController = UIAlertController(
+            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+
+        alertController.addAction(UIAlertAction(
+        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
+
+            print("date select cd:", pickerView.selectedRow(inComponent: 0))
+
+            let selectedRow = pickerView.selectedRow(inComponent: 0)
+
+            if let selectedCategory = self.categorys[selectedRow] as? CategoryMO {
+
+                self.selectedCategory = selectedCategory
+
+                self.calendarCollectionView.reloadData()
+
+            } else {
+
+                print("ALLLLLLLLL")
+
+                self.selectedCategory = nil
+
+                self.calendarCollectionView.reloadData()
+            }
+        })
+
+        alertController.addAction(UIAlertAction(
+            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+
+        alertController.view.addSubview(pickerView)
+
+        self.show(alertController, sender: nil)
+    }
+
 }
 
 extension CalendarViewController: UICollectionViewDataSource {
@@ -450,35 +503,35 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         guard let dayCell = cell as? DayCollectionViewCell else { return cell }
 
+        dayCell.clearBackgroundViews()
+
         guard let theDate = calendarDates[indexPath.section][indexPath.row] else {
 
             dayCell.setDayLabel(date: nil)
 
-            dayCell.centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-
-            dayCell.secondCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-            dayCell.thirdCenterView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
-            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0)
-
             return dayCell
         }
 
-        guard let tasks = TaskManager.share.fetchTask(byDate: theDate) else { return dayCell }
-
-        dayCell.setTask(tasks: tasks)
-
         dayCell.setDayLabel(date: theDate)
 
-        if DateManager.share.formatDate(forTaskPage: theDate) == DateManager.share.formatDate(forTaskPage: currentDate) {
+        var tasks: [TaskMO]?
 
-            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-            dayCell.dayLabel.textColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        if let selectedCategory = self.selectedCategory {
+
+            tasks = TaskManager.share.fetchTask(byCategory: selectedCategory, andDate: theDate)
+
+            dayCell.setCategoryTask(tasks: tasks)
 
         } else {
 
-            dayCell.todayBackgroundView.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0)
+            tasks = TaskManager.share.fetchTask(byDate: theDate)
+
+            dayCell.setTask(tasks: tasks)
+        }
+
+        if DateManager.share.formatDate(forTaskPage: theDate) == DateManager.share.formatDate(forTaskPage: currentDate) {
+
+            dayCell.dayLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         }
 
         return dayCell
@@ -583,6 +636,7 @@ extension CalendarViewController: UIScrollViewDelegate {
 }
 
 extension CalendarViewController: UIPickerViewDataSource {
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
         return 1
@@ -590,22 +644,23 @@ extension CalendarViewController: UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        return CategoryManager.share.numberOfCategory()
-    }
+        return categorys.count
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
-        return CategoryManager.share.getAllCategory()?[row].title
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        let minute = row
-        print("hour: \(minute)")
     }
 
 }
 
 extension CalendarViewController: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+
+        guard let category = categorys[row] as? CategoryMO else {
+
+            return "ALL"
+        }
+
+        return category.title
+    }
 
 }
