@@ -51,6 +51,8 @@ class CalendarViewController: UIViewController {
 
         getCategorys()
 
+        updateCategorys()
+
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
         dailyTaskView.layer.shadowColor = #colorLiteral(red: 0.741996612, green: 0.741996612, blue: 0.741996612, alpha: 1)
@@ -67,6 +69,17 @@ class CalendarViewController: UIViewController {
         self.categorys = categorys
 
         self.categorys.insert("ALL", at: 0)
+    }
+
+    private func updateCategorys() {
+
+        let name = NSNotification.Name("UPDATE_CATEGORYS")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (_) in
+
+            self.getCategorys()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
