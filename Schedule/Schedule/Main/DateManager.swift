@@ -99,4 +99,17 @@ class DateManager {
         return dateFormatter.string(from: date)
     }
 
+    func consecutiveDay(startDate: Date, lastDate: Date) -> Int {
+
+        let dateComponentsFormatter = DateComponentsFormatter()
+
+        dateComponentsFormatter.allowedUnits = [.day]
+
+        guard let consecutiveDay = dateComponentsFormatter.string(from: startDate, to: lastDate) else { return 1 }
+
+        let consecutive: Int = Int(consecutiveDay.dropLast()) ?? 1
+
+        return consecutive
+    }
+
 }

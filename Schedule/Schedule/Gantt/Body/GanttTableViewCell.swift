@@ -29,6 +29,8 @@ class GanttTableViewCell: UITableViewCell {
     var dateformatter = DateFormatter()
 
     let dateManager = DateManager.share
+
+    var subLabels: [UILabel] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +46,18 @@ class GanttTableViewCell: UITableViewCell {
         tableViewTitleLabel.addGestureRecognizer(gestureRecognizer)
     }
 
+    func reloadItemCollectionView() {
+
+        subLabels.forEach { (subLabel) in
+
+            subLabel.removeFromSuperview()
+        }
+
+        self.subLabels = []
+
+        self.itemCollectionView.reloadData()
+    }
+
     private func updateDatas() {
 
         let name = NSNotification.Name("UPDATE_TASKS")
@@ -51,7 +65,7 @@ class GanttTableViewCell: UITableViewCell {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (_) in
 
-            self.itemCollectionView.reloadData()
+            self.reloadItemCollectionView()
 
             self.itemCollectionView.collectionViewLayout.invalidateLayout()
         }
@@ -61,7 +75,7 @@ class GanttTableViewCell: UITableViewCell {
 
         UIView.performWithoutAnimation {
 
-            self.itemCollectionView.reloadData()
+            self.reloadItemCollectionView()
         }
     }
 
@@ -71,7 +85,7 @@ class GanttTableViewCell: UITableViewCell {
 
         UIView.performWithoutAnimation {
 
-            self.itemCollectionView.reloadData()
+            self.reloadItemCollectionView()
 
             self.itemCollectionView.scrollToItem(
                 at: IndexPath(row: 32, section: 0),
@@ -127,6 +141,26 @@ class GanttTableViewCell: UITableViewCell {
         self.window?.rootViewController?.show(categoryViewController, sender: nil)
     }
 
+    func addSubLabel(task: TaskMO, indexPathRow: Int) {
+
+        let label = UILabel()
+        label.text = task.title
+        label.font = UIFont(name: label.font.fontName, size: 12)
+        label.textColor = UIColor.white
+
+        guard let startDate = task.date as? Date else { return }
+
+        guard let lastDate = task.endDate as? Date else { return }
+
+        let consecutive = DateManager.share.consecutiveDay(startDate: startDate, lastDate: lastDate)
+
+        label.frame = CGRect(x: 50 * indexPathRow + 25, y: 0, width: consecutive * 50, height: 50)
+
+        subLabels.append(label)
+
+        self.itemCollectionView.addSubview(label)
+    }
+
 }
 
 extension GanttTableViewCell: UICollectionViewDataSource {
@@ -155,6 +189,15 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         let task = TaskManager.share.fetchTask(byCategory: category, andDate: date)
 
         eventCell.setTask(task: task?.first)
+
+        guard let firstTask = task?.first else { return eventCell }
+
+        let consecutiveStatus = firstTask.consecutiveStatus
+
+        if consecutiveStatus == TaskManager.firstDay {
+
+            addSubLabel(task: firstTask, indexPathRow: indexPath.row)
+        }
 
         return eventCell
     }

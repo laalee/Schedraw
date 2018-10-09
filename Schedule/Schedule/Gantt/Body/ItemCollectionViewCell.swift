@@ -26,79 +26,47 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     func setTask(task: TaskMO?) {
 
-        centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        centerBackgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
 
         leftBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
 
         rightBackgroundView.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 0)
 
-        guard let task = task else {
+        titleLabel.text = ""
 
-            titleLabel.text = ""
+        timeLabel.text = ""
 
-            timeLabel.text = ""
+        guard let task = task else { return }
 
-            return
-        }
+        guard let categoryColor = task.category?.color as? UIColor else { return }
+
+        centerBackgroundView.backgroundColor = categoryColor
 
         let status = Int(task.consecutiveStatus)
 
-        guard status != 0 else {
+        switch status {
+
+        case 0:
 
             titleLabel.text = task.title
 
             timeLabel.text = task.time
 
-            if let categoryColor = task.category?.color as? UIColor {
-
-                centerBackgroundView.backgroundColor = categoryColor
-            }
-
             return
-        }
-
-        switch status {
 
         case TaskManager.firstDay:
 
-            titleLabel.text = task.title
-
-            timeLabel.text = ""
-
-            if let categoryColor = task.category?.color as? UIColor {
-
-                centerBackgroundView.backgroundColor = categoryColor
-
-                rightBackgroundView.backgroundColor = categoryColor
-            }
+            rightBackgroundView.backgroundColor = categoryColor
 
         case TaskManager.middleDay:
 
-            titleLabel.text = ""
+            leftBackgroundView.backgroundColor = categoryColor
 
-            timeLabel.text = ""
-
-            if let categoryColor = task.category?.color as? UIColor {
-
-                centerBackgroundView.backgroundColor = categoryColor
-
-                leftBackgroundView.backgroundColor = categoryColor
-
-                rightBackgroundView.backgroundColor = categoryColor
-            }
+            rightBackgroundView.backgroundColor = categoryColor
 
         case TaskManager.lastDay:
 
-            titleLabel.text = ""
-
-            timeLabel.text = ""
-
-            if let categoryColor = task.category?.color as? UIColor {
-
-                centerBackgroundView.backgroundColor = categoryColor
-
-                leftBackgroundView.backgroundColor = categoryColor
-            }
+            leftBackgroundView.backgroundColor = categoryColor
 
         default:
 

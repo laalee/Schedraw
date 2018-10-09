@@ -38,13 +38,7 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     func updateView(byLastDate lastDate: Date, from startDate: Date) {
 
-        let dateComponentsFormatter = DateComponentsFormatter()
-
-        dateComponentsFormatter.allowedUnits = [.day]
-
-        guard let consecutiveDay = dateComponentsFormatter.string(from: startDate, to: lastDate) else { return }
-
-        let consecutive: Int = Int(consecutiveDay.dropLast()) ?? 1
+        let consecutive = DateManager.share.consecutiveDay(startDate: startDate, lastDate: lastDate)
 
         updateConsecutiveButton(consecutiveDay: consecutive + 1)
 

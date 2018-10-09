@@ -151,6 +151,8 @@ extension GanttViewController: UITableViewDataSource {
 
         ganttCell.tableViewTitleLabel.isUserInteractionEnabled = true
 
+        ganttCell.reloadItemCollectionView()
+
         return ganttCell
     }
 
