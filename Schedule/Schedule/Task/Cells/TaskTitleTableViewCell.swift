@@ -11,7 +11,7 @@ import UIKit
 class TaskTitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextField: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

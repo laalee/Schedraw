@@ -12,12 +12,13 @@
         <attribute name="date" attributeType="Transformable" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="task" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="105"/>
-        <element name="Task" positionX="156.453125" positionY="-2.5234375" width="128" height="165"/>
+        <element name="Task" positionX="156.453125" positionY="-2.5234375" width="128" height="180"/>
     </elements>
 </model>

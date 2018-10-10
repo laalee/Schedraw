@@ -25,10 +25,10 @@ class TaskManager {
         dataProvider.addTask(task: task)
     }
 
-    func updateTask(taskMO: TaskMO, task: Task) {
-
-        dataProvider.updateTask(taskMO: taskMO, task: task)
-    }
+//    func updateTask(taskMO: TaskMO, task: Task) {
+//
+//        dataProvider.updateTask(taskMO: taskMO, task: task)
+//    }
 
     func deleteTask(taskMO: TaskMO) {
 

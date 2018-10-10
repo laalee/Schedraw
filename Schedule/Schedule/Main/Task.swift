@@ -17,6 +17,8 @@ struct Task {
 
     var date: Date
 
+    var startDate: Date?
+
     var endDate: Date?
 
     var consecutiveStatus: Int?

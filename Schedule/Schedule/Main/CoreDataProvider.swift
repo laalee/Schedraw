@@ -54,6 +54,11 @@ class CoreDataProvider {
 
             self.task.category = task.category
 
+            if let startDate = task.startDate as NSObject? {
+
+                self.task.startDate = startDate
+            }
+
             if let endDate = task.endDate as NSObject? {
 
                 self.task.endDate = endDate
@@ -85,38 +90,38 @@ class CoreDataProvider {
         }
     }
 
-    func updateTask(taskMO: TaskMO, task: Task) {
-
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-
-            taskMO.title = task.title
-
-            taskMO.date = task.date as NSObject
-
-            taskMO.time = task.time
-
-            taskMO.note = task.note
-
-            taskMO.category = task.category
-
-            if let endDate = task.endDate as NSObject? {
-
-                taskMO.endDate = endDate
-            }
-
-            if let consecutiveStatus = task.consecutiveStatus {
-
-                taskMO.consecutiveStatus = Int64(consecutiveStatus)
-            }
-
-            if let consecutiveId = task.consecutiveId {
-
-                taskMO.consecutiveId = Int64(consecutiveId)
-            }
-
-            appDelegate.saveContext()
-        }
-    }
+//    func updateTask(taskMO: TaskMO, task: Task) {
+//
+//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//
+//            taskMO.title = task.title
+//
+//            taskMO.date = task.date as NSObject
+//
+//            taskMO.time = task.time
+//
+//            taskMO.note = task.note
+//
+//            taskMO.category = task.category
+//
+//            if let endDate = task.endDate as NSObject? {
+//
+//                taskMO.endDate = endDate
+//            }
+//
+//            if let consecutiveStatus = task.consecutiveStatus {
+//
+//                taskMO.consecutiveStatus = Int64(consecutiveStatus)
+//            }
+//
+//            if let consecutiveId = task.consecutiveId {
+//
+//                taskMO.consecutiveId = Int64(consecutiveId)
+//            }
+//
+//            appDelegate.saveContext()
+//        }
+//    }
 
     func deleteCategory(categoryMO: CategoryMO) {
 

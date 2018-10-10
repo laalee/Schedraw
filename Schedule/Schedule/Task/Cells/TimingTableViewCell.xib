@@ -32,7 +32,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00 : 00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QPv-ae-sQ9">
-                                        <rect key="frame" x="15" y="44" width="337" height="28.5"/>
+                                        <rect key="frame" x="15" y="44" width="381" height="28.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -44,29 +44,46 @@
                                             <constraint firstAttribute="height" constant="1" id="hZh-gZ-VQA"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-oG-cEG">
-                                        <rect key="frame" x="367" y="48.5" width="20" height="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REq-e0-I7m">
+                                        <rect key="frame" x="15" y="42.5" width="352" height="30"/>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NQ-eh-A0j">
+                                        <rect key="frame" x="374" y="51" width="15" height="15"/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Sp0-co-dTe"/>
-                                            <constraint firstAttribute="width" constant="20" id="upn-Vh-93Y"/>
+                                            <constraint firstAttribute="width" constant="15" id="10l-CB-uIP"/>
+                                            <constraint firstAttribute="height" constant="15" id="dDf-mp-ba4"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.89411764705882357" green="0.88627450980392153" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="time_button"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="10"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="Afh-Xo-k0p" eventType="touchUpInside" id="0N4-RW-zzJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="0NQ-eh-A0j" firstAttribute="trailing" secondItem="Wk8-5G-yXx" secondAttribute="trailing" constant="-7" id="4t9-8j-Q9H"/>
                                     <constraint firstItem="Wk8-5G-yXx" firstAttribute="leading" secondItem="QPv-ae-sQ9" secondAttribute="leading" id="Jn1-hz-c0E"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fuf-oG-cEG" secondAttribute="trailing" constant="24" id="Mzw-5H-d0g"/>
                                     <constraint firstItem="2CX-0G-7TU" firstAttribute="top" secondItem="fpC-My-0wC" secondAttribute="top" constant="10" id="PQc-LB-MEv"/>
                                     <constraint firstItem="QPv-ae-sQ9" firstAttribute="top" secondItem="2CX-0G-7TU" secondAttribute="bottom" constant="7" id="Vvn-pa-XVN"/>
+                                    <constraint firstItem="0NQ-eh-A0j" firstAttribute="centerY" secondItem="QPv-ae-sQ9" secondAttribute="centerY" id="XJM-px-rhK"/>
                                     <constraint firstItem="2CX-0G-7TU" firstAttribute="leading" secondItem="fpC-My-0wC" secondAttribute="leading" constant="15" id="drq-iK-NYO"/>
+                                    <constraint firstItem="QPv-ae-sQ9" firstAttribute="trailing" secondItem="Wk8-5G-yXx" secondAttribute="trailing" id="fJW-E0-zZG"/>
                                     <constraint firstAttribute="bottom" secondItem="Wk8-5G-yXx" secondAttribute="bottom" constant="20" id="goQ-0a-OBU"/>
-                                    <constraint firstItem="Fuf-oG-cEG" firstAttribute="leading" secondItem="QPv-ae-sQ9" secondAttribute="trailing" constant="15" id="jmX-6P-3Mv"/>
                                     <constraint firstItem="Wk8-5G-yXx" firstAttribute="top" secondItem="QPv-ae-sQ9" secondAttribute="bottom" constant="2" id="ldR-ic-X46"/>
                                     <constraint firstAttribute="trailing" secondItem="Wk8-5G-yXx" secondAttribute="trailing" constant="15" id="phl-wr-NmI"/>
-                                    <constraint firstItem="Fuf-oG-cEG" firstAttribute="centerY" secondItem="QPv-ae-sQ9" secondAttribute="centerY" id="sc5-c4-tfm"/>
+                                    <constraint firstItem="REq-e0-I7m" firstAttribute="trailing" secondItem="QPv-ae-sQ9" secondAttribute="trailing" constant="-29" id="sCq-nx-Vsw"/>
                                     <constraint firstItem="QPv-ae-sQ9" firstAttribute="leading" secondItem="2CX-0G-7TU" secondAttribute="leading" id="sub-ry-38y"/>
+                                    <constraint firstItem="REq-e0-I7m" firstAttribute="bottom" secondItem="QPv-ae-sQ9" secondAttribute="bottom" id="uhw-oY-xuh"/>
+                                    <constraint firstItem="REq-e0-I7m" firstAttribute="leading" secondItem="QPv-ae-sQ9" secondAttribute="leading" id="x5C-8z-zqw"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -88,13 +105,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="4hT-qt-OwL"/>
             <connections>
-                <outlet property="timingButton" destination="Fuf-oG-cEG" id="D3H-Su-wgw"/>
+                <outlet property="clearButton" destination="0NQ-eh-A0j" id="nXc-RC-eN9"/>
+                <outlet property="timingButton" destination="REq-e0-I7m" id="4Or-0g-krt"/>
                 <outlet property="timingTextField" destination="QPv-ae-sQ9" id="r24-gh-oyS"/>
             </connections>
-            <point key="canvasLocation" x="98" y="121"/>
+            <point key="canvasLocation" x="96.799999999999997" y="120.53973013493254"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="time_button" width="512" height="512"/>
-    </resources>
 </document>

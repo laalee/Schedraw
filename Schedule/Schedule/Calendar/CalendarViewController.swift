@@ -450,8 +450,6 @@ class CalendarViewController: UIViewController {
 
     @IBAction func selectCategory(_ sender: Any) {
 
-        print("qqqqq")
-
         let pickerView = UIPickerView()
 
         pickerView.dataSource = self

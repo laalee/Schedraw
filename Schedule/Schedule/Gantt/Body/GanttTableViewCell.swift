@@ -204,8 +204,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        print(indexPath)
-
         guard let selectedCategory = self.category else { return }
 
         let selectedDate = dateManager.getDate(atIndex: indexPath.row)
@@ -216,6 +214,13 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         )
 
         self.window?.rootViewController?.show(taskViewController, sender: nil)
+
+//        let taskDetailViewController = TaskDetailViewController.taskDetailViewController(
+//            category: selectedCategory,
+//            date: selectedDate
+//        )
+//
+//        self.window?.rootViewController?.show(taskDetailViewController, sender: nil)
     }
 
 }

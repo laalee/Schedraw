@@ -26,6 +26,8 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var saveButton: UIButton!
+
+    @IBOutlet weak var titlebarBackgroungView: UIView!
     
     var category: CategoryMO?
 
@@ -60,42 +62,13 @@ class TaskViewController: UIViewController {
         setupTableView()
 
         setupCategoryAndTask()
-    }
 
-    func setupCategoryAndTask() {
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
 
-        guard let date = date else { return }
-
-        guard let category = category else { return }
-
-        let titleDate = DateManager.share.formatDate(forTaskPage: date)
-
-        dateButton.setTitle(titleDate, for: .normal)
-
-        categoryLabel.text = category.title
-
-        let tasks = TaskManager.share.fetchTask(byCategory: category, andDate: date)
-
-        if tasks?.count != 0 {
-
-            self.task = tasks?.first
-
-            self.isNewTask = false
-
-            if let status = self.task?.consecutiveStatus {
-
-                if status != 0 && status != TaskManager.firstDay {
-
-                    self.editButton.isHidden = true
-
-                    self.saveButton.isHidden = true
-                }
-            }
-
-        } else {
-
-            self.editButton.isHidden = true
-        }
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
 
     // MARK: Initialization
@@ -129,6 +102,38 @@ class TaskViewController: UIViewController {
             taskTableView.register(
                 UINib(nibName: identifier, bundle: nil),
                 forCellReuseIdentifier: identifier)
+        }
+    }
+
+    func setupCategoryAndTask() {
+
+        guard let category = category else { return }
+
+        guard let categoryColor = category.color as? UIColor else { return }
+
+        guard let date = date else { return }
+
+        let titleDate = DateManager.share.formatDate(forTaskPage: date)
+
+        let tasks = TaskManager.share.fetchTask(byCategory: category, andDate: date)
+
+        categoryLabel.text = category.title
+
+        titlebarBackgroungView.backgroundColor = categoryColor
+
+        dateButton.setTitle(titleDate, for: .normal)
+
+        if tasks?.count != 0 {
+
+            task = tasks?.first
+
+            isNewTask = false
+
+        } else {
+
+            editButton.isHidden = true
+
+            saveButton.isHidden = false
         }
     }
 
@@ -279,6 +284,8 @@ class TaskViewController: UIViewController {
 
         self.editButton.isHidden = true
 
+        self.saveButton.isHidden = false
+
         identifiers.append(String(describing: DeleteTableViewCell.self))
 
         setupTableView()
@@ -329,6 +336,7 @@ class TaskViewController: UIViewController {
                 let newTask = Task(title: newTitle,
                                    category: category,
                                    date: date,
+                                   startDate: newDate,
                                    endDate: endDate,
                                    consecutiveStatus: consecutiveStatus,
                                    consecutiveId: consecutiveId,
@@ -342,6 +350,7 @@ class TaskViewController: UIViewController {
             let newTask = Task(title: newTitle,
                                category: category,
                                date: newDate,
+                               startDate: nil,
                                endDate: nil,
                                consecutiveStatus: nil,
                                consecutiveId: nil,
@@ -390,6 +399,11 @@ class TaskViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             alertToast.dismiss(animated: false, completion: nil)
         }
+    }
+
+    @objc func dismissKeyboard() {
+
+        self.view.endEditing(true)
     }
 
 }

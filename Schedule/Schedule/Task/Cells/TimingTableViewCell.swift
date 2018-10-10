@@ -14,6 +14,8 @@ class TimingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timingButton: UIButton!
     
+    @IBOutlet weak var clearButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,8 +25,19 @@ class TimingTableViewCell: UITableViewCell {
         timingTextField.text = timing
 
         timingButton.isEnabled = enabled
+
+        if enabled && timing != nil && timing != "" {
+
+            clearButton.isHidden = false
+        }
     }
 
+    @IBAction func clearButtonPressed(_ sender: Any) {
+
+        timingTextField.text = ""
+
+        clearButton.isHidden = true
+    }
 }
 
 extension TimingTableViewCell: TaskDelegate {
