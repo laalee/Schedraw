@@ -12,6 +12,8 @@ class NotesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var notesTextView: UITextView!
     
+    @IBOutlet weak var notesLineView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,6 +23,8 @@ class NotesTableViewCell: UITableViewCell {
         notesTextView.text = notes
 
         notesTextView.isEditable = enabled
+
+        notesLineView.isHidden = !enabled
     }
 
 }

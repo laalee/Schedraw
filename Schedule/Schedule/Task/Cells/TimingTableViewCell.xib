@@ -107,6 +107,7 @@
             <connections>
                 <outlet property="clearButton" destination="0NQ-eh-A0j" id="nXc-RC-eN9"/>
                 <outlet property="timingButton" destination="REq-e0-I7m" id="4Or-0g-krt"/>
+                <outlet property="timingLineView" destination="Wk8-5G-yXx" id="fg1-UV-BOd"/>
                 <outlet property="timingTextField" destination="QPv-ae-sQ9" id="r24-gh-oyS"/>
             </connections>
             <point key="canvasLocation" x="96.799999999999997" y="120.53973013493254"/>

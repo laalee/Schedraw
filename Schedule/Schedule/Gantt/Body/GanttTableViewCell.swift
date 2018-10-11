@@ -214,13 +214,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
         )
 
         self.window?.rootViewController?.show(taskViewController, sender: nil)
-
-//        let taskDetailViewController = TaskDetailViewController.taskDetailViewController(
-//            category: selectedCategory,
-//            date: selectedDate
-//        )
-//
-//        self.window?.rootViewController?.show(taskDetailViewController, sender: nil)
     }
 
 }

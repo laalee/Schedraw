@@ -12,6 +12,8 @@ class TaskTitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextField: UITextField!
 
+    @IBOutlet weak var titleLineView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,6 +23,8 @@ class TaskTitleTableViewCell: UITableViewCell {
         titleTextField.text = title
 
         titleTextField.isEnabled = enabled
+
+        titleLineView.isHidden = !enabled
     }
     
 }

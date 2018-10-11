@@ -38,7 +38,7 @@
                                             <constraint firstAttribute="height" constant="1" id="Nf4-R8-xZV"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="V8h-4R-ec6">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="V8h-4R-ec6">
                                         <rect key="frame" x="15" y="45.5" width="381" height="150"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -80,6 +80,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Qr6-tJ-QoB"/>
             <connections>
+                <outlet property="notesLineView" destination="oWu-ct-VYw" id="pgb-TC-gEw"/>
                 <outlet property="notesTextView" destination="V8h-4R-ec6" id="QAH-oZ-oVH"/>
             </connections>
             <point key="canvasLocation" x="96.799999999999997" y="175.86206896551727"/>

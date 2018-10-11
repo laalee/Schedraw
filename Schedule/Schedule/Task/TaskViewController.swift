@@ -33,7 +33,9 @@ class TaskViewController: UIViewController {
     
     var category: CategoryMO?
 
-    var task: TaskMO?
+    var taskMO: TaskMO?
+
+    var task: Task?
 
     var date: Date?
 
@@ -75,6 +77,12 @@ class TaskViewController: UIViewController {
         )
 
         self.view.addGestureRecognizer(tapGestureRecognizer)
+
+        titlebarBackgroungView.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        titlebarBackgroungView.layer.shadowOpacity = 0.5
+        titlebarBackgroungView.layer.shadowRadius = 5.0
+        titlebarBackgroungView.layer.shadowOffset = CGSize(width: 0, height: 0 )
+        titlebarBackgroungView.layer.masksToBounds = false
     }
 
     // MARK: Initialization
@@ -119,19 +127,24 @@ class TaskViewController: UIViewController {
 
         guard let date = date else { return }
 
-        let titleDate = DateManager.share.formatDate(forTaskPage: date)
+        var titleDate = DateManager.share.formatDate(forTaskPage: date)
 
         let tasks = TaskManager.share.fetchTask(byCategory: category, andDate: date)
 
-        categoryLabel.text = category.title
-
-        titlebarBackgroungView.backgroundColor = categoryColor
-
-        dateButton.setTitle(titleDate, for: .normal)
-
         if tasks?.count != 0 {
 
-            task = tasks?.first
+            taskMO = tasks?.first
+
+            if let startDate = taskMO?.startDate as? Date {
+
+                let startTask = TaskManager.share.fetchTask(byCategory: category, andDate: startDate)
+
+                taskMO = startTask?.first
+
+                titleDate = DateManager.share.formatDate(forTaskPage: startDate)
+
+                self.date = startDate
+            }
 
             isNewTask = false
 
@@ -141,6 +154,14 @@ class TaskViewController: UIViewController {
 
             saveButton.isHidden = false
         }
+
+        task = Task(title: "", category: category, date: Date(), startDate: nil, endDate: nil, consecutiveDay: nil, consecutiveStatus: nil, consecutiveId: nil, time: nil, note: nil)
+
+        categoryLabel.text = category.title
+
+        titlebarBackgroungView.backgroundColor = categoryColor
+
+        dateButton.setTitle(titleDate, for: .normal)
     }
 
     func addKeyboardObserver() {
@@ -228,7 +249,16 @@ class TaskViewController: UIViewController {
 
         datePicker.datePickerMode = .date
 
-        datePicker.date = Date()
+        datePicker.date = self.date ?? Date()
+
+        if let endDate = self.task?.endDate {
+
+            datePicker.date = endDate
+
+        } else if let lastDate = taskMO?.endDate as? Date {
+
+            datePicker.date = lastDate
+        }
 
         let alertController: UIAlertController = UIAlertController(
             title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
@@ -241,9 +271,16 @@ class TaskViewController: UIViewController {
 
             let pickerDate = DateManager.share.transformDate(date: self.datePicker.date)
 
-            print(pickerDate)
+            if pickerDate < self.date ?? Date() {
 
-            cell.updateView(byLastDate: pickerDate, from: self.date ?? Date())
+                self.showToast(title: "Failed", message: "End date should be greater than start date.")
+
+            } else {
+
+                self.task?.endDate = pickerDate
+
+                cell.updateView(byLastDate: pickerDate, from: self.date ?? Date())
+            }
         })
 
         alertController.addAction(UIAlertAction(
@@ -345,7 +382,7 @@ class TaskViewController: UIViewController {
 
         guard let newTitle: String = titleDelegate?.getContent() else {
 
-            showToast()
+            showToast(title: "Save failed!", message: "Title should not be blank.")
 
             return
         }
@@ -412,9 +449,9 @@ class TaskViewController: UIViewController {
 
         if !isNewTask {
 
-            guard let id = self.task?.consecutiveId else { return }
+            guard let id = self.taskMO?.consecutiveId else { return }
 
-            guard let taskMO = self.task else { return }
+            guard let taskMO = self.taskMO else { return }
 
             if id == 0 {
 
@@ -424,11 +461,29 @@ class TaskViewController: UIViewController {
 
                 TaskManager.share.deleteTask(byConsecutiveId: Int(id))
             }
+
+            let tasks = TaskManager.share.fetchTask(byCategory: category, andDate: newDate)
+
+            self.taskMO = tasks?.first
+
+            self.editButton.isHidden = false
+
+            self.saveButton.isHidden = true
+
+            identifiers.removeLast()
+
+            setupTableView()
+
+            taskTableView.reloadData()
+
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+
+        } else {
+
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+
+            dismiss(animated: true, completion: nil)
         }
-
-        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
-
-        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelPressed(_ sender: Any) {
@@ -436,19 +491,21 @@ class TaskViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    func showToast() {
+    func showToast(title: String, message: String) {
 
         let alertToast = UIAlertController(
-            title: "Save failed!",
-            message: "Title should not be blank.",
+            title: title,
+            message: message,
             preferredStyle: .alert
         )
 
+        alertToast.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
         present(alertToast, animated: true, completion: nil)
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
-            alertToast.dismiss(animated: false, completion: nil)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+//            alertToast.dismiss(animated: false, completion: nil)
+//        }
     }
 
     @objc func dismissKeyboard() {
@@ -484,11 +541,11 @@ extension TaskViewController: UITableViewDataSource {
 
             if editButton.isHidden && !saveButton.isHidden {
 
-                titleCell.updateView(title: task?.title, enabled: true)
+                titleCell.updateView(title: taskMO?.title, enabled: true)
 
             } else {
 
-                titleCell.updateView(title: task?.title, enabled: false)
+                titleCell.updateView(title: taskMO?.title, enabled: false)
             }
 
             return titleCell
@@ -503,11 +560,11 @@ extension TaskViewController: UITableViewDataSource {
 
             if editButton.isHidden && !saveButton.isHidden {
 
-                timingCell.updateView(timing: task?.time, enabled: true)
+                timingCell.updateView(timing: taskMO?.time, enabled: true)
 
             } else {
 
-                timingCell.updateView(timing: task?.time, enabled: false)
+                timingCell.updateView(timing: taskMO?.time, enabled: false)
             }
 
             return timingCell
@@ -523,7 +580,7 @@ extension TaskViewController: UITableViewDataSource {
 
             guard let date = self.date else { return cell }
 
-            if let endDate = self.task?.endDate as? Date {
+            if let endDate = self.taskMO?.endDate as? Date {
 
                 consecutiveCell.updateView(byLastDate: endDate, from: date)
 
@@ -554,11 +611,11 @@ extension TaskViewController: UITableViewDataSource {
 
             if editButton.isHidden && !saveButton.isHidden {
 
-                notesCell.updateView(notes: task?.note, enabled: true)
+                notesCell.updateView(notes: taskMO?.note, enabled: true)
 
             } else {
 
-                notesCell.updateView(notes: task?.note, enabled: false)
+                notesCell.updateView(notes: taskMO?.note, enabled: false)
             }
 
             self.notesDelegate = notesCell
@@ -624,7 +681,7 @@ extension TaskViewController: DeleteDelegate {
 
     func deleteObject() {
 
-        guard let task = self.task else { return }
+        guard let task = self.taskMO else { return }
 
         let alertController: UIAlertController = UIAlertController(
             title: "Delete this task?", message: nil, preferredStyle: .alert)
@@ -632,7 +689,7 @@ extension TaskViewController: DeleteDelegate {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            guard let id = self.task?.consecutiveId else { return }
+            guard let id = self.taskMO?.consecutiveId else { return }
 
             if id == 0 {
 

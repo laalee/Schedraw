@@ -14,6 +14,10 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lastDateButton: UIButton!
 
+    @IBOutlet weak var consecutiveLineView: UIView!
+
+    @IBOutlet weak var lastDateLineView: UIView!
+
     var consecutiveDay: Int = 0
 
     override func awakeFromNib() {
@@ -25,6 +29,10 @@ class ConsecutiveTableViewCell: UITableViewCell {
         consecutiveButton.isEnabled = enabled
 
         lastDateButton.isEnabled = enabled
+
+        consecutiveLineView.isHidden = !enabled
+
+        lastDateLineView.isHidden = !enabled
     }
 
     func updateView(byConsecutiveDay consecutiveDay: Int, to currentDate: Date) {

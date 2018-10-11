@@ -111,7 +111,9 @@
             <viewLayoutGuide key="safeArea" id="Awo-OU-oGn"/>
             <connections>
                 <outlet property="consecutiveButton" destination="9d0-tI-bxU" id="lFA-kO-Kfq"/>
+                <outlet property="consecutiveLineView" destination="yGD-yI-L1o" id="bYY-1I-b0m"/>
                 <outlet property="lastDateButton" destination="VBF-6R-m2C" id="Yyg-CO-gLO"/>
+                <outlet property="lastDateLineView" destination="Wre-8r-tg3" id="lcZ-UR-c9L"/>
             </connections>
             <point key="canvasLocation" x="-9.5999999999999996" y="101.19940029985008"/>
         </tableViewCell>
