@@ -439,6 +439,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -447,7 +448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\n\"${PODS_ROOT}/Fabric/run\" cce9a154df7a159fb618f8e73c51dc9cf5366fbc 084950751c352a0e17068d05d052b512f84e216c18594fc1de3a651f9dd169cf\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
