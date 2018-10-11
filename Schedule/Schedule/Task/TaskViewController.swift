@@ -9,6 +9,7 @@
 //swiftlint:disable variable_name
 
 import UIKit
+import Lottie
 
 protocol TaskDelegate: AnyObject {
 
@@ -478,6 +479,8 @@ class TaskViewController: UIViewController {
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
 
+            completeAnimation()
+
         } else {
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
@@ -511,6 +514,26 @@ class TaskViewController: UIViewController {
     @objc func dismissKeyboard() {
 
         self.view.endEditing(true)
+    }
+
+    func completeAnimation() {
+
+        let animationView = LOTAnimationView(name: "checked_done")
+
+        animationView.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
+
+        animationView.center = self.view.center
+
+        animationView.contentMode = .scaleAspectFill
+
+        animationView.animationSpeed = 1
+
+        self.view.addSubview(animationView)
+
+        animationView.play { (_) in
+
+            animationView.removeFromSuperview()
+        }
     }
 
 }

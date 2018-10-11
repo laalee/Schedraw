@@ -19,6 +19,7 @@
 		9B0C6A21216509B10055A7CD /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */; };
 		9B0C6A22216509B10055A7CD /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */; };
 		9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DA52421634FE500369FF1 /* TaskManager.swift */; };
+		9B17281E216F926400F81581 /* checked_done.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B17281D216F926400F81581 /* checked_done.json */; };
 		9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */; };
 		9B17F5072165BAF100991C1E /* CategoryTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */; };
 		9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */; };
@@ -80,6 +81,7 @@
 		9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		9B0DA52421634FE500369FF1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		9B17281D216F926400F81581 /* checked_done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checked_done.json; sourceTree = "<group>"; };
 		9B17F5042165BAF100991C1E /* CategoryTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTitleTableViewCell.swift; sourceTree = "<group>"; };
 		9B17F5052165BAF100991C1E /* CategoryTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTitleTableViewCell.xib; sourceTree = "<group>"; };
 		9B17F5082165BE4E00991C1E /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 				9B0C6A1C216507C10055A7CD /* NotesTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9B17281A216F908700F81581 /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				9B17281D216F926400F81581 /* checked_done.json */,
+			);
+			path = LottieAnimation;
 			sourceTree = "<group>";
 		};
 		9B17F50C2165BE5F00991C1E /* Cells */ = {
@@ -284,6 +294,7 @@
 				9BB5D5E22151FDD2005F225C /* Schedule.xcdatamodeld */,
 				9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */,
 				9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */,
+				9B17281A216F908700F81581 /* LottieAnimation */,
 				9BAF7647215F560300101BBA /* Main */,
 				9BAF764B215F5F0C00101BBA /* Category */,
 				9BAF764A215F5F0200101BBA /* Task */,
@@ -338,6 +349,7 @@
 				9BB5D5D52151FDD2005F225C /* Frameworks */,
 				9BB5D5D62151FDD2005F225C /* Resources */,
 				9BB98790215219B000DE7A86 /* Run Script */,
+				6BEBD401AE869EFEE96ACFD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,6 +403,7 @@
 				9BAF7653215F85D000101BBA /* DayCollectionViewCell.xib in Resources */,
 				9B0C6A1E216507C10055A7CD /* NotesTableViewCell.xib in Resources */,
 				9B0C6A12216500DA0055A7CD /* TaskTitleTableViewCell.xib in Resources */,
+				9B17281E216F926400F81581 /* checked_done.json in Resources */,
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
@@ -413,6 +426,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6BEBD401AE869EFEE96ACFD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		90D100A62B82BB0D874634B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,14 +467,10 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Run Script";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

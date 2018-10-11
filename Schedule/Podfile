@@ -9,8 +9,10 @@ target 'Schedule' do
 
   pod 'SwiftLint'
 
-  use_frameworks!
   pod 'Fabric'
+  
   pod 'Crashlytics'
+
+  pod 'lottie-ios'
 
 end
