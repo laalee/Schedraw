@@ -7,6 +7,7 @@
         <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="category" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Task" representedClassName="TaskMO" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="consecutiveDay" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="consecutiveId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="consecutiveStatus" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" attributeType="Transformable" syncable="YES"/>
@@ -19,6 +20,6 @@
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="105"/>
-        <element name="Task" positionX="156.453125" positionY="-2.5234375" width="128" height="180"/>
+        <element name="Task" positionX="156.453125" positionY="-2.5234375" width="128" height="195"/>
     </elements>
 </model>

@@ -21,6 +21,8 @@ struct Task {
 
     var endDate: Date?
 
+    var consecutiveDay: Int?
+
     var consecutiveStatus: Int?
 
     var consecutiveId: Int?

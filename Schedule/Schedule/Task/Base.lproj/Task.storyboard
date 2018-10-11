@@ -53,8 +53,8 @@
                                             <action selector="saveTask:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="Gs9-MB-KrC"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-AH-ExC">
-                                        <rect key="frame" x="150.33333333333334" y="4.6666666666666643" width="74.666666666666657" height="35.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lK8-AH-ExC">
+                                        <rect key="frame" x="137" y="4.6666666666666643" width="101.33333333333331" height="35.666666666666664"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                         <outlet property="categoryLabel" destination="lK8-AH-ExC" id="t7Q-5f-tIZ"/>
                         <outlet property="dateButton" destination="ETc-ee-bSB" id="58M-eI-BvS"/>
                         <outlet property="editButton" destination="gQj-3Z-7zX" id="3dC-GM-e0A"/>
+                        <outlet property="keyboardHeightConstraint" destination="vb0-W2-yQP" id="swP-5h-n6U"/>
                         <outlet property="saveButton" destination="fSr-DD-Qro" id="b43-7x-8iz"/>
                         <outlet property="taskTableView" destination="aqh-9j-bKa" id="dnf-eA-mXF"/>
                         <outlet property="titlebarBackgroungView" destination="Jxz-Xe-mLY" id="Ukz-7b-EJV"/>
@@ -717,146 +718,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkH-LD-ehf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594" y="768"/>
-        </scene>
-        <!--Task Detail View Controller-->
-        <scene sceneID="bNx-1r-mAD">
-            <objects>
-                <viewController storyboardIdentifier="TaskDetailViewController" id="BVF-DE-rmg" customClass="TaskDetailViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gZP-ia-ZdP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foo-uu-iIl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
-                                <color key="backgroundColor" red="1" green="0.41093014224276203" blue="0.42995044152356376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9F-bl-Qd2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slZ-PN-0PD">
-                                <rect key="frame" x="0.0" y="44" width="375" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gr-q5-S6M">
-                                        <rect key="frame" x="15" y="4" width="60" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="8Sa-Fc-lgX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelButtonPressed:" destination="BVF-DE-rmg" eventType="touchUpInside" id="Fb9-tw-s0b"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-Ad-OIP">
-                                        <rect key="frame" x="300" y="4" width="60" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="htQ-1a-139"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Save"/>
-                                        <connections>
-                                            <action selector="saveButtonPressed:" destination="BVF-DE-rmg" eventType="touchUpInside" id="7Uh-p1-6pg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofz-ec-eb8">
-                                        <rect key="frame" x="300" y="4" width="60" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="dIB-2O-7oZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="Edit">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="editButtonPressed:" destination="BVF-DE-rmg" eventType="touchUpInside" id="A24-aH-ioN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-Uz-yti">
-                                        <rect key="frame" x="145" y="2" width="85" height="41"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                                        <state key="normal" title="Category">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="categoryButtonPressed:" destination="BVF-DE-rmg" eventType="touchUpInside" id="CJs-nA-SYa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ofz-ec-eb8" firstAttribute="centerY" secondItem="slZ-PN-0PD" secondAttribute="centerY" id="9Bd-C3-M01"/>
-                                    <constraint firstItem="ZaY-Uz-yti" firstAttribute="centerY" secondItem="slZ-PN-0PD" secondAttribute="centerY" id="DZe-O3-ucj"/>
-                                    <constraint firstItem="vhe-Ad-OIP" firstAttribute="centerY" secondItem="slZ-PN-0PD" secondAttribute="centerY" id="FOv-VA-F82"/>
-                                    <constraint firstAttribute="trailing" secondItem="vhe-Ad-OIP" secondAttribute="trailing" constant="15" id="V3X-Ot-4K1"/>
-                                    <constraint firstAttribute="height" constant="45" id="Vnp-71-YyZ"/>
-                                    <constraint firstItem="ofz-ec-eb8" firstAttribute="trailing" secondItem="vhe-Ad-OIP" secondAttribute="trailing" id="Y0s-Sh-cAK"/>
-                                    <constraint firstItem="7gr-q5-S6M" firstAttribute="leading" secondItem="slZ-PN-0PD" secondAttribute="leading" constant="15" id="dBE-g5-pVm"/>
-                                    <constraint firstItem="7gr-q5-S6M" firstAttribute="centerY" secondItem="slZ-PN-0PD" secondAttribute="centerY" id="dOy-DI-ALS"/>
-                                    <constraint firstItem="ZaY-Uz-yti" firstAttribute="centerX" secondItem="slZ-PN-0PD" secondAttribute="centerX" id="vYl-Mg-NdH"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zC0-uc-M65">
-                                <rect key="frame" x="0.0" y="123" width="375" height="655"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr4-eZ-FSb">
-                                <rect key="frame" x="0.0" y="89" width="375" height="34"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74t-FP-o4P">
-                                        <rect key="frame" x="109" y="-1.3333333333333286" width="157" height="37"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="Friday, 28 Sep 2018">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="currentDateButtonPressed:" destination="BVF-DE-rmg" eventType="touchUpInside" id="QYP-Wn-eWI"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="74t-FP-o4P" firstAttribute="centerX" secondItem="Kr4-eZ-FSb" secondAttribute="centerX" id="6tm-YG-dlI"/>
-                                    <constraint firstItem="74t-FP-o4P" firstAttribute="centerY" secondItem="Kr4-eZ-FSb" secondAttribute="centerY" id="O0l-bt-G8J"/>
-                                    <constraint firstAttribute="height" constant="34" id="fag-eM-83c"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="zC0-uc-M65" firstAttribute="top" secondItem="Kr4-eZ-FSb" secondAttribute="bottom" id="1Si-IE-LNw"/>
-                            <constraint firstItem="slZ-PN-0PD" firstAttribute="leading" secondItem="gZP-ia-ZdP" secondAttribute="leading" id="2aU-Z4-sdS"/>
-                            <constraint firstItem="VLT-8F-BbX" firstAttribute="bottom" secondItem="zC0-uc-M65" secondAttribute="bottom" id="CIr-Hb-PXW"/>
-                            <constraint firstItem="Foo-uu-iIl" firstAttribute="bottom" secondItem="Kr4-eZ-FSb" secondAttribute="bottom" id="I8Z-Oa-5T4"/>
-                            <constraint firstItem="Foo-uu-iIl" firstAttribute="leading" secondItem="gZP-ia-ZdP" secondAttribute="leading" id="IHV-E7-ZBr"/>
-                            <constraint firstItem="Kr4-eZ-FSb" firstAttribute="leading" secondItem="VLT-8F-BbX" secondAttribute="leading" id="Kkb-8F-saL"/>
-                            <constraint firstItem="slZ-PN-0PD" firstAttribute="trailing" secondItem="G9F-bl-Qd2" secondAttribute="trailing" id="LRj-Wh-7aZ"/>
-                            <constraint firstItem="Foo-uu-iIl" firstAttribute="top" secondItem="gZP-ia-ZdP" secondAttribute="top" id="SUX-79-hmp"/>
-                            <constraint firstAttribute="top" secondItem="G9F-bl-Qd2" secondAttribute="top" id="c1K-7u-9df"/>
-                            <constraint firstItem="Kr4-eZ-FSb" firstAttribute="trailing" secondItem="VLT-8F-BbX" secondAttribute="trailing" id="emi-Pi-ZMV"/>
-                            <constraint firstItem="Kr4-eZ-FSb" firstAttribute="top" secondItem="slZ-PN-0PD" secondAttribute="bottom" id="fEw-lv-NbN"/>
-                            <constraint firstItem="zC0-uc-M65" firstAttribute="leading" secondItem="VLT-8F-BbX" secondAttribute="leading" id="g31-pA-RA2"/>
-                            <constraint firstItem="VLT-8F-BbX" firstAttribute="trailing" secondItem="zC0-uc-M65" secondAttribute="trailing" id="jek-AN-foR"/>
-                            <constraint firstItem="G9F-bl-Qd2" firstAttribute="leading" secondItem="gZP-ia-ZdP" secondAttribute="leading" id="k1c-Rh-8SH"/>
-                            <constraint firstAttribute="trailing" secondItem="G9F-bl-Qd2" secondAttribute="trailing" id="l77-Uc-ByK"/>
-                            <constraint firstItem="VLT-8F-BbX" firstAttribute="top" secondItem="G9F-bl-Qd2" secondAttribute="bottom" id="tcb-qK-JFu"/>
-                            <constraint firstItem="Foo-uu-iIl" firstAttribute="trailing" secondItem="gZP-ia-ZdP" secondAttribute="trailing" id="uNM-19-86z"/>
-                            <constraint firstItem="G9F-bl-Qd2" firstAttribute="bottom" secondItem="slZ-PN-0PD" secondAttribute="top" id="usw-td-bBZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="VLT-8F-BbX"/>
-                    </view>
-                    <connections>
-                        <outlet property="categoryButton" destination="ZaY-Uz-yti" id="GUq-fw-LY0"/>
-                        <outlet property="currentDateButton" destination="74t-FP-o4P" id="GZM-3B-cLs"/>
-                        <outlet property="editButton" destination="ofz-ec-eb8" id="ro9-sA-dbN"/>
-                        <outlet property="saveButton" destination="vhe-Ad-OIP" id="F1u-Bf-3UU"/>
-                        <outlet property="taskTableView" destination="zC0-uc-M65" id="QgH-d8-27t"/>
-                        <outlet property="topBackgroundView" destination="Foo-uu-iIl" id="Acm-Nz-5eI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Gf-V9-2mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1593" y="91"/>
         </scene>
     </scenes>
     <resources>

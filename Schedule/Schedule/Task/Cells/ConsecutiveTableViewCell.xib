@@ -12,34 +12,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="hAi-Bn-t9S" customClass="ConsecutiveTableViewCell" customModule="Schedule" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="418" height="108"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="hAi-Bn-t9S" customClass="ConsecutiveTableViewCell" customModule="Schedule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="141"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAi-Bn-t9S" id="a0R-ey-7Ax">
-                <rect key="frame" x="0.0" y="0.0" width="418" height="107.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="418" height="140.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaz-IW-rjM">
-                        <rect key="frame" x="0.0" y="0.0" width="418" height="107.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="418" height="140.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwO-8K-8oo">
-                                <rect key="frame" x="20" y="20" width="378" height="87.5"/>
+                                <rect key="frame" x="20" y="20" width="378" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONSECUTIVE DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9r-31-YUQ">
-                                        <rect key="frame" x="15" y="10" width="177" height="21.5"/>
+                                        <rect key="frame" x="15" y="10" width="177" height="54.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
                                         <color key="textColor" red="0.98823529409999999" green="0.43288297539999998" blue="0.25604864259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGD-yI-L1o">
-                                        <rect key="frame" x="15" y="66.5" width="124" height="1"/>
+                                        <rect key="frame" x="15" y="99.5" width="124" height="1"/>
                                         <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="kBz-20-h0D"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-tI-bxU">
-                                        <rect key="frame" x="15" y="38.5" width="124" height="28"/>
+                                        <rect key="frame" x="15" y="71.5" width="124" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="1fn-aC-6ad"/>
                                         </constraints>
@@ -49,20 +49,20 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Q2-Spc">
-                                        <rect key="frame" x="144" y="44.5" width="14" height="22"/>
+                                        <rect key="frame" x="144" y="77.5" width="14" height="22"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wre-8r-tg3">
-                                        <rect key="frame" x="163" y="66.5" width="200" height="1"/>
+                                        <rect key="frame" x="163" y="99.5" width="200" height="1"/>
                                         <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="RyA-NN-Kqd"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBF-6R-m2C">
-                                        <rect key="frame" x="163" y="38.5" width="200" height="28"/>
+                                        <rect key="frame" x="163" y="71.5" width="200" height="28"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
                                         <state key="normal" title="Friday, 28 Sep 2018">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,7 +113,7 @@
                 <outlet property="consecutiveButton" destination="9d0-tI-bxU" id="lFA-kO-Kfq"/>
                 <outlet property="lastDateButton" destination="VBF-6R-m2C" id="Yyg-CO-gLO"/>
             </connections>
-            <point key="canvasLocation" x="-9.5999999999999996" y="88.15592203898052"/>
+            <point key="canvasLocation" x="-9.5999999999999996" y="102.09895052473765"/>
         </tableViewCell>
     </objects>
 </document>

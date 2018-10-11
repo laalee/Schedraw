@@ -74,6 +74,11 @@ class CoreDataProvider {
                 self.task.consecutiveId = Int64(consecutiveId)
             }
 
+            if let consecutiveDay = task.consecutiveDay {
+
+                self.task.consecutiveDay = Int64(consecutiveDay)
+            }
+
             appDelegate.saveContext()
         }
     }

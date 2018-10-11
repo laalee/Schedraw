@@ -29,6 +29,8 @@ class TaskViewController: UIViewController {
 
     @IBOutlet weak var titlebarBackgroungView: UIView!
     
+    @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
+    
     var category: CategoryMO?
 
     var task: TaskMO?
@@ -49,6 +51,8 @@ class TaskViewController: UIViewController {
 
     var isNewTask: Bool = true
 
+    var isTextViewEditing: Bool = false
+
     var identifiers = [
         String(describing: TaskTitleTableViewCell.self),
         String(describing: TimingTableViewCell.self),
@@ -62,6 +66,8 @@ class TaskViewController: UIViewController {
         setupTableView()
 
         setupCategoryAndTask()
+
+        addKeyboardObserver()
 
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -135,6 +141,48 @@ class TaskViewController: UIViewController {
 
             saveButton.isHidden = false
         }
+    }
+
+    func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardNotification),
+            name: UIResponder.keyboardWillShowNotification, object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardNotification),
+            name: UIResponder.keyboardWillHideNotification, object: nil
+        )
+    }
+
+    @objc func handleKeyboardNotification(notification: Notification) {
+
+        guard let userInfo = notification.userInfo else { return }
+
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+
+            return
+        }
+
+        let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+
+        keyboardHeightConstraint.constant = isKeyboardShowing ? keyboardFrame.height : 0
+
+        UIView.animate(withDuration: 0, animations: {
+
+            self.view.layoutIfNeeded()
+
+        }, completion: { (_) in
+
+            if isKeyboardShowing && self.isTextViewEditing {
+
+                let indexPath = IndexPath(item: 0, section: self.identifiers.count - 1)
+
+                self.taskTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        })
     }
 
     @IBAction func dateButtonPressed(_ sender: Any) {
@@ -338,6 +386,7 @@ class TaskViewController: UIViewController {
                                    date: date,
                                    startDate: newDate,
                                    endDate: endDate,
+                                   consecutiveDay: consecutiveDay,
                                    consecutiveStatus: consecutiveStatus,
                                    consecutiveId: consecutiveId,
                                    time: timing,
@@ -352,6 +401,7 @@ class TaskViewController: UIViewController {
                                date: newDate,
                                startDate: nil,
                                endDate: nil,
+                               consecutiveDay: nil,
                                consecutiveStatus: nil,
                                consecutiveId: nil,
                                time: timing,
@@ -513,6 +563,8 @@ extension TaskViewController: UITableViewDataSource {
 
             self.notesDelegate = notesCell
 
+            notesCell.notesTextView.delegate = self
+
             return notesCell
 
         default:
@@ -602,4 +654,21 @@ extension TaskViewController: DeleteDelegate {
         self.show(alertController, sender: nil)
     }
 
+}
+
+extension TaskViewController: UITextViewDelegate {
+
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+
+        self.isTextViewEditing = true
+
+        return true
+    }
+
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+
+        self.isTextViewEditing = false
+
+        return true
+    }
 }
