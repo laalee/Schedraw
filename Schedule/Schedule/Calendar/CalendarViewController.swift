@@ -540,9 +540,24 @@ extension CalendarViewController: UICollectionViewDataSource {
             dayCell.setTask(tasks: tasks)
         }
 
-        if DateManager.share.formatDate(forTaskPage: theDate) == DateManager.share.formatDate(forTaskPage: currentDate) {
+        if DateManager.share.formatDate(forTaskPage: theDate) ==
+            DateManager.share.formatDate(forTaskPage: currentDate) {
 
-            dayCell.dayLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+//            dayCell.dayLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            if let text = dayCell.dayLabel.text {
+
+                let textRange = NSMakeRange(0, text.count)
+
+                let attributedText = NSMutableAttributedString(string: text)
+
+                attributedText.addAttribute(
+                    NSAttributedString.Key.underlineStyle ,
+                    value: NSUnderlineStyle.single.rawValue,
+                    range: textRange
+                )
+
+                dayCell.dayLabel.attributedText = attributedText
+            }
         }
 
         return dayCell

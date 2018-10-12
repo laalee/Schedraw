@@ -15,4 +15,6 @@ target 'Schedule' do
 
   pod 'lottie-ios'
 
+  pod 'Firebase/Core'
+
 end

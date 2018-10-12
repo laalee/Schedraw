@@ -40,6 +40,13 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
 
         setupTableView()
+
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
 
     // MARK: Initialization
@@ -134,6 +141,11 @@ class CategoryViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             alertToast.dismiss(animated: false, completion: nil)
         }
+    }
+
+    @objc func dismissKeyboard() {
+
+        self.view.endEditing(true)
     }
 
 }
