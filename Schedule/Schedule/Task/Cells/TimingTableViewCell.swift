@@ -28,12 +28,6 @@ class TimingTableViewCell: UITableViewCell {
 
         timingTextField.text = timing
 
-        print("EEEEE", timingTextField.text)
-        
-//        timingButton.isEnabled = enabled
-//
-//        timingLineView.isHidden = !enabled
-
         if enabled && timing != nil && timing != "" {
 
             clearButton.isHidden = false

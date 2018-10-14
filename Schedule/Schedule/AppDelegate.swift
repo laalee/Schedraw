@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        Fabric.with([Crashlytics.self])
 
-        window?.tintColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        window?.tintColor = #colorLiteral(red: 0.9921568627, green: 0.4156862745, blue: 0.4431372549, alpha: 1)
         
         return true
     }

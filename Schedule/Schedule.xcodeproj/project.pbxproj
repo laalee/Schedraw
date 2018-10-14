@@ -43,6 +43,11 @@
 		9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7AD23F2163DB2A0021EA27 /* DailyTaskTableViewCell.xib */; };
 		9B7AD24421644C390021EA27 /* DailyHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD24221644C390021EA27 /* DailyHeaderTableViewCell.swift */; };
 		9B7AD24521644C390021EA27 /* DailyHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7AD24321644C390021EA27 /* DailyHeaderTableViewCell.xib */; };
+		9B7BEA7C21736CE400E2D297 /* DisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7A21736CE400E2D297 /* DisplayTableViewCell.swift */; };
+		9B7BEA7D21736CE400E2D297 /* DisplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7B21736CE400E2D297 /* DisplayTableViewCell.xib */; };
+		9B7BEA80217370BE00E2D297 /* SupportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7E217370BE00E2D297 /* SupportTableViewCell.swift */; };
+		9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7F217370BE00E2D297 /* SupportTableViewCell.xib */; };
+		9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA822173924800E2D297 /* DisplayMode.swift */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -140,6 +145,11 @@
 		9B7AD23F2163DB2A0021EA27 /* DailyTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTaskTableViewCell.xib; sourceTree = "<group>"; };
 		9B7AD24221644C390021EA27 /* DailyHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9B7AD24321644C390021EA27 /* DailyHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		9B7BEA7A21736CE400E2D297 /* DisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewCell.swift; sourceTree = "<group>"; };
+		9B7BEA7B21736CE400E2D297 /* DisplayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayTableViewCell.xib; sourceTree = "<group>"; };
+		9B7BEA7E217370BE00E2D297 /* SupportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTableViewCell.swift; sourceTree = "<group>"; };
+		9B7BEA7F217370BE00E2D297 /* SupportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportTableViewCell.xib; sourceTree = "<group>"; };
+		9B7BEA822173924800E2D297 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +287,17 @@
 			path = DailyTask;
 			sourceTree = "<group>";
 		};
+		9B7BEA7921736CBF00E2D297 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B7BEA7A21736CE400E2D297 /* DisplayTableViewCell.swift */,
+				9B7BEA7B21736CE400E2D297 /* DisplayTableViewCell.xib */,
+				9B7BEA7E217370BE00E2D297 /* SupportTableViewCell.swift */,
+				9B7BEA7F217370BE00E2D297 /* SupportTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9BAF7647215F560300101BBA /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +313,7 @@
 				9B0DA52421634FE500369FF1 /* TaskManager.swift */,
 				9B17F50D2165E68900991C1E /* CategoryManager.swift */,
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
+				9B7BEA822173924800E2D297 /* DisplayMode.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -314,6 +336,7 @@
 			children = (
 				9BAF7642215F3C5200101BBA /* Setting.storyboard */,
 				9BAF7645215F55DC00101BBA /* SettingViewController.swift */,
+				9B7BEA7921736CBF00E2D297 /* Cells */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -514,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB5D5E92151FDD8005F225C /* LaunchScreen.storyboard in Resources */,
+				9B7BEA7D21736CE400E2D297 /* DisplayTableViewCell.xib in Resources */,
 				9BAF7639215E227A00101BBA /* Task.storyboard in Resources */,
 				9BAF7653215F85D000101BBA /* DayCollectionViewCell.xib in Resources */,
 				9B0C6A1E216507C10055A7CD /* NotesTableViewCell.xib in Resources */,
@@ -521,6 +545,7 @@
 				9B17281E216F926400F81581 /* checked_done.json in Resources */,
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
+				9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
 				9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */,
 				9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */,
@@ -614,6 +639,7 @@
 			files = (
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
 				9B0C6A11216500DA0055A7CD /* TaskTitleTableViewCell.swift in Sources */,
+				9B7BEA7C21736CE400E2D297 /* DisplayTableViewCell.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* MainViewController.swift in Sources */,
 				9B0C6A15216501970055A7CD /* TimingTableViewCell.swift in Sources */,
 				9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */,
@@ -625,6 +651,7 @@
 				9B17F50E2165E68900991C1E /* CategoryManager.swift in Sources */,
 				9B7AD24421644C390021EA27 /* DailyHeaderTableViewCell.swift in Sources */,
 				9B17F5102165E6B100991C1E /* CoreDataProvider.swift in Sources */,
+				9B7BEA80217370BE00E2D297 /* SupportTableViewCell.swift in Sources */,
 				9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */,
 				9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */,
 				9BAF7646215F55DC00101BBA /* SettingViewController.swift in Sources */,
@@ -637,6 +664,7 @@
 				9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */,
 				9BF12425215C81AC00AC1C6A /* Data.swift in Sources */,
 				9BFDBC2521673C21004132D2 /* DateManager.swift in Sources */,
+				9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */,
 				9B17285121732B9C00F81581 /* SharePersistentContainer.swift in Sources */,
 				9B0C6A1D216507C10055A7CD /* NotesTableViewCell.swift in Sources */,
 				9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */,

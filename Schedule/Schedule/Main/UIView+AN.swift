@@ -17,4 +17,13 @@ extension UIView {
         self.layer.cornerRadius = value
     }
 
+    func setShadow() {
+
+        self.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 7.0
+        self.layer.shadowOffset = CGSize(width: 2, height: 3)
+        self.layer.masksToBounds = false
+    }
+
 }

@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
         yearLabel.text = String(Calendar.current.component(.year, from: Date()))
 
         changeYear()
+
+        DisplayModeManager.shared.updateMode()
     }
 
     func changeYear() {

@@ -7,17 +7,30 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
 
-    let settings: [String] = ["一週的開始", "主題色", "節日", "帳號備份"]
+    var identifiers = [
+//        String(describing: DisplayTableViewCell.self),
+        String(describing: SupportTableViewCell.self)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
+
+        setupColors()
+    }
+
+    func setupColors() {
+
+        self.view.backgroundColor = DisplayModeManager.shared.getSubColor()
+
+        self.settingTableView.backgroundColor = DisplayModeManager.shared.getSubColor()
     }
 
     private func setupTableView() {
@@ -26,29 +39,80 @@ class SettingViewController: UIViewController {
 
         settingTableView.delegate = self
 
-        let identifier = String(describing: GanttTableViewCell.self)
+        for identifier in identifiers {
 
-        let uiNib = UINib(nibName: identifier, bundle: nil)
-
-        settingTableView.register(uiNib, forCellReuseIdentifier: identifier)
+            settingTableView.register(
+                UINib(nibName: identifier, bundle: nil),
+                forCellReuseIdentifier: identifier
+            )
+        }
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
+
+    @objc func contactUsPressed(_ sender: Any) {
+
+        let mailComposeViewController = configuredMailComposeViewController()
+
+        if MFMailComposeViewController.canSendMail() {
+
+            self.show(mailComposeViewController, sender: nil)
+        }
+
+    }
+
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+
+        let mailComposerVC = MFMailComposeViewController()
+
+        mailComposerVC.mailComposeDelegate = self
+
+        mailComposerVC.setToRecipients(["laalee0525@gmail.com"])
+
+        mailComposerVC.setSubject("About the Schedule.")
+
+        return mailComposerVC
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return identifiers.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: identifiers[indexPath.section],
+            for: indexPath
+        )
 
-        cell.textLabel?.text = settings[indexPath.row]
+        switch indexPath.section {
+        case 0:
+            guard let displayCell = cell as? DisplayTableViewCell else { return cell }
+
+            return displayCell
+
+        case 1:
+            guard let supportCell = cell as? SupportTableViewCell else { return cell }
+
+            supportCell.contactUsButton.addTarget(self, action: #selector(contactUsPressed), for: .touchUpInside)
+
+            return supportCell
+
+        default:
+            break
+        }
 
         return cell
     }
@@ -57,3 +121,17 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
 
 }
+
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+
+    @objc(mailComposeController:didFinishWithResult:error:)
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+        ) {
+
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+

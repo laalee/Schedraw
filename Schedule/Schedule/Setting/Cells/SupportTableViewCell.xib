@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="4Gb-Yw-PYf" customClass="SupportTableViewCell" customModule="Schedule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Gb-Yw-PYf" id="BsE-8D-Iu5">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="170.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-bn-vt4">
+                        <rect key="frame" x="20" y="10" width="350" height="150.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNC-rf-8wl">
+                                <rect key="frame" x="20" y="24" width="68.5" height="27"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG9-pS-t40">
+                                <rect key="frame" x="150" y="61" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tG9-pS-t40" secondAttribute="height" multiplier="1:1" id="250-u2-veH"/>
+                                    <constraint firstAttribute="width" constant="50" id="vqz-SD-BJW"/>
+                                </constraints>
+                                <state key="normal" image="envelope"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DX-ei-vOt">
+                                <rect key="frame" x="134.5" y="111" width="81" height="25"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iNC-rf-8wl" firstAttribute="top" secondItem="aFK-bn-vt4" secondAttribute="top" constant="24" id="9p6-pu-Gds"/>
+                            <constraint firstItem="1DX-ei-vOt" firstAttribute="top" secondItem="tG9-pS-t40" secondAttribute="bottom" id="HZZ-qu-2bl"/>
+                            <constraint firstItem="tG9-pS-t40" firstAttribute="centerX" secondItem="aFK-bn-vt4" secondAttribute="centerX" id="IMQ-cS-LkM"/>
+                            <constraint firstItem="tG9-pS-t40" firstAttribute="top" secondItem="iNC-rf-8wl" secondAttribute="bottom" constant="10" id="SCy-Py-ndg"/>
+                            <constraint firstItem="1DX-ei-vOt" firstAttribute="centerX" secondItem="aFK-bn-vt4" secondAttribute="centerX" id="gia-Uf-bwa"/>
+                            <constraint firstItem="iNC-rf-8wl" firstAttribute="leading" secondItem="aFK-bn-vt4" secondAttribute="leading" constant="20" id="tgc-80-itv"/>
+                            <constraint firstAttribute="bottom" secondItem="1DX-ei-vOt" secondAttribute="bottom" constant="14.5" id="wIG-Fk-dyV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="aFK-bn-vt4" firstAttribute="top" secondItem="BsE-8D-Iu5" secondAttribute="top" constant="10" id="Oyc-Te-iYS"/>
+                    <constraint firstItem="aFK-bn-vt4" firstAttribute="leading" secondItem="BsE-8D-Iu5" secondAttribute="leading" constant="20" id="eQR-l1-o5N"/>
+                    <constraint firstAttribute="trailing" secondItem="aFK-bn-vt4" secondAttribute="trailing" constant="20" id="fOc-hE-Y2z"/>
+                    <constraint firstAttribute="bottom" secondItem="aFK-bn-vt4" secondAttribute="bottom" constant="10" id="wFC-1Q-CZD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="Kml-J5-YFd"/>
+            <connections>
+                <outlet property="contactUsButton" destination="tG9-pS-t40" id="QnR-7N-aYA"/>
+                <outlet property="supportBackgroundView" destination="aFK-bn-vt4" id="YWp-yQ-cFS"/>
+            </connections>
+            <point key="canvasLocation" x="193.59999999999999" y="174.96251874062969"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="envelope" width="512" height="512"/>
+    </resources>
+</document>
