@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TodayTaskTableViewCell" customModule="ScheduleWidget" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KA6-RJ-aj4">
+                        <rect key="frame" x="50" y="9.5" width="41" height="24.5"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4I-4r-0wv">
+                        <rect key="frame" x="20" y="17" width="10" height="10"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="FCh-hS-Q0r"/>
+                            <constraint firstAttribute="width" constant="10" id="FkB-EI-RqU"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GT-ha-XiP">
+                        <rect key="frame" x="106" y="11" width="37" height="22"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9GT-ha-XiP" secondAttribute="trailing" constant="20" id="8zf-wQ-8uK"/>
+                    <constraint firstItem="G4I-4r-0wv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IMT-vI-haH"/>
+                    <constraint firstItem="9GT-ha-XiP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JBD-K7-KDe"/>
+                    <constraint firstItem="KA6-RJ-aj4" firstAttribute="leading" secondItem="G4I-4r-0wv" secondAttribute="trailing" constant="20" id="KcF-XU-4FW"/>
+                    <constraint firstItem="G4I-4r-0wv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e9Z-yk-pYx"/>
+                    <constraint firstItem="KA6-RJ-aj4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nGC-BE-Bjd"/>
+                    <constraint firstItem="9GT-ha-XiP" firstAttribute="leading" secondItem="KA6-RJ-aj4" secondAttribute="trailing" constant="15" id="ofg-I1-APl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="categoryColorView" destination="G4I-4r-0wv" id="Z3I-Iw-Teg"/>
+                <outlet property="subTitleLabel" destination="9GT-ha-XiP" id="7d0-Gr-Ewn"/>
+                <outlet property="titleLabel" destination="KA6-RJ-aj4" id="bsz-Sw-vbc"/>
+            </connections>
+            <point key="canvasLocation" x="57.600000000000001" y="89.955022488755631"/>
+        </tableViewCell>
+    </objects>
+</document>
