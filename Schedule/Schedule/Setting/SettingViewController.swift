@@ -97,24 +97,24 @@ extension SettingViewController: UITableViewDataSource {
             for: indexPath
         )
 
-        switch indexPath.section {
-        case 0:
-            guard let displayCell = cell as? DisplayTableViewCell else { return cell }
-
-            return displayCell
-
-        case 1:
+//        switch indexPath.section {
+//        case 0:
+//            guard let displayCell = cell as? DisplayTableViewCell else { return cell }
+//
+//            return displayCell
+//
+//        case 1:
             guard let supportCell = cell as? SupportTableViewCell else { return cell }
 
             supportCell.contactUsButton.addTarget(self, action: #selector(contactUsPressed), for: .touchUpInside)
 
             return supportCell
 
-        default:
-            break
-        }
-
-        return cell
+//        default:
+//            break
+//        }
+//
+//        return cell
     }
 }
 

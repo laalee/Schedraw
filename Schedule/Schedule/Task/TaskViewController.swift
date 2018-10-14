@@ -272,9 +272,17 @@ class TaskViewController: UIViewController {
 
             let pickerDate = DateManager.share.transformDate(date: self.datePicker.date)
 
+            let overlapTask = self.checkOverlapTask(lastDate: pickerDate)
+
             if pickerDate < self.date ?? Date() {
 
                 self.showToast(title: "Failed", message: "End date should be greater than start date.")
+
+            } else if let date = overlapTask {
+
+                self.showToast(title: "Failed",
+                               message: "Some tasks are overlapping in the same category on \(date)."
+                )
 
             } else {
 
@@ -290,6 +298,31 @@ class TaskViewController: UIViewController {
         alertController.view.addSubview(datePicker)
 
         self.show(alertController, sender: nil)
+    }
+
+    func checkOverlapTask(lastDate: Date) -> String? {
+
+        guard let startDate = self.date else { return nil }
+
+        guard let category = self.category else { return nil }
+
+        let consecutiveDay = DateManager.share.consecutiveDay(startDate: startDate, lastDate: lastDate)
+
+        for addingDay in 0...consecutiveDay {
+
+            let date = DateManager.share.getDate(byAdding: addingDay, to: startDate)
+
+            let task = TaskManager.share.fetchTask(byCategory: category, andDate: date)
+
+            if task?.count != 0 && task?.first?.consecutiveId != self.taskMO?.consecutiveId {
+
+                return DateManager.share.formatDate(forTaskPageAlert: date)
+            }
+        }
+
+        self.task?.consecutiveDay = consecutiveDay
+
+        return nil
     }
 
     @objc func showTimingPicker() {
@@ -340,13 +373,20 @@ class TaskViewController: UIViewController {
 
         pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
 
+        if let consecutiveDay = self.task?.consecutiveDay {
+
+            pickerView.selectRow(consecutiveDay, inComponent: 0, animated: true)
+
+        } else if let consecutiveDay = taskMO?.consecutiveDay {
+
+            pickerView.selectRow(Int(consecutiveDay) - 1, inComponent: 0, animated: true)
+        }
+
         let alertController: UIAlertController = UIAlertController(
             title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
 
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
-
-            print("date select cd:", self.pickerView.selectedRow(inComponent: 0))
 
             let consecutiveDay = self.pickerView.selectedRow(inComponent: 0)
 
@@ -355,7 +395,24 @@ class TaskViewController: UIViewController {
 
             guard let date = self.date else { return }
 
-            cell.updateView(byConsecutiveDay: consecutiveDay, to: date)
+            let lastDate = DateManager.share.getDate(byAdding: consecutiveDay, to: date)
+
+            let overlapTask = self.checkOverlapTask(lastDate: lastDate)
+
+            if let date = overlapTask {
+
+                self.showToast(title: "Failed",
+                               message: "Some tasks are overlapping in the same category on \(date)."
+                )
+
+            } else {
+
+                self.task?.consecutiveDay = consecutiveDay
+
+                self.task?.endDate = lastDate
+
+                cell.updateView(byConsecutiveDay: consecutiveDay, to: date)
+            }
         })
 
         alertController.addAction(UIAlertAction(
@@ -469,6 +526,8 @@ class TaskViewController: UIViewController {
 
             self.editButton.isHidden = false
 
+            self.editButton.isEnabled = false
+
             self.saveButton.isHidden = true
 
             identifiers.removeLast()
@@ -518,21 +577,23 @@ class TaskViewController: UIViewController {
 
     func completeAnimation() {
 
-        let animationView = LOTAnimationView(name: "checked_done")
+        let animationView = LOTAnimationView(name: "check-4")
 
-        animationView.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
 
         animationView.center = self.view.center
 
         animationView.contentMode = .scaleAspectFill
 
-        animationView.animationSpeed = 1
+        animationView.animationSpeed = 2
 
         self.view.addSubview(animationView)
 
         animationView.play { (_) in
 
             animationView.removeFromSuperview()
+
+            self.editButton.isEnabled = true
         }
     }
 

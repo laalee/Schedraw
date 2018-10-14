@@ -99,6 +99,15 @@ class DateManager {
         return dateFormatter.string(from: date)
     }
 
+    func formatDate(forTaskPageAlert date: Date) -> String {
+
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "d MMM yyyy"
+
+        return dateFormatter.string(from: date)
+    }
+
     func consecutiveDay(startDate: Date, lastDate: Date) -> Int {
 
         let dateComponentsFormatter = DateComponentsFormatter()

@@ -48,6 +48,8 @@
 		9B7BEA80217370BE00E2D297 /* SupportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7E217370BE00E2D297 /* SupportTableViewCell.swift */; };
 		9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA7F217370BE00E2D297 /* SupportTableViewCell.xib */; };
 		9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA822173924800E2D297 /* DisplayMode.swift */; };
+		9B7BEA852173B6FD00E2D297 /* checkmark_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */; };
+		9B7BEA872173B78800E2D297 /* check-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA862173B78800E2D297 /* check-4.json */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -150,6 +152,8 @@
 		9B7BEA7E217370BE00E2D297 /* SupportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTableViewCell.swift; sourceTree = "<group>"; };
 		9B7BEA7F217370BE00E2D297 /* SupportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportTableViewCell.xib; sourceTree = "<group>"; };
 		9B7BEA822173924800E2D297 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
+		9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark_animation.json; sourceTree = "<group>"; };
+		9B7BEA862173B78800E2D297 /* check-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "check-4.json"; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 		9B17281A216F908700F81581 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				9B7BEA862173B78800E2D297 /* check-4.json */,
+				9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */,
 				9B17281D216F926400F81581 /* checked_done.json */,
 			);
 			path = LottieAnimation;
@@ -543,11 +549,13 @@
 				9B0C6A1E216507C10055A7CD /* NotesTableViewCell.xib in Resources */,
 				9B0C6A12216500DA0055A7CD /* TaskTitleTableViewCell.xib in Resources */,
 				9B17281E216F926400F81581 /* checked_done.json in Resources */,
+				9B7BEA852173B6FD00E2D297 /* checkmark_animation.json in Resources */,
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
 				9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
 				9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */,
+				9B7BEA872173B78800E2D297 /* check-4.json in Resources */,
 				9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */,
 				9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */,
 				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
