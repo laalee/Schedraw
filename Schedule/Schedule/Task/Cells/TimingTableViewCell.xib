@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="451" height="115.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-My-0wC">
-                                <rect key="frame" x="20" y="20" width="411" height="95.5"/>
+                                <rect key="frame" x="20" y="10" width="411" height="95.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CX-0G-7TU">
                                         <rect key="frame" x="15" y="10" width="80" height="27"/>
@@ -89,10 +89,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="fpC-My-0wC" secondAttribute="bottom" id="IhL-8X-AfS"/>
+                            <constraint firstAttribute="bottom" secondItem="fpC-My-0wC" secondAttribute="bottom" constant="10" id="IhL-8X-AfS"/>
                             <constraint firstAttribute="trailing" secondItem="fpC-My-0wC" secondAttribute="trailing" constant="20" id="PXK-cZ-R38"/>
                             <constraint firstItem="fpC-My-0wC" firstAttribute="leading" secondItem="9we-aP-J0s" secondAttribute="leading" constant="20" id="ahR-vj-Ofh"/>
-                            <constraint firstItem="fpC-My-0wC" firstAttribute="top" secondItem="9we-aP-J0s" secondAttribute="top" constant="20" id="st6-pO-Hoy"/>
+                            <constraint firstItem="fpC-My-0wC" firstAttribute="top" secondItem="9we-aP-J0s" secondAttribute="top" constant="10" id="st6-pO-Hoy"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -106,9 +106,11 @@
             <viewLayoutGuide key="safeArea" id="4hT-qt-OwL"/>
             <connections>
                 <outlet property="clearButton" destination="0NQ-eh-A0j" id="nXc-RC-eN9"/>
+                <outlet property="timingBackgroundView" destination="fpC-My-0wC" id="ZjJ-HT-8kp"/>
                 <outlet property="timingButton" destination="REq-e0-I7m" id="4Or-0g-krt"/>
                 <outlet property="timingLineView" destination="Wk8-5G-yXx" id="fg1-UV-BOd"/>
                 <outlet property="timingTextField" destination="QPv-ae-sQ9" id="r24-gh-oyS"/>
+                <outlet property="titleLabel" destination="2CX-0G-7TU" id="hwi-bD-HAI"/>
             </connections>
             <point key="canvasLocation" x="96.799999999999997" y="120.53973013493254"/>
         </tableViewCell>

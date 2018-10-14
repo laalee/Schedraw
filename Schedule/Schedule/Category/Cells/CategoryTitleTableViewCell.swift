@@ -12,8 +12,12 @@ class CategoryTitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextField: UITextField!
 
+    @IBOutlet weak var titleBackgroundView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        titleBackgroundView.setShadow()
     }
 
     func updateView(title: String?, enabled: Bool) {

@@ -10,6 +10,8 @@ import UIKit
 
 class TimingTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var timingTextField: UITextField!
 
     @IBOutlet weak var timingButton: UIButton!
@@ -18,10 +20,14 @@ class TimingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timingLineView: UIView!
 
+    @IBOutlet weak var timingBackgroundView: UIView!
+    
     var firstSetFlag: Bool = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        timingBackgroundView.setShadow()
     }
 
     func updateView(timing: String?, enabled: Bool) {

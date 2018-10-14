@@ -24,6 +24,8 @@ class ColorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var editView: UIView!
 
+    @IBOutlet weak var colorBackgroundView: UIView!
+
     var selectedColor: UIColor?
 
     var selectedButton: UIButton?
@@ -34,6 +36,8 @@ class ColorTableViewCell: UITableViewCell {
         editView.isHidden = true
 
         setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+
+        colorBackgroundView.setShadow()
     }
 
     func updateView(color: UIColor, enabled: Bool) {

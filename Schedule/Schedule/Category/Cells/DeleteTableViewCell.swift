@@ -17,8 +17,12 @@ class DeleteTableViewCell: UITableViewCell {
 
     weak var delegate: DeleteDelegate?
 
+    @IBOutlet weak var deleteButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        deleteButton.setShadow()
     }
 
     @IBAction func deletePressed(_ sender: Any) {

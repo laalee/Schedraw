@@ -10,6 +10,8 @@ import UIKit
 
 class ConsecutiveTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var consecutiveButton: UIButton!
 
     @IBOutlet weak var lastDateButton: UIButton!
@@ -18,12 +20,16 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lastDateLineView: UIView!
 
+    @IBOutlet weak var consecutiveBackgroundView: UIView!
+    
     var consecutiveDay: Int = 0
 
     var firstSetFlag: Bool = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        consecutiveBackgroundView.setShadow()
     }
 
     func setupEnabled(enabled: Bool) {

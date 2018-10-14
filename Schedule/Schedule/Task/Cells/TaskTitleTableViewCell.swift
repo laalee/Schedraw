@@ -10,12 +10,18 @@ import UIKit
 
 class TaskTitleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var titleTextField: UITextField!
 
     @IBOutlet weak var titleLineView: UIView!
 
+    @IBOutlet weak var titleBackgroundView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        titleBackgroundView.setShadow()
     }
 
     func updateView(title: String?, enabled: Bool) {

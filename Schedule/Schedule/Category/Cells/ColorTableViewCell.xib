@@ -193,6 +193,7 @@
             <viewLayoutGuide key="safeArea" id="sPC-mR-Boj"/>
             <connections>
                 <outlet property="blueButton" destination="XVR-jH-qEJ" id="CNl-PL-Zjz"/>
+                <outlet property="colorBackgroundView" destination="ytF-yx-OvY" id="Q1K-EY-dWC"/>
                 <outlet property="editView" destination="K5c-dm-VW7" id="ZwY-di-IJd"/>
                 <outlet property="greenButton" destination="LE4-vM-z3p" id="tPa-Sf-Rs7"/>
                 <outlet property="orangeButton" destination="vCW-Eq-e5T" id="yI3-4Q-WK6"/>

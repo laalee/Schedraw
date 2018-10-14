@@ -9,13 +9,19 @@
 import UIKit
 
 class NotesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
 
     @IBOutlet weak var notesTextView: UITextView!
     
     @IBOutlet weak var notesLineView: UIView!
 
+    @IBOutlet weak var notesBackgroundView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        notesBackgroundView.setShadow()
     }
 
     func updateView(notes: String?, enabled: Bool) {

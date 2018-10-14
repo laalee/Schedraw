@@ -43,6 +43,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.95686274509803926" green="0.94901960784313721" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="deleteButton" destination="SfF-JR-c6a" id="Tno-sV-M1c"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="130.43478260869566"/>
         </tableViewCell>
     </objects>

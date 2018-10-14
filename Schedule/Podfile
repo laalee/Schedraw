@@ -18,4 +18,6 @@ target 'Schedule' do
 
   pod 'Firebase/Core'
 
+  pod 'DynamicColor'
+
 end

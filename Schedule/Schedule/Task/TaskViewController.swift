@@ -10,6 +10,7 @@
 
 import UIKit
 import Lottie
+import DynamicColor
 
 protocol TaskDelegate: AnyObject {
 
@@ -227,8 +228,6 @@ class TaskViewController: UIViewController {
 
             self.date = pickerDate
 
-            print(pickerDate)
-
             let titleDate = DateManager.share.formatDate(forTaskPage: pickerDate)
 
             self.dateButton.setTitle(titleDate, for: .normal)
@@ -340,8 +339,6 @@ class TaskViewController: UIViewController {
 
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
-
-            print(self.datePicker.date)
 
             guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 1))
                 as? TimingTableViewCell else { return }
@@ -616,10 +613,14 @@ extension TaskViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: identifiers[indexPath.section], for: indexPath)
 
+        guard let categoryColor = self.category?.color as? UIColor else { return cell }
+
         switch indexPath.section {
 
         case 0:
             guard let titleCell = cell as? TaskTitleTableViewCell else { return cell }
+
+            titleCell.titleLabel.textColor = categoryColor.darkened()
 
             self.titleDelegate = titleCell
 
@@ -636,6 +637,8 @@ extension TaskViewController: UITableViewDataSource {
 
         case 1:
             guard let timingCell = cell as? TimingTableViewCell else { return cell }
+
+            timingCell.titleLabel.textColor = categoryColor.darkened()
 
             timingCell.timingButton.addTarget(self,
                 action: #selector(showTimingPicker), for: .touchUpInside)
@@ -667,6 +670,8 @@ extension TaskViewController: UITableViewDataSource {
 
         case 2:
             guard let consecutiveCell = cell as? ConsecutiveTableViewCell else { return cell }
+
+            consecutiveCell.titleLabel.textColor = categoryColor.darkened()
 
             consecutiveCell.consecutiveButton.addTarget(self,
                 action: #selector(showConsecutivePicker), for: .touchUpInside)
@@ -712,6 +717,8 @@ extension TaskViewController: UITableViewDataSource {
 
         case 3:
             guard let notesCell = cell as? NotesTableViewCell else { return cell }
+
+            notesCell.titleLabel.textColor = categoryColor.darkened()
 
             if editButton.isHidden && !saveButton.isHidden {
 
