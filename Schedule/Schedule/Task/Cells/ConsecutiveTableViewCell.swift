@@ -20,6 +20,8 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     var consecutiveDay: Int = 0
 
+    var firstSetFlag: Bool = true
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

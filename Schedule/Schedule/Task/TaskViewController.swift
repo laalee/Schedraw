@@ -583,12 +583,24 @@ extension TaskViewController: UITableViewDataSource {
 
             if editButton.isHidden && !saveButton.isHidden {
 
-                timingCell.updateView(timing: taskMO?.time, enabled: true)
+                if timingCell.firstSetFlag {
+
+                    timingCell.updateView(timing: taskMO?.time, enabled: true)
+                }
+
+                timingCell.setupEnabled(enabled: true)
 
             } else {
 
-                timingCell.updateView(timing: taskMO?.time, enabled: false)
+                if timingCell.firstSetFlag {
+
+                    timingCell.updateView(timing: taskMO?.time, enabled: false)
+                }
+
+                timingCell.setupEnabled(enabled: false)
             }
+
+            timingCell.firstSetFlag = false
 
             return timingCell
 
@@ -605,13 +617,19 @@ extension TaskViewController: UITableViewDataSource {
 
             if let endDate = self.taskMO?.endDate as? Date {
 
-                consecutiveCell.updateView(byLastDate: endDate, from: date)
+                if consecutiveCell.firstSetFlag {
+
+                    consecutiveCell.updateView(byLastDate: endDate, from: date)
+                }
 
                 consecutiveCell.setupEnabled(enabled: false)
 
             } else {
 
-                consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
+                if consecutiveCell.firstSetFlag {
+
+                    consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
+                }
 
                 consecutiveCell.setupEnabled(enabled: true)
             }
@@ -626,6 +644,8 @@ extension TaskViewController: UITableViewDataSource {
             }
 
             self.consecutiveDelegate = consecutiveCell
+
+            consecutiveCell.firstSetFlag = false
 
             return consecutiveCell
 

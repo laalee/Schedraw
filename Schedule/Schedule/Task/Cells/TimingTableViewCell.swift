@@ -18,6 +18,8 @@ class TimingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timingLineView: UIView!
 
+    var firstSetFlag: Bool = true
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,11 +28,29 @@ class TimingTableViewCell: UITableViewCell {
 
         timingTextField.text = timing
 
+        print("EEEEE", timingTextField.text)
+        
+//        timingButton.isEnabled = enabled
+//
+//        timingLineView.isHidden = !enabled
+
+        if enabled && timing != nil && timing != "" {
+
+            clearButton.isHidden = false
+
+        } else if !enabled {
+
+            clearButton.isHidden = true
+        }
+    }
+
+    func setupEnabled(enabled: Bool) {
+
         timingButton.isEnabled = enabled
 
         timingLineView.isHidden = !enabled
 
-        if enabled && timing != nil && timing != "" {
+        if enabled && timingTextField.text != "" {
 
             clearButton.isHidden = false
 

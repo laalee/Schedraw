@@ -20,7 +20,10 @@ class NotesTableViewCell: UITableViewCell {
 
     func updateView(notes: String?, enabled: Bool) {
 
-        notesTextView.text = notes
+        if notesTextView.text != "" {
+
+            notesTextView.text = notes
+        }
 
         notesTextView.isEditable = enabled
 

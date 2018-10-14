@@ -20,7 +20,10 @@ class TaskTitleTableViewCell: UITableViewCell {
 
     func updateView(title: String?, enabled: Bool) {
 
-        titleTextField.text = title
+        if titleTextField.text == "" {
+
+            titleTextField.text = title
+        }
 
         titleTextField.isEnabled = enabled
 
