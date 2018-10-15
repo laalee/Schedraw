@@ -21,17 +21,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqj-2w-456">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYx-9b-OGw">
-                                        <rect key="frame" x="184" y="430" width="46" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedraw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYx-9b-OGw">
+                                        <rect key="frame" x="152.5" y="430" width="109" height="36"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJY-hT-4L8">
+                                        <rect key="frame" x="193.5" y="430" width="13.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                        <color key="textColor" red="0.99215686274509807" green="0.59215686274509804" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="w" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyE-iU-PsA">
+                                        <rect key="frame" x="243" y="430" width="18.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                        <color key="textColor" red="0.54117647058823526" green="0.84313725490196079" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.062745098039215685" green="0.12156862745098039" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="mJY-hT-4L8" firstAttribute="centerY" secondItem="wqj-2w-456" secondAttribute="centerY" id="6P1-lf-HfR"/>
                                     <constraint firstItem="HYx-9b-OGw" firstAttribute="centerY" secondItem="wqj-2w-456" secondAttribute="centerY" id="7pY-Ul-wbu"/>
+                                    <constraint firstItem="mJY-hT-4L8" firstAttribute="centerX" secondItem="wqj-2w-456" secondAttribute="centerX" constant="-7" id="WUH-bO-kmT"/>
                                     <constraint firstItem="HYx-9b-OGw" firstAttribute="centerX" secondItem="wqj-2w-456" secondAttribute="centerX" id="Zvm-Tr-aWW"/>
+                                    <constraint firstItem="CyE-iU-PsA" firstAttribute="centerX" secondItem="wqj-2w-456" secondAttribute="centerX" constant="45" id="eaP-Cj-AJR"/>
+                                    <constraint firstItem="CyE-iU-PsA" firstAttribute="centerY" secondItem="wqj-2w-456" secondAttribute="centerY" id="sb3-0P-oGG"/>
                                 </constraints>
                             </view>
                         </subviews>

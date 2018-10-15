@@ -49,9 +49,9 @@ class CalendarViewController: UIViewController {
 
         updateDatas()
 
-        getCategorys()
-
         updateCategorys()
+
+        setSelectCategory()
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
@@ -66,9 +66,11 @@ class CalendarViewController: UIViewController {
 
         guard let categorys = CategoryManager.share.getAllCategory() else { return }
 
-        self.categorys = categorys
-
-        self.categorys.insert("ALL", at: 0)
+        NotificationCenter.default.post(
+            name: NSNotification.Name("SETUP_PICKER_CATEGORYS"),
+            object: nil,
+            userInfo: ["categorys": categorys]
+        )
     }
 
     private func updateCategorys() {
@@ -79,6 +81,8 @@ class CalendarViewController: UIViewController {
         forName: name, object: nil, queue: nil) { (_) in
 
             self.getCategorys()
+
+            self.calendarCollectionView.reloadData()
         }
     }
 
@@ -92,6 +96,8 @@ class CalendarViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+
+        getCategorys()
 
         calendarCollectionView.collectionViewLayout.invalidateLayout()
     }
@@ -358,7 +364,16 @@ class CalendarViewController: UIViewController {
             return
         }
 
-        let tasks = TaskManager.share.fetchTask(byDate: theDate)
+        var tasks: [TaskMO]?
+
+        if let category = self.selectedCategory {
+
+            tasks = TaskManager.share.fetchTask(byCategory: category, andDate: theDate)
+
+        } else {
+
+            tasks = TaskManager.share.fetchTask(byDate: theDate)
+        }
 
         if tasks?.count != 0 && dailyTaskIndex != indexPath {
 
@@ -404,9 +419,18 @@ class CalendarViewController: UIViewController {
 
             if let date = date {
 
-                if let task = TaskManager.share.fetchTask(byDate: date) {
+                if let category = self.selectedCategory {
 
-                    tasks += task
+                    if let task = TaskManager.share.fetchTask(byCategory: category, andDate: date) {
+
+                        tasks += task
+                    }
+                } else {
+
+                    if let task = TaskManager.share.fetchTask(byDate: date) {
+
+                        tasks += task
+                    }
                 }
             }
         }
@@ -448,48 +472,32 @@ class CalendarViewController: UIViewController {
         }
     }
 
+    func setSelectCategory() {
+
+        _ = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("DISMISS_ALERT_PICKER"),
+            object: nil, queue: nil) { (notification) in
+
+                guard let userInfo = notification.userInfo else { return }
+
+                if let category = userInfo["selectedCategory"] as? CategoryMO {
+
+                    self.selectedCategory = category
+
+                } else {
+
+                    self.selectedCategory = nil
+                }
+
+                self.calendarCollectionView.reloadData()
+        }
+    }
+
     @IBAction func selectCategory(_ sender: Any) {
 
-        let pickerView = UIPickerView()
-
-        pickerView.dataSource = self
-
-        pickerView.delegate = self
-
-        pickerView.frame = CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 50, height: 250)
-
-        let alertController: UIAlertController = UIAlertController(
-            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-
-        alertController.addAction(UIAlertAction(
-        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
-
-            print("date select cd:", pickerView.selectedRow(inComponent: 0))
-
-            let selectedRow = pickerView.selectedRow(inComponent: 0)
-
-            if let selectedCategory = self.categorys[selectedRow] as? CategoryMO {
-
-                self.selectedCategory = selectedCategory
-
-                self.calendarCollectionView.reloadData()
-
-            } else {
-
-                print("ALLLLLLLLL")
-
-                self.selectedCategory = nil
-
-                self.calendarCollectionView.reloadData()
-            }
-        })
-
-        alertController.addAction(UIAlertAction(
-            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-
-        alertController.view.addSubview(pickerView)
-
-        self.show(alertController, sender: nil)
+        NotificationCenter.default.post(
+            name: NSNotification.Name("SHOW_ALERT_PICKER"),
+            object: nil)
     }
 
 }
@@ -657,36 +665,6 @@ extension CalendarViewController: UIScrollViewDelegate {
 
             addBottomCells()
         }
-    }
-
-}
-
-extension CalendarViewController: UIPickerViewDataSource {
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
-        return categorys.count
-
-    }
-
-}
-
-extension CalendarViewController: UIPickerViewDelegate {
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
-                    forComponent component: Int) -> String? {
-
-        guard let category = categorys[row] as? CategoryMO else {
-
-            return "ALL"
-        }
-
-        return category.title
     }
 
 }

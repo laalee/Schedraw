@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KA6-RJ-aj4">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KA6-RJ-aj4">
                         <rect key="frame" x="50" y="9.5" width="41" height="24.5"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="17"/>
                         <nil key="textColor"/>
@@ -38,20 +38,20 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GT-ha-XiP">
-                        <rect key="frame" x="106" y="11" width="37" height="22"/>
+                        <rect key="frame" x="263" y="11" width="37" height="22"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9GT-ha-XiP" secondAttribute="trailing" constant="20" id="8zf-wQ-8uK"/>
+                    <constraint firstAttribute="trailing" secondItem="9GT-ha-XiP" secondAttribute="trailing" constant="20" id="8zf-wQ-8uK"/>
                     <constraint firstItem="G4I-4r-0wv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IMT-vI-haH"/>
+                    <constraint firstItem="9GT-ha-XiP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KA6-RJ-aj4" secondAttribute="trailing" constant="10" id="IZe-Jx-Vbb"/>
                     <constraint firstItem="9GT-ha-XiP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JBD-K7-KDe"/>
                     <constraint firstItem="KA6-RJ-aj4" firstAttribute="leading" secondItem="G4I-4r-0wv" secondAttribute="trailing" constant="20" id="KcF-XU-4FW"/>
                     <constraint firstItem="G4I-4r-0wv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e9Z-yk-pYx"/>
                     <constraint firstItem="KA6-RJ-aj4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nGC-BE-Bjd"/>
-                    <constraint firstItem="9GT-ha-XiP" firstAttribute="leading" secondItem="KA6-RJ-aj4" secondAttribute="trailing" constant="15" id="ofg-I1-APl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
