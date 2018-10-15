@@ -33,6 +33,19 @@ class DateCollectionViewCell: UICollectionViewCell {
         dateFormatter.dateFormat = "E"
 
         weekLabel.text = dateFormatter.string(from: date)
+
+        if date == DateManager.share.transformDate(date: Date()) {
+
+            dayLabel.textColor = UIColor.red.lighter()
+
+            weekLabel.textColor = UIColor.red.lighter()
+
+        } else {
+
+            dayLabel.textColor = UIColor.black
+
+            weekLabel.textColor = UIColor.black
+        }
     }
 
     func getMonth(date: Date) -> String {

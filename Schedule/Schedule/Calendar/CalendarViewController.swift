@@ -498,6 +498,8 @@ class CalendarViewController: UIViewController {
         NotificationCenter.default.post(
             name: NSNotification.Name("SHOW_ALERT_PICKER"),
             object: nil)
+
+        self.dailyTaskBottomConstraint.constant = 0
     }
 
 }
