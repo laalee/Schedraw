@@ -10,6 +10,8 @@ import UIKit
 
 class ColorTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var colorPicker: SwiftHSVColorPicker!
+
     @IBOutlet weak var orangeButton: UIButton!
 
     @IBOutlet weak var pinkButton: UIButton!
@@ -41,6 +43,8 @@ class ColorTableViewCell: UITableViewCell {
     }
 
     func updateView(color: UIColor, enabled: Bool) {
+
+        colorPicker.setViewColor(color)
 
         editView.isHidden = enabled
 

@@ -20,4 +20,6 @@ target 'Schedule' do
 
   pod 'DynamicColor'
 
+  pod 'SwiftHSVColorPicker'
+
 end

@@ -25,7 +25,8 @@ class CategoryViewController: UIViewController {
 
     var identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
-        String(describing: ColorTableViewCell.self)
+//        String(describing: ColorTableViewCell.self),
+        String(describing: ColorPickerTableViewCell.self)
     ]
 
     weak var titleDelegate: CategoryDelegate?
@@ -72,6 +73,8 @@ class CategoryViewController: UIViewController {
         categoryTableView.dataSource = self
 
         categoryTableView.delegate = self
+
+        categoryTableView.bounces = false
 
         for identifier in identifiers {
 
@@ -190,7 +193,7 @@ extension CategoryViewController: UITableViewDataSource {
             return titleCell
 
         case 1:
-            guard let colorCell = cell as? ColorTableViewCell else { return cell }
+            guard let colorCell = cell as? ColorPickerTableViewCell else { return cell }
 
             self.colorDelegate = colorCell
 

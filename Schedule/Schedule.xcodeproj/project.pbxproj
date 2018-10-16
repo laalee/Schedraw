@@ -37,6 +37,12 @@
 		9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */; };
 		9B17F50E2165E68900991C1E /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F50D2165E68900991C1E /* CategoryManager.swift */; };
 		9B17F5102165E6B100991C1E /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */; };
+		9B6DD8ED2174DE2E00618A58 /* ColorPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EB2174DE2E00618A58 /* ColorPickerTableViewCell.swift */; };
+		9B6DD8EE2174DE2E00618A58 /* ColorPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EC2174DE2E00618A58 /* ColorPickerTableViewCell.xib */; };
+		9B6DD8F02174E44600618A58 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EF2174E44600618A58 /* SwiftHSVColorPicker.swift */; };
+		9B6DD8F22174E48F00618A58 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F12174E48F00618A58 /* ColorWheel.swift */; };
+		9B6DD8F42174E4C200618A58 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F32174E4C200618A58 /* SelectedColorView.swift */; };
+		9B6DD8F62174E4EF00618A58 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F52174E4EF00618A58 /* ColorUtils.swift */; };
 		9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD236216370540021EA27 /* UIView+AN.swift */; };
 		9B7AD2392163D6330021EA27 /* DailyTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */; };
 		9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */; };
@@ -141,6 +147,12 @@
 		9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		9B17F50D2165E68900991C1E /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProvider.swift; sourceTree = "<group>"; };
+		9B6DD8EB2174DE2E00618A58 /* ColorPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerTableViewCell.swift; sourceTree = "<group>"; };
+		9B6DD8EC2174DE2E00618A58 /* ColorPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerTableViewCell.xib; sourceTree = "<group>"; };
+		9B6DD8EF2174E44600618A58 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
+		9B6DD8F12174E48F00618A58 /* ColorWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		9B6DD8F32174E4C200618A58 /* SelectedColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
+		9B6DD8F52174E4EF00618A58 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		9B7AD236216370540021EA27 /* UIView+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AN.swift"; sourceTree = "<group>"; };
 		9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskViewController.swift; sourceTree = "<group>"; };
 		9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -277,8 +289,21 @@
 				9B17F5092165BE4E00991C1E /* ColorTableViewCell.xib */,
 				9B0C6A1F216509B10055A7CD /* DeleteTableViewCell.swift */,
 				9B0C6A20216509B10055A7CD /* DeleteTableViewCell.xib */,
+				9B6DD8EB2174DE2E00618A58 /* ColorPickerTableViewCell.swift */,
+				9B6DD8EC2174DE2E00618A58 /* ColorPickerTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9B6DD8F72174F1B300618A58 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9B6DD8EF2174E44600618A58 /* SwiftHSVColorPicker.swift */,
+				9B6DD8F12174E48F00618A58 /* ColorWheel.swift */,
+				9B6DD8F32174E4C200618A58 /* SelectedColorView.swift */,
+				9B6DD8F52174E4EF00618A58 /* ColorUtils.swift */,
+			);
+			path = ColorPicker;
 			sourceTree = "<group>";
 		};
 		9B7AD23C2163DA910021EA27 /* DailyTask */ = {
@@ -363,6 +388,7 @@
 				9BAF763C215E23AE00101BBA /* Category.storyboard */,
 				9BAF763F215E9F7900101BBA /* CategoryViewController.swift */,
 				9B17F50C2165BE5F00991C1E /* Cells */,
+				9B6DD8F72174F1B300618A58 /* ColorPicker */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -560,6 +586,7 @@
 				9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */,
 				9BB88A282154907400E5331E /* DateCollectionViewCell.xib in Resources */,
 				9B0C6A16216501970055A7CD /* TimingTableViewCell.xib in Resources */,
+				9B6DD8EE2174DE2E00618A58 /* ColorPickerTableViewCell.xib in Resources */,
 				9B7AD24521644C390021EA27 /* DailyHeaderTableViewCell.xib in Resources */,
 				9B0C6A1A216502EF0055A7CD /* ConsecutiveTableViewCell.xib in Resources */,
 				9B17F5072165BAF100991C1E /* CategoryTitleTableViewCell.xib in Resources */,
@@ -583,6 +610,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker/SwiftHSVColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -590,6 +618,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHSVColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -654,6 +683,7 @@
 				9BD502DF2153573200701DA9 /* ExtensionStoryboard.swift in Sources */,
 				9B0C6A11216500DA0055A7CD /* TaskTitleTableViewCell.swift in Sources */,
 				9B7BEA7C21736CE400E2D297 /* DisplayTableViewCell.swift in Sources */,
+				9B6DD8F42174E4C200618A58 /* SelectedColorView.swift in Sources */,
 				9BB5D5DE2151FDD2005F225C /* MainViewController.swift in Sources */,
 				9B0C6A15216501970055A7CD /* TimingTableViewCell.swift in Sources */,
 				9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */,
@@ -668,11 +698,15 @@
 				9B7BEA80217370BE00E2D297 /* SupportTableViewCell.swift in Sources */,
 				9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */,
 				9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */,
+				9B6DD8ED2174DE2E00618A58 /* ColorPickerTableViewCell.swift in Sources */,
+				9B6DD8F62174E4EF00618A58 /* ColorUtils.swift in Sources */,
+				9B6DD8F22174E48F00618A58 /* ColorWheel.swift in Sources */,
 				9BAF7646215F55DC00101BBA /* SettingViewController.swift in Sources */,
 				9BF12423215C7EC400AC1C6A /* Task.swift in Sources */,
 				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
 				9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */,
 				9BAF7656215F8BC100101BBA /* MonthCollectionViewCell.swift in Sources */,
+				9B6DD8F02174E44600618A58 /* SwiftHSVColorPicker.swift in Sources */,
 				9BAF7652215F85D000101BBA /* DayCollectionViewCell.swift in Sources */,
 				9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */,
 				9BB88A2B2154999400E5331E /* HeaderTableViewCell.swift in Sources */,

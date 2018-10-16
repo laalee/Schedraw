@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="293" id="KGk-i7-Jjw" customClass="ColorPickerTableViewCell" customModule="Schedule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="491" height="293"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="491" height="292.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-MA-2va">
+                        <rect key="frame" x="20" y="20" width="451" height="252.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qK-X6-X15" customClass="SwiftHSVColorPicker" customModule="Schedule" customModuleProvider="target">
+                                <rect key="frame" x="125.5" y="42.5" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="KbZ-gy-ThD"/>
+                                    <constraint firstAttribute="width" constant="200" id="se8-jd-l1f"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY COLOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96J-8g-SCj">
+                                <rect key="frame" x="15" y="10" width="160.5" height="27"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="19"/>
+                                <color key="textColor" red="1" green="0.41093014220000001" blue="0.4299504415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0qK-X6-X15" firstAttribute="centerX" secondItem="HCG-MA-2va" secondAttribute="centerX" id="KAM-5n-emb"/>
+                            <constraint firstItem="0qK-X6-X15" firstAttribute="top" secondItem="96J-8g-SCj" secondAttribute="bottom" constant="5.5" id="TAd-53-d4p"/>
+                            <constraint firstItem="96J-8g-SCj" firstAttribute="top" secondItem="HCG-MA-2va" secondAttribute="top" constant="10" id="ohy-Ju-EWg"/>
+                            <constraint firstAttribute="bottom" secondItem="0qK-X6-X15" secondAttribute="bottom" constant="10" id="vAS-bV-fSK"/>
+                            <constraint firstItem="96J-8g-SCj" firstAttribute="leading" secondItem="HCG-MA-2va" secondAttribute="leading" constant="15" id="z5f-fp-meD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.95686274509803926" green="0.94901960784313721" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HCG-MA-2va" secondAttribute="bottom" constant="20" id="Elq-VX-lp4"/>
+                    <constraint firstItem="HCG-MA-2va" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="FCq-mJ-cUE"/>
+                    <constraint firstAttribute="trailing" secondItem="HCG-MA-2va" secondAttribute="trailing" constant="20" id="r4Q-1J-NVX"/>
+                    <constraint firstItem="HCG-MA-2va" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xG7-Pn-6Q6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="colorPicker" destination="0qK-X6-X15" id="KUd-yb-92e"/>
+            </connections>
+            <point key="canvasLocation" x="274.39999999999998" y="244.22788605697153"/>
+        </tableViewCell>
+    </objects>
+</document>

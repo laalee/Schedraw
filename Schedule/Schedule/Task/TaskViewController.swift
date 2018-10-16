@@ -300,6 +300,8 @@ class TaskViewController: UIViewController {
 
             alertDatePicker.date = lastDate
         }
+
+        dismissKeyboard()
     }
 
     func checkOverlapTask(lastDate: Date) -> String? {
@@ -345,6 +347,8 @@ class TaskViewController: UIViewController {
         alertDatePicker.datePickerMode = .time
 
         alertDatePicker.date = Date()
+
+        dismissKeyboard()
     }
 
     @objc func showConsecutivePicker() {
@@ -374,6 +378,8 @@ class TaskViewController: UIViewController {
 
             alertPickerView.selectRow(Int(consecutiveDay) - 1, inComponent: 0, animated: true)
         }
+
+        dismissKeyboard()
 
     }
 
