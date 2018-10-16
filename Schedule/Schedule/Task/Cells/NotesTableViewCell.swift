@@ -26,7 +26,7 @@ class NotesTableViewCell: UITableViewCell {
 
     func updateView(notes: String?, enabled: Bool) {
 
-        if notesTextView.text != "" {
+        if notesTextView.text == "" {
 
             notesTextView.text = notes
         }

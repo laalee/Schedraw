@@ -75,6 +75,7 @@
                                     <constraint firstItem="a0I-6t-Xdz" firstAttribute="centerY" secondItem="6WW-d7-A4M" secondAttribute="centerY" id="C6O-Hh-HWj"/>
                                     <constraint firstItem="fE3-Ky-JEa" firstAttribute="leading" secondItem="a0I-6t-Xdz" secondAttribute="leading" id="NXa-aB-Iq0"/>
                                     <constraint firstItem="wNc-xb-mCK" firstAttribute="centerY" secondItem="OqS-cg-QFq" secondAttribute="centerY" id="WEB-PD-dCO"/>
+                                    <constraint firstItem="6WW-d7-A4M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wNc-xb-mCK" secondAttribute="trailing" constant="10" id="YD0-dH-cj1"/>
                                     <constraint firstItem="fE3-Ky-JEa" firstAttribute="top" secondItem="a0I-6t-Xdz" secondAttribute="top" id="e7r-Yh-hdL"/>
                                     <constraint firstItem="6WW-d7-A4M" firstAttribute="centerX" secondItem="OqS-cg-QFq" secondAttribute="centerX" id="eFH-vh-Rkg"/>
                                     <constraint firstAttribute="height" constant="60" id="gh3-zk-nIO"/>
@@ -82,6 +83,7 @@
                                     <constraint firstAttribute="trailing" secondItem="a0I-6t-Xdz" secondAttribute="trailing" constant="15" id="nAA-RN-8lD"/>
                                     <constraint firstItem="fE3-Ky-JEa" firstAttribute="bottom" secondItem="a0I-6t-Xdz" secondAttribute="bottom" id="t9u-Ny-QJX"/>
                                     <constraint firstItem="6WW-d7-A4M" firstAttribute="centerY" secondItem="wNc-xb-mCK" secondAttribute="centerY" id="v5S-Dq-HD1"/>
+                                    <constraint firstItem="fE3-Ky-JEa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6WW-d7-A4M" secondAttribute="trailing" constant="10" id="yY0-4a-uBD"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-Ws-fbi">

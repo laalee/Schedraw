@@ -112,6 +112,8 @@ class MainViewController: UIViewController {
             self.categorys = categorys
 
             self.categorys.insert("ALL", at: 0)
+
+            self.alertPickerView.reloadAllComponents()
         }
 
         _ = NotificationCenter.default.addObserver(
