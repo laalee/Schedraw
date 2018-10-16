@@ -25,8 +25,8 @@ class CategoryViewController: UIViewController {
 
     var identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
-//        String(describing: ColorTableViewCell.self),
-        String(describing: ColorPickerTableViewCell.self)
+        String(describing: ColorTableViewCell.self)
+//        String(describing: ColorPickerTableViewCell.self)
     ]
 
     weak var titleDelegate: CategoryDelegate?
@@ -193,7 +193,7 @@ extension CategoryViewController: UITableViewDataSource {
             return titleCell
 
         case 1:
-            guard let colorCell = cell as? ColorPickerTableViewCell else { return cell }
+            guard let colorCell = cell as? ColorTableViewCell else { return cell }
 
             self.colorDelegate = colorCell
 

@@ -1,0 +1,6 @@
+framework module SwiftHSVColorPicker {
+  umbrella header "SwiftHSVColorPicker-iOS10.3-umbrella.h"
+
+  export *
+  module * { export * }
+}

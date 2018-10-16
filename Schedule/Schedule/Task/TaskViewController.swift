@@ -677,14 +677,9 @@ extension TaskViewController: UITableViewDataSource {
 
             self.titleDelegate = titleCell
 
-            if editButton.isHidden && !saveButton.isHidden {
+            let enable = editButton.isHidden && !saveButton.isHidden
 
-                titleCell.updateView(title: taskMO?.title, enabled: true)
-
-            } else {
-
-                titleCell.updateView(title: taskMO?.title, enabled: false)
-            }
+            titleCell.updateView(title: taskMO?.title, enabled: enable)
 
             return titleCell
 
@@ -698,24 +693,14 @@ extension TaskViewController: UITableViewDataSource {
 
             self.timingDelegate = timingCell
 
-            if editButton.isHidden && !saveButton.isHidden {
+            let enable = editButton.isHidden && !saveButton.isHidden
 
-                if timingCell.firstSetFlag {
+            if timingCell.firstSetFlag {
 
-                    timingCell.updateView(timing: taskMO?.time, enabled: true)
-                }
-
-                timingCell.setupEnabled(enabled: true)
-
-            } else {
-
-                if timingCell.firstSetFlag {
-
-                    timingCell.updateView(timing: taskMO?.time, enabled: false)
-                }
-
-                timingCell.setupEnabled(enabled: false)
+                timingCell.updateView(timing: taskMO?.time, enabled: enable)
             }
+
+            timingCell.setupEnabled(enabled: enable)
 
             timingCell.firstSetFlag = false
 
@@ -773,14 +758,9 @@ extension TaskViewController: UITableViewDataSource {
 
             notesCell.titleLabel.textColor = categoryColor.darkened()
 
-            if editButton.isHidden && !saveButton.isHidden {
+            let enabled = editButton.isHidden && !saveButton.isHidden
 
-                notesCell.updateView(notes: taskMO?.note, enabled: true)
-
-            } else {
-
-                notesCell.updateView(notes: taskMO?.note, enabled: false)
-            }
+            notesCell.updateView(notes: taskMO?.note, enabled: enabled)
 
             self.notesDelegate = notesCell
 

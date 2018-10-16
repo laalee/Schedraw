@@ -6,6 +6,8 @@
 //  Copyright © 2018年 laalee. All rights reserved.
 //
 
+//swiftlint:disable variable_name
+
 import UIKit
 
 protocol ColorWheelDelegate: class {

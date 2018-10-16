@@ -143,18 +143,28 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker/SwiftHSVColorPicker.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor-iOS10.3/DynamicColor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.3/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS10.3/SwiftHSVColorPicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios-iOS10.3/Lottie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS10.3/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor-iOS12.0/DynamicColor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS12.0/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS12.0/SwiftHSVColorPicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios-iOS12.0/Lottie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS12.0/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker/SwiftHSVColorPicker.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor-iOS10.3/DynamicColor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.3/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS10.3/SwiftHSVColorPicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios-iOS10.3/Lottie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS10.3/nanopb.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DynamicColor-iOS12.0/DynamicColor.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS12.0/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS12.0/SwiftHSVColorPicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios-iOS12.0/Lottie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS12.0/nanopb.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

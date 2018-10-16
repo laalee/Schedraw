@@ -1,0 +1,6 @@
+framework module Pods_ScheduleWidget {
+  umbrella header "Pods-ScheduleWidget-umbrella.h"
+
+  export *
+  module * { export * }
+}

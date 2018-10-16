@@ -24,6 +24,8 @@ class ColorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var greenButton: UIButton!
 
+    @IBOutlet weak var pickerButton: UIButton!
+
     @IBOutlet weak var editView: UIView!
 
     @IBOutlet weak var colorBackgroundView: UIView!
@@ -37,37 +39,50 @@ class ColorTableViewCell: UITableViewCell {
 
         editView.isHidden = true
 
-        setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+//        setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+
+        setSelectedButton(button: pickerButton, color: UIColor.orange)
 
         colorBackgroundView.setShadow()
+
+        colorPicker.setViewColor(UIColor.orange)
     }
 
     func updateView(color: UIColor, enabled: Bool) {
-
-        colorPicker.setViewColor(color)
 
         editView.isHidden = enabled
 
         switch color {
 
         case UIColor.ANColor.pink:
-            setSelectedButton(button: pinkButton, color: UIColor.ANColor.pink)
+            setSelectedButton(button: pinkButton, color: color)
 
         case UIColor.ANColor.purple:
-            setSelectedButton(button: purpleButton, color: UIColor.ANColor.purple)
+            setSelectedButton(button: purpleButton, color: color)
 
         case UIColor.ANColor.blue:
-            setSelectedButton(button: blueButton, color: UIColor.ANColor.blue)
+            setSelectedButton(button: blueButton, color: color)
 
         case UIColor.ANColor.yellow:
-            setSelectedButton(button: yellowButton, color: UIColor.ANColor.yellow)
+            setSelectedButton(button: yellowButton, color: color)
 
         case UIColor.ANColor.green:
-            setSelectedButton(button: greenButton, color: UIColor.ANColor.green)
+            setSelectedButton(button: greenButton, color: color)
+
+        case UIColor.ANColor.orange:
+            setSelectedButton(button: orangeButton, color: color)
 
         default:
-            setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
+
+            colorPicker.setViewColor(color)
+
+            setSelectedButton(button: pickerButton, color: color)
         }
+    }
+
+    @IBAction func pickerButtonPressed(_ sender: Any) {
+
+        setSelectedButton(button: pickerButton, color: nil)
     }
 
     @IBAction func orangeButtonPressed(_ sender: UIButton) {
@@ -100,7 +115,7 @@ class ColorTableViewCell: UITableViewCell {
         setSelectedButton(button: sender, color: UIColor.ANColor.green)
     }
 
-    func setSelectedButton(button: UIButton, color: UIColor) {
+    func setSelectedButton(button: UIButton, color: UIColor?) {
 
         self.selectedColor = color
 
@@ -117,7 +132,15 @@ extension ColorTableViewCell: CategoryDelegate {
 
     func getContent<T>() -> T? {
 
-        return selectedColor as? T
+        if let color = selectedColor {
+
+            return color as? T
+
+        }
+
+        return colorPicker.color as? T
+
+//        return selectedColor as? T
     }
 
 }
