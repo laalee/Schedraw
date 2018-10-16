@@ -379,7 +379,16 @@ class CalendarViewController: UIViewController {
 
             self.dailyTaskIndex = indexPath
 
-            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
+            if let count = tasks?.count {
+
+                var height = CGFloat(count * 80 + 50)
+
+                let viewHeight = dailyTaskView.bounds.height
+
+                height = height > viewHeight ? viewHeight: height
+
+                self.dailyTaskBottomConstraint.constant = height
+            }
 
             NotificationCenter.default.post(
                 name: NSNotification.Name("DAILY_TASK_UPDATE"),
@@ -437,14 +446,39 @@ class CalendarViewController: UIViewController {
 
         if tasks.count != 0 && monthTaskSection != sender.tag {
 
+            var filterTasks: [TaskMO] = []
+
+            for task in tasks {
+
+                var flag = true
+
+                for filterTask in filterTasks where filterTask.consecutiveId == task.consecutiveId {
+
+                    flag = false
+                }
+
+                if flag {
+
+                    filterTasks.append(task)
+                }
+            }
+
+            var height = CGFloat(filterTasks.count * 80 + 50)
+
+            let viewHeight = dailyTaskView.bounds.height
+
+            height = height > viewHeight ? viewHeight: height
+
+            self.dailyTaskBottomConstraint.constant = height
+
             self.monthTaskSection = sender.tag
 
-            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
+//            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
 
             NotificationCenter.default.post(
                 name: NSNotification.Name("MONYH_TASK_UPDATE"),
                 object: nil,
-                userInfo: ["task": tasks as Any, "selectedCategory": self.selectedCategory as Any]
+                userInfo: ["task": filterTasks as Any]
             )
 
             let indexPath = IndexPath.init(row: 0, section: sender.tag)

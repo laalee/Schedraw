@@ -72,6 +72,8 @@ class TaskViewController: UIViewController {
 
     var isTextViewEditing: Bool = false
 
+    weak var taskPageDelegate: TaskPageDelegate?
+
     var identifiers = [
         String(describing: TaskTitleTableViewCell.self),
         String(describing: TimingTableViewCell.self),
@@ -500,6 +502,8 @@ class TaskViewController: UIViewController {
 
             completeAnimation()
 
+            taskPageDelegate?.updateTask(task: tasks?.first)
+
         } else {
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
@@ -845,6 +849,8 @@ extension TaskViewController: DeleteDelegate {
             }
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+
+            self.taskPageDelegate?.updateTask(task: nil)
 
             self.dismiss(animated: true, completion: nil)
         })

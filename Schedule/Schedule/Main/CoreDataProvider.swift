@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
-import Firebase
+//import Firebase
 
 class CoreDataProvider {
 
@@ -38,7 +38,7 @@ class CoreDataProvider {
             appDelegate.saveContext()
         }
 
-        Analytics.logEvent("AddCategory", parameters: ["Title": category.title])
+//        Analytics.logEvent("AddCategory", parameters: ["Title": category.title])
     }
 
     func addTask(task: Task) {

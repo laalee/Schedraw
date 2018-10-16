@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TaskPageDelegate: AnyObject {
+
+    func updateTask(task: TaskMO?)
+}
+
 class DailyTaskViewController: UIViewController {
 
     @IBOutlet weak var taskTableView: UITableView!
@@ -21,6 +26,8 @@ class DailyTaskViewController: UIViewController {
     let monthMode: Int = 1
 
     var currentMode: Int = 0
+
+    var selectIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,50 +121,7 @@ class DailyTaskViewController: UIViewController {
 
             guard let taskMOs = userInfo["task"] as? [TaskMO] else { return }
 
-            var category: CategoryMO?
-
-            if let selectedCategory = userInfo["selectedCategory"] as? CategoryMO {
-
-                category = selectedCategory
-            }
-
-            self.tasks = []
-
-            for taskMO in taskMOs {
-
-                if taskMO.consecutiveStatus == 0 || taskMO.consecutiveStatus == 1 {
-
-                    if category != nil {
-
-                        if taskMO.category == category {
-
-                            self.tasks.append(taskMO)
-                        }
-                    } else {
-
-                        self.tasks.append(taskMO)
-                    }
-                }
-            }
-
-//            for taskMO in taskMOs {
-//
-//                for task in self.tasks {
-//
-//                    if taskMO.consecutiveId == 0 {
-//
-//                        self.tasks.append(taskMO)
-//
-//                        continue
-//
-//                    } else if taskMO.consecutiveId == task.consecutiveId {
-//
-//                        continue
-//                    }
-//
-//                    self.tasks.append(taskMO)
-//                }
-//            }
+            self.tasks = taskMOs
 
             self.titleString = "Upcoming"
 
@@ -250,6 +214,8 @@ extension DailyTaskViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        self.selectIndex = indexPath.row
+
         let task = tasks[indexPath.row]
 
         let taskViewController = TaskViewController.detailViewControllerForTask(
@@ -257,6 +223,28 @@ extension DailyTaskViewController: UITableViewDelegate {
             date: task.date as? Date
         )
 
+        taskViewController.taskPageDelegate = self
+
         self.show(taskViewController, sender: nil)
     }
+}
+
+extension DailyTaskViewController: TaskPageDelegate {
+
+    func updateTask(task: TaskMO?) {
+
+        guard let task = task else {
+
+            self.tasks.remove(at: selectIndex)
+
+            taskTableView.reloadData()
+
+            return
+        }
+
+        tasks[selectIndex] = task
+
+        taskTableView.reloadData()
+    }
+
 }

@@ -53,7 +53,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - SwiftHSVColorPicker (1.1.1)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
@@ -62,7 +61,6 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Core
   - lottie-ios
-  - SwiftHSVColorPicker
   - SwiftLint
 
 SPEC REPOS:
@@ -78,7 +76,6 @@ SPEC REPOS:
     - GoogleUtilities
     - lottie-ios
     - nanopb
-    - SwiftHSVColorPicker
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -93,9 +90,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 82f04aeff8426309dbdbc75f6c8accd1e584a5da
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  SwiftHSVColorPicker: 69c9028dea168e0f8ee2439d31a899cf1df95678
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 542dbdd92e83a2399c6d8584bba6d81bbed4ee2c
+PODFILE CHECKSUM: f2af8093b1d0bde4f6b4cca2cd1ea9a0f4f5b244
 
 COCOAPODS: 1.5.3

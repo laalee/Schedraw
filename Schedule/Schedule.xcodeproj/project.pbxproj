@@ -44,6 +44,7 @@
 		9B6DD8F22174E48F00618A58 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F12174E48F00618A58 /* ColorWheel.swift */; };
 		9B6DD8F42174E4C200618A58 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F32174E4C200618A58 /* SelectedColorView.swift */; };
 		9B6DD8F62174E4EF00618A58 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8F52174E4EF00618A58 /* ColorUtils.swift */; };
+		9B78C8982175EEA5005ADCFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B78C8972175EEA4005ADCFE /* GoogleService-Info.plist */; };
 		9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD236216370540021EA27 /* UIView+AN.swift */; };
 		9B7AD2392163D6330021EA27 /* DailyTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */; };
 		9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */; };
@@ -57,7 +58,6 @@
 		9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA822173924800E2D297 /* DisplayMode.swift */; };
 		9B7BEA852173B6FD00E2D297 /* checkmark_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */; };
 		9B7BEA872173B78800E2D297 /* check-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA862173B78800E2D297 /* check-4.json */; };
-		9BAF20ED217590E1003C102D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF20EC217590E1003C102D /* GoogleService-Info.plist */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -156,6 +156,7 @@
 		9B6DD8F12174E48F00618A58 /* ColorWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
 		9B6DD8F32174E4C200618A58 /* SelectedColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
 		9B6DD8F52174E4EF00618A58 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		9B78C8972175EEA4005ADCFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B7AD236216370540021EA27 /* UIView+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AN.swift"; sourceTree = "<group>"; };
 		9B7AD2382163D6330021EA27 /* DailyTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskViewController.swift; sourceTree = "<group>"; };
 		9B7AD23E2163DB2A0021EA27 /* DailyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,7 +170,6 @@
 		9B7BEA822173924800E2D297 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark_animation.json; sourceTree = "<group>"; };
 		9B7BEA862173B78800E2D297 /* check-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "check-4.json"; sourceTree = "<group>"; };
-		9BAF20EC217590E1003C102D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -431,7 +431,7 @@
 				9BB5D5EA2151FDD8005F225C /* Info.plist */,
 				9BB5D5E22151FDD2005F225C /* Schedule.xcdatamodeld */,
 				9BB5D5DB2151FDD2005F225C /* AppDelegate.swift */,
-				9BAF20EC217590E1003C102D /* GoogleService-Info.plist */,
+				9B78C8972175EEA4005ADCFE /* GoogleService-Info.plist */,
 				9BD502DE2153573200701DA9 /* ExtensionStoryboard.swift */,
 				9B17281A216F908700F81581 /* LottieAnimation */,
 				9BAF7647215F560300101BBA /* Main */,
@@ -593,7 +593,7 @@
 				9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
 				9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */,
-				9BAF20ED217590E1003C102D /* GoogleService-Info.plist in Resources */,
+				9B78C8982175EEA5005ADCFE /* GoogleService-Info.plist in Resources */,
 				9B7BEA872173B78800E2D297 /* check-4.json in Resources */,
 				9B7AD2412163DB2A0021EA27 /* DailyTaskTableViewCell.xib in Resources */,
 				9BB88A2C2154999400E5331E /* HeaderTableViewCell.xib in Resources */,
@@ -621,22 +621,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DynamicColor-iOS10.3/DynamicColor.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS10.3/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS10.3/SwiftHSVColorPicker.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios-iOS10.3/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS10.3/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicColor-iOS12.0/DynamicColor.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS12.0/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftHSVColorPicker-iOS12.0/SwiftHSVColorPicker.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios-iOS12.0/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-iOS12.0/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHSVColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -836,7 +829,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.Schedule.ScheduleWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule.AnnieScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -857,7 +850,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.Schedule.ScheduleWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule.AnnieScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -985,6 +978,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 139FF4D3292717CB87E4DA48 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Schedule/Schedule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -996,7 +990,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.Schedule;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1007,6 +1001,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 70149FBBA1AC53051F880E90 /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Schedule/Schedule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1018,7 +1013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.Schedule;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

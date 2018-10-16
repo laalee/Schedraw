@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 import Firebase
-import Fabric
-import Crashlytics
+//import Fabric
+//import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
 
         window?.tintColor = #colorLiteral(red: 0.9921568627, green: 0.4156862745, blue: 0.4431372549, alpha: 1)
         
