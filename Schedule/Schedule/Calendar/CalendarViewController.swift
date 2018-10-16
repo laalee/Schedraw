@@ -40,6 +40,10 @@ class CalendarViewController: UIViewController {
 
     var selectedCategory: CategoryMO?
 
+    var timingFlag: Bool = true
+
+    var taskShowing: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,11 +51,7 @@ class CalendarViewController: UIViewController {
 
         getDates()
 
-        updateDatas()
-
-        updateCategorys()
-
-        setSelectCategory()
+        registerObservers()
 
         dailyTaskHeightConstraint.constant = UIScreen.main.bounds.height * 2 / 5
 
@@ -73,16 +73,42 @@ class CalendarViewController: UIViewController {
         )
     }
 
-    private func updateCategorys() {
-
-        let name = NSNotification.Name("UPDATE_CATEGORYS")
+    func registerObservers() {
 
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
+            forName: NSNotification.Name("UPDATE_CATEGORYS"),
+            object: nil,
+            queue: nil) { (_) in
 
-            self.getCategorys()
+                self.getCategorys()
+
+                self.calendarCollectionView.reloadData()
+        }
+
+        _ = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("UPDATE_TASKS"),
+            object: nil,
+            queue: nil) { (_) in
 
             self.calendarCollectionView.reloadData()
+
+            self.calendarCollectionView.collectionViewLayout.invalidateLayout()
+        }
+
+        _ = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("DISMISS_ALERT_PICKER"),
+            object: nil,
+            queue: nil) { (notification) in
+
+                self.setSelectCategory(notification)
+        }
+
+        _ = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("UPDATE_DAILY_CONSTRAINT"),
+            object: nil,
+            queue: nil) { (notification) in
+
+                self.updateDailyTaskBottomConstraint(notification)
         }
     }
 
@@ -148,19 +174,6 @@ class CalendarViewController: UIViewController {
             CGPoint(x: 0, y: attributes.frame.origin.y - calendarCollectionView.contentInset.top),
             animated: true
         )
-    }
-
-    private func updateDatas() {
-
-        let name = NSNotification.Name("UPDATE_TASKS")
-
-        _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
-
-            self.calendarCollectionView.reloadData()
-
-            self.calendarCollectionView.collectionViewLayout.invalidateLayout()
-        }
     }
 
     private func getDates() {
@@ -375,7 +388,7 @@ class CalendarViewController: UIViewController {
             tasks = TaskManager.share.fetchTask(byDate: theDate)
         }
 
-        if tasks?.count != 0 && dailyTaskIndex != indexPath {
+        if dailyTaskIndex != indexPath {
 
             self.dailyTaskIndex = indexPath
 
@@ -396,15 +409,43 @@ class CalendarViewController: UIViewController {
                 userInfo: ["task": tasks as Any, "selectedCategory": self.selectedCategory as Any]
             )
 
-            let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
+            self.taskShowing = true
 
-            if let item = calendarCollectionView.cellForItem(at: indexPath) {
-                self.calendarCollectionView.setContentOffset(
-                    CGPoint(x: 0, y: item.frame.origin.y - calendarCollectionView.contentInset.top),
-                    animated: true
-                )
+            if tasks?.count == 0 {
+
+                self.timingFlag = false
+
+                self.taskShowing = false
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+
+                    self.timingFlag = true
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+
+                    if self.timingFlag && !self.taskShowing {
+
+                        self.dailyTaskBottomConstraint.constant = 0
+
+                        UIView.animate(withDuration: 0.3) {
+
+                            self.view.layoutIfNeeded()
+                        }
+                    }
+                }
+            } else {
+
+                let indexPath = IndexPath.init(row: indexPath.row, section: indexPath.section)
+
+                if let item = calendarCollectionView.cellForItem(at: indexPath) {
+
+                    self.calendarCollectionView.setContentOffset(
+                        CGPoint(x: 0, y: item.frame.origin.y - calendarCollectionView.contentInset.top),
+                        animated: true
+                    )
+                }
             }
-
         } else {
 
             self.dailyTaskIndex = nil
@@ -444,7 +485,7 @@ class CalendarViewController: UIViewController {
             }
         }
 
-        if tasks.count != 0 && monthTaskSection != sender.tag {
+        if monthTaskSection != sender.tag {
 
             var filterTasks: [TaskMO] = []
 
@@ -452,7 +493,8 @@ class CalendarViewController: UIViewController {
 
                 var flag = true
 
-                for filterTask in filterTasks where filterTask.consecutiveId == task.consecutiveId {
+                for filterTask in filterTasks
+                    where filterTask.consecutiveId == task.consecutiveId && task.consecutiveId != 0 {
 
                     flag = false
                 }
@@ -481,6 +523,33 @@ class CalendarViewController: UIViewController {
                 userInfo: ["task": filterTasks as Any]
             )
 
+            self.taskShowing = true
+
+            if filterTasks.count == 0 {
+
+                self.taskShowing = false
+
+                self.timingFlag = false
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+
+                    self.timingFlag = true
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+
+                    if self.timingFlag && !self.taskShowing {
+
+                        self.dailyTaskBottomConstraint.constant = 0
+
+                        UIView.animate(withDuration: 0.3) {
+
+                            self.view.layoutIfNeeded()
+                        }
+                    }
+                }
+            }
+
             let indexPath = IndexPath.init(row: 0, section: sender.tag)
 
             guard let attributes =
@@ -506,24 +575,38 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    func setSelectCategory() {
+    func setSelectCategory(_ notification: Notification) {
 
-        _ = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("DISMISS_ALERT_PICKER"),
-            object: nil, queue: nil) { (notification) in
+        guard let userInfo = notification.userInfo else { return }
 
-                guard let userInfo = notification.userInfo else { return }
+        if let category = userInfo["selectedCategory"] as? CategoryMO {
 
-                if let category = userInfo["selectedCategory"] as? CategoryMO {
+            self.selectedCategory = category
 
-                    self.selectedCategory = category
+        } else {
 
-                } else {
+            self.selectedCategory = nil
+        }
 
-                    self.selectedCategory = nil
-                }
+        self.calendarCollectionView.reloadData()
+    }
 
-                self.calendarCollectionView.reloadData()
+    func updateDailyTaskBottomConstraint(_ notification: Notification) {
+
+        guard let userInfo = notification.userInfo else { return }
+
+        if let count = userInfo["taskCount"] as? Int {
+
+            var height = CGFloat(count * 80 + 50)
+
+            let viewHeight = self.dailyTaskView.bounds.height
+
+            height = height > viewHeight ? viewHeight: height
+
+            self.dailyTaskBottomConstraint.constant = height
+
+            self.dailyTaskBottomConstraint.constant = height
+
         }
     }
 

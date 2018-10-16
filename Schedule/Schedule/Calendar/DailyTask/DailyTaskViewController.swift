@@ -98,11 +98,16 @@ class DailyTaskViewController: UIViewController {
                 }
             }
 
-            guard self.tasks.count > 0 else { return }
+            if self.tasks.count > 0 {
 
-            guard let date = self.tasks[0].date as? Date else { return }
+                guard let date = self.tasks[0].date as? Date else { return }
 
-            self.titleString = self.formatDate(from: date)
+                self.titleString = self.formatDate(from: date)
+
+            } else {
+
+                self.titleString = "No Tasks"
+            }
 
             self.taskTableView.reloadData()
         }
@@ -123,7 +128,14 @@ class DailyTaskViewController: UIViewController {
 
             self.tasks = taskMOs
 
-            self.titleString = "Upcoming"
+            if taskMOs.count > 0 {
+
+                self.titleString = "Upcoming"
+
+            } else {
+
+                self.titleString = "No Tasks"
+            }
 
             self.taskTableView.reloadData()
         }
@@ -238,6 +250,11 @@ extension DailyTaskViewController: TaskPageDelegate {
             self.tasks.remove(at: selectIndex)
 
             taskTableView.reloadData()
+
+            NotificationCenter.default.post(
+                name: NSNotification.Name("UPDATE_DAILY_CONSTRAINT"),
+                object: nil,
+                userInfo: ["taskCount": tasks.count])
 
             return
         }
