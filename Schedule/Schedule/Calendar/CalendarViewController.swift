@@ -90,9 +90,11 @@ class CalendarViewController: UIViewController {
             object: nil,
             queue: nil) { (_) in
 
-            self.calendarCollectionView.reloadData()
+                self.dailyTaskBottomConstraint.constant = 0
 
-            self.calendarCollectionView.collectionViewLayout.invalidateLayout()
+                self.calendarCollectionView.reloadData()
+
+                self.calendarCollectionView.collectionViewLayout.invalidateLayout()
         }
 
         _ = NotificationCenter.default.addObserver(

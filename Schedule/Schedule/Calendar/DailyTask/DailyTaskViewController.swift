@@ -249,6 +249,11 @@ extension DailyTaskViewController: TaskPageDelegate {
 
             self.tasks.remove(at: selectIndex)
 
+            if tasks.count == 0 {
+
+                self.titleString = "No Tasks"
+            }
+
             taskTableView.reloadData()
 
             NotificationCenter.default.post(
