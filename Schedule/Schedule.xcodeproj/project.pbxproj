@@ -58,6 +58,9 @@
 		9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA822173924800E2D297 /* DisplayMode.swift */; };
 		9B7BEA852173B6FD00E2D297 /* checkmark_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */; };
 		9B7BEA872173B78800E2D297 /* check-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA862173B78800E2D297 /* check-4.json */; };
+		9BA684532178C268001DDDAE /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684522178C268001DDDAE /* FirebaseCore.framework */; };
+		9BA684552178C2A1001DDDAE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684542178C2A1001DDDAE /* Crashlytics.framework */; };
+		9BA684562178C2A8001DDDAE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684542178C2A1001DDDAE /* Crashlytics.framework */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -170,6 +173,8 @@
 		9B7BEA822173924800E2D297 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark_animation.json; sourceTree = "<group>"; };
 		9B7BEA862173B78800E2D297 /* check-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "check-4.json"; sourceTree = "<group>"; };
+		9BA684522178C268001DDDAE /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BA684542178C2A1001DDDAE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Pods/Crashlytics/iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +218,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA684532178C268001DDDAE /* FirebaseCore.framework in Frameworks */,
+				9BA684562178C2A8001DDDAE /* Crashlytics.framework in Frameworks */,
 				9B1728312170520800F81581 /* NotificationCenter.framework in Frameworks */,
 				848884AA65D8FFDCB81150CE /* Pods_ScheduleWidget.framework in Frameworks */,
 			);
@@ -222,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA684552178C2A1001DDDAE /* Crashlytics.framework in Frameworks */,
 				132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +251,8 @@
 		4A354633F6ECF4DD0E3637EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BA684522178C268001DDDAE /* FirebaseCore.framework */,
+				9BA684542178C2A1001DDDAE /* Crashlytics.framework */,
 				8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */,
 				9B1728302170520800F81581 /* NotificationCenter.framework */,
 				427D5BDE735500CE6F2DDE0D /* Pods_ScheduleWidget.framework */,
@@ -487,6 +497,7 @@
 				9B17282B2170520800F81581 /* Sources */,
 				9B17282C2170520800F81581 /* Frameworks */,
 				9B17282D2170520800F81581 /* Resources */,
+				9BA684512178C1C8001DDDAE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -508,6 +519,7 @@
 				9BB98790215219B000DE7A86 /* Run Script */,
 				6BEBD401AE869EFEE96ACFD2 /* [CP] Embed Pods Frameworks */,
 				9B17283F2170520800F81581 /* Embed App Extensions */,
+				9B29E2FB217824B9007BA825 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -656,6 +668,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9B29E2FB217824B9007BA825 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cce9a154df7a159fb618f8e73c51dc9cf5366fbc 084950751c352a0e17068d05d052b512f84e216c18594fc1de3a651f9dd169cf\n";
+		};
+		9BA684512178C1C8001DDDAE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cce9a154df7a159fb618f8e73c51dc9cf5366fbc 084950751c352a0e17068d05d052b512f84e216c18594fc1de3a651f9dd169cf\n\n";
+		};
 		9BB98790215219B000DE7A86 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -668,7 +716,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		B2E44AA6A87D17DB312A6BF7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -823,12 +871,17 @@
 				CODE_SIGN_ENTITLEMENTS = ScheduleWidget/ScheduleWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAV3SU72C4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Crashlytics/iOS",
+				);
 				INFOPLIST_FILE = ScheduleWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule.AnnieScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -844,12 +897,17 @@
 				CODE_SIGN_ENTITLEMENTS = ScheduleWidget/ScheduleWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CAV3SU72C4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Crashlytics/iOS",
+				);
 				INFOPLIST_FILE = ScheduleWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule.AnnieScheduleWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -984,12 +1042,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CAV3SU72C4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Crashlytics/iOS",
+				);
 				INFOPLIST_FILE = Schedule/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1007,12 +1070,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CAV3SU72C4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Crashlytics/iOS",
+				);
 				INFOPLIST_FILE = Schedule/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.laalee.AnnieSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

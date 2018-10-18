@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+GoogleService-Info.plist
+Info.plist
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
