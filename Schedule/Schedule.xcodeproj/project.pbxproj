@@ -58,9 +58,9 @@
 		9B7BEA832173924800E2D297 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7BEA822173924800E2D297 /* DisplayMode.swift */; };
 		9B7BEA852173B6FD00E2D297 /* checkmark_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA842173B6FD00E2D297 /* checkmark_animation.json */; };
 		9B7BEA872173B78800E2D297 /* check-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7BEA862173B78800E2D297 /* check-4.json */; };
-		9BA684532178C268001DDDAE /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684522178C268001DDDAE /* FirebaseCore.framework */; };
 		9BA684552178C2A1001DDDAE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684542178C2A1001DDDAE /* Crashlytics.framework */; };
 		9BA684562178C2A8001DDDAE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684542178C2A1001DDDAE /* Crashlytics.framework */; };
+		9BA684582179DC55001DDDAE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA684572179DC55001DDDAE /* CloudKit.framework */; };
 		9BAF7639215E227A00101BBA /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF7637215E227900101BBA /* Task.storyboard */; };
 		9BAF763E215E23AE00101BBA /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF763C215E23AE00101BBA /* Category.storyboard */; };
 		9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF763F215E9F7900101BBA /* CategoryViewController.swift */; };
@@ -175,6 +175,7 @@
 		9B7BEA862173B78800E2D297 /* check-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "check-4.json"; sourceTree = "<group>"; };
 		9BA684522178C268001DDDAE /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA684542178C2A1001DDDAE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Pods/Crashlytics/iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		9BA684572179DC55001DDDAE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9BAF7638215E227900101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		9BAF763D215E23AE00101BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
 		9BAF763F215E9F7900101BBA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA684532178C268001DDDAE /* FirebaseCore.framework in Frameworks */,
 				9BA684562178C2A8001DDDAE /* Crashlytics.framework in Frameworks */,
 				9B1728312170520800F81581 /* NotificationCenter.framework in Frameworks */,
 				848884AA65D8FFDCB81150CE /* Pods_ScheduleWidget.framework in Frameworks */,
@@ -229,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA684582179DC55001DDDAE /* CloudKit.framework in Frameworks */,
 				9BA684552178C2A1001DDDAE /* Crashlytics.framework in Frameworks */,
 				132583E153B9435256AD8A93 /* Pods_Schedule.framework in Frameworks */,
 			);
@@ -251,6 +252,7 @@
 		4A354633F6ECF4DD0E3637EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BA684572179DC55001DDDAE /* CloudKit.framework */,
 				9BA684522178C268001DDDAE /* FirebaseCore.framework */,
 				9BA684542178C2A1001DDDAE /* Crashlytics.framework */,
 				8F937AEF2E832B0CC8EFA1FF /* Pods_Schedule.framework */,
@@ -553,6 +555,12 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
