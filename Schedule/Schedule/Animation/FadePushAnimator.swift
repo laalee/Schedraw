@@ -9,18 +9,11 @@
 import Foundation
 import UIKit
 
-class FadePushAnimato: NSObject, UIViewControllerAnimatedTransitioning {
-
-//    private let originFrame: CGRect
-//
-//    init(originFrame: CGRect) {
-//
-//        self.originFrame = originFrame
-//    }
+class FadePushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 
-        return 2.0
+        return 0.2
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

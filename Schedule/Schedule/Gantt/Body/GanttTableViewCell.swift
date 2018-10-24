@@ -31,6 +31,12 @@ class GanttTableViewCell: UITableViewCell {
     let dateManager = DateManager.share
 
     var subLabels: [UILabel] = []
+
+    var selectedIndexPath: IndexPath?
+
+    let circleView = UIView()
+
+    var originFrame: CGRect?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -213,9 +219,110 @@ extension GanttTableViewCell: UICollectionViewDataSource {
             date: selectedDate
         )
 
-        taskViewController.transitioningDelegate = self as UIViewControllerTransitioningDelegate
+//        guard let cell = itemCollectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell else { return }
+//
+//        cell.freezeAnimations()
+//
+//        let currentCellFrame = cell.layer.presentation()!.frame
+//
+//        let cardPresentationFrameOnScreen = cell.superview!.convert(currentCellFrame, to: nil)
+//
+//        let cardFrameWithoutTransform = { () -> CGRect in
+//            let center = cell.center
+//            let size = cell.bounds.size
+//            let rect = CGRect(
+//                x: center.x - size.width / 2,
+//                y: center.y - size.height / 2,
+//                width: size.width,
+//                height: size.height
+//            )
+//            return cell.superview!.convert(rect, to: nil)
+//        }()
+//
+//        let params = CardTransition.Params(fromCardFrame: cardPresentationFrameOnScreen,
+//                                           fromCardFrameWithoutTransform: cardFrameWithoutTransform,
+//                                           fromCell: cell)
+//
+//        let transition = CardTransition(params: params)
+//        taskViewController.transitioningDelegate = transition
 
-        self.window?.rootViewController?.show(taskViewController, sender: nil)
+        taskViewController.taskAnimationDelegate = self
+
+        taskViewController.transitioningDelegate = self
+
+        presentAnimation(indexPath: indexPath) {
+
+            self.window?.rootViewController?.show(taskViewController, sender: nil)
+        }
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+//
+//            self.window?.rootViewController?.show(taskViewController, sender: nil)
+//        })
+    }
+
+    func presentAnimation(indexPath: IndexPath,
+                          completion: @escaping () -> Void) {
+
+        guard let cell = itemCollectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell else { return }
+
+        let rootView = self.window?.rootViewController?.view
+
+        let rect1 = cell.centerBackgroundView.convert(cell.centerBackgroundView.frame, from: cell.contentView)
+
+        let rect2 = cell.centerBackgroundView.convert(rect1, to: rootView)
+
+        originFrame = rect2
+
+        circleView.frame = rect2
+
+        circleView.cornerRadius = rect2.height / 2
+
+        circleView.clipsToBounds = true
+
+        circleView.backgroundColor = self.category?.color as? UIColor
+
+        UIView.animate(withDuration: 0.3, animations: {
+
+            let screenSize = UIScreen.main.bounds.size
+            let viewHeight = screenSize.height - rect2.minY > rect2.minY ? screenSize.height - rect2.minY: rect2.minY
+            let viewWidth = screenSize.width - rect2.minX > rect2.minX ? screenSize.width - rect2.minX: rect2.minX
+
+            let viewLength = sqrt(viewHeight * viewHeight + viewWidth * viewWidth)
+
+            self.circleView.cornerRadius = viewLength
+
+            self.circleView.frame = CGRect(x: rect2.minX - viewLength,
+                                y: rect2.minY - viewLength,
+                                width: viewLength * 2,
+                                height: viewLength * 2)
+
+        }, completion: { _ in
+
+            completion()
+        })
+
+        rootView?.addSubview(circleView)
+    }
+
+    func dismissAnimation() {
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+
+                UIView.animate(withDuration: 0.3, animations: {
+
+                    guard let originFrame = self.originFrame else { return }
+
+                    self.circleView.cornerRadius = originFrame.height / 2
+
+                    self.circleView.frame = originFrame
+
+                }, completion: { _ in
+
+                    self.circleView.removeFromSuperview()
+                })
+        })
+
     }
 
 }
@@ -282,13 +389,25 @@ extension GanttTableViewCell: UIScrollViewDelegate {
 
 extension GanttTableViewCell: UIViewControllerTransitioningDelegate {
 
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+        source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-        return FadePushAnimato()
+        return FadePushAnimator()
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-        return FadePushAnimato()
+        return FadePushAnimator()
     }
+}
+
+extension GanttTableViewCell: TaskAnimationDelegate {
+
+    func dismissTaskViewController() {
+
+        dismissAnimation()
+    }
+
 }

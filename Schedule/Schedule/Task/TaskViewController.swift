@@ -17,6 +17,11 @@ protocol TaskDelegate: AnyObject {
     func getContent<T>() -> T?
 }
 
+protocol TaskAnimationDelegate: AnyObject {
+
+    func dismissTaskViewController()
+}
+
 class TaskViewController: UIViewController {
 
     @IBOutlet weak var taskTableView: UITableView!
@@ -67,6 +72,8 @@ class TaskViewController: UIViewController {
     weak var consecutiveDelegate: TaskDelegate?
 
     weak var notesDelegate: TaskDelegate?
+
+    weak var taskAnimationDelegate: TaskAnimationDelegate?
 
     var isNewTask: Bool = true
 
@@ -517,14 +524,18 @@ class TaskViewController: UIViewController {
         } else {
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
-
+            
             dismiss(animated: true, completion: nil)
+
+            taskAnimationDelegate?.dismissTaskViewController()
         }
     }
 
     @IBAction func cancelPressed(_ sender: Any) {
 
         dismiss(animated: true, completion: nil)
+
+        taskAnimationDelegate?.dismissTaskViewController()
     }
 
     func showToast(title: String, message: String) {

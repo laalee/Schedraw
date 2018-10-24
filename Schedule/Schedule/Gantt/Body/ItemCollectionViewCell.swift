@@ -20,8 +20,27 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var rightBackgroundView: UIView!
 
+    var disabledHighlightedAnimation = false
+
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    func resetTransform() {
+        
+        transform = .identity
+    }
+
+    func freezeAnimations() {
+
+        disabledHighlightedAnimation = true
+        
+        layer.removeAllAnimations()
+    }
+
+    func unfreezeAnimations() {
+
+        disabledHighlightedAnimation = false
     }
 
     func setTask(task: TaskMO?) {
