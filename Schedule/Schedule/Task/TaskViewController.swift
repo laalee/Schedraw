@@ -333,24 +333,34 @@ class TaskViewController: UIViewController {
 
     @objc func showTimingPicker() {
 
-        alertDatePicker.alpha = 1.0
+        let timingPicker = UIDatePicker()
 
-        alertPickerView.alpha = 0.0
+        timingPicker.datePickerMode = .time
 
-        alertDatePickerTitleLabel.text = "Select timings"
+        timingPicker.date = Date()
 
-        UIView.animate(withDuration: 0.2) { [weak self] in
+        let alert = CustomAlertView(title: "Select timings", contentView: timingPicker)
 
-            self?.alertPickerBaseView.alpha = 1.0
-        }
+        alert.show(animated: true)
 
-        alertPickerStatus = "Timing"
-
-        alertDatePicker.datePickerMode = .time
-
-        alertDatePicker.date = Date()
-
-        dismissKeyboard()
+//        alertDatePicker.alpha = 1.0
+//
+//        alertPickerView.alpha = 0.0
+//
+//        alertDatePickerTitleLabel.text = "Select timings"
+//
+//        UIView.animate(withDuration: 0.2) { [weak self] in
+//
+//            self?.alertPickerBaseView.alpha = 1.0
+//        }
+//
+//        alertPickerStatus = "Timing"
+//
+//        alertDatePicker.datePickerMode = .time
+//
+//        alertDatePicker.date = Date()
+//
+//        dismissKeyboard()
     }
 
     @objc func showConsecutivePicker() {

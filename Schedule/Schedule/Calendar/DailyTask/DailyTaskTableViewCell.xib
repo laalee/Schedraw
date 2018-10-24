@@ -50,8 +50,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-9Z-W9t">
                                 <rect key="frame" x="193" y="16" width="64" height="24"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-Ha-KpF">
-                                        <rect key="frame" x="17" y="1" width="30" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15: 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-Ha-KpF">
+                                        <rect key="frame" x="10" y="-0.5" width="44.5" height="22"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="gLs-bz-4Of"/>
                                     <constraint firstItem="i1D-Ha-KpF" firstAttribute="centerX" secondItem="Uga-9Z-W9t" secondAttribute="centerX" id="o9z-k9-VWr"/>
-                                    <constraint firstItem="i1D-Ha-KpF" firstAttribute="centerY" secondItem="Uga-9Z-W9t" secondAttribute="centerY" id="ryN-mY-rQs"/>
+                                    <constraint firstItem="i1D-Ha-KpF" firstAttribute="centerY" secondItem="Uga-9Z-W9t" secondAttribute="centerY" multiplier="0.9" id="ryN-mY-rQs"/>
                                     <constraint firstAttribute="height" constant="24" id="vZb-04-tmG"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

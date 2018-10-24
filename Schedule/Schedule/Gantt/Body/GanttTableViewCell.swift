@@ -213,6 +213,8 @@ extension GanttTableViewCell: UICollectionViewDataSource {
             date: selectedDate
         )
 
+        taskViewController.transitioningDelegate = self as UIViewControllerTransitioningDelegate
+
         self.window?.rootViewController?.show(taskViewController, sender: nil)
     }
 
@@ -276,4 +278,17 @@ extension GanttTableViewCell: UIScrollViewDelegate {
         }
     }
 
+}
+
+extension GanttTableViewCell: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+        return FadePushAnimato()
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+        return FadePushAnimato()
+    }
 }
