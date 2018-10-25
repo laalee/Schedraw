@@ -63,7 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     func getTodayTask() {
 
-        guard let task = TodayTaskManager.share.getTodayTask(date: Date()) else { return }
+        guard let task = TodayTaskManager.shared.getTodayTask(date: Date()) else { return }
 
         todayTask = task
 

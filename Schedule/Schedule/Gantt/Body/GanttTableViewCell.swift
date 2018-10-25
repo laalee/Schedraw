@@ -28,7 +28,7 @@ class GanttTableViewCell: UITableViewCell {
 
     var dateformatter = DateFormatter()
 
-    let dateManager = DateManager.share
+    let dateManager = DateManager.shared
 
     var subLabels: [UILabel] = []
 
@@ -158,7 +158,7 @@ class GanttTableViewCell: UITableViewCell {
 
         guard let lastDate = task.endDate as? Date else { return }
 
-        let consecutive = DateManager.share.consecutiveDay(startDate: startDate, lastDate: lastDate)
+        let consecutive = DateManager.shared.consecutiveDay(startDate: startDate, lastDate: lastDate)
 
         label.frame = CGRect(x: 50 * indexPathRow + 25, y: 0, width: consecutive * 50, height: 50)
 
@@ -192,7 +192,7 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
         let date = dateManager.getDate(atIndex: indexPath.row)
 
-        let task = TaskManager.share.fetchTask(byCategory: category, andDate: date)
+        let task = TaskManager.shared.fetchTask(byCategory: category, andDate: date)
 
         eventCell.setTask(task: task?.first)
 

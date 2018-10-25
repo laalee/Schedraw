@@ -24,7 +24,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     var currentMonth: String = ""
 
-    let dateManager = DateManager.share
+    let dateManager = DateManager.shared
 
     override func awakeFromNib() {
         super.awakeFromNib()

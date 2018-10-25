@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol CustomAlertViewDelegate: AnyObject {
+
+    func contentViewChanged()
+}
+
 class CustomAlertView: UIView {
 
     var backgroundView = UIView()
 
     var dialogView = UIView()
+
+    weak var customAlertViewDelegate: CustomAlertViewDelegate?
 
     convenience init(title: String, contentView: UIView) {
         self.init(frame: UIScreen.main.bounds)
@@ -34,37 +41,38 @@ class CustomAlertView: UIView {
         let dialogViewWidth = frame.width - 64
 
         setBackgroundView()
-        addSubview(backgroundView)
 
-        let titleLabel = customTitleLabel(title: title, width: dialogViewWidth)
-        dialogView.addSubview(titleLabel)
+        let titleLabel = customTitleLabel(title: title, width: dialogViewWidth - 16)
 
-        let separatorLineView = customSeparatorLineView(
-            separatorLineY: titleLabel.frame.height + 8,
-            width: dialogViewWidth)
-        dialogView.addSubview(separatorLineView)
+        let separatorLineView = customSeparatorLineView(separatorLineY: titleLabel.frame.height + 8,
+                                                        width: dialogViewWidth)
 
-        let contentViewY = separatorLineView.frame.height + separatorLineView.frame.origin.y + 8
+        let contentViewY = separatorLineView.frame.origin.y + separatorLineView.frame.height + 8
         setContentView(contentViewY: contentViewY,
                        width: dialogViewWidth - 16,
                        contentView: contentView)
-        dialogView.addSubview(contentView)
 
-//        let imageView = customImageView(
-//            imageViewY: separatorLineView.frame.height + separatorLineView.frame.origin.y + 8,
-//            width: dialogViewWidth - 16,
-//            image: image)
-//        dialogView.addSubview(imageView)
+        let secondSeparatorLineViewY = contentView.frame.origin.y + contentView.frame.height + 8
+        let secondSeparatorLineView = customSeparatorLineView(separatorLineY: secondSeparatorLineViewY, width: dialogViewWidth)
 
-//        let contentView =
+        let okButtonY = secondSeparatorLineView.frame.origin.y + secondSeparatorLineView.frame.height + 8
+        let okButton = customOkButton(okButtonY: okButtonY,
+                                      width: dialogViewWidth)
 
-        let titleHeight = titleLabel.frame.height
-        let separatorHeight = separatorLineView.frame.height
-//        let imageHeight = imageView.frame.height
-        let contentViewHeight = contentView.frame.height
-        let blank: CGFloat = 24
-        let dialogViewHeight = titleHeight + separatorHeight + contentViewHeight + blank
+        let dialogViewHeight = titleLabel.frame.height
+                             + separatorLineView.frame.height
+                             + contentView.frame.height
+                             + secondSeparatorLineView.frame.height
+                             + okButton.frame.height
+                             + 40
         setDialogView(dialogViewHeight: dialogViewHeight)
+
+        addSubview(backgroundView)
+        dialogView.addSubview(titleLabel)
+        dialogView.addSubview(separatorLineView)
+        dialogView.addSubview(contentView)
+        dialogView.addSubview(secondSeparatorLineView)
+        dialogView.addSubview(okButton)
         addSubview(dialogView)
     }
 
@@ -104,10 +112,11 @@ class CustomAlertView: UIView {
 
     func customTitleLabel(title: String, width: CGFloat) -> UILabel {
 
-        let titleLabel = UILabel(frame: CGRect(x: 8,
-                                               y: 8,
-                                               width: width - 16,
-                                               height: 30))
+        let titleLabel = UILabel()
+
+        titleLabel.frame.origin = CGPoint(x: 8, y: 8)
+        titleLabel.frame.size = CGSize(width: width, height: 30)
+
         titleLabel.text = title
         titleLabel.textAlignment = .center
 
@@ -120,24 +129,33 @@ class CustomAlertView: UIView {
 
         separatorLineView.frame.origin = CGPoint(x: 0, y: separatorLineY)
         separatorLineView.frame.size = CGSize(width: width, height: 1)
+
         separatorLineView.backgroundColor = UIColor.groupTableViewBackground
 
         return separatorLineView
     }
 
-    func customImageView(imageViewY: CGFloat, width: CGFloat, image: UIImage) -> UIImageView {
+    func customOkButton(okButtonY: CGFloat, width: CGFloat) -> UIButton {
 
-        let imageView = UIImageView()
+        let okButton = UIButton()
 
-        imageView.frame.origin = CGPoint(x: 8,
-                                         y: imageViewY)
-        imageView.frame.size = CGSize(width: width,
-                                      height: width)
-        imageView.image = image
-        imageView.layer.cornerRadius = 4
-        imageView.clipsToBounds = true
+        okButton.frame.origin = CGPoint(x: 0, y: okButtonY)
+        okButton.frame.size = CGSize(width: width, height: 30)
 
-        return imageView
+        okButton.setTitle("OK", for: .normal)
+        okButton.setTitleColor(UIColor.black, for: .normal)
+        okButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+
+        okButton.addTarget(self, action: #selector(contentViewChanged), for: .touchUpInside)
+
+        return okButton
+    }
+
+    @objc func contentViewChanged() {
+
+        customAlertViewDelegate?.contentViewChanged()
+
+        dismiss(animated: true)
     }
 
 }

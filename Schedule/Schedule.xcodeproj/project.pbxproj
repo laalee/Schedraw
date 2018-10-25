@@ -95,6 +95,7 @@
 		9BEDA6DB21805FC600A5428D /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DA21805FC600A5428D /* CardTransition.swift */; };
 		9BEDA6DD2180618A00A5428D /* DismissCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */; };
 		9BEDA6DF2180629100A5428D /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DE2180629100A5428D /* CardPresentationController.swift */; };
+		9BEDA6E12180D9C200A5428D /* TaskDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */; };
 		9BF12423215C7EC400AC1C6A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12422215C7EC400AC1C6A /* Task.swift */; };
 		9BF12425215C81AC00AC1C6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12424215C81AC00AC1C6A /* Data.swift */; };
 		9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12428215CE86300AC1C6A /* TaskViewController.swift */; };
@@ -218,6 +219,7 @@
 		9BEDA6DA21805FC600A5428D /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
 		9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardAnimator.swift; sourceTree = "<group>"; };
 		9BEDA6DE2180629100A5428D /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailManager.swift; sourceTree = "<group>"; };
 		9BF12422215C7EC400AC1C6A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9BF12424215C81AC00AC1C6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9BF12428215CE86300AC1C6A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +385,8 @@
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
 				9B7BEA822173924800E2D297 /* DisplayMode.swift */,
 				9BEDA6D8218048B600A5428D /* GlobalConstants.swift */,
+				9B14AF8C217F055400E5E466 /* CustomAlertView.swift */,
+				9B14AF8E217F0DF600E5E466 /* Modal.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -415,8 +419,7 @@
 			children = (
 				9BAF7637215E227900101BBA /* Task.storyboard */,
 				9BF12428215CE86300AC1C6A /* TaskViewController.swift */,
-				9B14AF8C217F055400E5E466 /* CustomAlertView.swift */,
-				9B14AF8E217F0DF600E5E466 /* Modal.swift */,
+				9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */,
 				9B0C6A2321650AF50055A7CD /* Cells */,
 			);
 			path = Task;
@@ -827,6 +830,7 @@
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,
 				9BEDA6D721803ED700A5428D /* PresentCardAnimator.swift in Sources */,
 				9B0C6A19216502EF0055A7CD /* ConsecutiveTableViewCell.swift in Sources */,
+				9BEDA6E12180D9C200A5428D /* TaskDetailManager.swift in Sources */,
 				9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */,
 				9BB5D5DC2151FDD2005F225C /* AppDelegate.swift in Sources */,
 				9BEDA6D9218048B600A5428D /* GlobalConstants.swift in Sources */,

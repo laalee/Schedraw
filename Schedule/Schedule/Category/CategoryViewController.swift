@@ -228,11 +228,11 @@ extension CategoryViewController: DeleteDelegate {
 
         let deleteAction = UIAlertAction(title: "OK", style: .default) { (_) in
 
-            if let tasks = TaskManager.share.fetchTask(byCategory: category) {
+            if let tasks = TaskManager.shared.fetchTask(byCategory: category) {
 
                 for task in tasks {
 
-                    TaskManager.share.deleteTask(taskMO: task)
+                    TaskManager.shared.deleteTask(taskMO: task)
                 }
             }
 

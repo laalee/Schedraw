@@ -47,14 +47,14 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
         updateConsecutiveButton(consecutiveDay: consecutiveDay + 1)
 
-        let lastDate = DateManager.share.getDate(byAdding: consecutiveDay, to: currentDate)
+        let lastDate = DateManager.shared.getDate(byAdding: consecutiveDay, to: currentDate)
 
         updateLastDateButton(date: lastDate)
     }
 
     func updateView(byLastDate lastDate: Date, from startDate: Date) {
 
-        let consecutive = DateManager.share.consecutiveDay(startDate: startDate, lastDate: lastDate)
+        let consecutive = DateManager.shared.consecutiveDay(startDate: startDate, lastDate: lastDate)
 
         updateConsecutiveButton(consecutiveDay: consecutive + 1)
 
@@ -77,7 +77,7 @@ class ConsecutiveTableViewCell: UITableViewCell {
 
     func updateLastDateButton(date: Date) {
 
-        let lastDateTitle = DateManager.share.formatDate(forTaskPage: date)
+        let lastDateTitle = DateManager.shared.formatDate(forTaskPage: date)
 
         lastDateButton.setTitle(lastDateTitle, for: .normal)
     }

@@ -28,7 +28,7 @@ class CalendarViewController: UIViewController {
 
     var currentMonth = Calendar.current.component(.month, from: Date())
 
-    var currentDate = DateManager.share.transformDate(date: Date())
+    var currentDate = DateManager.shared.transformDate(date: Date())
 
     var pickerBackground: UIView!
 
@@ -203,7 +203,7 @@ class CalendarViewController: UIViewController {
 
                 var date = gatTheDate(year: year, month: month, days: theDay)
 
-                date = DateManager.share.transformDate(date: date)
+                date = DateManager.shared.transformDate(date: date)
 
                 datesInMonth.append(date)
             }
@@ -383,11 +383,11 @@ class CalendarViewController: UIViewController {
 
         if let category = self.selectedCategory {
 
-            tasks = TaskManager.share.fetchTask(byCategory: category, andDate: theDate)
+            tasks = TaskManager.shared.fetchTask(byCategory: category, andDate: theDate)
 
         } else {
 
-            tasks = TaskManager.share.fetchTask(byDate: theDate)
+            tasks = TaskManager.shared.fetchTask(byDate: theDate)
         }
 
         if dailyTaskIndex != indexPath {
@@ -473,13 +473,13 @@ class CalendarViewController: UIViewController {
 
                 if let category = self.selectedCategory {
 
-                    if let task = TaskManager.share.fetchTask(byCategory: category, andDate: date) {
+                    if let task = TaskManager.shared.fetchTask(byCategory: category, andDate: date) {
 
                         tasks += task
                     }
                 } else {
 
-                    if let task = TaskManager.share.fetchTask(byDate: date) {
+                    if let task = TaskManager.shared.fetchTask(byDate: date) {
 
                         tasks += task
                     }
@@ -658,19 +658,19 @@ extension CalendarViewController: UICollectionViewDataSource {
 
         if let selectedCategory = self.selectedCategory {
 
-            tasks = TaskManager.share.fetchTask(byCategory: selectedCategory, andDate: theDate)
+            tasks = TaskManager.shared.fetchTask(byCategory: selectedCategory, andDate: theDate)
 
             dayCell.setCategoryTask(tasks: tasks)
 
         } else {
 
-            tasks = TaskManager.share.fetchTask(byDate: theDate)
+            tasks = TaskManager.shared.fetchTask(byDate: theDate)
 
             dayCell.setTask(tasks: tasks)
         }
 
-        if DateManager.share.formatDate(forTaskPage: theDate) ==
-            DateManager.share.formatDate(forTaskPage: currentDate) {
+        if DateManager.shared.formatDate(forTaskPage: theDate) ==
+            DateManager.shared.formatDate(forTaskPage: currentDate) {
 
 //            dayCell.dayLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
             if let text = dayCell.dayLabel.text {

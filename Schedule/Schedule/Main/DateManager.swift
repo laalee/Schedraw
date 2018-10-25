@@ -10,7 +10,7 @@ import Foundation
 
 class DateManager {
 
-    static let share = DateManager()
+    static let shared = DateManager()
 
     var dates: [Date] = []
 

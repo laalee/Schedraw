@@ -12,7 +12,7 @@ import UIKit
 
 class TodayTaskManager {
 
-    static let share = TodayTaskManager()
+    static let shared = TodayTaskManager()
 
     var fetchResultController: NSFetchedResultsController<CategoryMO>!
 

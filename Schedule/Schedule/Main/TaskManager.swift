@@ -10,7 +10,7 @@ import Foundation
 
 class TaskManager {
 
-    static let share = TaskManager()
+    static let shared = TaskManager()
 
     static let firstDay: Int = 1
 

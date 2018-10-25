@@ -34,7 +34,7 @@ class DateCollectionViewCell: UICollectionViewCell {
 
         weekLabel.text = dateFormatter.string(from: date)
 
-        if date == DateManager.share.transformDate(date: Date()) {
+        if date == DateManager.shared.transformDate(date: Date()) {
 
             dayLabel.textColor = UIColor.red.lighter()
 
