@@ -38,48 +38,27 @@ class TaskViewController: UIViewController {
     
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
 
-    // alertPicker
-    @IBOutlet weak var alertPickerBaseView: UIView!
+    weak var taskPageDelegate: TaskPageDelegate?
 
-    @IBOutlet weak var alertDatePickerTitleLabel: UILabel!
-
-    @IBOutlet weak var alertDatePicker: UIDatePicker!
-
-    @IBOutlet weak var alertPickerView: UIPickerView!
-
-    @IBOutlet weak var alertOkButton: UIButton!
-
-    @IBOutlet weak var alertCancelButton: UIButton!
-
-    var alertPickerStatus: String = ""
+    weak var taskAnimationDelegate: TaskAnimationDelegate?
 
     var category: CategoryMO?
 
-    var taskMO: TaskMO?
+    var date: Date?
 
     var task: Task?
-
-    var date: Date?
 
     var pickerView: UIPickerView!
 
     var datePicker: UIDatePicker!
 
-    weak var titleDelegate: TaskDelegate?
-
-    weak var timingDelegate: TaskDelegate?
-
-    weak var consecutiveDelegate: TaskDelegate?
-
-    weak var notesDelegate: TaskDelegate?
-
-    weak var taskAnimationDelegate: TaskAnimationDelegate?
+    var alertPickerStatus: String = ""
 
     var isNewTask: Bool = true
 
     var isTextViewEditing: Bool = false
 
-    weak var taskPageDelegate: TaskPageDelegate?
+    let taskDetailManager = TaskDetailManager()
 
     var identifiers = [
         String(describing: TaskTitleTableViewCell.self),
@@ -91,28 +70,18 @@ class TaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        alertPickerBaseView.alpha = 0.0
-
         setupTableView()
 
         setupCategoryAndTask()
 
         addKeyboardObserver()
 
-        let tapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(dismissKeyboard)
-        )
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(dismissKeyboard))
 
         self.view.addGestureRecognizer(tapGestureRecognizer)
 
-        titlebarBackgroungView.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        titlebarBackgroungView.layer.shadowOpacity = 0.5
-        titlebarBackgroungView.layer.shadowRadius = 5.0
-        titlebarBackgroungView.layer.shadowOffset = CGSize(width: 0, height: 0 )
-        titlebarBackgroungView.layer.masksToBounds = false
-
-        TaskDetailManager.shared.taskDetailDelegate = self
+        taskDetailManager.taskDetailDelegate = self
     }
 
     // MARK: Initialization
@@ -122,8 +91,7 @@ class TaskViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Task", bundle: nil)
 
         guard let viewController = storyboard.instantiateViewController(
-            withIdentifier: "TaskViewController")
-            as? TaskViewController else {
+            withIdentifier: "TaskViewController") as? TaskViewController else {
 
                 return TaskViewController()
         }
@@ -153,85 +121,69 @@ class TaskViewController: UIViewController {
 
         guard let category = category else { return }
 
-        guard let categoryColor = category.color as? UIColor else { return }
-
         guard let date = date else { return }
 
-        alertDatePickerTitleLabel.backgroundColor = categoryColor
+        taskDetailManager.setTask(category: category, date: date)
 
-        alertOkButton.setTitleColor(categoryColor.darkened(), for: .normal)
+        self.task = taskDetailManager.getTask()
 
-        alertCancelButton.setTitleColor(categoryColor.darkened(), for: .normal)
+        setTitleViews()
 
-        var titleDate = DateManager.shared.formatDate(forTaskPage: date)
+        setEditButton()
+    }
 
-        let tasks = TaskManager.shared.fetchTask(byCategory: category, andDate: date)
+    func setTitleViews() {
 
-        if tasks?.count != 0 {
+        categoryLabel.text = category?.title
 
-            taskMO = tasks?.first
-
-            if let startDate = taskMO?.startDate as? Date {
-
-                let startTask = TaskManager.shared.fetchTask(byCategory: category, andDate: startDate)
-
-                taskMO = startTask?.first
-
-                titleDate = DateManager.shared.formatDate(forTaskPage: startDate)
-
-                self.date = startDate
-            }
-
-            isNewTask = false
-
-        } else {
-
-            editButton.isHidden = true
-
-            saveButton.isHidden = false
-        }
-        
-        task = Task(title: taskMO?.title ?? "",
-                    category: taskMO?.category ?? category,
-                    date: taskMO?.date as? Date ?? Date(),
-                    startDate: taskMO?.startDate as? Date,
-                    endDate: taskMO?.endDate as? Date,
-                    consecutiveDay: transformInt(originInt: taskMO?.consecutiveDay),
-                    consecutiveStatus: transformInt(originInt: taskMO?.consecutiveStatus),
-                    consecutiveId: transformInt(originInt: taskMO?.consecutiveId),
-                    time: taskMO?.time,
-                    note: taskMO?.note)
-
-        categoryLabel.text = category.title
+        guard let categoryColor = category?.color as? UIColor else { return }
 
         titlebarBackgroungView.backgroundColor = categoryColor
 
-        dateButton.setTitle(titleDate, for: .normal)
+        titlebarBackgroungView.setTitlebarShadow()
 
-        TaskDetailManager.shared.setCategory(category: category)
+        guard let task = task else { return }
+
+        let titleDate = DateManager.shared.formatDate(forTaskPage: task.date)
+
+        dateButton.setTitle(titleDate, for: .normal)
     }
 
-    func transformInt(originInt: Int64?) -> Int? {
+    func setEditButton() {
 
-        guard let origin = originInt else {
+        isNewTask = taskDetailManager.taskMO == nil
 
-            return nil
-        }
+        editButton.isHidden = isNewTask
 
-        return Int(origin)
+        saveButton.isHidden = !isNewTask
+    }
+
+    @IBAction func editButtonPressed(_ sender: Any) {
+
+        self.editButton.isHidden = true
+
+        self.saveButton.isHidden = false
+
+        identifiers.append(String(describing: DeleteTableViewCell.self))
+
+        setupTableView()
+
+        taskTableView.reloadData()
     }
 
     func addKeyboardObserver() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleKeyboardNotification),
-            name: UIResponder.keyboardWillShowNotification, object: nil
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
         )
 
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleKeyboardNotification),
-            name: UIResponder.keyboardWillHideNotification, object: nil
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
         )
     }
 
@@ -239,10 +191,8 @@ class TaskViewController: UIViewController {
 
         guard let userInfo = notification.userInfo else { return }
 
-        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-
-            return
-        }
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey]
+            as? NSValue)?.cgRectValue else { return }
 
         let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
 
@@ -263,138 +213,94 @@ class TaskViewController: UIViewController {
         })
     }
 
-    @IBAction func dateButtonPressed(_ sender: Any) {
+    @objc func dismissKeyboard() {
 
-        datePicker = UIDatePicker(frame: CGRect(
-            x: 0, y: 0,
-            width: UIScreen.main.bounds.width - 5, height: 250))
-
-        datePicker.datePickerMode = .date
-
-        datePicker.date = Date()
-
-        let alertController: UIAlertController = UIAlertController(
-            title: "\n\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-
-        alertController.addAction(UIAlertAction(
-        title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
-
-            let pickerDate = DateManager.shared.transformDate(date: self.datePicker.date)
-
-            self.date = pickerDate
-
-            let titleDate = DateManager.shared.formatDate(forTaskPage: pickerDate)
-
-            self.dateButton.setTitle(titleDate, for: .normal)
-        })
-
-        alertController.addAction(UIAlertAction(
-            title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-
-        alertController.view.addSubview(datePicker)
-
-        self.show(alertController, sender: nil)
+        self.view.endEditing(true)
     }
 
-    @objc func lastDateButtonPressed(_ sender: Any) {
+    @IBAction func showDatePicker(_ sender: Any) {
 
-        datePicker = UIDatePicker()
-
-        datePicker.datePickerMode = .date
-
-        datePicker.date = Date()
-
-        let alert = CustomAlertView(title: "Select end date", contentView: datePicker)
-
-        alert.customAlertViewDelegate = self
-
-        alert.show(animated: true)
-
-        alertPickerStatus = "LastDate"
-
-//        alertDatePicker.date = self.date ?? Date()
-//
-//        if let endDate = self.task?.endDate {
-//
-//            alertDatePicker.date = endDate
-//
-//        } else if let lastDate = taskMO?.endDate as? Date {
-//
-//            alertDatePicker.date = lastDate
-//        }
-
-        dismissKeyboard()
     }
 
     @objc func showTimingPicker() {
 
-        datePicker = UIDatePicker()
-
-        datePicker.datePickerMode = .time
-
-        datePicker.date = Date()
-
-        let alert = CustomAlertView(title: "Select timings", contentView: datePicker)
-
-        alert.customAlertViewDelegate = self
-
-        alert.show(animated: true)
-
         alertPickerStatus = "Timing"
+
+        showDateAlertPicker()
+    }
+
+    @objc func showLastDatePicker(_ sender: Any) {
+
+        alertPickerStatus = "LastDate"
+
+        showDateAlertPicker()
     }
 
     @objc func showConsecutivePicker() {
 
-        alertDatePicker.alpha = 0.0
-
-        alertPickerView.alpha = 1.0
-
-        alertDatePickerTitleLabel.text = "Select consecutive days"
-
-        UIView.animate(withDuration: 0.2) { [weak self] in
-
-            self?.alertPickerBaseView.alpha = 1.0
-        }
-
         alertPickerStatus = "Consecutive"
 
-        alertPickerView.dataSource = self
+        showAlertPicker()
+    }
 
-        alertPickerView.delegate = self
-
-        if let consecutiveDay = self.task?.consecutiveDay {
-
-            alertPickerView.selectRow(consecutiveDay, inComponent: 0, animated: true)
-
-        } else if let consecutiveDay = taskMO?.consecutiveDay {
-
-            alertPickerView.selectRow(Int(consecutiveDay) - 1, inComponent: 0, animated: true)
-        }
+    func showDateAlertPicker() {
 
         dismissKeyboard()
 
+        datePicker = UIDatePicker()
+
+        var alert: CustomAlertView?
+
+        switch alertPickerStatus {
+
+        case "Timing":
+
+            datePicker.datePickerMode = .time
+
+            datePicker.date = task?.date ?? Date()
+
+            alert = CustomAlertView(title: "Select end date", contentView: datePicker)
+
+        case "LastDate":
+
+            datePicker.datePickerMode = .date
+
+            datePicker.date = task?.endDate ?? Date()
+
+            alert = CustomAlertView(title: "Select end date", contentView: datePicker)
+
+        default:
+            break
+        }
+
+        alert?.customAlertViewDelegate = self
+
+        alert?.show(animated: true)
+
     }
 
-    @IBAction func editButtonPressed(_ sender: Any) {
+    func showAlertPicker() {
 
-        self.editButton.isHidden = true
+        dismissKeyboard()
 
-        self.saveButton.isHidden = false
+        pickerView = UIPickerView()
 
-        identifiers.append(String(describing: DeleteTableViewCell.self))
+        pickerView.dataSource = self
 
-        setupTableView()
+        pickerView.delegate = self
 
-        taskTableView.reloadData()
+        let alert = CustomAlertView(title: "Select consecutive days", contentView: pickerView)
+
+        alert.customAlertViewDelegate = self
+
+        alert.show(animated: true)
     }
 
     func showToast(title: String?, message: String?) {
 
-        let alertToast = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
+        let alertToast = UIAlertController(title: title,
+                                           message: message,
+                                           preferredStyle: .alert)
 
         alertToast.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 
@@ -403,97 +309,24 @@ class TaskViewController: UIViewController {
 
     @IBAction func saveTask(_ sender: Any) {
 
-        guard let newTitle: String = titleDelegate?.getContent() else {
+        guard let newTask = self.task else { return }
+
+        guard newTask.title != "" else {
 
             showToast(title: "Save failed!", message: "Title should not be blank.")
 
             return
         }
 
-        guard let category = self.category else { return }
-
-        guard let newDate: Date = self.date else { return }
-
-        let timing: String? = timingDelegate?.getContent()
-
-        let note: String? = notesDelegate?.getContent()
-
-        if let consecutiveDay: Int = consecutiveDelegate?.getContent() {
-
-            let consecutiveId: Int = Int(Date().timeIntervalSince1970)
-
-            let lastDay = consecutiveDay - 1
-
-            let endDate: Date? = DateManager.shared.getDate(byAdding: lastDay, to: newDate)
-
-            for addingDay in 0...lastDay {
-
-                let date = DateManager.shared.getDate(byAdding: addingDay, to: newDate)
-
-                var consecutiveStatus: Int?
-
-                switch addingDay {
-
-                case 0: consecutiveStatus = TaskManager.firstDay
-
-                case lastDay: consecutiveStatus = TaskManager.lastDay
-
-                default: consecutiveStatus = TaskManager.middleDay
-                }
-
-                let newTask = Task(title: newTitle,
-                                   category: category,
-                                   date: date,
-                                   startDate: newDate,
-                                   endDate: endDate,
-                                   consecutiveDay: consecutiveDay,
-                                   consecutiveStatus: consecutiveStatus,
-                                   consecutiveId: consecutiveId,
-                                   time: timing,
-                                   note: note)
-
-                TaskManager.shared.addTask(task: newTask)
-            }
-        } else {
-
-            let newTask = Task(title: newTitle,
-                               category: category,
-                               date: newDate,
-                               startDate: nil,
-                               endDate: nil,
-                               consecutiveDay: nil,
-                               consecutiveStatus: nil,
-                               consecutiveId: nil,
-                               time: timing,
-                               note: note)
-
-            TaskManager.shared.addTask(task: newTask)
-        }
+        TaskManager.shared.addTask(task: newTask)
 
         if !isNewTask {
 
-            guard let id = self.taskMO?.consecutiveId else { return }
+            guard let taskMO = taskDetailManager.taskMO else { return }
 
-            guard let taskMO = self.taskMO else { return }
+            TaskManager.shared.deleteTask(taskMO: taskMO)
 
-            if id == 0 {
-
-                TaskManager.shared.deleteTask(taskMO: taskMO)
-
-            } else {
-
-                TaskManager.shared.deleteTask(byConsecutiveId: Int(id))
-            }
-
-            let tasks = TaskManager.shared.fetchTask(byCategory: category, andDate: newDate)
-
-            self.taskMO = tasks?.first
-
-            self.editButton.isHidden = false
-
-            self.editButton.isEnabled = false
-
-            self.saveButton.isHidden = true
+            setupCategoryAndTask()
 
             identifiers.removeLast()
 
@@ -501,16 +334,16 @@ class TaskViewController: UIViewController {
 
             taskTableView.reloadData()
 
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
-
             completeAnimation()
 
-            taskPageDelegate?.updateTask(task: tasks?.first)
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+
+            taskPageDelegate?.updateTask(task: taskMO)
 
         } else {
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
-            
+
             dismiss(animated: true, completion: nil)
 
             taskAnimationDelegate?.dismissTaskViewController()
@@ -524,26 +357,17 @@ class TaskViewController: UIViewController {
         taskAnimationDelegate?.dismissTaskViewController()
     }
 
-    @objc func dismissKeyboard() {
-
-        self.view.endEditing(true)
-    }
-
     func completeAnimation() {
 
-        let animationView = LOTAnimationView(name: "check-4")
+        self.editButton.isEnabled = false
 
-        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-
-        animationView.center = self.view.center
-
-        animationView.contentMode = .scaleAspectFill
-
-        animationView.animationSpeed = 2
+        let animationView = CustomAnimationView(jsonFile: "check")
 
         self.view.addSubview(animationView)
 
-        animationView.play { (_) in
+        guard let lotAnimationView = animationView.lotAnimationView else { return }
+
+        lotAnimationView.play { (_) in
 
             animationView.removeFromSuperview()
 
@@ -551,84 +375,23 @@ class TaskViewController: UIViewController {
         }
     }
 
-    @IBAction func alertPickerClosed(_ sender: Any) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
 
-        UIView.animate(withDuration: 0.2) { [weak self] in
+        if let title = textField.text {
 
-            self?.alertPickerBaseView.alpha = 0.0
+            self.task?.title = title
         }
     }
 
-    @IBAction func alertPickerCancelPressed(_ sender: Any) {
+    func getTitleColor() -> UIColor {
 
-        UIView.animate(withDuration: 0.2) { [weak self] in
+        guard let categoryColor = self.category?.color as? UIColor else { return UIColor.black }
 
-            self?.alertPickerBaseView.alpha = 0.0
-        }
+        let titleColor = categoryColor.darkened()
+
+        return titleColor
     }
 
-    @IBAction func alertPickerOkPressed(_ sender: Any) {
-
-//        if alertPickerStatus == "LastDate" {
-//
-//            guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 2))
-//                as? ConsecutiveTableViewCell else { return }
-//
-//            let pickerDate = DateManager.shared.transformDate(date: self.alertDatePicker.date)
-//
-//            let overlapTask = self.checkOverlapTask(lastDate: pickerDate)
-//
-//            if pickerDate < self.date ?? Date() {
-//
-//                self.showToast(title: "Failed", message: "End date should be greater than start date.")
-//
-//            } else if let date = overlapTask {
-//
-//                self.showToast(title: "Failed",
-//                               message: "Some tasks are overlapping in the same category on \(date)."
-//                )
-//
-//            } else {
-//
-//                self.task?.endDate = pickerDate
-//
-//                cell.updateView(byLastDate: pickerDate, from: self.date ?? Date())
-//            }
-//        }
-        if alertPickerStatus == "Consecutive" {
-
-            let consecutiveDay = self.alertPickerView.selectedRow(inComponent: 0)
-
-            guard let cell = self.taskTableView.cellForRow(at: IndexPath(row: 0, section: 2))
-                as? ConsecutiveTableViewCell else { return }
-
-            guard let date = self.date else { return }
-
-            let lastDate = DateManager.shared.getDate(byAdding: consecutiveDay, to: date)
-
-//            let overlapTask = self.checkOverlapTask(lastDate: lastDate)
-//
-//            if let date = overlapTask {
-//
-//                self.showToast(title: "Failed",
-//                               message: "Some tasks are overlapping in the same category on \(date)."
-//                )
-//
-//            } else {
-//
-//                self.task?.consecutiveDay = consecutiveDay
-//
-//                self.task?.endDate = lastDate
-//
-//                cell.updateView(byConsecutiveDay: consecutiveDay, to: date)
-//            }
-        }
-
-        UIView.animate(withDuration: 0.2) { [weak self] in
-
-            self?.alertPickerBaseView.alpha = 0.0
-        }
-    }
 }
 
 extension TaskViewController: UITableViewDataSource {
@@ -648,109 +411,62 @@ extension TaskViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: identifiers[indexPath.section], for: indexPath)
 
-        guard let categoryColor = self.category?.color as? UIColor else { return cell }
+        let titleColor = getTitleColor()
+
+        let enabled = editButton.isHidden && !saveButton.isHidden
 
         switch indexPath.section {
 
         case 0:
             guard let titleCell = cell as? TaskTitleTableViewCell else { return cell }
 
-            titleCell.titleLabel.textColor = categoryColor.darkened()
+            titleCell.titleTextField.addTarget(self,
+                action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
-            self.titleDelegate = titleCell
-
-            let enable = editButton.isHidden && !saveButton.isHidden
-
-            titleCell.updateView(title: taskMO?.title, enabled: enable)
+            titleCell.updateView(title: task?.title, enabled: enabled, titleColor: titleColor)
 
             return titleCell
 
         case 1:
             guard let timingCell = cell as? TimingTableViewCell else { return cell }
 
-            timingCell.titleLabel.textColor = categoryColor.darkened()
-
             timingCell.timingButton.addTarget(self,
                 action: #selector(showTimingPicker), for: .touchUpInside)
 
-            self.timingDelegate = timingCell
-
-            let enable = editButton.isHidden && !saveButton.isHidden
-
-//            if timingCell.firstSetFlag {
-
-                timingCell.updateView(timing: task?.time, enabled: enable)
-//            }
-
-            timingCell.setupEnabled(enabled: enable)
-
-            timingCell.firstSetFlag = false
+            timingCell.updateView(timing: task?.time, enabled: enabled, titleColor: titleColor)
 
             return timingCell
 
         case 2:
-            guard let consecutiveCell = cell as? ConsecutiveTableViewCell else { return cell }
 
-            consecutiveCell.titleLabel.textColor = categoryColor.darkened()
+            guard let consecutiveCell = cell as? ConsecutiveTableViewCell else { return cell }
 
             consecutiveCell.consecutiveButton.addTarget(self,
                 action: #selector(showConsecutivePicker), for: .touchUpInside)
 
             consecutiveCell.lastDateButton.addTarget(self,
-                action: #selector(lastDateButtonPressed), for: .touchUpInside)
+                action: #selector(showLastDatePicker), for: .touchUpInside)
 
-            guard let date = self.date else { return cell }
+            guard let date = task?.date else { return consecutiveCell }
 
-            if let endDate = self.taskMO?.endDate as? Date {
-
-                if consecutiveCell.firstSetFlag {
-
-                    consecutiveCell.updateView(byLastDate: endDate, from: date)
-                }
-
-                consecutiveCell.setupEnabled(enabled: false)
-
-            } else {
-
-                if consecutiveCell.firstSetFlag {
-
-                    consecutiveCell.updateView(byConsecutiveDay: 0, to: date)
-                }
-
-                consecutiveCell.setupEnabled(enabled: true)
-            }
-
-            if editButton.isHidden && !saveButton.isHidden {
-
-                consecutiveCell.setupEnabled(enabled: true)
-
-            } else {
-
-                consecutiveCell.setupEnabled(enabled: false)
-            }
-
-            self.consecutiveDelegate = consecutiveCell
-
-            consecutiveCell.firstSetFlag = false
+            consecutiveCell.updateView(consecutiveDay: task?.consecutiveDay ?? 0,
+                                       lastDate: task?.endDate ?? date,
+                                       enabled: enabled)
 
             return consecutiveCell
 
         case 3:
+
             guard let notesCell = cell as? NotesTableViewCell else { return cell }
 
-            notesCell.titleLabel.textColor = categoryColor.darkened()
-
-            let enabled = editButton.isHidden && !saveButton.isHidden
-
-            notesCell.updateView(notes: taskMO?.note, enabled: enabled)
-
-            self.notesDelegate = notesCell
-
             notesCell.notesTextView.delegate = self
+
+            notesCell.updateView(notes: task?.note, enabled: enabled, titleColor: titleColor)
 
             return notesCell
 
         default:
+
             guard let deleteCell = cell as? DeleteTableViewCell else { return cell }
 
             deleteCell.delegate = self
@@ -769,19 +485,12 @@ extension TaskViewController: UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
-        return 2
+        return 1
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
-        if component == 0 {
-
-            return 999
-            
-        } else {
-
-            return 1
-        }
+        return 366
     }
 
 }
@@ -791,14 +500,7 @@ extension TaskViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
                     forComponent component: Int) -> String? {
 
-        if component == 0 {
-
-            return String(format: "%d", row + 1)
-
-        } else {
-
-            return "Day"
-        }
+        return String(format: "%d", row + 1)
     }
 
 }
@@ -807,7 +509,7 @@ extension TaskViewController: DeleteDelegate {
 
     func deleteObject() {
 
-        guard let task = self.taskMO else { return }
+        guard let task = taskDetailManager.taskMO else { return }
 
         let alertController: UIAlertController = UIAlertController(
             title: "Delete this task?", message: nil, preferredStyle: .alert)
@@ -815,22 +517,15 @@ extension TaskViewController: DeleteDelegate {
         alertController.addAction(UIAlertAction(
         title: "OK", style: UIAlertAction.Style.default) { (_) -> Void in
 
-            guard let id = self.taskMO?.consecutiveId else { return }
-
-            if id == 0 {
-
-                TaskManager.shared.deleteTask(taskMO: task)
-
-            } else {
-
-                TaskManager.shared.deleteTask(byConsecutiveId: Int(id))
-            }
+            TaskManager.shared.deleteTask(taskMO: task)
 
             NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
 
             self.taskPageDelegate?.updateTask(task: nil)
 
             self.dismiss(animated: true, completion: nil)
+
+            self.taskAnimationDelegate?.dismissTaskViewController()
         })
 
         alertController.addAction(UIAlertAction(
@@ -843,18 +538,19 @@ extension TaskViewController: DeleteDelegate {
 
 extension TaskViewController: UITextViewDelegate {
 
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    func textViewDidBeginEditing(_ textView: UITextView) {
 
         self.isTextViewEditing = true
-
-        return true
     }
 
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+    func textViewDidEndEditing(_ textView: UITextView) {
 
         self.isTextViewEditing = false
+    }
 
-        return true
+    func textViewDidChange(_ textView: UITextView) {
+
+        self.task?.note = textView.text
     }
 }
 
@@ -862,35 +558,38 @@ extension TaskViewController: CustomAlertViewDelegate {
 
     func contentViewChanged() {
 
-        alertPickerContentChanged()
-    }
+        switch alertPickerStatus {
 
-    func alertPickerContentChanged() {
-
-        if alertPickerStatus == "Timing" {
+        case "Timing":
 
             let selectedTiming = self.datePicker.date
 
-            TaskDetailManager.shared.setTaskTiming(timing: selectedTiming)
+            taskDetailManager.setTaskTiming(timing: selectedTiming)
 
-        } else if alertPickerStatus == "LastDate" {
+        case "LastDate":
 
             let selectedDate = self.datePicker.date
 
-            TaskDetailManager.shared.setLastDate(
+            taskDetailManager.setLastDate(
                 endDate: selectedDate,
-                taskMO: self.taskMO,
-                success: {
-
-                    print("SUCCESS")
-            },
                 failure: { (title, message) in
 
                     self.showToast(title: title, message: message)
             })
 
-        } else if alertPickerStatus == "Consecutive" {
+        case "Consecutive":
 
+            let consecutiveDay = self.pickerView.selectedRow(inComponent: 0)
+
+            taskDetailManager.setconsecutiveDay(
+                consecutiveDay: consecutiveDay,
+                failure: { (title, message) in
+
+                    self.showToast(title: title, message: message)
+            })
+
+        default:
+            break
         }
     }
 

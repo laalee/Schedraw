@@ -30,18 +30,13 @@ class TimingTableViewCell: UITableViewCell {
         timingBackgroundView.setShadow()
     }
 
-    func updateView(timing: String?, enabled: Bool) {
+    func updateView(timing: String?, enabled: Bool, titleColor: UIColor) {
+
+        titleLabel.textColor = titleColor
 
         timingTextField.text = timing
 
-        if enabled && timing != nil && timing != "" {
-
-            clearButton.isHidden = false
-
-        } else if !enabled {
-
-            clearButton.isHidden = true
-        }
+        setupEnabled(enabled: enabled)
     }
 
     func setupEnabled(enabled: Bool) {
@@ -66,13 +61,4 @@ class TimingTableViewCell: UITableViewCell {
 
         clearButton.isHidden = true
     }
-}
-
-extension TimingTableViewCell: TaskDelegate {
-
-    func getContent<T>() -> T? {
-
-        return timingTextField.text as? T
-    }
-
 }

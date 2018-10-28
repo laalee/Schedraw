@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-Eg-hnf">
-                                        <rect key="frame" x="5" y="6.6666666666666643" width="60" height="32"/>
+                                        <rect key="frame" x="5" y="10" width="60" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="dL0-O9-5Bc"/>
                                         </constraints>
@@ -100,7 +100,7 @@
                                             <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="dateButtonPressed:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="LU1-3R-8Ct"/>
+                                            <action selector="showDatePicker:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="LU1-3R-8Ct"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -108,127 +108,6 @@
                                     <constraint firstItem="ETc-ee-bSB" firstAttribute="centerX" secondItem="wYQ-uD-Ppv" secondAttribute="centerX" id="Czi-Jh-bTF"/>
                                     <constraint firstItem="ETc-ee-bSB" firstAttribute="centerY" secondItem="wYQ-uD-Ppv" secondAttribute="centerY" id="Q5o-eM-tTW"/>
                                     <constraint firstAttribute="height" constant="34" id="x1P-P5-0Fx"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUE-mg-VzS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woh-Gb-elm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="alertPickerClosed:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="hhH-H4-8yg"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select timings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lr-nS-h46">
-                                        <rect key="frame" x="32.666666666666657" y="241" width="310" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.41093014220000001" blue="0.4299504415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="2mp-xm-38F"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mah-jW-wFI">
-                                        <rect key="frame" x="32.666666666666657" y="578" width="310" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="nRi-dz-O8L"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="1" green="0.41093014220000001" blue="0.4299504415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="alertPickerCancelPressed:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="tNB-g5-jnA"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YB7-NE-cvv">
-                                        <rect key="frame" x="32.666666666666657" y="281" width="310" height="250"/>
-                                        <subviews>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="677-Do-TXI">
-                                                <rect key="frame" x="0.0" y="0.0" width="310" height="250"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="561266934.06772804">
-                                                    <!--2018-10-15 03:28:54 +0000-->
-                                                </date>
-                                            </datePicker>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-ua-xay">
-                                                <rect key="frame" x="0.0" y="239" width="310" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="CT0-7r-81a"/>
-                                                </constraints>
-                                            </view>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLF-eO-f9A">
-                                                <rect key="frame" x="0.0" y="0.0" width="310" height="250"/>
-                                            </pickerView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="677-Do-TXI" firstAttribute="top" secondItem="YB7-NE-cvv" secondAttribute="top" id="0dB-PB-bHh"/>
-                                            <constraint firstItem="677-Do-TXI" firstAttribute="leading" secondItem="YB7-NE-cvv" secondAttribute="leading" id="1Ag-ML-Tce"/>
-                                            <constraint firstAttribute="height" constant="250" id="46h-iI-Mlx"/>
-                                            <constraint firstItem="rLF-eO-f9A" firstAttribute="leading" secondItem="YB7-NE-cvv" secondAttribute="leading" id="5kC-IO-dAu"/>
-                                            <constraint firstItem="rLF-eO-f9A" firstAttribute="top" secondItem="YB7-NE-cvv" secondAttribute="top" id="91Y-IH-lgo"/>
-                                            <constraint firstAttribute="trailing" secondItem="rLF-eO-f9A" secondAttribute="trailing" id="MgS-Zd-FLh"/>
-                                            <constraint firstItem="rlT-ua-xay" firstAttribute="leading" secondItem="YB7-NE-cvv" secondAttribute="leading" id="NWp-cA-r3s"/>
-                                            <constraint firstAttribute="bottom" secondItem="rLF-eO-f9A" secondAttribute="bottom" id="XjJ-Ys-xyn"/>
-                                            <constraint firstAttribute="trailing" secondItem="677-Do-TXI" secondAttribute="trailing" id="acr-lg-QT5"/>
-                                            <constraint firstAttribute="trailing" secondItem="rlT-ua-xay" secondAttribute="trailing" id="jlg-SX-51m"/>
-                                            <constraint firstAttribute="width" constant="310" id="nTG-XB-baz"/>
-                                            <constraint firstAttribute="bottom" secondItem="677-Do-TXI" secondAttribute="bottom" id="qD9-wu-C30"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUM-iU-pDu">
-                                        <rect key="frame" x="32.666666666666657" y="521" width="310" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="i35-Py-wdI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <state key="normal" title="OK">
-                                            <color key="titleColor" red="1" green="0.41093014220000001" blue="0.4299504415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="alertPickerOkPressed:" destination="ljG-Ii-RmW" eventType="touchUpInside" id="Xe5-to-OAt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39578874143835618" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="woh-Gb-elm" firstAttribute="top" secondItem="fUE-mg-VzS" secondAttribute="top" id="1n4-lF-8qv"/>
-                                    <constraint firstItem="xUM-iU-pDu" firstAttribute="trailing" secondItem="YB7-NE-cvv" secondAttribute="trailing" id="6Qd-2S-9Fo"/>
-                                    <constraint firstItem="YB7-NE-cvv" firstAttribute="centerX" secondItem="fUE-mg-VzS" secondAttribute="centerX" id="7cD-0D-cAm"/>
-                                    <constraint firstItem="8lr-nS-h46" firstAttribute="trailing" secondItem="YB7-NE-cvv" secondAttribute="trailing" id="A03-cP-WE5"/>
-                                    <constraint firstItem="mah-jW-wFI" firstAttribute="trailing" secondItem="xUM-iU-pDu" secondAttribute="trailing" id="Cyp-Qk-8Me"/>
-                                    <constraint firstItem="xUM-iU-pDu" firstAttribute="leading" secondItem="YB7-NE-cvv" secondAttribute="leading" id="HYF-oh-ikm"/>
-                                    <constraint firstItem="mah-jW-wFI" firstAttribute="leading" secondItem="xUM-iU-pDu" secondAttribute="leading" id="KWy-am-aQa"/>
-                                    <constraint firstItem="woh-Gb-elm" firstAttribute="leading" secondItem="fUE-mg-VzS" secondAttribute="leading" id="ODC-s2-rmH"/>
-                                    <constraint firstAttribute="trailing" secondItem="woh-Gb-elm" secondAttribute="trailing" id="Poc-Eh-q6C"/>
-                                    <constraint firstItem="8lr-nS-h46" firstAttribute="leading" secondItem="YB7-NE-cvv" secondAttribute="leading" id="QKj-b4-Cxc"/>
-                                    <constraint firstItem="xUM-iU-pDu" firstAttribute="top" secondItem="YB7-NE-cvv" secondAttribute="bottom" constant="-10" id="WWp-LF-vfq"/>
-                                    <constraint firstItem="mah-jW-wFI" firstAttribute="top" secondItem="xUM-iU-pDu" secondAttribute="bottom" constant="7" id="cYO-df-cep"/>
-                                    <constraint firstAttribute="bottom" secondItem="woh-Gb-elm" secondAttribute="bottom" id="eu7-cE-Xgg"/>
-                                    <constraint firstItem="xUM-iU-pDu" firstAttribute="top" secondItem="rlT-ua-xay" secondAttribute="bottom" id="gM9-1I-I5x"/>
-                                    <constraint firstItem="YB7-NE-cvv" firstAttribute="top" secondItem="8lr-nS-h46" secondAttribute="bottom" constant="-10" id="mf8-va-oA6"/>
-                                    <constraint firstItem="YB7-NE-cvv" firstAttribute="centerY" secondItem="fUE-mg-VzS" secondAttribute="centerY" id="ohj-zw-xiI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -246,10 +125,6 @@
                             <constraint firstItem="VMp-Xj-Lrk" firstAttribute="trailing" secondItem="e9x-os-ZW0" secondAttribute="trailing" id="Uij-kz-alj"/>
                             <constraint firstItem="VMp-Xj-Lrk" firstAttribute="leading" secondItem="SDU-Oq-U1J" secondAttribute="leading" id="bjc-f3-bv7"/>
                             <constraint firstAttribute="trailing" secondItem="e9x-os-ZW0" secondAttribute="trailing" id="c2T-QM-brb"/>
-                            <constraint firstAttribute="bottom" secondItem="fUE-mg-VzS" secondAttribute="bottom" id="dLc-Gp-gzy"/>
-                            <constraint firstItem="fUE-mg-VzS" firstAttribute="trailing" secondItem="D3D-h4-go9" secondAttribute="trailing" id="enD-gg-DRt"/>
-                            <constraint firstItem="fUE-mg-VzS" firstAttribute="top" secondItem="SDU-Oq-U1J" secondAttribute="top" id="lXb-CR-3YF"/>
-                            <constraint firstItem="fUE-mg-VzS" firstAttribute="leading" secondItem="D3D-h4-go9" secondAttribute="leading" id="mFW-FJ-tYz"/>
                             <constraint firstItem="D3D-h4-go9" firstAttribute="top" secondItem="e9x-os-ZW0" secondAttribute="bottom" id="n6g-l2-65D"/>
                             <constraint firstAttribute="top" secondItem="e9x-os-ZW0" secondAttribute="top" id="r5C-YN-4j2"/>
                             <constraint firstItem="Jxz-Xe-mLY" firstAttribute="trailing" secondItem="SDU-Oq-U1J" secondAttribute="trailing" id="sGt-yb-LEj"/>
@@ -260,12 +135,6 @@
                         <viewLayoutGuide key="safeArea" id="D3D-h4-go9"/>
                     </view>
                     <connections>
-                        <outlet property="alertCancelButton" destination="mah-jW-wFI" id="h7Q-Fl-yf2"/>
-                        <outlet property="alertDatePicker" destination="677-Do-TXI" id="7qJ-AQ-E4o"/>
-                        <outlet property="alertDatePickerTitleLabel" destination="8lr-nS-h46" id="e8l-Zl-pAX"/>
-                        <outlet property="alertOkButton" destination="xUM-iU-pDu" id="KcA-Rz-bYr"/>
-                        <outlet property="alertPickerBaseView" destination="fUE-mg-VzS" id="MSs-KR-g7D"/>
-                        <outlet property="alertPickerView" destination="rLF-eO-f9A" id="nCb-T3-ivW"/>
                         <outlet property="categoryLabel" destination="lK8-AH-ExC" id="t7Q-5f-tIZ"/>
                         <outlet property="dateButton" destination="ETc-ee-bSB" id="58M-eI-BvS"/>
                         <outlet property="editButton" destination="gQj-3Z-7zX" id="3dC-GM-e0A"/>
@@ -281,6 +150,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_left" width="32" height="32"/>
+        <image name="arrow_left" width="24" height="24"/>
     </resources>
 </document>

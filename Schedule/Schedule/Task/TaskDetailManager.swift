@@ -15,9 +15,11 @@ protocol TaskDetailDelegate: AnyObject {
 
 class TaskDetailManager {
 
-    static let shared = TaskDetailManager()
+//    static let shared = TaskDetailManager()
 
     weak var taskDetailDelegate: TaskDetailDelegate?
+
+    var taskMO: TaskMO?
 
     var task = Task(title: "",
                     category: CategoryMO(),
@@ -36,9 +38,37 @@ class TaskDetailManager {
         }
     }
 
-    func setCategory(category: CategoryMO) {
+    func setTask(category: CategoryMO, date: Date) {
 
+        let tasks = TaskManager.shared.fetchTask(byCategory: category, andDate: date)
+
+        if tasks?.count != 0 {
+
+            taskMO = tasks?.first
+
+            if let startDate = taskMO?.startDate as? Date {
+
+                let startTask = TaskManager.shared.fetchTask(byCategory: category, andDate: startDate)
+
+                taskMO = startTask?.first
+            }
+        }
+
+        task.title = taskMO?.title ?? ""
         task.category = category
+        task.date = date
+        task.startDate = taskMO?.startDate as? Date
+        task.endDate = taskMO?.endDate as? Date
+        task.consecutiveDay = taskMO?.consecutiveDay.transformToInt()
+        task.consecutiveStatus = nil
+        task.consecutiveId = nil
+        task.time = taskMO?.time
+        task.note = taskMO?.note
+    }
+
+    func getTask() -> Task {
+
+        return task
     }
 
     func setTaskTiming(timing: Date) {
@@ -53,33 +83,58 @@ class TaskDetailManager {
     }
 
     func setLastDate(endDate: Date,
-                     taskMO: TaskMO?,
-                     success: () -> Void,
                      failure: (String?, String?) -> Void) {
 
-        let overlapTask = checkOverlapTask(endDate: endDate, taskMO: taskMO)
+        guard endDate >= task.date else {
 
-        if endDate < task.date {
-
-            let alertTitle = "Failed"
+            let alertTitle = "Oops!"
             let alertMessage = "End date should be greater than start date."
 
             failure(alertTitle, alertMessage)
 
-        } else if let date = overlapTask {
+            return
+        }
 
-            let alertTitle = "Failed"
-            let alertMessage = "Some tasks are overlapping in the same category on \(date)."
+        let overlapTask = checkOverlapTask(endDate: endDate, taskMO: self.taskMO)
+
+        if let date = overlapTask {
+
+            let alertTitle = "Oops!"
+            let alertMessage = "\(date) has a overlapping task."
 
             failure(alertTitle, alertMessage)
 
         } else {
 
+            task.startDate = task.date
+
             task.endDate = endDate
 
             updateConsecutiveDay()
+        }
+    }
 
-            success()
+    func setconsecutiveDay(consecutiveDay: Int,
+                           failure: (String?, String?) -> Void) {
+
+        let endDate = DateManager.shared.getDate(byAdding: consecutiveDay, to: task.date)
+
+        let overlapTask = checkOverlapTask(endDate: endDate, taskMO: self.taskMO)
+
+        if let date = overlapTask {
+
+            let alertTitle = "Oops!"
+            let alertMessage = "\(date) has a overlapping task."
+
+            failure(alertTitle, alertMessage)
+
+        } else {
+
+            task.startDate = task.date
+
+            task.endDate = endDate
+
+            updateConsecutiveDay()
         }
     }
 

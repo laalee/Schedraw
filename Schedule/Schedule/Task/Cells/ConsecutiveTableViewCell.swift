@@ -32,33 +32,13 @@ class ConsecutiveTableViewCell: UITableViewCell {
         consecutiveBackgroundView.setShadow()
     }
 
-    func setupEnabled(enabled: Bool) {
-
-        consecutiveButton.isEnabled = enabled
-
-        lastDateButton.isEnabled = enabled
-
-        consecutiveLineView.isHidden = !enabled
-
-        lastDateLineView.isHidden = !enabled
-    }
-
-    func updateView(byConsecutiveDay consecutiveDay: Int, to currentDate: Date) {
+    func updateView(consecutiveDay: Int, lastDate: Date, enabled: Bool) {
 
         updateConsecutiveButton(consecutiveDay: consecutiveDay + 1)
 
-        let lastDate = DateManager.shared.getDate(byAdding: consecutiveDay, to: currentDate)
-
         updateLastDateButton(date: lastDate)
-    }
 
-    func updateView(byLastDate lastDate: Date, from startDate: Date) {
-
-        let consecutive = DateManager.shared.consecutiveDay(startDate: startDate, lastDate: lastDate)
-
-        updateConsecutiveButton(consecutiveDay: consecutive + 1)
-
-        updateLastDateButton(date: lastDate)
+        setupEnabled(enabled: enabled)
     }
 
     func updateConsecutiveButton(consecutiveDay: Int) {
@@ -82,18 +62,15 @@ class ConsecutiveTableViewCell: UITableViewCell {
         lastDateButton.setTitle(lastDateTitle, for: .normal)
     }
 
-}
+    func setupEnabled(enabled: Bool) {
 
-extension ConsecutiveTableViewCell: TaskDelegate {
+        consecutiveButton.isEnabled = enabled
 
-    func getContent<T>() -> T? {
+        lastDateButton.isEnabled = enabled
 
-        if consecutiveDay < 2 {
+        consecutiveLineView.isHidden = !enabled
 
-            return nil
-        }
-
-        return self.consecutiveDay as? T
+        lastDateLineView.isHidden = !enabled
     }
 
 }

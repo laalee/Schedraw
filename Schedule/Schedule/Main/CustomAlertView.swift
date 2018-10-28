@@ -44,18 +44,24 @@ class CustomAlertView: UIView {
 
         let titleLabel = customTitleLabel(title: title, width: dialogViewWidth - 16)
 
-        let separatorLineView = customSeparatorLineView(separatorLineY: titleLabel.frame.height + 8,
-                                                        width: dialogViewWidth)
+        let separatorLineView = customSeparatorLineView(
+                separatorLineY: titleLabel.frame.height + 8,
+                width: dialogViewWidth)
 
-        let contentViewY = separatorLineView.frame.origin.y + separatorLineView.frame.height + 8
+        let contentViewY = separatorLineView.frame.origin.y
+                         + separatorLineView.frame.height + 8
         setContentView(contentViewY: contentViewY,
                        width: dialogViewWidth - 16,
                        contentView: contentView)
 
-        let secondSeparatorLineViewY = contentView.frame.origin.y + contentView.frame.height + 8
-        let secondSeparatorLineView = customSeparatorLineView(separatorLineY: secondSeparatorLineViewY, width: dialogViewWidth)
+        let secondSeparatorLineViewY = contentView.frame.origin.y
+                                     + contentView.frame.height + 8
+        let secondSeparatorLineView = customSeparatorLineView(
+                separatorLineY: secondSeparatorLineViewY,
+                width: dialogViewWidth)
 
-        let okButtonY = secondSeparatorLineView.frame.origin.y + secondSeparatorLineView.frame.height + 8
+        let okButtonY = secondSeparatorLineView.frame.origin.y
+                      + secondSeparatorLineView.frame.height + 8
         let okButton = customOkButton(okButtonY: okButtonY,
                                       width: dialogViewWidth)
 

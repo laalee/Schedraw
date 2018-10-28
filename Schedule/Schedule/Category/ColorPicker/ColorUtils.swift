@@ -23,7 +23,7 @@ func hsv2rgb(_ hsv: HSV) -> RGB {
     var r: CGFloat
     var g: CGFloat
     var b: CGFloat
-
+    
     let i = Int(hsv.hue * 6)
     let f = hsv.hue * 6 - CGFloat(i)
     let p = hsv.brightness * (1 - hsv.saturation)

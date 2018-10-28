@@ -24,7 +24,9 @@ class NotesTableViewCell: UITableViewCell {
         notesBackgroundView.setShadow()
     }
 
-    func updateView(notes: String?, enabled: Bool) {
+    func updateView(notes: String?, enabled: Bool, titleColor: UIColor) {
+
+        titleLabel.textColor = titleColor
 
         if notesTextView.text == "" {
 
@@ -34,15 +36,6 @@ class NotesTableViewCell: UITableViewCell {
         notesTextView.isEditable = enabled
 
         notesLineView.isHidden = !enabled
-    }
-
-}
-
-extension NotesTableViewCell: TaskDelegate {
-
-    func getContent<T>() -> T? {
-
-        return notesTextView?.text as? T
     }
 
 }

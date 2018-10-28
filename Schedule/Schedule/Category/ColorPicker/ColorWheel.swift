@@ -280,9 +280,9 @@ class ColorWheel: UIView {
                 if saturation < 1.0 {
 
                     // Antialias the edge of the circle.
-                    if saturation > 0.99 {
+                    if
 
-                        a = (1.0 - saturation) * 100
+                        saturation > 0.99 { a = (1.0 - saturation) * 100
 
                     } else {
 
@@ -393,7 +393,7 @@ class ColorWheel: UIView {
 
         if !ok {
 
-            print("SwiftHSVColorPicker: exception <The color provided to SwiftHSVColorPicker is not convertible to HSV>")
+            print("SwiftHSVColorPicker: exception<The color provided to SwiftHSVColorPicker is not convertible to HSV>")
         }
 
         self.color = color

@@ -219,33 +219,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
             date: selectedDate
         )
 
-//        guard let cell = itemCollectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell else { return }
-//
-//        cell.freezeAnimations()
-//
-//        let currentCellFrame = cell.layer.presentation()!.frame
-//
-//        let cardPresentationFrameOnScreen = cell.superview!.convert(currentCellFrame, to: nil)
-//
-//        let cardFrameWithoutTransform = { () -> CGRect in
-//            let center = cell.center
-//            let size = cell.bounds.size
-//            let rect = CGRect(
-//                x: center.x - size.width / 2,
-//                y: center.y - size.height / 2,
-//                width: size.width,
-//                height: size.height
-//            )
-//            return cell.superview!.convert(rect, to: nil)
-//        }()
-//
-//        let params = CardTransition.Params(fromCardFrame: cardPresentationFrameOnScreen,
-//                                           fromCardFrameWithoutTransform: cardFrameWithoutTransform,
-//                                           fromCell: cell)
-//
-//        let transition = CardTransition(params: params)
-//        taskViewController.transitioningDelegate = transition
-
         taskViewController.taskAnimationDelegate = self
 
         taskViewController.transitioningDelegate = self
@@ -254,11 +227,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
             self.window?.rootViewController?.show(taskViewController, sender: nil)
         }
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-//
-//            self.window?.rootViewController?.show(taskViewController, sender: nil)
-//        })
     }
 
     func presentAnimation(indexPath: IndexPath,

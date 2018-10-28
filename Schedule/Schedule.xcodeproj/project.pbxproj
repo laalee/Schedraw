@@ -96,6 +96,9 @@
 		9BEDA6DD2180618A00A5428D /* DismissCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */; };
 		9BEDA6DF2180629100A5428D /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DE2180629100A5428D /* CardPresentationController.swift */; };
 		9BEDA6E12180D9C200A5428D /* TaskDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */; };
+		9BEDA6E721845B0A00A5428D /* check.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E621845B0900A5428D /* check.json */; };
+		9BEDA6E921845E5000A5428D /* CustomAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E821845E5000A5428D /* CustomAnimationView.swift */; };
+		9BEDA6EB21847E1900A5428D /* Int64+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6EA21847E1900A5428D /* Int64+AN.swift */; };
 		9BF12423215C7EC400AC1C6A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12422215C7EC400AC1C6A /* Task.swift */; };
 		9BF12425215C81AC00AC1C6A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12424215C81AC00AC1C6A /* Data.swift */; };
 		9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12428215CE86300AC1C6A /* TaskViewController.swift */; };
@@ -220,6 +223,9 @@
 		9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardAnimator.swift; sourceTree = "<group>"; };
 		9BEDA6DE2180629100A5428D /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailManager.swift; sourceTree = "<group>"; };
+		9BEDA6E621845B0900A5428D /* check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check.json; sourceTree = "<group>"; };
+		9BEDA6E821845E5000A5428D /* CustomAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationView.swift; sourceTree = "<group>"; };
+		9BEDA6EA21847E1900A5428D /* Int64+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+AN.swift"; sourceTree = "<group>"; };
 		9BF12422215C7EC400AC1C6A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9BF12424215C81AC00AC1C6A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9BF12428215CE86300AC1C6A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -297,9 +303,11 @@
 				9B14AF902180024800E5E466 /* FadePushAnimator.swift */,
 				9BEDA6D621803ED700A5428D /* PresentCardAnimator.swift */,
 				9B7BEA862173B78800E2D297 /* check-4.json */,
+				9BEDA6E621845B0900A5428D /* check.json */,
 				9BEDA6DA21805FC600A5428D /* CardTransition.swift */,
 				9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */,
 				9BEDA6DE2180629100A5428D /* CardPresentationController.swift */,
+				9BEDA6D8218048B600A5428D /* GlobalConstants.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -377,16 +385,17 @@
 				9BE1F7DA2166810700194FAF /* Category.swift */,
 				9BF12422215C7EC400AC1C6A /* Task.swift */,
 				9BF12424215C81AC00AC1C6A /* Data.swift */,
-				9B7AD236216370540021EA27 /* UIView+AN.swift */,
-				9BE1F7D8216640B600194FAF /* UIColor+AN.swift */,
 				9BFDBC2421673C21004132D2 /* DateManager.swift */,
 				9B0DA52421634FE500369FF1 /* TaskManager.swift */,
 				9B17F50D2165E68900991C1E /* CategoryManager.swift */,
 				9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */,
 				9B7BEA822173924800E2D297 /* DisplayMode.swift */,
-				9BEDA6D8218048B600A5428D /* GlobalConstants.swift */,
 				9B14AF8C217F055400E5E466 /* CustomAlertView.swift */,
+				9BEDA6E821845E5000A5428D /* CustomAnimationView.swift */,
 				9B14AF8E217F0DF600E5E466 /* Modal.swift */,
+				9B7AD236216370540021EA27 /* UIView+AN.swift */,
+				9BE1F7D8216640B600194FAF /* UIColor+AN.swift */,
+				9BEDA6EA21847E1900A5428D /* Int64+AN.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -630,6 +639,7 @@
 				9BD502DD215349B800701DA9 /* ItemCollectionViewCell.xib in Resources */,
 				9BB88A2021539EF100E5331E /* GanttTableViewCell.xib in Resources */,
 				9B7BEA81217370BE00E2D297 /* SupportTableViewCell.xib in Resources */,
+				9BEDA6E721845B0A00A5428D /* check.json in Resources */,
 				9BAF7657215F8BC100101BBA /* MonthCollectionViewCell.xib in Resources */,
 				9B17F50B2165BE4E00991C1E /* ColorTableViewCell.xib in Resources */,
 				9B78C8982175EEA5005ADCFE /* GoogleService-Info.plist in Resources */,
@@ -793,6 +803,7 @@
 				9B0C6A15216501970055A7CD /* TimingTableViewCell.swift in Sources */,
 				9B0DA52521634FE500369FF1 /* TaskManager.swift in Sources */,
 				9BE1F7DB2166810700194FAF /* Category.swift in Sources */,
+				9BEDA6EB21847E1900A5428D /* Int64+AN.swift in Sources */,
 				9BE1F7D9216640B600194FAF /* UIColor+AN.swift in Sources */,
 				9BAF7640215E9F7900101BBA /* CategoryViewController.swift in Sources */,
 				9BD502DC215349B800701DA9 /* ItemCollectionViewCell.swift in Sources */,
@@ -801,6 +812,7 @@
 				9B7AD24421644C390021EA27 /* DailyHeaderTableViewCell.swift in Sources */,
 				9B17F5102165E6B100991C1E /* CoreDataProvider.swift in Sources */,
 				9B7BEA80217370BE00E2D297 /* SupportTableViewCell.swift in Sources */,
+				9BEDA6E921845E5000A5428D /* CustomAnimationView.swift in Sources */,
 				9B7AD2402163DB2A0021EA27 /* DailyTaskTableViewCell.swift in Sources */,
 				9B17F50A2165BE4E00991C1E /* ColorTableViewCell.swift in Sources */,
 				9B6DD8ED2174DE2E00618A58 /* ColorPickerTableViewCell.swift in Sources */,

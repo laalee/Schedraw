@@ -24,7 +24,9 @@ class TaskTitleTableViewCell: UITableViewCell {
         titleBackgroundView.setShadow()
     }
 
-    func updateView(title: String?, enabled: Bool) {
+    func updateView(title: String?, enabled: Bool, titleColor: UIColor) {
+
+        titleLabel.textColor = titleColor
 
         if titleTextField.text == "" {
 
@@ -36,22 +38,4 @@ class TaskTitleTableViewCell: UITableViewCell {
         titleLineView.isHidden = !enabled
     }
     
-}
-
-extension TaskTitleTableViewCell: TaskDelegate {
-
-    func getContent<T>() -> T? {
-
-        var title = titleTextField.text
-
-        title = title?.trimmingCharacters(in: .whitespaces)
-
-        if title == "" {
-
-            return nil
-        }
-
-        return title as? T
-    }
-
 }

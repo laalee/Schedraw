@@ -26,4 +26,13 @@ extension UIView {
         self.layer.masksToBounds = false
     }
 
+    func setTitlebarShadow() {
+
+        self.layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowOffset = CGSize(width: 0, height: 0 )
+        self.layer.masksToBounds = false
+    }
+
 }

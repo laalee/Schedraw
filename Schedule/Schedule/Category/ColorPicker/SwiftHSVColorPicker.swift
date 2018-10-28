@@ -37,7 +37,7 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
         let ok: Bool = color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
 
         if !ok {
-            print("SwiftHSVColorPicker: exception <The color provided to SwiftHSVColorPicker is not convertible to HSV>")
+            print("SwiftHSVColorPicker: exception The color provided to SwiftHSVColorPicker is not convertible to HSV")
         }
 
         self.hue = hue
@@ -83,7 +83,7 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
         // Init SelectedColorView subview
         selectedColorView = SelectedColorView(
             frame: CGRect(x: (self.bounds.width - selectedColorViewHeight) / 2,
-                          y:(self.bounds.height - selectedColorViewHeight) / 2,
+                          y: (self.bounds.height - selectedColorViewHeight) / 2,
                           width: selectedColorViewHeight,
                           height: selectedColorViewHeight),
             color: self.color)

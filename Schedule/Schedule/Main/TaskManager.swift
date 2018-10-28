@@ -22,22 +22,46 @@ class TaskManager {
 
     func addTask(task: Task) {
 
-        dataProvider.addTask(task: task)
-    }
+        guard let consecutiveDay = task.consecutiveDay, consecutiveDay != 0 else {
 
-//    func updateTask(taskMO: TaskMO, task: Task) {
-//
-//        dataProvider.updateTask(taskMO: taskMO, task: task)
-//    }
+            dataProvider.addTask(task: task)
+
+            return
+        }
+
+        var newTask = task
+
+        newTask.consecutiveId = Int(Date().timeIntervalSince1970)
+
+        for addingDay in 0...consecutiveDay {
+
+            newTask.date = DateManager.shared.getDate(byAdding: addingDay, to: task.date)
+
+            switch addingDay {
+
+            case 0: newTask.consecutiveStatus = TaskManager.firstDay
+
+            case consecutiveDay: newTask.consecutiveStatus = TaskManager.lastDay
+
+            default: newTask.consecutiveStatus = TaskManager.middleDay
+            }
+
+            dataProvider.addTask(task: newTask)
+        }
+    }
 
     func deleteTask(taskMO: TaskMO) {
 
-        dataProvider.deleteTask(taskMO: taskMO)
-    }
+        let id = taskMO.consecutiveId.transformToInt()
 
-    func deleteTask(byConsecutiveId consecutiveId: Int) {
+        if id != 0 {
 
-        dataProvider.deleteTask(byConsecutiveId: consecutiveId)
+            dataProvider.deleteTask(byConsecutiveId: id)
+
+        } else {
+
+            dataProvider.deleteTask(taskMO: taskMO)
+        }
     }
 
     func fetchTask(byCategory category: CategoryMO, andDate date: Date) -> [TaskMO]? {
