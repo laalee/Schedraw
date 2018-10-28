@@ -90,11 +90,6 @@
 		9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD502E02153791C00701DA9 /* CalendarViewController.swift */; };
 		9BE1F7D9216640B600194FAF /* UIColor+AN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F7D8216640B600194FAF /* UIColor+AN.swift */; };
 		9BE1F7DB2166810700194FAF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1F7DA2166810700194FAF /* Category.swift */; };
-		9BEDA6D721803ED700A5428D /* PresentCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6D621803ED700A5428D /* PresentCardAnimator.swift */; };
-		9BEDA6D9218048B600A5428D /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6D8218048B600A5428D /* GlobalConstants.swift */; };
-		9BEDA6DB21805FC600A5428D /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DA21805FC600A5428D /* CardTransition.swift */; };
-		9BEDA6DD2180618A00A5428D /* DismissCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */; };
-		9BEDA6DF2180629100A5428D /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6DE2180629100A5428D /* CardPresentationController.swift */; };
 		9BEDA6E12180D9C200A5428D /* TaskDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */; };
 		9BEDA6E721845B0A00A5428D /* check.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E621845B0900A5428D /* check.json */; };
 		9BEDA6E921845E5000A5428D /* CustomAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDA6E821845E5000A5428D /* CustomAnimationView.swift */; };
@@ -217,11 +212,6 @@
 		9BD502E02153791C00701DA9 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		9BE1F7D8216640B600194FAF /* UIColor+AN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AN.swift"; sourceTree = "<group>"; };
 		9BE1F7DA2166810700194FAF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		9BEDA6D621803ED700A5428D /* PresentCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentCardAnimator.swift; sourceTree = "<group>"; };
-		9BEDA6D8218048B600A5428D /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
-		9BEDA6DA21805FC600A5428D /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
-		9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardAnimator.swift; sourceTree = "<group>"; };
-		9BEDA6DE2180629100A5428D /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		9BEDA6E02180D9C200A5428D /* TaskDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailManager.swift; sourceTree = "<group>"; };
 		9BEDA6E621845B0900A5428D /* check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check.json; sourceTree = "<group>"; };
 		9BEDA6E821845E5000A5428D /* CustomAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationView.swift; sourceTree = "<group>"; };
@@ -301,13 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				9B14AF902180024800E5E466 /* FadePushAnimator.swift */,
-				9BEDA6D621803ED700A5428D /* PresentCardAnimator.swift */,
 				9B7BEA862173B78800E2D297 /* check-4.json */,
 				9BEDA6E621845B0900A5428D /* check.json */,
-				9BEDA6DA21805FC600A5428D /* CardTransition.swift */,
-				9BEDA6DC2180618A00A5428D /* DismissCardAnimator.swift */,
-				9BEDA6DE2180629100A5428D /* CardPresentationController.swift */,
-				9BEDA6D8218048B600A5428D /* GlobalConstants.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -821,11 +806,8 @@
 				9BAF7646215F55DC00101BBA /* SettingViewController.swift in Sources */,
 				9BF12423215C7EC400AC1C6A /* Task.swift in Sources */,
 				9BB88A272154907400E5331E /* DateCollectionViewCell.swift in Sources */,
-				9BEDA6DB21805FC600A5428D /* CardTransition.swift in Sources */,
-				9BEDA6DF2180629100A5428D /* CardPresentationController.swift in Sources */,
 				9B17F5062165BAF100991C1E /* CategoryTitleTableViewCell.swift in Sources */,
 				9BAF7656215F8BC100101BBA /* MonthCollectionViewCell.swift in Sources */,
-				9BEDA6DD2180618A00A5428D /* DismissCardAnimator.swift in Sources */,
 				9B6DD8F02174E44600618A58 /* SwiftHSVColorPicker.swift in Sources */,
 				9BAF7652215F85D000101BBA /* DayCollectionViewCell.swift in Sources */,
 				9B7AD237216370540021EA27 /* UIView+AN.swift in Sources */,
@@ -840,12 +822,10 @@
 				9B0C6A21216509B10055A7CD /* DeleteTableViewCell.swift in Sources */,
 				9BB88A1F21539EF100E5331E /* GanttTableViewCell.swift in Sources */,
 				9BB5D5E42151FDD2005F225C /* Schedule.xcdatamodeld in Sources */,
-				9BEDA6D721803ED700A5428D /* PresentCardAnimator.swift in Sources */,
 				9B0C6A19216502EF0055A7CD /* ConsecutiveTableViewCell.swift in Sources */,
 				9BEDA6E12180D9C200A5428D /* TaskDetailManager.swift in Sources */,
 				9BD502E12153791C00701DA9 /* CalendarViewController.swift in Sources */,
 				9BB5D5DC2151FDD2005F225C /* AppDelegate.swift in Sources */,
-				9BEDA6D9218048B600A5428D /* GlobalConstants.swift in Sources */,
 				9B7AD2392163D6330021EA27 /* DailyTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
