@@ -32,9 +32,11 @@ class GanttViewController: UIViewController {
 
         updateDatas()
 
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(longPress:)))
-
-        self.ganttTableView.addGestureRecognizer(longPress)
+//        let longPress = UILongPressGestureRecognizer(
+//            target: self,
+//            action: #selector(longPressGestureRecognized(longPress:)))
+//
+//        self.ganttTableView.addGestureRecognizer(longPress)
     }
 
     @objc func longPressGestureRecognized(longPress: UILongPressGestureRecognizer) {

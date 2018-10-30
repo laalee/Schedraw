@@ -134,4 +134,3 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
 }
-

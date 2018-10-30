@@ -672,10 +672,9 @@ extension CalendarViewController: UICollectionViewDataSource {
         if DateManager.shared.formatDate(forTaskPage: theDate) ==
             DateManager.shared.formatDate(forTaskPage: currentDate) {
 
-//            dayCell.dayLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
             if let text = dayCell.dayLabel.text {
 
-                let textRange = NSMakeRange(0, text.count)
+                let textRange = NSRange(location: 0, length: text.count)
 
                 let attributedText = NSMutableAttributedString(string: text)
 
