@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -136,6 +136,7 @@
 		8993606408B6694FB19D4DA0169BAC5F /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DC09FEB217913848DF5A18E9DAFF7 /* UIColor+Expanded.m */; };
 		89F5E8DE44A394E43DB2D226AD273E23 /* LOTLayerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F45F66A0CB2CFB4E614E58542887AE /* LOTLayerContainer.m */; };
 		8A283C8CC0CD5A358E689DC2E973282D /* LOTShapeFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CA35D466DB272E95297CC8BB61C3DC /* LOTShapeFill.m */; };
+		8AB158D0941B728CD2A0CDD892F5453A /* Pods-ScheduleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBDF208CEA01B3895B42409C8A6CFD45 /* Pods-ScheduleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8BED8B38BD9930DD06AB3E4F63A44D8D /* FIRApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AE115CF2DDCD428573B0561F0648D8CD /* FIRApp.m */; };
 		8F18F1A055784BBDB6E5C6D674D6E1DF /* DynamicColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E98D47B6EBC8BF9EB4B58F938F58A4 /* DynamicColorSpace.swift */; };
 		8F573C95BAB4BB9BD33A921CB78B1C0D /* LOTRepeaterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E22995B3872EFA3BBA1D4B5DE7C605F9 /* LOTRepeaterRenderer.m */; };
@@ -154,9 +155,10 @@
 		9B8812B6DEA189870E2DBD5E0677128C /* LOTRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E214A2E193309326932CDD9790BF663 /* LOTRenderGroup.m */; };
 		9CFC70B34E2DC7BAAF14583C3BDA709F /* LOTShapeRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B752BD14A4843FCA01EF7767ACD4095 /* LOTShapeRectangle.m */; };
 		9D45AEF9A88138B09EEB95F29AD9EC90 /* CGGeometry+LOTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA35D2FAAE8592537EC820001BAACF8 /* CGGeometry+LOTAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9EAC1E2692D5D7823ACA192E33AE27FB /* Pods-Schedule-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6859B071A65C36FE60AC150078C826E9 /* Pods-Schedule-dummy.m */; };
+		9EAC1E2692D5D7823ACA192E33AE27FB /* Pods-Schedule-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 012F1030E9C3C0FAB96198C334CA4287 /* Pods-Schedule-dummy.m */; };
 		9FD8F558C02A4BC192447CD6E55E5768 /* LOTRepeaterRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = CA371657D3D4C18846CB0C1208C0DAE1 /* LOTRepeaterRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A2A7A90F22750AC934A4F87579990B83 /* DynamicColor+HSB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44019EF81A9AC37F0AC90D14B4EBA66 /* DynamicColor+HSB.swift */; };
+		A37611AC7AED40024177C4F1B1D4B55F /* Pods-ScheduleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5266416BF706131B1CF13DFACA86229 /* Pods-ScheduleTests-dummy.m */; };
 		A3975877F5E2C7FBBD2A86E4F7315194 /* LOTShapeTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FC53E95F16B7E141A4A21BAEBB2780A /* LOTShapeTransform.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A5BFB943657D84EC94A24756D52B1913 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FFCE07B4EAFB5C483BB27E298E78AA /* Utils.swift */; };
 		A6BFAD9D25243CBE6251399DF79D1883 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AC0D36D25FF24D43F43C0AAB6AB993 /* SystemConfiguration.framework */; };
@@ -174,7 +176,7 @@
 		B354E6A9B2AB771A99AF502EF825791D /* GULLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = BA0CFA0275BBE1202876BC342B9292D5 /* GULLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B3C731367226C0595C6E82CFB58C8AD1 /* LOTShapeRepeater.h in Headers */ = {isa = PBXBuildFile; fileRef = 1716D64D38FAFFF3DDFC7D3A7A22FC22 /* LOTShapeRepeater.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B46008F24A684C78E03F541E7409DA2F /* LOTValueCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D42C5CDFC2EB0ACA56204EC58CF7D1E /* LOTValueCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B55889E471C588F3743633A31C26DBDA /* Pods-ScheduleWidget-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B6C2E3AD065B7137AB8B7D74E0C58E /* Pods-ScheduleWidget-dummy.m */; };
+		B55889E471C588F3743633A31C26DBDA /* Pods-ScheduleWidget-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C97C89F1B8328010FFA74AA272C5BF /* Pods-ScheduleWidget-dummy.m */; };
 		B60CD8C1987E92A071DD5870904D2F2E /* LOTSizeInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EFBFB7F6E20CDECBAE9067012F3CA /* LOTSizeInterpolator.m */; };
 		B65B1B07EC9467889F13988F01CB3904 /* LOTSizeInterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BEB01E015B68493B75BEC11D6997006 /* LOTSizeInterpolator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B7FEA163D58168D7ECF5CE7B320795BF /* LOTRoundedRectAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 32338516870E0B1EAC2E60C679984BFF /* LOTRoundedRectAnimator.m */; };
@@ -207,6 +209,7 @@
 		D5AF5C2BD150D436DECB7200A9BD8273 /* LOTAnimationView_Compat.h in Headers */ = {isa = PBXBuildFile; fileRef = F95D72460D53E6FE8966E8793C6135AA /* LOTAnimationView_Compat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D68E2DDBE23A5E2E1B0E0380610B395B /* FIRLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = E941C1787F3C878BD39FADFB10746254 /* FIRLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D84A1613DA8F885B5885BB788C0B2E2D /* FIRApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 339C2BD3DBCD2296898069777E678341 /* FIRApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBB2881FAFF604939CADC04025FF0654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5850E8D30AEEEF96956119177AC7E3AC /* Foundation.framework */; };
 		DC3A67C98F1F6B68F7AC58AD8F44F37F /* LOTBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B2FE2DAE96291BB0EF687948D672BF /* LOTBezierPath.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DC59CFFC30438F570725F35985276425 /* LOTGradientFillRender.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDC22E927DC986F2CE6DBB0FA732D47 /* LOTGradientFillRender.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DD6CC832243EFDC8114FC940938F0A21 /* LOTRoundedRectAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AD2594246C6A2D03779D867A47DE568 /* LOTRoundedRectAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -225,14 +228,14 @@
 		E6488FA576AB38A7AAC012CD94F69539 /* LOTAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D512AC31D1792949DB74E178552D1DA2 /* LOTAnimationCache.m */; };
 		E865D34E06B0A7BB94004FC9A2F8FEA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5850E8D30AEEEF96956119177AC7E3AC /* Foundation.framework */; };
 		EA1FA53D69133CFCFA03F5DAA5A85583 /* LOTModels.h in Headers */ = {isa = PBXBuildFile; fileRef = CA90FA6AA57A31DF1DEEBFBAC0CBBEBE /* LOTModels.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EAC675FB7757DAFC562BA37C06B0997C /* Pods-Schedule-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7412961D10223B90DDFC44535797F5EE /* Pods-Schedule-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAC675FB7757DAFC562BA37C06B0997C /* Pods-Schedule-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C849CC7AC5B3C2EEEDBA20E94B15C75 /* Pods-Schedule-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAF42CB912DAB8F60EC2AAC8860BCD3C /* LOTShapeTrimPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 52B174BB1AD8AA24EDEAE30DC39AADAC /* LOTShapeTrimPath.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EB4E1EE97A37A3471FC12B39AB5642C6 /* LOTShapeTrimPath.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D907547513A71836F5173370EC61A /* LOTShapeTrimPath.m */; };
 		EBC6B1CD30D6771245E060BA764C9780 /* LOTAnimatorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3D25041E8F9D059CA1AE768AB178D5 /* LOTAnimatorNode.m */; };
 		EC7CF254B3756186F663B8012DFFD5DF /* LOTPathAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA204A17870805983349A672AAC46FD /* LOTPathAnimator.m */; };
 		F0D1C1DF63AFFBA4596A85CE9A69FF40 /* GULNetworkMessageCode.h in Headers */ = {isa = PBXBuildFile; fileRef = F4C7DABC1A33F67836F9894DC3B4FC0D /* GULNetworkMessageCode.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		F1F92C366C3DC310792F9A00E0D53B59 /* LOTTransformInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BCC3162EB81E3B0F66FE7A90D866EA /* LOTTransformInterpolator.m */; };
-		F363874470C842AA6C39A98216252D01 /* Pods-ScheduleWidget-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DD38C75FF04FA6B413D7B661575F7C4 /* Pods-ScheduleWidget-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F363874470C842AA6C39A98216252D01 /* Pods-ScheduleWidget-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C7A9ACD5466C86B7BCC42226EA6ED7 /* Pods-ScheduleWidget-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3CCD9DCB94A2157E0D07F957B68FD54 /* UIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F7E628350B7EF93E59E56B6279806A /* UIColor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F48A25BC786D3CA8438F42A75DB09265 /* LOTShapeTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA0DA2DC3593B777F0E05DDD8FD15C /* LOTShapeTransform.m */; };
 		F6BE8465768F9B7DEA046B33DE2D99AC /* FIRAppAssociationRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = D77E67C08336ED9D1A18F5B05F591113 /* FIRAppAssociationRegistration.m */; };
@@ -263,6 +266,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8EEA87EC20A241510DE48460AC208D2F;
 			remoteInfo = "lottie-ios";
+		};
+		98D84EF1CF4895CEB96C3DDCEA1B2926 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7789101DCBC96C7B41A2985AE127252E;
+			remoteInfo = "Pods-Schedule";
 		};
 		A94E9AECC762C6D55697E217ED735FC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -303,6 +313,8 @@
 
 /* Begin PBXFileReference section */
 		00B6B574257505B8B84FD357F6D3EE31 /* ContrastDisplayContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContrastDisplayContext.swift; path = Sources/ContrastDisplayContext.swift; sourceTree = "<group>"; };
+		012F1030E9C3C0FAB96198C334CA4287 /* Pods-Schedule-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Schedule-dummy.m"; sourceTree = "<group>"; };
+		015CF67B0A79B157392C78F56C72A103 /* Pods-ScheduleWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		023249366420CA3338DB50EA63FFB8DA /* GULNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GULNSData+zlib.m"; path = "GoogleUtilities/NSData+zlib/GULNSData+zlib.m"; sourceTree = "<group>"; };
 		03D1F97C4772C09851715D72AD02CA01 /* LOTShapeGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeGroup.m; path = "lottie-ios/Classes/Models/LOTShapeGroup.m"; sourceTree = "<group>"; };
 		049ACC2FF85A3CF2CFCA79CBD4375E0D /* LOTRenderNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderNode.h; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.h"; sourceTree = "<group>"; };
@@ -319,48 +331,42 @@
 		0B6C159F508066B066D253A3351C7A1D /* UIColor+Expanded.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+Expanded.h"; path = "lottie-ios/Classes/Extensions/UIColor+Expanded.h"; sourceTree = "<group>"; };
 		0C4327C46A8C5086FCC161DE221561B4 /* LOTShapeRectangle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeRectangle.h; path = "lottie-ios/Classes/Models/LOTShapeRectangle.h"; sourceTree = "<group>"; };
 		0E15C86E80DC03666419B0F65AC61DE1 /* GULAppDelegateSwizzler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULAppDelegateSwizzler.h; path = GoogleUtilities/AppDelegateSwizzler/Private/GULAppDelegateSwizzler.h; sourceTree = "<group>"; };
-		0E3D07BF4BFF478BC6FDDE844C7998A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E53AE0C715239A5EF6E66CA9FFD37D5 /* LOTCircleAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCircleAnimator.m; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTCircleAnimator.m"; sourceTree = "<group>"; };
-		111710FEAA1BAF1D62D25D721F5662B5 /* Pods_ScheduleWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		117459404462C536895FD7F0FAFA8B33 /* LOTShapeCircle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeCircle.h; path = "lottie-ios/Classes/Models/LOTShapeCircle.h"; sourceTree = "<group>"; };
 		13CDD8273C10708918F140EB3329C17A /* GULLoggerCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULLoggerCodes.h; path = GoogleUtilities/Common/GULLoggerCodes.h; sourceTree = "<group>"; };
+		14D92EF33A6B72E03F6C5FA4FA02D4A9 /* Pods-ScheduleWidget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ScheduleWidget.modulemap"; sourceTree = "<group>"; };
+		166EA6E38E4A579C583F9D0F26994E07 /* Pods_ScheduleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScheduleTests.framework; path = "Pods-ScheduleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1716D64D38FAFFF3DDFC7D3A7A22FC22 /* LOTShapeRepeater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeRepeater.h; path = "lottie-ios/Classes/Models/LOTShapeRepeater.h"; sourceTree = "<group>"; };
 		1880EA208D88F09F465CADD6F30D1048 /* LOTValueDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTValueDelegate.h; path = "lottie-ios/Classes/PublicHeaders/LOTValueDelegate.h"; sourceTree = "<group>"; };
 		198F4D20E299EBD4B397E2FC819E18EC /* GULNetworkConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULNetworkConstants.m; path = GoogleUtilities/Network/GULNetworkConstants.m; sourceTree = "<group>"; };
 		19AF5EEB63B680E3440EB59519333FC7 /* GoogleUtilities.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleUtilities.xcconfig; sourceTree = "<group>"; };
 		1A700E213698D2A9A631ADEE774F70D9 /* LOTKeypath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTKeypath.m; path = "lottie-ios/Classes/Private/LOTKeypath.m"; sourceTree = "<group>"; };
-		1DD38C75FF04FA6B413D7B661575F7C4 /* Pods-ScheduleWidget-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScheduleWidget-umbrella.h"; sourceTree = "<group>"; };
+		1BD309C13EE27297DE92ADFB163E531D /* Pods-ScheduleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleTests.release.xcconfig"; sourceTree = "<group>"; };
 		1E7222ED003E9D520246F44338C42610 /* GULNetworkConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkConstants.h; path = GoogleUtilities/Network/Private/GULNetworkConstants.h; sourceTree = "<group>"; };
 		204DB0561D80FC3BD264B68BB0BDBC4A /* FirebaseCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FirebaseCore-umbrella.h"; sourceTree = "<group>"; };
-		21FFE243FCEF6CC78405401F379926AE /* Pods-Schedule-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Schedule-frameworks.sh"; sourceTree = "<group>"; };
-		236648611BE7998605B925B3788996BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23FFCE07B4EAFB5C483BB27E298E78AA /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Sources/Utils.swift; sourceTree = "<group>"; };
-		24AFD596B76DADC0FB1C256F1EC4E8B2 /* Pods-Schedule.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Schedule.modulemap"; sourceTree = "<group>"; };
 		255DF9BB7A734ABBD876A8EFACEA4FA3 /* LOTCircleAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTCircleAnimator.h; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTCircleAnimator.h"; sourceTree = "<group>"; };
 		2657F78DE62E317D91317E2C388444F2 /* FirebaseCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FirebaseCore-dummy.m"; sourceTree = "<group>"; };
-		29A4FCCA0FDA97C21EB31C51D2D1AEA8 /* DynamicColor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicColor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28796D9017E4D848C622B73D17CDD14F /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FirebaseCore.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CFCD8CB1BA64E11D633C89F431D2F /* LOTAnimatedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimatedControl.m; path = "lottie-ios/Classes/Private/LOTAnimatedControl.m"; sourceTree = "<group>"; };
 		2BE48AB1577E246B5B4FD9F195D98451 /* LOTShapeGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeGroup.h; path = "lottie-ios/Classes/Models/LOTShapeGroup.h"; sourceTree = "<group>"; };
 		2CA204A17870805983349A672AAC46FD /* LOTPathAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTPathAnimator.m; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTPathAnimator.m"; sourceTree = "<group>"; };
 		2D90B9C03DFFE65D8715975B3B0F0BFD /* FIRVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRVersion.h; path = Firebase/Core/Private/FIRVersion.h; sourceTree = "<group>"; };
-		2ECC03B7FFBA9CC5FB888CDA9F9C8CB4 /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_common.c; sourceTree = "<group>"; };
-		2EE8B89E9688CF53BB48FE5CDC95A492 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_encode.c; sourceTree = "<group>"; };
+		2ECC03B7FFBA9CC5FB888CDA9F9C8CB4 /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_common.c; sourceTree = "<group>"; };
+		2EE8B89E9688CF53BB48FE5CDC95A492 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_encode.c; sourceTree = "<group>"; };
 		2F7613B32F179624215E55644771FB94 /* LOTColorInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTColorInterpolator.h; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTColorInterpolator.h"; sourceTree = "<group>"; };
 		2FC9023F3AE1D6E323233C956F65C3A2 /* UIColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIColor.m; path = "lottie-ios/Classes/MacCompatability/UIColor.m"; sourceTree = "<group>"; };
 		3093034D3B2BF5252946A633357B602D /* FIRErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRErrors.m; path = Firebase/Core/FIRErrors.m; sourceTree = "<group>"; };
 		30AB49AC234589AA3BA03A0894AD563F /* DynamicColor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DynamicColor.modulemap; sourceTree = "<group>"; };
+		310BC5C4CAA1AB04761AFC4EF7658194 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleUtilities.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		310E8571BA5C500EB6311C56A214967B /* nanopb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-prefix.pch"; sourceTree = "<group>"; };
 		32338516870E0B1EAC2E60C679984BFF /* LOTRoundedRectAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTRoundedRectAnimator.m; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTRoundedRectAnimator.m"; sourceTree = "<group>"; };
 		32C0AFCCCB943A97FF15D65C8E4557B1 /* LOTShapeStar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeStar.m; path = "lottie-ios/Classes/Models/LOTShapeStar.m"; sourceTree = "<group>"; };
 		339C2BD3DBCD2296898069777E678341 /* FIRApp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRApp.h; path = Firebase/Core/Public/FIRApp.h; sourceTree = "<group>"; };
-		3409CB0C29503466B48C090CAA35F0E1 /* Pods-ScheduleWidget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ScheduleWidget.modulemap"; sourceTree = "<group>"; };
-		34324DFC8D467FA681BF367286AB9E8A /* Pods-ScheduleWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		34D840B07ECC3CC26C81C244418A95F4 /* FirebaseCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FirebaseCore.modulemap; sourceTree = "<group>"; };
-		3574881B82F05F8E0598F957D4E8AC52 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		35B03FC59AF891DC09C9AC173B836047 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
 		362AB2E5C71B249937F18DE65C9B61FD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		369100A2F7B40712E0E39589B17CB10D /* lottie-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "lottie-ios.xcconfig"; sourceTree = "<group>"; };
-		39A6A676462599A6DCB3CFA4E2C02909 /* Pods-ScheduleWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleWidget.release.xcconfig"; sourceTree = "<group>"; };
 		3A234FFC1F37B976ADBECDC8CBA4F163 /* FIRComponentRegistrant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentRegistrant.h; path = Firebase/Core/Private/FIRComponentRegistrant.h; sourceTree = "<group>"; };
 		3B01C8C75C0C04FF28479FA479DA3F29 /* LOTTransformInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTTransformInterpolator.h; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTTransformInterpolator.h"; sourceTree = "<group>"; };
 		3C3744E76713BB6A0CB0ED3598F07BC1 /* GULNetworkLoggerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkLoggerProtocol.h; path = GoogleUtilities/Network/Private/GULNetworkLoggerProtocol.h; sourceTree = "<group>"; };
@@ -369,18 +375,23 @@
 		3E11784B9543D405AE7987C31C8286B7 /* DynamicColor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DynamicColor-prefix.pch"; sourceTree = "<group>"; };
 		3E4A9FF5563409781990FAA268BD46DE /* LOTShapePath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapePath.h; path = "lottie-ios/Classes/Models/LOTShapePath.h"; sourceTree = "<group>"; };
 		3E54CE890223F0DF6CE8B789E43748C4 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		3F8AA893216ED16A3F497E72752AA3FA /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		40BCC065D6D10F59CC2BE4350D9B1EEA /* LOTArrayInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTArrayInterpolator.h; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTArrayInterpolator.h"; sourceTree = "<group>"; };
 		40DEE93DF6D87842405E3CE4AD0CCE2E /* LOTAnimationTransitionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationTransitionController.m; path = "lottie-ios/Classes/Private/LOTAnimationTransitionController.m"; sourceTree = "<group>"; };
 		448DCA5431E6EE40763CF2FA227C0401 /* LOTShapeCircle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeCircle.m; path = "lottie-ios/Classes/Models/LOTShapeCircle.m"; sourceTree = "<group>"; };
 		44BCC3162EB81E3B0F66FE7A90D866EA /* LOTTransformInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTTransformInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTTransformInterpolator.m"; sourceTree = "<group>"; };
 		4525591F1CF15337BFD7A0D1DA5A0D6F /* LOTAnimatedSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimatedSwitch.h; path = "lottie-ios/Classes/PublicHeaders/LOTAnimatedSwitch.h"; sourceTree = "<group>"; };
+		46C97C89F1B8328010FFA74AA272C5BF /* Pods-ScheduleWidget-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScheduleWidget-dummy.m"; sourceTree = "<group>"; };
 		46CC1EA763DD76FD7D43921FCF5CB10D /* LOTRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTRadialGradientLayer.m; path = "lottie-ios/Classes/Extensions/LOTRadialGradientLayer.m"; sourceTree = "<group>"; };
 		49B078D1220077DCFAC6074AC37A3CA7 /* LOTValueCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTValueCallback.m; path = "lottie-ios/Classes/Private/LOTValueCallback.m"; sourceTree = "<group>"; };
 		4A580A9EE0D6C4A9C31E5302EEB44024 /* LOTLayerContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTLayerContainer.h; path = "lottie-ios/Classes/AnimatableLayers/LOTLayerContainer.h"; sourceTree = "<group>"; };
 		4ADD7A385EE820DBA2A75A0B1EE2D289 /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Array.swift; path = Sources/Array.swift; sourceTree = "<group>"; };
 		4B762532DDF1A55082C8821088374446 /* GULReachabilityChecker+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GULReachabilityChecker+Internal.h"; path = "GoogleUtilities/Reachability/GULReachabilityChecker+Internal.h"; sourceTree = "<group>"; };
+		4C879D2C10079AE74B88CF2AE824E269 /* Pods-ScheduleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ScheduleTests.modulemap"; sourceTree = "<group>"; };
 		4DB4369210AB25BEFBAE0F1878777A3E /* FIRVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRVersion.m; path = Firebase/Core/FIRVersion.m; sourceTree = "<group>"; };
+		4FF61E4B64F6C2DAFB941B9409D6CC9D /* Pods-ScheduleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50FAED9F1857A6417C42E7C5B88193DC /* GULNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GULNSData+zlib.h"; path = "GoogleUtilities/NSData+zlib/GULNSData+zlib.h"; sourceTree = "<group>"; };
+		519DCE3F436936B59605AFD410BB9391 /* Pods-ScheduleWidget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScheduleWidget-acknowledgements.markdown"; sourceTree = "<group>"; };
 		52B174BB1AD8AA24EDEAE30DC39AADAC /* LOTShapeTrimPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeTrimPath.h; path = "lottie-ios/Classes/Models/LOTShapeTrimPath.h"; sourceTree = "<group>"; };
 		54E20B31B52E3DCAA3E2765DA0EBC514 /* FIRBundleUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRBundleUtil.h; path = Firebase/Core/Private/FIRBundleUtil.h; sourceTree = "<group>"; };
 		5797467E31BF7E78666C3D31AF45E799 /* LOTBlockCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTBlockCallback.m; path = "lottie-ios/Classes/Private/LOTBlockCallback.m"; sourceTree = "<group>"; };
@@ -401,11 +412,11 @@
 		634F38BFECBE074A595DFCAC67CAA4C8 /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
 		63593FE00C17EEB6C894BDE8F9A0BD97 /* LOTComposition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTComposition.m; path = "lottie-ios/Classes/Private/LOTComposition.m"; sourceTree = "<group>"; };
 		64F45F66A0CB2CFB4E614E58542887AE /* LOTLayerContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTLayerContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTLayerContainer.m"; sourceTree = "<group>"; };
-		650B785937D30FD8299C8032C30F8C73 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6590F478D9FC041D2A00052443532110 /* Pods-Schedule-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Schedule-acknowledgements.markdown"; sourceTree = "<group>"; };
 		65BBF05EB557C05E080D0CC46AD2429D /* LOTShapeStar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeStar.h; path = "lottie-ios/Classes/Models/LOTShapeStar.h"; sourceTree = "<group>"; };
-		6859B071A65C36FE60AC150078C826E9 /* Pods-Schedule-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Schedule-dummy.m"; sourceTree = "<group>"; };
+		66503841034806BDF056B01E4790D3AC /* Pods-Schedule-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Schedule-acknowledgements.plist"; sourceTree = "<group>"; };
+		665FD1FD8F53B110852D82F525020D9C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68E9DFC0E0DEA58F81C6B8A94EB272BF /* GULAppEnvironmentUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULAppEnvironmentUtil.h; path = GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.h; sourceTree = "<group>"; };
+		6973D9EB595A761182DD156DA5BA3BC1 /* Pods-ScheduleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScheduleTests-resources.sh"; sourceTree = "<group>"; };
 		6A923F32D437B090A81FAF1CE7A89DF9 /* GULNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetwork.h; path = GoogleUtilities/Network/Private/GULNetwork.h; sourceTree = "<group>"; };
 		6AD2594246C6A2D03779D867A47DE568 /* LOTRoundedRectAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRoundedRectAnimator.h; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTRoundedRectAnimator.h"; sourceTree = "<group>"; };
 		6AE28CE3A09B23CB6BA24760A46D5A72 /* FIRComponentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentType.h; path = Firebase/Core/Private/FIRComponentType.h; sourceTree = "<group>"; };
@@ -413,23 +424,21 @@
 		6BDD44017C7D0445358D688C9612391F /* LOTCompositionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCompositionContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTCompositionContainer.m"; sourceTree = "<group>"; };
 		6C6A5ABE893DE4C80B56BE76FF716D87 /* LOTAnimatedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimatedControl.h; path = "lottie-ios/Classes/PublicHeaders/LOTAnimatedControl.h"; sourceTree = "<group>"; };
 		6C71F33C007E7445FF753DFBB881880F /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		6C849CC7AC5B3C2EEEDBA20E94B15C75 /* Pods-Schedule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Schedule-umbrella.h"; sourceTree = "<group>"; };
 		6C861703A243FD8856B53E5601281058 /* LOTHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTHelpers.h; path = "lottie-ios/Classes/Extensions/LOTHelpers.h"; sourceTree = "<group>"; };
 		6D4F95F4032DE153E5AF9D22A7A517A3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E214A2E193309326932CDD9790BF663 /* LOTRenderGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTRenderGroup.m; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTRenderGroup.m"; sourceTree = "<group>"; };
 		6FC53E95F16B7E141A4A21BAEBB2780A /* LOTShapeTransform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeTransform.h; path = "lottie-ios/Classes/Models/LOTShapeTransform.h"; sourceTree = "<group>"; };
 		71403787543AEAE88CE88E2ECA87B183 /* HSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HSL.swift; path = Sources/HSL.swift; sourceTree = "<group>"; };
 		74097F09C2C6B9E56E9ED5DDC4078C26 /* LOTTrimPathNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTTrimPathNode.h; path = "lottie-ios/Classes/RenderSystem/ManipulatorNodes/LOTTrimPathNode.h"; sourceTree = "<group>"; };
-		7412961D10223B90DDFC44535797F5EE /* Pods-Schedule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Schedule-umbrella.h"; sourceTree = "<group>"; };
 		7427305DED4F055774CC17D4E52E13A4 /* pb_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_common.h; sourceTree = "<group>"; };
 		74CA35D466DB272E95297CC8BB61C3DC /* LOTShapeFill.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeFill.m; path = "lottie-ios/Classes/Models/LOTShapeFill.m"; sourceTree = "<group>"; };
 		7511794F7AE306A8DC09AFC26E28407D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		751EB80561A17D9802D10EB559DA476D /* FIRComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponent.h; path = Firebase/Core/Private/FIRComponent.h; sourceTree = "<group>"; };
 		75422C15417C464325AF9D8BBE585FF6 /* GULUserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULUserDefaults.m; path = GoogleUtilities/UserDefaults/GULUserDefaults.m; sourceTree = "<group>"; };
-		75B6C2E3AD065B7137AB8B7D74E0C58E /* Pods-ScheduleWidget-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScheduleWidget-dummy.m"; sourceTree = "<group>"; };
 		75DF47348312C662EC0A84380C7578B6 /* FIRComponentContainerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentContainerInternal.h; path = Firebase/Core/Private/FIRComponentContainerInternal.h; sourceTree = "<group>"; };
 		764639B20D5EDFB76F2E50D3D6ED77C6 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Frameworks/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
 		766EFBFB7F6E20CDECBAE9067012F3CA /* LOTSizeInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTSizeInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTSizeInterpolator.m"; sourceTree = "<group>"; };
-		7674EB91C488A6AEF49BBB0997B98F57 /* Pods-ScheduleWidget-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScheduleWidget-resources.sh"; sourceTree = "<group>"; };
 		77F7E628350B7EF93E59E56B6279806A /* UIColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIColor.h; path = "lottie-ios/Classes/MacCompatability/UIColor.h"; sourceTree = "<group>"; };
 		789062030AEA1BD152DD7DF31D9D284F /* LOTPlatformCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTPlatformCompat.h; path = "lottie-ios/Classes/MacCompatability/LOTPlatformCompat.h"; sourceTree = "<group>"; };
 		789AB4C470BC4A03E09F960C5CA65CF4 /* LOTNumberInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTNumberInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTNumberInterpolator.m"; sourceTree = "<group>"; };
@@ -442,29 +451,34 @@
 		7CAA0DA2DC3593B777F0E05DDD8FD15C /* LOTShapeTransform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeTransform.m; path = "lottie-ios/Classes/Models/LOTShapeTransform.m"; sourceTree = "<group>"; };
 		7E7758D12EDB21A9F981104503B27533 /* FIRLoggerLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRLoggerLevel.h; path = Firebase/Core/Public/FIRLoggerLevel.h; sourceTree = "<group>"; };
 		7F8A213FB63CF5A08AFD3C0F88ADFB74 /* LOTFillRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTFillRenderer.h; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTFillRenderer.h"; sourceTree = "<group>"; };
-		8081C3F99B8C4053A27D94E7A650CB4B /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81969BD81DF3B4D326295432D1234324 /* Pods-ScheduleWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScheduleWidget.release.xcconfig"; sourceTree = "<group>"; };
 		819B02B64DA59AB356236AA1E9A70F7B /* lottie-ios-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "lottie-ios-prefix.pch"; sourceTree = "<group>"; };
 		8345132F9A91AD5E3F14B4575698E742 /* UIBezierPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIBezierPath.h; path = "lottie-ios/Classes/MacCompatability/UIBezierPath.h"; sourceTree = "<group>"; };
 		8416E9ABF8D6A608E159DF2D243D88E9 /* nanopb-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "nanopb-dummy.m"; sourceTree = "<group>"; };
 		85701AD46A29D3BACE61D948799FD22E /* CALayer+Compat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+Compat.h"; path = "lottie-ios/Classes/MacCompatability/CALayer+Compat.h"; sourceTree = "<group>"; };
+		871A9E8121AD9E5C7487BC48A985FC03 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87423FB13E8B4D0F248DAE8EC24DF5CF /* nanopb-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-umbrella.h"; sourceTree = "<group>"; };
 		87A8EDD1CB55FCDACF44253E273C8BE6 /* LOTAnimationCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimationCache.h; path = "lottie-ios/Classes/PublicHeaders/LOTAnimationCache.h"; sourceTree = "<group>"; };
+		8CD37564244CC8CA12ACD1E3C661B1B5 /* Pods-Schedule-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Schedule-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8CFE72739B2C6AA4D6089A2FB814D26A /* LOTAnimationView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimationView_Internal.h; path = "lottie-ios/Classes/Private/LOTAnimationView_Internal.h"; sourceTree = "<group>"; };
+		8D90695F582265A8F5B51D8AB7D1A95D /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Schedule.framework; path = "Pods-Schedule.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1474E364E02F3415854443E02BB4B3 /* GULMutableDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULMutableDictionary.m; path = GoogleUtilities/Network/GULMutableDictionary.m; sourceTree = "<group>"; };
 		9017D7464E8E9E4DC10955507F0FE41A /* LOTBlockCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTBlockCallback.h; path = "lottie-ios/Classes/PublicHeaders/LOTBlockCallback.h"; sourceTree = "<group>"; };
 		91B2011A817613EE6A7CE2BB63035B83 /* GULMutableDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULMutableDictionary.h; path = GoogleUtilities/Network/Private/GULMutableDictionary.h; sourceTree = "<group>"; };
 		91FADCD056EDF265AE400826EDA5A3EF /* nanopb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = nanopb.modulemap; sourceTree = "<group>"; };
 		9350A3594A0365C1CF1820FC0B9DD802 /* FIRLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRLogger.m; path = Firebase/Core/FIRLogger.m; sourceTree = "<group>"; };
 		93568FF144985F2BDDDA4875839D5416 /* GULSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULSwizzler.m; path = GoogleUtilities/MethodSwizzler/GULSwizzler.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93B71B72B01C65C749C6187D8F63BE14 /* GULReachabilityChecker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULReachabilityChecker.m; path = GoogleUtilities/Reachability/GULReachabilityChecker.m; sourceTree = "<group>"; };
 		94081CDA0128AD327DC17777F1545CFE /* LOTInterpolatorCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTInterpolatorCallback.h; path = "lottie-ios/Classes/PublicHeaders/LOTInterpolatorCallback.h"; sourceTree = "<group>"; };
+		9451970B01710E5C104E8F5679CFA5BF /* Pods-Schedule-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Schedule-resources.sh"; sourceTree = "<group>"; };
 		95F4F1E0E5B430574FEFFFA07F371229 /* lottie-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "lottie-ios.modulemap"; sourceTree = "<group>"; };
 		9611E1B3E7E55C83F0504CB6E817BAF1 /* LOTCacheProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTCacheProvider.h; path = "lottie-ios/Classes/PublicHeaders/LOTCacheProvider.h"; sourceTree = "<group>"; };
 		962C8A9C3851B8CDFE7974DC57832BA4 /* LOTAssetGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAssetGroup.h; path = "lottie-ios/Classes/Models/LOTAssetGroup.h"; sourceTree = "<group>"; };
 		96338770B06EB554013C32FB0F1986CC /* LOTBezierData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTBezierData.m; path = "lottie-ios/Classes/AnimatableProperties/LOTBezierData.m"; sourceTree = "<group>"; };
 		96DC6C2F9644DEF962B97CF083613FDB /* LOTMask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTMask.h; path = "lottie-ios/Classes/Models/LOTMask.h"; sourceTree = "<group>"; };
 		96E479707050781ED3912D07AE72476C /* FIRComponentContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRComponentContainer.m; path = Firebase/Core/FIRComponentContainer.m; sourceTree = "<group>"; };
+		97C5229D95120D7C0F916D673563DCFF /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Lottie.framework; path = "lottie-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F8BCCCAFA9025EA42E508B6190E6C /* DynamicGradient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicGradient.swift; path = Sources/DynamicGradient.swift; sourceTree = "<group>"; };
 		99A967BD14C2DC9DC0394D508EFD9449 /* FIRConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRConfiguration.m; path = Firebase/Core/FIRConfiguration.m; sourceTree = "<group>"; };
 		9A096DA78C6C04C0D785BBAEF6524F0D /* GULNetworkURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkURLSession.h; path = GoogleUtilities/Network/Private/GULNetworkURLSession.h; sourceTree = "<group>"; };
@@ -474,28 +488,31 @@
 		9DC98C50C7EF9D5395ACE88D18279AD5 /* GULLoggerLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULLoggerLevel.h; path = GoogleUtilities/Logger/Public/GULLoggerLevel.h; sourceTree = "<group>"; };
 		9E18321E6B72A08FF71049E199656787 /* FIRAppAssociationRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAppAssociationRegistration.h; path = Firebase/Core/Private/FIRAppAssociationRegistration.h; sourceTree = "<group>"; };
 		9FB147CFB4D7A62EDCA44E18324CD94D /* FirebaseCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FirebaseCore.xcconfig; sourceTree = "<group>"; };
-		A06B4B0CD742EA9892444EF6B9AFBCD0 /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C4E1AE7D9AFADDB2A48F3E31DC86AA /* pb_decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_decode.h; sourceTree = "<group>"; };
 		A2D0DE154B985E1ECBC303397731629A /* LOTAssetGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAssetGroup.m; path = "lottie-ios/Classes/Models/LOTAssetGroup.m"; sourceTree = "<group>"; };
 		A3224DD51848C5355099AAC57E04BB38 /* DynamicColor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DynamicColor-umbrella.h"; sourceTree = "<group>"; };
+		A499DF9BB7CC0498FE2A1E72AD4A5F04 /* Pods-Schedule-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Schedule-frameworks.sh"; sourceTree = "<group>"; };
 		A581C55FFAFCACFD56F4D48FBA324040 /* Lottie.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Lottie.h; path = "lottie-ios/Classes/PublicHeaders/Lottie.h"; sourceTree = "<group>"; };
 		A6535805B1582D5A12EF2715E0BA1441 /* LOTKeyframe.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTKeyframe.h; path = "lottie-ios/Classes/AnimatableProperties/LOTKeyframe.h"; sourceTree = "<group>"; };
 		A83231969CF146EB450096D422189562 /* FIRComponentContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentContainer.h; path = Firebase/Core/Private/FIRComponentContainer.h; sourceTree = "<group>"; };
 		A8778D65BCDC9DFC1F8187B4DCBA1B22 /* GULAppDelegateSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppDelegateSwizzler.m; path = GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m; sourceTree = "<group>"; };
+		AA730AC2CBAD661DB6641C7E1FE3D1DF /* Pods-ScheduleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScheduleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AC20249858F075F76931F45552190DB7 /* UIBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBezierPath.m; path = "lottie-ios/Classes/MacCompatability/UIBezierPath.m"; sourceTree = "<group>"; };
 		AC6D9EF89AA1464DF0AD385305E034F0 /* pb_encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_encode.h; sourceTree = "<group>"; };
+		AC833556A6F0A41FE72F679E773C0284 /* DynamicColor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DynamicColor.framework; path = DynamicColor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA26E32B73F012A6EC88CF20E20CB4A /* LOTKeyframe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTKeyframe.m; path = "lottie-ios/Classes/AnimatableProperties/LOTKeyframe.m"; sourceTree = "<group>"; };
 		AD234C4631B19BD0F20CA8929A7A194F /* GULReachabilityChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULReachabilityChecker.h; path = GoogleUtilities/Reachability/Private/GULReachabilityChecker.h; sourceTree = "<group>"; };
 		AE115CF2DDCD428573B0561F0648D8CD /* FIRApp.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRApp.m; path = Firebase/Core/FIRApp.m; sourceTree = "<group>"; };
 		AFF21AADA3DB3C582FC1C033AD8246F8 /* NSValue+Compat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+Compat.h"; path = "lottie-ios/Classes/MacCompatability/NSValue+Compat.h"; sourceTree = "<group>"; };
 		B05B64BC9CCD049809655D18C7379F13 /* LOTAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationView.m; path = "lottie-ios/Classes/Private/LOTAnimationView.m"; sourceTree = "<group>"; };
-		B0F2710F70B739D57E938E7F0D39DDC3 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_decode.c; sourceTree = "<group>"; };
+		B0F2710F70B739D57E938E7F0D39DDC3 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_decode.c; sourceTree = "<group>"; };
 		B12D163602BA0256510DE523590C3365 /* LOTBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTBezierPath.m; path = "lottie-ios/Classes/Extensions/LOTBezierPath.m"; sourceTree = "<group>"; };
 		B277617D3F732897808A4A64BAAA14A1 /* NSValue+Compat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Compat.m"; path = "lottie-ios/Classes/MacCompatability/NSValue+Compat.m"; sourceTree = "<group>"; };
 		B35C2BD1A16835DCA8BF7924DCD14E69 /* LOTRenderNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTRenderNode.m; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.m"; sourceTree = "<group>"; };
 		BA0CFA0275BBE1202876BC342B9292D5 /* GULLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULLogger.h; path = GoogleUtilities/Logger/Private/GULLogger.h; sourceTree = "<group>"; };
 		BA5A603FA852D3D82E78093674B1A20D /* GULReachabilityMessageCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULReachabilityMessageCode.h; path = GoogleUtilities/Reachability/Private/GULReachabilityMessageCode.h; sourceTree = "<group>"; };
 		BA7C88341F0F876F8AB7BC4F2C79618F /* FIRDependency.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRDependency.m; path = Firebase/Core/FIRDependency.m; sourceTree = "<group>"; };
+		BAF7C2F91FE972F6C144173673D2AB8B /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = nanopb.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB320EB068FDA91AB5F13CB92F323D55 /* GoogleUtilities-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleUtilities-prefix.pch"; sourceTree = "<group>"; };
 		BB6AB18C84FB345888B4054629AC9A0C /* LOTPathAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTPathAnimator.h; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTPathAnimator.h"; sourceTree = "<group>"; };
 		BB9B058328D20C14EDA4E1FC80E850E5 /* GoogleUtilities-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleUtilities-umbrella.h"; sourceTree = "<group>"; };
@@ -506,10 +523,10 @@
 		BFBBB38FF53A6E5DC55CFB604C59987C /* LOTKeypath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTKeypath.h; path = "lottie-ios/Classes/PublicHeaders/LOTKeypath.h"; sourceTree = "<group>"; };
 		C0A122FEF45728E21D023CACE5BCD088 /* FIROptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIROptions.h; path = Firebase/Core/Public/FIROptions.h; sourceTree = "<group>"; };
 		C1165B6B63EEF3AA6A500848B47EBA93 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
-		C1311ED6946BA6A94E97BBFA19A5CA1F /* Pods-Schedule-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Schedule-resources.sh"; sourceTree = "<group>"; };
 		C1503170BD7205719375E22CBA21AE78 /* LOTAnimatedSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimatedSwitch.m; path = "lottie-ios/Classes/Private/LOTAnimatedSwitch.m"; sourceTree = "<group>"; };
+		C1EDDC4900CC6020868683BBCA500CFC /* Pods_ScheduleWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScheduleWidget.framework; path = "Pods-ScheduleWidget.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2AE77568286DFDB91580B60EB539C4A /* DynamicColor+RGBA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+RGBA.swift"; path = "Sources/DynamicColor+RGBA.swift"; sourceTree = "<group>"; };
-		C3EEF49F8C987D1549DDFE8B63A92590 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		C4C62488D189B82A468C9F103E1F805C /* Pods-ScheduleWidget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScheduleWidget-acknowledgements.plist"; sourceTree = "<group>"; };
 		C50F8AAD300FE4979B09ABF57D99789F /* LOTFillRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTFillRenderer.m; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTFillRenderer.m"; sourceTree = "<group>"; };
 		C5DB76C1DE072EDF174612DA2FD7F73E /* LOTAnimationTransitionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimationTransitionController.h; path = "lottie-ios/Classes/PublicHeaders/LOTAnimationTransitionController.h"; sourceTree = "<group>"; };
 		C7CF3C69BBFDCE16E0B2985D47C50E1D /* DynamicColor+XYZ.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+XYZ.swift"; path = "Sources/DynamicColor+XYZ.swift"; sourceTree = "<group>"; };
@@ -530,6 +547,7 @@
 		CEA35D2FAAE8592537EC820001BAACF8 /* CGGeometry+LOTAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+LOTAdditions.h"; path = "lottie-ios/Classes/Extensions/CGGeometry+LOTAdditions.h"; sourceTree = "<group>"; };
 		CEF9633094B443E56E8753DED9097BF5 /* LOTShapeStroke.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeStroke.m; path = "lottie-ios/Classes/Models/LOTShapeStroke.m"; sourceTree = "<group>"; };
 		CF102589D7F96CBEC162F0564EE2C38F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF4B7FBAFB18D2F9AC2933B4A873D5CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFF6BF9D9A33C82FC69119E2CDC5AA2E /* LOTComposition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTComposition.h; path = "lottie-ios/Classes/PublicHeaders/LOTComposition.h"; sourceTree = "<group>"; };
 		D0B2FE2DAE96291BB0EF687948D672BF /* LOTBezierPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTBezierPath.h; path = "lottie-ios/Classes/Extensions/LOTBezierPath.h"; sourceTree = "<group>"; };
 		D11B812E3ABB481D1017435F6947A85F /* LOTMask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTMask.m; path = "lottie-ios/Classes/Models/LOTMask.m"; sourceTree = "<group>"; };
@@ -538,15 +556,17 @@
 		D1B0D292849F459E434DCCFA32C01F6A /* nanopb.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = nanopb.xcconfig; sourceTree = "<group>"; };
 		D2193AB90A56D20B218DBF9F5CF233A4 /* LOTCompositionContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTCompositionContainer.h; path = "lottie-ios/Classes/AnimatableLayers/LOTCompositionContainer.h"; sourceTree = "<group>"; };
 		D21DCDFF16FB1097F16C26CB0042A8B6 /* LOTLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTLayer.h; path = "lottie-ios/Classes/Models/LOTLayer.h"; sourceTree = "<group>"; };
+		D2C7A9ACD5466C86B7BCC42226EA6ED7 /* Pods-ScheduleWidget-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScheduleWidget-umbrella.h"; sourceTree = "<group>"; };
 		D2D3A9B8F2678119B81DDD1C58D2E223 /* DynamicColor+HSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+HSL.swift"; path = "Sources/DynamicColor+HSL.swift"; sourceTree = "<group>"; };
 		D3611BCB0BB2CD08202FECD08160D8CF /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		D39C32D083A3521B942B84B3F9555087 /* Pods-Schedule.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Schedule.modulemap"; sourceTree = "<group>"; };
 		D3DAAB556949F61C465157480273F212 /* FirebaseCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FirebaseCore.h; path = Firebase/Core/Public/FirebaseCore.h; sourceTree = "<group>"; };
 		D44019EF81A9AC37F0AC90D14B4EBA66 /* DynamicColor+HSB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+HSB.swift"; path = "Sources/DynamicColor+HSB.swift"; sourceTree = "<group>"; };
 		D4C2410D0FB84764224A9CA6B4CF6552 /* LOTRenderGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderGroup.h; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTRenderGroup.h"; sourceTree = "<group>"; };
 		D512AC31D1792949DB74E178552D1DA2 /* LOTAnimationCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationCache.m; path = "lottie-ios/Classes/Private/LOTAnimationCache.m"; sourceTree = "<group>"; };
 		D5F30BFC9EB613B7B5BC7C1867AE9855 /* LOTBezierData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTBezierData.h; path = "lottie-ios/Classes/AnimatableProperties/LOTBezierData.h"; sourceTree = "<group>"; };
 		D651FD0E5195D1A6793836E6C770C859 /* lottie-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "lottie-ios-umbrella.h"; sourceTree = "<group>"; };
-		D72C05119642EC249ABA2513F2496308 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6AC944C20BA926D205DF439906F16C0 /* Pods-ScheduleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScheduleTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D779134B423CFA364BFCB9F7F02CAD67 /* LOTAsset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAsset.h; path = "lottie-ios/Classes/Models/LOTAsset.h"; sourceTree = "<group>"; };
 		D77E67C08336ED9D1A18F5B05F591113 /* FIRAppAssociationRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRAppAssociationRegistration.m; path = Firebase/Core/FIRAppAssociationRegistration.m; sourceTree = "<group>"; };
 		D8FBE8AE427EA2B77462A12FB3EF3E89 /* FIRAnalyticsConfiguration+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FIRAnalyticsConfiguration+Internal.h"; path = "Firebase/Core/Private/FIRAnalyticsConfiguration+Internal.h"; sourceTree = "<group>"; };
@@ -556,15 +576,17 @@
 		DA4334793B1BB6E8A2610A985DAD2DA2 /* LOTMaskContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTMaskContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTMaskContainer.m"; sourceTree = "<group>"; };
 		DAEEE955AF5FD590D9BAF7FA55E1841A /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		DF3D25041E8F9D059CA1AE768AB178D5 /* LOTAnimatorNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimatorNode.m; path = "lottie-ios/Classes/RenderSystem/LOTAnimatorNode.m"; sourceTree = "<group>"; };
-		E014E76062E43D66AE19C809BFC6FFFE /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DD269A35BEB19FBFA5C2E5EE316CAD /* LOTColorInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTColorInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTColorInterpolator.m"; sourceTree = "<group>"; };
 		E22995B3872EFA3BBA1D4B5DE7C605F9 /* LOTRepeaterRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTRepeaterRenderer.m; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTRepeaterRenderer.m"; sourceTree = "<group>"; };
-		E22D4356CBB0E3BE2D9448516D29B8C4 /* Pods-Schedule-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Schedule-acknowledgements.plist"; sourceTree = "<group>"; };
 		E3E98D47B6EBC8BF9EB4B58F938F58A4 /* DynamicColorSpace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicColorSpace.swift; path = Sources/DynamicColorSpace.swift; sourceTree = "<group>"; };
 		E4EC1EA2F2D60972A5D5F03F9E58128D /* FIRErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRErrorCode.h; path = Firebase/Core/Private/FIRErrorCode.h; sourceTree = "<group>"; };
+		E5266416BF706131B1CF13DFACA86229 /* Pods-ScheduleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScheduleTests-dummy.m"; sourceTree = "<group>"; };
+		E53A0CFCDE706E590B5A8B6BD16ED8E8 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 		E61D907547513A71836F5173370EC61A /* LOTShapeTrimPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeTrimPath.m; path = "lottie-ios/Classes/Models/LOTShapeTrimPath.m"; sourceTree = "<group>"; };
 		E941C1787F3C878BD39FADFB10746254 /* FIRLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRLogger.h; path = Firebase/Core/Private/FIRLogger.h; sourceTree = "<group>"; };
+		EBDF208CEA01B3895B42409C8A6CFD45 /* Pods-ScheduleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScheduleTests-umbrella.h"; sourceTree = "<group>"; };
 		EC4419042D55486C3141A1A63BE3FD3D /* FIRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRConfiguration.h; path = Firebase/Core/Public/FIRConfiguration.h; sourceTree = "<group>"; };
+		ECE59C7D13456556F73E122089C2C7E2 /* Pods-ScheduleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScheduleTests-frameworks.sh"; sourceTree = "<group>"; };
 		EDEFB38F530555166648D653CBAAD8B9 /* LOTShapeGradientFill.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeGradientFill.m; path = "lottie-ios/Classes/Models/LOTShapeGradientFill.m"; sourceTree = "<group>"; };
 		F00146328175C8EE10535A546B8E4D47 /* LOTCacheProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCacheProvider.m; path = "lottie-ios/Classes/Private/LOTCacheProvider.m"; sourceTree = "<group>"; };
 		F05C8EA43FD6EC59A8C263E22254E8B8 /* LOTPolygonAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTPolygonAnimator.h; path = "lottie-ios/Classes/RenderSystem/AnimatorNodes/LOTPolygonAnimator.h"; sourceTree = "<group>"; };
@@ -575,11 +597,11 @@
 		F2EBDC6DA9C86CECB1E50AA5654838BA /* GULAppEnvironmentUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppEnvironmentUtil.m; path = GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.m; sourceTree = "<group>"; };
 		F4C5E315816B2C678115851D32F88C8E /* GULLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULLogger.m; path = GoogleUtilities/Logger/GULLogger.m; sourceTree = "<group>"; };
 		F4C7DABC1A33F67836F9894DC3B4FC0D /* GULNetworkMessageCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULNetworkMessageCode.h; path = GoogleUtilities/Network/Private/GULNetworkMessageCode.h; sourceTree = "<group>"; };
+		F4CDAA348072C28A68F34BECD03E001B /* Pods-ScheduleWidget-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScheduleWidget-resources.sh"; sourceTree = "<group>"; };
 		F5B0C5209254AEA82B1A9F8CFFAAF703 /* FIROptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIROptions.m; path = Firebase/Core/FIROptions.m; sourceTree = "<group>"; };
 		F71337A353C2ADB672ED8416B1A4FEA7 /* LOTLayerGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTLayerGroup.h; path = "lottie-ios/Classes/Models/LOTLayerGroup.h"; sourceTree = "<group>"; };
 		F81D518D8F7527BE073A2AF5719EB7B4 /* LOTValueInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTValueInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTValueInterpolator.m"; sourceTree = "<group>"; };
 		F8475893121A100F273F91225F992351 /* GULAppDelegateSwizzler_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULAppDelegateSwizzler_Private.h; path = GoogleUtilities/AppDelegateSwizzler/Internal/GULAppDelegateSwizzler_Private.h; sourceTree = "<group>"; };
-		F860CEE27DE809864EA96D61AEE550F0 /* Pods-ScheduleWidget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScheduleWidget-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F88092D1686A80321032E964601691B2 /* LOTShapeGradientFill.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTShapeGradientFill.h; path = "lottie-ios/Classes/Models/LOTShapeGradientFill.h"; sourceTree = "<group>"; };
 		F959A3D8C7571C7A0112962E8B6C33ED /* GULNetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULNetwork.m; path = GoogleUtilities/Network/GULNetwork.m; sourceTree = "<group>"; };
 		F95D72460D53E6FE8966E8793C6135AA /* LOTAnimationView_Compat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimationView_Compat.h; path = "lottie-ios/Classes/PublicHeaders/LOTAnimationView_Compat.h"; sourceTree = "<group>"; };
@@ -590,7 +612,6 @@
 		FAC5DB3A1BC41233F404E561802C2AF2 /* DynamicColor+Deriving.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+Deriving.swift"; path = "Sources/DynamicColor+Deriving.swift"; sourceTree = "<group>"; };
 		FB15FEABCE0F2886573B0EE5FCB43D3D /* DynamicColor+Mixing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DynamicColor+Mixing.swift"; path = "Sources/DynamicColor+Mixing.swift"; sourceTree = "<group>"; };
 		FB9A35D8584E1E72EB16046E73E77349 /* FIRAnalyticsConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRAnalyticsConfiguration.m; path = Firebase/Core/FIRAnalyticsConfiguration.m; sourceTree = "<group>"; };
-		FBFA3E6463F33BD74E570234B3FBE120 /* Pods-ScheduleWidget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScheduleWidget-acknowledgements.plist"; sourceTree = "<group>"; };
 		FC27ED14C5470E0881B9E6B95D5B32B0 /* LOTPathInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTPathInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTPathInterpolator.m"; sourceTree = "<group>"; };
 		FCDC22E927DC986F2CE6DBB0FA732D47 /* LOTGradientFillRender.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTGradientFillRender.h; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTGradientFillRender.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -618,6 +639,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14EE02A5769745D3E3B7EAC2F7CCDB00 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		948B6368EB6CFC6D2C2FB0654F793F0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB2881FAFF604939CADC04025FF0654 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,23 +688,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000D47681AD72A3C85A59B38B82C31D0 /* Pods-ScheduleWidget */ = {
-			isa = PBXGroup;
-			children = (
-				0E3D07BF4BFF478BC6FDDE844C7998A5 /* Info.plist */,
-				3409CB0C29503466B48C090CAA35F0E1 /* Pods-ScheduleWidget.modulemap */,
-				F860CEE27DE809864EA96D61AEE550F0 /* Pods-ScheduleWidget-acknowledgements.markdown */,
-				FBFA3E6463F33BD74E570234B3FBE120 /* Pods-ScheduleWidget-acknowledgements.plist */,
-				75B6C2E3AD065B7137AB8B7D74E0C58E /* Pods-ScheduleWidget-dummy.m */,
-				7674EB91C488A6AEF49BBB0997B98F57 /* Pods-ScheduleWidget-resources.sh */,
-				1DD38C75FF04FA6B413D7B661575F7C4 /* Pods-ScheduleWidget-umbrella.h */,
-				34324DFC8D467FA681BF367286AB9E8A /* Pods-ScheduleWidget.debug.xcconfig */,
-				39A6A676462599A6DCB3CFA4E2C02909 /* Pods-ScheduleWidget.release.xcconfig */,
-			);
-			name = "Pods-ScheduleWidget";
-			path = "Target Support Files/Pods-ScheduleWidget";
-			sourceTree = "<group>";
-		};
 		038F0BFCC0FAED25D5BB2304076FBD05 /* encode */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,20 +715,6 @@
 				AF313A7A2DDF8FFA53402060699FEFB5 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		176BCEAD3B45F08829D2C5D7106F7409 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				29A4FCCA0FDA97C21EB31C51D2D1AEA8 /* DynamicColor.framework */,
-				650B785937D30FD8299C8032C30F8C73 /* FirebaseCore.framework */,
-				D72C05119642EC249ABA2513F2496308 /* GoogleUtilities.framework */,
-				A06B4B0CD742EA9892444EF6B9AFBCD0 /* Lottie.framework */,
-				E014E76062E43D66AE19C809BFC6FFFE /* nanopb.framework */,
-				8081C3F99B8C4053A27D94E7A650CB4B /* Pods_Schedule.framework */,
-				111710FEAA1BAF1D62D25D721F5662B5 /* Pods_ScheduleWidget.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		189A1C06AC373C4EC32BEE4BF99B7100 /* CoreOnly */ = {
@@ -870,6 +868,7 @@
 				FA5DC09FEB217913848DF5A18E9DAFF7 /* UIColor+Expanded.m */,
 				EE7AA5123EEC939C4885AB1CBAF1BBF8 /* Support Files */,
 			);
+			name = "lottie-ios";
 			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
@@ -893,7 +892,26 @@
 				35B03FC59AF891DC09C9AC173B836047 /* Crashlytics.h */,
 				1FAC24CB9C5713D1361B2F4BFB31B9CA /* Frameworks */,
 			);
+			name = Crashlytics;
 			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		2C90833BE85FB4FCDD15259445468CB4 /* Pods-Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				871A9E8121AD9E5C7487BC48A985FC03 /* Info.plist */,
+				D39C32D083A3521B942B84B3F9555087 /* Pods-Schedule.modulemap */,
+				8CD37564244CC8CA12ACD1E3C661B1B5 /* Pods-Schedule-acknowledgements.markdown */,
+				66503841034806BDF056B01E4790D3AC /* Pods-Schedule-acknowledgements.plist */,
+				012F1030E9C3C0FAB96198C334CA4287 /* Pods-Schedule-dummy.m */,
+				A499DF9BB7CC0498FE2A1E72AD4A5F04 /* Pods-Schedule-frameworks.sh */,
+				9451970B01710E5C104E8F5679CFA5BF /* Pods-Schedule-resources.sh */,
+				6C849CC7AC5B3C2EEEDBA20E94B15C75 /* Pods-Schedule-umbrella.h */,
+				E53A0CFCDE706E590B5A8B6BD16ED8E8 /* Pods-Schedule.debug.xcconfig */,
+				3F8AA893216ED16A3F497E72752AA3FA /* Pods-Schedule.release.xcconfig */,
+			);
+			name = "Pods-Schedule";
+			path = "Target Support Files/Pods-Schedule";
 			sourceTree = "<group>";
 		};
 		3C0A04A846E2E6E5DCC6C74392DFD372 /* AppDelegateSwizzler */ = {
@@ -915,24 +933,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C9037411940042AC75396494DABAA48 /* Pods-Schedule */ = {
-			isa = PBXGroup;
-			children = (
-				236648611BE7998605B925B3788996BA /* Info.plist */,
-				24AFD596B76DADC0FB1C256F1EC4E8B2 /* Pods-Schedule.modulemap */,
-				6590F478D9FC041D2A00052443532110 /* Pods-Schedule-acknowledgements.markdown */,
-				E22D4356CBB0E3BE2D9448516D29B8C4 /* Pods-Schedule-acknowledgements.plist */,
-				6859B071A65C36FE60AC150078C826E9 /* Pods-Schedule-dummy.m */,
-				21FFE243FCEF6CC78405401F379926AE /* Pods-Schedule-frameworks.sh */,
-				C1311ED6946BA6A94E97BBFA19A5CA1F /* Pods-Schedule-resources.sh */,
-				7412961D10223B90DDFC44535797F5EE /* Pods-Schedule-umbrella.h */,
-				C3EEF49F8C987D1549DDFE8B63A92590 /* Pods-Schedule.debug.xcconfig */,
-				3574881B82F05F8E0598F957D4E8AC52 /* Pods-Schedule.release.xcconfig */,
-			);
-			name = "Pods-Schedule";
-			path = "Target Support Files/Pods-Schedule";
-			sourceTree = "<group>";
-		};
 		4DAF8946B9E4EB32E4989EF1AC05C085 /* DynamicColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -952,6 +952,7 @@
 				23FFCE07B4EAFB5C483BB27E298E78AA /* Utils.swift */,
 				81C8FC198822F53A56CA989F9AEB6801 /* Support Files */,
 			);
+			name = DynamicColor;
 			path = DynamicColor;
 			sourceTree = "<group>";
 		};
@@ -960,7 +961,18 @@
 			children = (
 				A0882B0FA5B058892904890AC4D4DEE2 /* Frameworks */,
 			);
+			name = GoogleAppMeasurement;
 			path = GoogleAppMeasurement;
+			sourceTree = "<group>";
+		};
+		55B777DC4243828066A7B63E9BBD0005 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C90833BE85FB4FCDD15259445468CB4 /* Pods-Schedule */,
+				EDE963CD238E846058C1D6C9966B719F /* Pods-ScheduleTests */,
+				B72FD68BB92CD14512F99DE4C7E233D5 /* Pods-ScheduleWidget */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		6A36B49E319D7F01A29AB7BA40699F84 /* decode */ = {
@@ -1009,8 +1021,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
 				BADFDD3E2D1A8E2AFDFC6BD76B209464 /* Pods */,
-				176BCEAD3B45F08829D2C5D7106F7409 /* Products */,
-				8696B772A31B5704FB27085F1935D290 /* Targets Support Files */,
+				FAC43331EE2CB5F6B1D8D66D531D4524 /* Products */,
+				55B777DC4243828066A7B63E9BBD0005 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1068,16 +1080,8 @@
 				4DB4369210AB25BEFBAE0F1878777A3E /* FIRVersion.m */,
 				778AC44CEA08CB44319FC83123BA0A0B /* Support Files */,
 			);
+			name = FirebaseCore;
 			path = FirebaseCore;
-			sourceTree = "<group>";
-		};
-		8696B772A31B5704FB27085F1935D290 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4C9037411940042AC75396494DABAA48 /* Pods-Schedule */,
-				000D47681AD72A3C85A59B38B82C31D0 /* Pods-ScheduleWidget */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		910D81768E8C980B93DCB87DC4FCBC99 /* Network */ = {
@@ -1120,6 +1124,7 @@
 				5DB6DFE231674CEF92ACD77F9FF2F152 /* Fabric.h */,
 				A14B16DA5D4CDDB100C0B4F553BC078C /* Frameworks */,
 			);
+			name = Fabric;
 			path = Fabric;
 			sourceTree = "<group>";
 		};
@@ -1148,6 +1153,7 @@
 			children = (
 				488DF3EDD8988693EC4670ED70D2BFB3 /* Frameworks */,
 			);
+			name = FirebaseInstanceID;
 			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
@@ -1155,7 +1161,25 @@
 			isa = PBXGroup;
 			children = (
 			);
+			name = SwiftLint;
 			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		B72FD68BB92CD14512F99DE4C7E233D5 /* Pods-ScheduleWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CF4B7FBAFB18D2F9AC2933B4A873D5CB /* Info.plist */,
+				14D92EF33A6B72E03F6C5FA4FA02D4A9 /* Pods-ScheduleWidget.modulemap */,
+				519DCE3F436936B59605AFD410BB9391 /* Pods-ScheduleWidget-acknowledgements.markdown */,
+				C4C62488D189B82A468C9F103E1F805C /* Pods-ScheduleWidget-acknowledgements.plist */,
+				46C97C89F1B8328010FFA74AA272C5BF /* Pods-ScheduleWidget-dummy.m */,
+				F4CDAA348072C28A68F34BECD03E001B /* Pods-ScheduleWidget-resources.sh */,
+				D2C7A9ACD5466C86B7BCC42226EA6ED7 /* Pods-ScheduleWidget-umbrella.h */,
+				015CF67B0A79B157392C78F56C72A103 /* Pods-ScheduleWidget.debug.xcconfig */,
+				81969BD81DF3B4D326295432D1234324 /* Pods-ScheduleWidget.release.xcconfig */,
+			);
+			name = "Pods-ScheduleWidget";
+			path = "Target Support Files/Pods-ScheduleWidget";
 			sourceTree = "<group>";
 		};
 		BADFDD3E2D1A8E2AFDFC6BD76B209464 /* Pods */ = {
@@ -1182,6 +1206,7 @@
 			children = (
 				C39F2FA249A3B6C237B1488921FD6A5B /* Frameworks */,
 			);
+			name = FirebaseAnalytics;
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
@@ -1231,6 +1256,7 @@
 				0D8B1B6E6D18D216A38E11C1DFEC5176 /* Support Files */,
 				18B8EB16BF0BBA6434C46968F873D6A7 /* UserDefaults */,
 			);
+			name = GoogleUtilities;
 			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
@@ -1239,7 +1265,26 @@
 			children = (
 				189A1C06AC373C4EC32BEE4BF99B7100 /* CoreOnly */,
 			);
+			name = Firebase;
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		EDE963CD238E846058C1D6C9966B719F /* Pods-ScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				665FD1FD8F53B110852D82F525020D9C /* Info.plist */,
+				4C879D2C10079AE74B88CF2AE824E269 /* Pods-ScheduleTests.modulemap */,
+				AA730AC2CBAD661DB6641C7E1FE3D1DF /* Pods-ScheduleTests-acknowledgements.markdown */,
+				D6AC944C20BA926D205DF439906F16C0 /* Pods-ScheduleTests-acknowledgements.plist */,
+				E5266416BF706131B1CF13DFACA86229 /* Pods-ScheduleTests-dummy.m */,
+				ECE59C7D13456556F73E122089C2C7E2 /* Pods-ScheduleTests-frameworks.sh */,
+				6973D9EB595A761182DD156DA5BA3BC1 /* Pods-ScheduleTests-resources.sh */,
+				EBDF208CEA01B3895B42409C8A6CFD45 /* Pods-ScheduleTests-umbrella.h */,
+				4FF61E4B64F6C2DAFB941B9409D6CC9D /* Pods-ScheduleTests.debug.xcconfig */,
+				1BD309C13EE27297DE92ADFB163E531D /* Pods-ScheduleTests.release.xcconfig */,
+			);
+			name = "Pods-ScheduleTests";
+			path = "Target Support Files/Pods-ScheduleTests";
 			sourceTree = "<group>";
 		};
 		EE7AA5123EEC939C4885AB1CBAF1BBF8 /* Support Files */ = {
@@ -1270,7 +1315,23 @@
 				038F0BFCC0FAED25D5BB2304076FBD05 /* encode */,
 				CAADAF362825DCBDEAEFFD36AE5E3C24 /* Support Files */,
 			);
+			name = nanopb;
 			path = nanopb;
+			sourceTree = "<group>";
+		};
+		FAC43331EE2CB5F6B1D8D66D531D4524 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC833556A6F0A41FE72F679E773C0284 /* DynamicColor.framework */,
+				28796D9017E4D848C622B73D17CDD14F /* FirebaseCore.framework */,
+				310BC5C4CAA1AB04761AFC4EF7658194 /* GoogleUtilities.framework */,
+				97C5229D95120D7C0F916D673563DCFF /* Lottie.framework */,
+				BAF7C2F91FE972F6C144173673D2AB8B /* nanopb.framework */,
+				8D90695F582265A8F5B51D8AB7D1A95D /* Pods_Schedule.framework */,
+				166EA6E38E4A579C583F9D0F26994E07 /* Pods_ScheduleTests.framework */,
+				C1EDDC4900CC6020868683BBCA500CFC /* Pods_ScheduleWidget.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FDEFB643CB6F7044FA7A3216D81DF8D4 /* MethodSwizzler */ = {
@@ -1398,6 +1459,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7586B9BB92FD4542113D133F4253DCF6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AB158D0941B728CD2A0CDD892F5453A /* Pods-ScheduleTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7ABA08DE947E16566DC08A26780E4FF1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1472,7 +1541,7 @@
 			);
 			name = DynamicColor;
 			productName = DynamicColor;
-			productReference = 29A4FCCA0FDA97C21EB31C51D2D1AEA8 /* DynamicColor.framework */;
+			productReference = AC833556A6F0A41FE72F679E773C0284 /* DynamicColor.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1EDF344F2F41D5D53E4CE557ECCDBB02 /* Pods-ScheduleWidget */ = {
@@ -1490,7 +1559,25 @@
 			);
 			name = "Pods-ScheduleWidget";
 			productName = "Pods-ScheduleWidget";
-			productReference = 111710FEAA1BAF1D62D25D721F5662B5 /* Pods_ScheduleWidget.framework */;
+			productReference = C1EDDC4900CC6020868683BBCA500CFC /* Pods_ScheduleWidget.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		392748D851A8E114529BA36D592CEDCA /* Pods-ScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB23B0A002AC174C451E8E1CC2382E8 /* Build configuration list for PBXNativeTarget "Pods-ScheduleTests" */;
+			buildPhases = (
+				95CB3ACB19D83295EB71AE8C65A75B89 /* Sources */,
+				948B6368EB6CFC6D2C2FB0654F793F0B /* Frameworks */,
+				7586B9BB92FD4542113D133F4253DCF6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9122E2EA02434614F43FBDB6189985BD /* PBXTargetDependency */,
+			);
+			name = "Pods-ScheduleTests";
+			productName = "Pods-ScheduleTests";
+			productReference = 166EA6E38E4A579C583F9D0F26994E07 /* Pods_ScheduleTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		68FBB954F8F821E47445D5FE66A66713 /* FirebaseCore */ = {
@@ -1508,7 +1595,7 @@
 			);
 			name = FirebaseCore;
 			productName = FirebaseCore;
-			productReference = 650B785937D30FD8299C8032C30F8C73 /* FirebaseCore.framework */;
+			productReference = 28796D9017E4D848C622B73D17CDD14F /* FirebaseCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7789101DCBC96C7B41A2985AE127252E /* Pods-Schedule */ = {
@@ -1530,7 +1617,7 @@
 			);
 			name = "Pods-Schedule";
 			productName = "Pods-Schedule";
-			productReference = 8081C3F99B8C4053A27D94E7A650CB4B /* Pods_Schedule.framework */;
+			productReference = 8D90695F582265A8F5B51D8AB7D1A95D /* Pods_Schedule.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8EEA87EC20A241510DE48460AC208D2F /* lottie-ios */ = {
@@ -1547,7 +1634,7 @@
 			);
 			name = "lottie-ios";
 			productName = "lottie-ios";
-			productReference = A06B4B0CD742EA9892444EF6B9AFBCD0 /* Lottie.framework */;
+			productReference = 97C5229D95120D7C0F916D673563DCFF /* Lottie.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E4DD95323C54A78F879DAB0F1508B8E7 /* nanopb */ = {
@@ -1564,7 +1651,7 @@
 			);
 			name = nanopb;
 			productName = nanopb;
-			productReference = E014E76062E43D66AE19C809BFC6FFFE /* nanopb.framework */;
+			productReference = BAF7C2F91FE972F6C144173673D2AB8B /* nanopb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EF9C1C66EC3371988D38D8C9FC027AD7 /* GoogleUtilities */ = {
@@ -1581,7 +1668,7 @@
 			);
 			name = GoogleUtilities;
 			productName = GoogleUtilities;
-			productReference = D72C05119642EC249ABA2513F2496308 /* GoogleUtilities.framework */;
+			productReference = 310BC5C4CAA1AB04761AFC4EF7658194 /* GoogleUtilities.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1591,7 +1678,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1601,7 +1688,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 176BCEAD3B45F08829D2C5D7106F7409 /* Products */;
+			productRefGroup = FAC43331EE2CB5F6B1D8D66D531D4524 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1611,6 +1698,7 @@
 				8EEA87EC20A241510DE48460AC208D2F /* lottie-ios */,
 				E4DD95323C54A78F879DAB0F1508B8E7 /* nanopb */,
 				7789101DCBC96C7B41A2985AE127252E /* Pods-Schedule */,
+				392748D851A8E114529BA36D592CEDCA /* Pods-ScheduleTests */,
 				1EDF344F2F41D5D53E4CE557ECCDBB02 /* Pods-ScheduleWidget */,
 			);
 		};
@@ -1654,6 +1742,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EAC1E2692D5D7823ACA192E33AE27FB /* Pods-Schedule-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95CB3ACB19D83295EB71AE8C65A75B89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A37611AC7AED40024177C4F1B1D4B55F /* Pods-ScheduleTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1808,6 +1904,12 @@
 			target = EF9C1C66EC3371988D38D8C9FC027AD7 /* GoogleUtilities */;
 			targetProxy = F4C20D18F0C88C088AB7C0B2F8C9C534 /* PBXContainerItemProxy */;
 		};
+		9122E2EA02434614F43FBDB6189985BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Schedule";
+			target = 7789101DCBC96C7B41A2985AE127252E /* Pods-Schedule */;
+			targetProxy = 98D84EF1CF4895CEB96C3DDCEA1B2926 /* PBXContainerItemProxy */;
+		};
 		AA4A3D2CA19679B6E28EF54075AB82DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DynamicColor;
@@ -1827,7 +1929,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F236A2485243BBA7A3BC15DB5476BA89 /* DynamicColor.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1841,9 +1942,12 @@
 				INFOPLIST_FILE = "Target Support Files/DynamicColor/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/DynamicColor/DynamicColor.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = DynamicColor;
 				PRODUCT_NAME = DynamicColor;
 				SDKROOT = iphoneos;
@@ -1860,10 +1964,9 @@
 		};
 		06FC9D541FBF0519C1B4E9E85F972D17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3EEF49F8C987D1549DDFE8B63A92590 /* Pods-Schedule.debug.xcconfig */;
+			baseConfigurationReference = E53A0CFCDE706E590B5A8B6BD16ED8E8 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1877,10 +1980,13 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Schedule/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Schedule/Pods-Schedule.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1900,7 +2006,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 369100A2F7B40712E0E39589B17CB10D /* lottie-ios.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1914,9 +2019,12 @@
 				INFOPLIST_FILE = "Target Support Files/lottie-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/lottie-ios/lottie-ios.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = Lottie;
 				PRODUCT_NAME = Lottie;
 				SDKROOT = iphoneos;
@@ -1934,7 +2042,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FB147CFB4D7A62EDCA44E18324CD94D /* FirebaseCore.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1946,10 +2053,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/FirebaseCore/FirebaseCore.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = FirebaseCore;
 				PRODUCT_NAME = FirebaseCore;
 				SDKROOT = iphoneos;
@@ -1965,10 +2075,9 @@
 		};
 		59FD67092DAB76180037043E79F9960A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34324DFC8D467FA681BF367286AB9E8A /* Pods-ScheduleWidget.debug.xcconfig */;
+			baseConfigurationReference = 015CF67B0A79B157392C78F56C72A103 /* Pods-ScheduleWidget.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1982,10 +2091,13 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-ScheduleWidget/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ScheduleWidget/Pods-ScheduleWidget.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2003,7 +2115,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F236A2485243BBA7A3BC15DB5476BA89 /* DynamicColor.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2017,9 +2128,12 @@
 				INFOPLIST_FILE = "Target Support Files/DynamicColor/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/DynamicColor/DynamicColor.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = DynamicColor;
 				PRODUCT_NAME = DynamicColor;
 				SDKROOT = iphoneos;
@@ -2035,10 +2149,9 @@
 		};
 		95D7C3F28645F66BEDFBAD8FAEA69CB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3574881B82F05F8E0598F957D4E8AC52 /* Pods-Schedule.release.xcconfig */;
+			baseConfigurationReference = 3F8AA893216ED16A3F497E72752AA3FA /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2052,10 +2165,13 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Schedule/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Schedule/Pods-Schedule.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2075,7 +2191,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 369100A2F7B40712E0E39589B17CB10D /* lottie-ios.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2089,9 +2204,12 @@
 				INFOPLIST_FILE = "Target Support Files/lottie-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/lottie-ios/lottie-ios.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = Lottie;
 				PRODUCT_NAME = Lottie;
 				SDKROOT = iphoneos;
@@ -2104,11 +2222,49 @@
 			};
 			name = Debug;
 		};
+		9F72AC8BB29C1CDCEF485E82D4FAA556 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BD309C13EE27297DE92ADFB163E531D /* Pods-ScheduleTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScheduleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScheduleTests/Pods-ScheduleTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AC048DCD160CB21F2E6DEA722CA5D9F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19AF5EEB63B680E3440EB59519333FC7 /* GoogleUtilities.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2122,9 +2278,12 @@
 				INFOPLIST_FILE = "Target Support Files/GoogleUtilities/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/GoogleUtilities/GoogleUtilities.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = GoogleUtilities;
 				PRODUCT_NAME = GoogleUtilities;
 				SDKROOT = iphoneos;
@@ -2138,11 +2297,48 @@
 			};
 			name = Release;
 		};
+		B086F545FDB03E55BE7DF259A4C20003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FF61E4B64F6C2DAFB941B9409D6CC9D /* Pods-ScheduleTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScheduleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScheduleTests/Pods-ScheduleTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		BB136EB423DF1483E5151B6341C4F46C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1B0D292849F459E434DCCFA32C01F6A /* nanopb.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2156,9 +2352,12 @@
 				INFOPLIST_FILE = "Target Support Files/nanopb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/nanopb/nanopb.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = nanopb;
 				PRODUCT_NAME = nanopb;
 				SDKROOT = iphoneos;
@@ -2226,7 +2425,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -2296,10 +2494,9 @@
 		};
 		D23BBF084C6EAFAB7A4577A2C9770E97 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39A6A676462599A6DCB3CFA4E2C02909 /* Pods-ScheduleWidget.release.xcconfig */;
+			baseConfigurationReference = 81969BD81DF3B4D326295432D1234324 /* Pods-ScheduleWidget.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2313,10 +2510,13 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-ScheduleWidget/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-ScheduleWidget/Pods-ScheduleWidget.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2335,7 +2535,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19AF5EEB63B680E3440EB59519333FC7 /* GoogleUtilities.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2349,9 +2548,12 @@
 				INFOPLIST_FILE = "Target Support Files/GoogleUtilities/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/GoogleUtilities/GoogleUtilities.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = GoogleUtilities;
 				PRODUCT_NAME = GoogleUtilities;
 				SDKROOT = iphoneos;
@@ -2368,7 +2570,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1B0D292849F459E434DCCFA32C01F6A /* nanopb.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2382,9 +2583,12 @@
 				INFOPLIST_FILE = "Target Support Files/nanopb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/nanopb/nanopb.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = nanopb;
 				PRODUCT_NAME = nanopb;
 				SDKROOT = iphoneos;
@@ -2401,7 +2605,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FB147CFB4D7A62EDCA44E18324CD94D /* FirebaseCore.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2413,10 +2616,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/FirebaseCore/FirebaseCore.modulemap";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = FirebaseCore;
 				PRODUCT_NAME = FirebaseCore;
 				SDKROOT = iphoneos;
@@ -2437,6 +2643,15 @@
 			buildConfigurations = (
 				CF76A09C3B09DA1B0DB6FD5DB2C3A2A2 /* Debug */,
 				CE6BB864FB202B78BB66ACCAACAA0513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB23B0A002AC174C451E8E1CC2382E8 /* Build configuration list for PBXNativeTarget "Pods-ScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B086F545FDB03E55BE7DF259A4C20003 /* Debug */,
+				9F72AC8BB29C1CDCEF485E82D4FAA556 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

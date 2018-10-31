@@ -142,11 +142,18 @@ class TaskViewController: UIViewController {
 
         titlebarBackgroungView.setTitlebarShadow()
 
+        updateTitleDate()
+    }
+
+    func updateTitleDate() {
+
         guard let task = task else { return }
 
-        let titleDate = DateManager.shared.formatDate(forTaskPage: task.date)
+        let titleDate = DateManager.shared.formatDate(forTaskPage: task.startDate ?? task.date)
 
         dateButton.setTitle(titleDate, for: .normal)
+
+        dateButton.isEnabled = editButton.isHidden && !saveButton.isHidden
     }
 
     func setEditButton() {
@@ -167,6 +174,8 @@ class TaskViewController: UIViewController {
         identifiers.append(String(describing: DeleteTableViewCell.self))
 
         setupTableView()
+
+        updateTitleDate()
 
         taskTableView.reloadData()
     }
@@ -220,6 +229,9 @@ class TaskViewController: UIViewController {
 
     @IBAction func showDatePicker(_ sender: Any) {
 
+        alertPickerStatus = "FirstDate"
+
+        showDateAlertPicker()
     }
 
     @objc func showTimingPicker() {
@@ -259,15 +271,23 @@ class TaskViewController: UIViewController {
 
             datePicker.date = task?.date ?? Date()
 
-            alert = CustomAlertView(title: "Select end date", contentView: datePicker)
+            alert = CustomAlertView(title: "Select timing", contentView: datePicker)
 
         case "LastDate":
 
             datePicker.datePickerMode = .date
 
-            datePicker.date = task?.endDate ?? Date()
+            datePicker.date = task?.endDate ?? task?.date ?? Date()
 
             alert = CustomAlertView(title: "Select end date", contentView: datePicker)
+
+        case "FirstDate":
+
+            datePicker.datePickerMode = .date
+
+            datePicker.date = task?.date ?? Date()
+
+            alert = CustomAlertView(title: "Select start date", contentView: datePicker)
 
         default:
             break
@@ -372,6 +392,10 @@ class TaskViewController: UIViewController {
             animationView.removeFromSuperview()
 
             self.editButton.isEnabled = true
+
+            self.dismiss(animated: true, completion: nil)
+
+            self.taskAnimationDelegate?.dismissTaskViewController()
         }
     }
 
@@ -451,7 +475,8 @@ extension TaskViewController: UITableViewDataSource {
 
             consecutiveCell.updateView(consecutiveDay: task?.consecutiveDay ?? 0,
                                        lastDate: task?.endDate ?? date,
-                                       enabled: enabled)
+                                       enabled: enabled,
+                                       titleColor: titleColor)
 
             return consecutiveCell
 
@@ -588,6 +613,17 @@ extension TaskViewController: CustomAlertViewDelegate {
                     self.showToast(title: title, message: message)
             })
 
+        case "FirstDate":
+
+            let selectedDate = self.datePicker.date
+
+            taskDetailManager.setStartDateend(
+                startDate: selectedDate,
+                failure: { (title, message) in
+
+                    self.showToast(title: title, message: message)
+            })
+
         default:
             break
         }
@@ -605,7 +641,13 @@ extension TaskViewController: TaskDetailDelegate {
 
         task?.endDate = newTask.endDate
 
+        task?.date = newTask.date
+
+        task?.startDate = newTask.startDate
+
         taskTableView.reloadData()
+
+        setTitleViews()
     }
 
 }

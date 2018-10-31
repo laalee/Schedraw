@@ -32,7 +32,9 @@ class ConsecutiveTableViewCell: UITableViewCell {
         consecutiveBackgroundView.setShadow()
     }
 
-    func updateView(consecutiveDay: Int, lastDate: Date, enabled: Bool) {
+    func updateView(consecutiveDay: Int, lastDate: Date, enabled: Bool, titleColor: UIColor) {
+
+        titleLabel.textColor = titleColor
 
         updateConsecutiveButton(consecutiveDay: consecutiveDay + 1)
 

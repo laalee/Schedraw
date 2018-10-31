@@ -82,6 +82,50 @@ class TaskDetailManager {
         task.time = timing
     }
 
+    func setStartDateend(startDate: Date,
+                         failure: (String?, String?) -> Void) {
+
+        if let endDate = task.endDate, task.consecutiveDay ?? 0 > 0 {
+
+            guard startDate <= endDate else {
+
+                let alertTitle = "Oops!"
+                let alertMessage = "End date should be greater than start date."
+
+                failure(alertTitle, alertMessage)
+
+                return
+            }
+
+            let overlapTask = checkOverlapTask(startDate: startDate, endDate: endDate)
+
+            if let date = overlapTask {
+
+                let alertTitle = "Oops!"
+                let alertMessage = "\(date) has a overlapping task."
+
+                failure(alertTitle, alertMessage)
+
+                return
+
+            }
+        }
+
+        if task.consecutiveDay ?? 0 == 0 {
+
+            task.endDate = nil
+        }
+
+        task.date = startDate
+
+        task.startDate = startDate
+        
+        updateConsecutiveDay()
+
+        print("FINAL")
+
+    }
+
     func setLastDate(endDate: Date,
                      failure: (String?, String?) -> Void) {
 
@@ -95,7 +139,7 @@ class TaskDetailManager {
             return
         }
 
-        let overlapTask = checkOverlapTask(endDate: endDate, taskMO: self.taskMO)
+        let overlapTask = checkOverlapTask(endDate: endDate)
 
         if let date = overlapTask {
 
@@ -119,7 +163,7 @@ class TaskDetailManager {
 
         let endDate = DateManager.shared.getDate(byAdding: consecutiveDay, to: task.date)
 
-        let overlapTask = checkOverlapTask(endDate: endDate, taskMO: self.taskMO)
+        let overlapTask = checkOverlapTask(endDate: endDate)
 
         if let date = overlapTask {
 
@@ -138,7 +182,26 @@ class TaskDetailManager {
         }
     }
 
-    func checkOverlapTask(endDate: Date, taskMO: TaskMO?) -> String? {
+    func checkOverlapTask(startDate: Date, endDate: Date) -> String? {
+
+        let consecutiveDay = DateManager.shared.consecutiveDay(startDate: startDate, lastDate: endDate)
+
+        for addingDay in (0...consecutiveDay).reversed() {
+
+            let date = DateManager.shared.getDate(byAdding: addingDay, to: startDate)
+
+            let task = TaskManager.shared.fetchTask(byCategory: self.task.category, andDate: date)
+
+            if task?.count != 0 && task?.first?.consecutiveId != taskMO?.consecutiveId {
+
+                return DateManager.shared.formatDate(forTaskPageAlert: date)
+            }
+        }
+
+        return nil
+    }
+
+    func checkOverlapTask(endDate: Date) -> String? {
 
         let startDate = task.date
 

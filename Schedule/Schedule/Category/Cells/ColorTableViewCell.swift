@@ -132,13 +132,18 @@ extension ColorTableViewCell: CategoryDelegate {
 
     func getContent<T>() -> T? {
 
-        if let color = selectedColor {
+        if selectedButton == pickerButton {
 
-            return color as? T
-
+            return colorPicker.color as? T
         }
 
-        return colorPicker.color as? T
+//        if let color = selectedColor {
+
+            return selectedColor as? T
+
+//        }
+
+//        return colorPicker.color as? T
 
 //        return selectedColor as? T
     }

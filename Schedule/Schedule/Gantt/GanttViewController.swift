@@ -21,6 +21,7 @@ class GanttViewController: UIViewController {
     var categorys: [CategoryMO] = []
 
     fileprivate var sourceIndexPath: IndexPath?
+
     fileprivate var snapshot: UIView?
 
     override func viewDidLoad() {
