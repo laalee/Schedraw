@@ -18,7 +18,7 @@ class TaskManager {
 
     static let lastDay: Int = 3
 
-    let dataProvider = CoreDataProvider()
+    let dataProvider = CoreDataProvider.shared
 
     func addTask(task: Task) {
 

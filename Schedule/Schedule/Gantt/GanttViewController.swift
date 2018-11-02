@@ -113,7 +113,6 @@ class GanttViewController: UIViewController {
 
         }, completion: { _ in
 
-//                item.isHidden = true
              item.centerBackgroundView.backgroundColor = UIColor.lightGray
         })
 

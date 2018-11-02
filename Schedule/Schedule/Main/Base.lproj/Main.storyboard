@@ -459,7 +459,7 @@
         <!--Gantt View Controller-->
         <scene sceneID="yAt-cm-k3c">
             <objects>
-                <viewController id="hm2-Sy-dOg" customClass="GanttViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GanttVC" id="hm2-Sy-dOg" customClass="GanttViewController" customModule="Schedule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oJq-Aw-cqm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,8 +547,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings_black" width="512" height="512"/>
-        <image name="table-grid" width="512" height="512"/>
-        <image name="tasks-list" width="512" height="512"/>
+        <image name="settings_black" width="351.08572387695312" height="351.08572387695312"/>
+        <image name="table-grid" width="380" height="380"/>
+        <image name="tasks-list" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

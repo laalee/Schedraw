@@ -13,7 +13,7 @@ import CoreData
 
 class CoreDataProvider {
 
-    static let share = CoreDataProvider()
+    static let shared = CoreDataProvider()
 
     var category: CategoryMO!
 

@@ -42,6 +42,7 @@
 		9B17F50E2165E68900991C1E /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F50D2165E68900991C1E /* CategoryManager.swift */; };
 		9B17F5102165E6B100991C1E /* CoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B17F50F2165E6B100991C1E /* CoreDataProvider.swift */; };
 		9B54338221882C4F007919B4 /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B54338121882C4F007919B4 /* DateManagerTests.swift */; };
+		9B5433B82189A853007919B4 /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5433B72189A853007919B4 /* TaskManagerTests.swift */; };
 		9B6DD8ED2174DE2E00618A58 /* ColorPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EB2174DE2E00618A58 /* ColorPickerTableViewCell.swift */; };
 		9B6DD8EE2174DE2E00618A58 /* ColorPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EC2174DE2E00618A58 /* ColorPickerTableViewCell.xib */; };
 		9B6DD8F02174E44600618A58 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DD8EF2174E44600618A58 /* SwiftHSVColorPicker.swift */; };
@@ -174,6 +175,7 @@
 		9B54337F21882C4F007919B4 /* ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B54338121882C4F007919B4 /* DateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerTests.swift; sourceTree = "<group>"; };
 		9B54338321882C4F007919B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B5433B72189A853007919B4 /* TaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
 		9B6DD8EB2174DE2E00618A58 /* ColorPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerTableViewCell.swift; sourceTree = "<group>"; };
 		9B6DD8EC2174DE2E00618A58 /* ColorPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerTableViewCell.xib; sourceTree = "<group>"; };
 		9B6DD8EF2174E44600618A58 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		9B54338021882C4F007919B4 /* ScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B5433B72189A853007919B4 /* TaskManagerTests.swift */,
 				9B54338121882C4F007919B4 /* DateManagerTests.swift */,
 				9B54338321882C4F007919B4 /* Info.plist */,
 			);
@@ -856,6 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5433B82189A853007919B4 /* TaskManagerTests.swift in Sources */,
 				9B54338221882C4F007919B4 /* DateManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
