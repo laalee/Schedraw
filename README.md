@@ -1,20 +1,26 @@
-# Schedraw
-
+# Schedraw 
 Demonstrated personal schedule in Gantt way to track overlapping event clearly.
+
+- Switch the view window in two way, gantt mode and calendar mode
+- Create widget access to notify daily task quickly
+- Customize color category setting at ease
+- Add category and customize color
 
 <a href="https://itunes.apple.com/app/schedraw/id1439182896?mt=8"><img src="https://i.imgur.com/Pc1KdHw.png" width="150"></a>
 
 # Feature 
-- Switch the view window in two way, gantt mode and calendar mode
-- Create widget access to notify daily task quickly
-- Customize color category setting at ease
+- Gantt mode and calendar mode
+  -  Gantt mode: The consecutive days which related to the chosen events will be shown on this window, it is designed to tracking the progress to each event, and easily to realize the concurrent status to all the events within the same day or days.
+  - Calendar mode: Click on each different month or date, the relevant event’s contents will be shown below.
+  <img src="https://i.imgur.com/MmgUOiM.png" width="200"><img src="https://i.imgur.com/fmpicRJ.png" width="200">
+  
+- Customized color to set on each category
+  - Through add a new item/category, and then click on the blank field, a new event will be added to the window
+  <img src="https://i.imgur.com/zTafn0Z.png" width="200"><img src="https://i.imgur.com/s7fUjfK.png" width="200">
 
-# Screenshot
-
-<img src="https://i.imgur.com/MmgUOiM.png" width="200"><img src="https://i.imgur.com/fmpicRJ.png" width="200"><img src="https://i.imgur.com/VubsGZq.png" width="200">
-
-<img src="https://i.imgur.com/zTafn0Z.png" width="200"><img src="https://i.imgur.com/s7fUjfK.png" width="200">
-
+- Show daily task in Widget 
+  <img src="https://i.imgur.com/VubsGZq.png" width="200">
+  
 # Key function
 
 ## Infinite scrolling UICollectionView
