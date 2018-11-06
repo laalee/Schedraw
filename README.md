@@ -11,16 +11,9 @@ Demonstrated personal schedule in Gantt way to track overlapping event clearly.
 
 # Screenshot
 
-<a>
-<img src="https://i.imgur.com/MmgUOiM.png" width="200">
-<img src="https://i.imgur.com/fmpicRJ.png" width="200">
-<img src="https://i.imgur.com/VubsGZq.png" width="200">
-</a>
+<img src="https://i.imgur.com/MmgUOiM.png" width="200"><img src="https://i.imgur.com/fmpicRJ.png" width="200"><img src="https://i.imgur.com/VubsGZq.png" width="200">
 
-<a>
-<img src="https://i.imgur.com/zTafn0Z.png" width="200">
-<img src="https://i.imgur.com/s7fUjfK.png" width="200">
-</a>
+<img src="https://i.imgur.com/zTafn0Z.png" width="200"><img src="https://i.imgur.com/s7fUjfK.png" width="200">
 
 # Key function
 
