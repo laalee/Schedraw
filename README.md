@@ -18,7 +18,8 @@ Demonstrated personal schedule in Gantt way to track overlapping event clearly.
   - Through add a new item/category, and then click on the blank field, a new event will be added to the window
   <img src="https://i.imgur.com/zTafn0Z.png" width="200"><img src="https://i.imgur.com/s7fUjfK.png" width="200">
 
-- Show daily task in Widget 
+- Show daily task in Widget
+
   <img src="https://i.imgur.com/VubsGZq.png" width="200">
   
 # Key function
