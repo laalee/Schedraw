@@ -19,6 +19,26 @@ class CoreDataProvider {
 
     var task: TaskMO!
 
+    let persistentContainer: NSPersistentContainer!
+
+    //MARK: Init with dependency
+    init(container: NSPersistentContainer) {
+
+        self.persistentContainer = container
+
+        self.persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+    }
+
+    convenience init() {
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+
+            fatalError("Can not get shared app delegate")
+        }
+
+        self.init(container: appDelegate.persistentContainer)
+    }
+
     var fetchResultController: NSFetchedResultsController<CategoryMO>!
 
     var taskFetchResultController: NSFetchedResultsController<TaskMO>!
