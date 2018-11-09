@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
 
             self.yearLabel.text = year
         }
+
     }
 
     @IBAction func showSetting(_ sender: Any) {

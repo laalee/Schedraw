@@ -294,14 +294,14 @@ extension GanttTableViewCell: UICollectionViewDataSource {
     }
 
 }
-
-extension GanttTableViewCell: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-    }
-}
+//
+//extension GanttTableViewCell: UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        willDisplay cell: UICollectionViewCell,
+//                        forItemAt indexPath: IndexPath) {
+//    }
+//}
 
 extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
 

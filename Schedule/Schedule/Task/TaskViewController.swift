@@ -190,7 +190,7 @@ class TaskViewController: UIViewController {
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleKeyboardNotification),
+            selector: #selector(handleKeyboardNotification(notification:)),
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
