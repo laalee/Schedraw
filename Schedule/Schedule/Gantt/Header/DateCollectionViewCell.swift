@@ -14,8 +14,6 @@ class DateCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var weekLabel: UILabel!
 
-//    var date = Date()
-
     let dateFormatter = DateFormatter()
     
     override func awakeFromNib() {
