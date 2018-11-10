@@ -14,6 +14,8 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var monthLabel: UILabel!
 
+    weak var scrollDelegate: GanttScrollDelegate?
+
     var dates: [Date] = []
 
     var todayIndex: Int = 30
@@ -28,8 +30,6 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        collectionViewDidScroll()
 
         setupCollectionView()
 
@@ -47,11 +47,10 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (_) in
 
-            self.postFlag = true
+            self.dateCollectionView.setContentOffset(CGPoint(x: self.todayIndex * 50, y: 0), animated: false)
 
-            let index = IndexPath.init(row: self.todayIndex, section: 0)
+            self.scrollDelegate?.didScroll(to: CGFloat(self.todayIndex * 50))
 
-            self.dateCollectionView.scrollToItem(at: index, at: .left, animated: true)
         }
     }
 
@@ -81,21 +80,6 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
                 at: UICollectionView.ScrollPosition.left,
                 animated: false
             )
-        }
-    }
-
-    private func collectionViewDidScroll() {
-
-        let name = NSNotification.Name("DID_SCROLL")
-
-        _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (notification) in
-
-            guard let userInfo = notification.userInfo else { return }
-
-            guard let contentOffset = userInfo["contentOffset"] as? CGFloat else { return }
-
-            self.dateCollectionView.contentOffset.x = contentOffset
         }
     }
 
@@ -192,13 +176,7 @@ extension HeaderTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-//        guard let item = dateCollectionView.cellForItem(at: indexPath) as? DateCollectionViewCell else { return }
-
-//        let date = item.date
-
         let selectedDate = dateManager.getDate(atIndex: indexPath.row)
-
-        print("selectedDate - ", selectedDate)
     }
 
 }
@@ -251,11 +229,7 @@ extension HeaderTableViewCell: UIScrollViewDelegate {
 
         if postFlag {
 
-            NotificationCenter.default.post(
-                name: NSNotification.Name("DID_SCROLL"),
-                object: nil,
-                userInfo: ["contentOffset": scrollView.contentOffset.x]
-            )
+            scrollDelegate?.didScroll(to: scrollView.contentOffset.x)
         }
 
         if scrollView.contentOffset.x < 100 {

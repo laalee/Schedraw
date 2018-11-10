@@ -16,6 +16,8 @@ class DateManager {
 
     func numberOfDates() -> Int {
 
+        print(dates.count)
+
         return dates.count
     }
 

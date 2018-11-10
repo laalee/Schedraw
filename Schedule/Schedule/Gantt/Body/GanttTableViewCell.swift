@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol GanttScrollDelegate: class {
+
+    func didScroll(to position: CGFloat)
+}
+
 class GanttTableViewCell: UITableViewCell {
 
     @IBOutlet weak var itemCollectionView: UICollectionView!
@@ -15,6 +20,8 @@ class GanttTableViewCell: UITableViewCell {
     @IBOutlet weak var tableViewTitleLabel: UILabel!
 
     @IBOutlet weak var addButton: UIButton!
+
+    weak var scrollDelegate: GanttScrollDelegate?
 
     var todayIndex: Int = 30
 
@@ -43,13 +50,13 @@ class GanttTableViewCell: UITableViewCell {
 
         setupCollectionView()
 
-        collectionViewDidScroll()
-
         updateDatas()
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
 
         tableViewTitleLabel.addGestureRecognizer(gestureRecognizer)
+
+        gotoToday()
     }
 
     func reloadItemCollectionView() {
@@ -77,6 +84,17 @@ class GanttTableViewCell: UITableViewCell {
         }
     }
 
+    func gotoToday() {
+
+        let name = NSNotification.Name("SCROLL_TO_TODAY")
+
+        _ = NotificationCenter.default.addObserver(
+        forName: name, object: nil, queue: nil) { (_) in
+
+            self.itemCollectionView.setContentOffset(CGPoint(x: self.todayIndex * 50, y: 0), animated: false)
+        }
+    }
+
     private func addBottomCells() {
 
         UIView.performWithoutAnimation {
@@ -87,8 +105,6 @@ class GanttTableViewCell: UITableViewCell {
 
     private func addTopCells() {
 
-        self.todayIndex += 30
-
         UIView.performWithoutAnimation {
 
             self.reloadItemCollectionView()
@@ -98,21 +114,6 @@ class GanttTableViewCell: UITableViewCell {
                 at: UICollectionView.ScrollPosition.left,
                 animated: false
             )
-        }
-    }
-
-    private func collectionViewDidScroll() {
-
-        let name = NSNotification.Name("DID_SCROLL")
-
-        _ = NotificationCenter.default.addObserver(
-            forName: name, object: nil, queue: nil) { (notification) in
-
-            guard let userInfo = notification.userInfo else { return }
-
-            guard let contentOffset = userInfo["contentOffset"] as? CGFloat else { return }
-
-            self.itemCollectionView.contentOffset.x = contentOffset
         }
     }
 
@@ -295,14 +296,6 @@ extension GanttTableViewCell: UICollectionViewDataSource {
 
 }
 
-extension GanttTableViewCell: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-    }
-}
-
 extension GanttTableViewCell: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
@@ -334,13 +327,7 @@ extension GanttTableViewCell: UIScrollViewDelegate {
 
         if postFlag {
 
-            let name = NSNotification.Name("DID_SCROLL")
-
-            NotificationCenter.default.post(
-                name: name,
-                object: nil,
-                userInfo: ["contentOffset": scrollView.contentOffset.x]
-            )
+            scrollDelegate?.didScroll(to: scrollView.contentOffset.x)
         }
 
         if scrollView.contentOffset.x < 100 {
