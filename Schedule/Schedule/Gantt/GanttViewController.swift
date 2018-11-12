@@ -196,22 +196,53 @@ extension GanttViewController: UITableViewDelegate {
 
 extension GanttViewController: GanttScrollDelegate {
 
-    func didScroll(to position: CGFloat) {
-
-        for cell in ganttTableView.visibleCells {
-
-            guard let ganttCell = cell as? GanttTableViewCell else { return }
-
-            (ganttCell.itemCollectionView as UIScrollView).contentOffset.x = position
-        }
+    func didScroll(to position: CGPoint) {
 
         guard let header = ganttTableView.headerView(forSection: 0) as? HeaderTableViewCell else {
 
             return
         }
 
-        (header.dateCollectionView as UIScrollView).contentOffset.x = position
+        let scrollView = header.dateCollectionView as UIScrollView
+        var scrollBounds = scrollView.bounds
+        scrollBounds.origin = position
+        scrollView.bounds = scrollBounds
 
+        let addBottomCell = scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100)
+
+        let addTopCell = scrollView.contentOffset.x < 100
+
+        if addBottomCell {
+
+            header.addBottomCells()
+        }
+
+        if addTopCell {
+
+            header.addTopCells()
+
+        }
+
+        for cell in ganttTableView.visibleCells {
+
+            guard let ganttCell = cell as? GanttTableViewCell else { return }
+
+            let scrollView = ganttCell.itemCollectionView as UIScrollView
+            var scrollBounds = scrollView.bounds
+            scrollBounds.origin = position
+            scrollView.bounds = scrollBounds
+
+            if addBottomCell {
+
+                ganttCell.addBottomCells()
+            }
+
+            if addTopCell {
+
+                ganttCell.addTopCells()
+
+            }
+        }
     }
 
 }

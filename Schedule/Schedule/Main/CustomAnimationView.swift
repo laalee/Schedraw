@@ -13,10 +13,10 @@ class CustomAnimationView: UIView {
 
     var lotAnimationView: LOTAnimationView?
 
-    convenience init(jsonFile: String) {
+    convenience init(jsonFile: String, speed: CGFloat) {
         self.init(frame: UIScreen.main.bounds)
 
-        initialize(jsonFile: jsonFile)
+        initialize(jsonFile: jsonFile, speed: speed)
     }
 
     override init(frame: CGRect) {
@@ -28,7 +28,7 @@ class CustomAnimationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func initialize(jsonFile: String) {
+    func initialize(jsonFile: String, speed: CGFloat) {
 
         lotAnimationView = LOTAnimationView(name: jsonFile)
 
@@ -45,7 +45,7 @@ class CustomAnimationView: UIView {
 
         lotAnimationView?.contentMode = .scaleAspectFill
 
-        lotAnimationView?.animationSpeed = 2
+        lotAnimationView?.animationSpeed = speed
 
         if let lotAnimationView = lotAnimationView {
 

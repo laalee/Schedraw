@@ -10,7 +10,7 @@ import UIKit
 
 protocol GanttScrollDelegate: class {
 
-    func didScroll(to position: CGFloat)
+    func didScroll(to position: CGPoint)
 }
 
 class GanttTableViewCell: UITableViewCell {
@@ -91,11 +91,21 @@ class GanttTableViewCell: UITableViewCell {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (_) in
 
-            self.itemCollectionView.setContentOffset(CGPoint(x: self.todayIndex * 50, y: 0), animated: false)
+            let scrollView = self.itemCollectionView as UIScrollView
+
+            let offset = scrollView.contentOffset
+
+            self.itemCollectionView.setContentOffset(offset, animated: false)
+
+            var scrollBounds = scrollView.bounds
+
+            scrollBounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
+
+            scrollView.bounds = scrollBounds
         }
     }
 
-    private func addBottomCells() {
+    func addBottomCells() {
 
         UIView.performWithoutAnimation {
 
@@ -103,17 +113,19 @@ class GanttTableViewCell: UITableViewCell {
         }
     }
 
-    private func addTopCells() {
+    func addTopCells() {
 
         UIView.performWithoutAnimation {
 
             self.reloadItemCollectionView()
 
-            self.itemCollectionView.scrollToItem(
-                at: IndexPath(row: 32, section: 0),
-                at: UICollectionView.ScrollPosition.left,
-                animated: false
-            )
+            let scrollView = self.itemCollectionView as UIScrollView
+
+            var scrollBounds = scrollView.bounds
+
+            scrollBounds.origin = CGPoint(x: 32 * 50, y: 0)
+
+            scrollView.bounds = scrollBounds
         }
     }
 
@@ -327,16 +339,7 @@ extension GanttTableViewCell: UIScrollViewDelegate {
 
         if postFlag {
 
-            scrollDelegate?.didScroll(to: scrollView.contentOffset.x)
-        }
-
-        if scrollView.contentOffset.x < 100 {
-
-            addTopCells()
-
-        } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100) {
-
-            addBottomCells()
+            scrollDelegate?.didScroll(to: scrollView.contentOffset)
         }
     }
 

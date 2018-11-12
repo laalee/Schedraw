@@ -24,6 +24,7 @@
 		9B14AF8D217F055400E5E466 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14AF8C217F055400E5E466 /* CustomAlertView.swift */; };
 		9B14AF8F217F0DF600E5E466 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14AF8E217F0DF600E5E466 /* Modal.swift */; };
 		9B14AF912180024800E5E466 /* FadePushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B14AF902180024800E5E466 /* FadePushAnimator.swift */; };
+		9B1712DB21992675004D8201 /* simple_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B1712DA21992675004D8201 /* simple_loader.json */; };
 		9B1728312170520800F81581 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1728302170520800F81581 /* NotificationCenter.framework */; };
 		9B1728342170520800F81581 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1728332170520800F81581 /* TodayViewController.swift */; };
 		9B1728372170520800F81581 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B1728352170520800F81581 /* MainInterface.storyboard */; };
@@ -156,6 +157,7 @@
 		9B14AF8C217F055400E5E466 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		9B14AF8E217F0DF600E5E466 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		9B14AF902180024800E5E466 /* FadePushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadePushAnimator.swift; sourceTree = "<group>"; };
+		9B1712DA21992675004D8201 /* simple_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_loader.json; sourceTree = "<group>"; };
 		9B17282F2170520800F81581 /* ScheduleWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScheduleWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1728302170520800F81581 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9B1728332170520800F81581 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				9B14AF902180024800E5E466 /* FadePushAnimator.swift */,
+				9B1712DA21992675004D8201 /* simple_loader.json */,
 				9B7BEA862173B78800E2D297 /* check-4.json */,
 				9BEDA6E621845B0900A5428D /* check.json */,
 			);
@@ -691,6 +694,7 @@
 			files = (
 				9BB5D5E92151FDD8005F225C /* LaunchScreen.storyboard in Resources */,
 				9B7BEA7D21736CE400E2D297 /* DisplayTableViewCell.xib in Resources */,
+				9B1712DB21992675004D8201 /* simple_loader.json in Resources */,
 				9BAF7639215E227A00101BBA /* Task.storyboard in Resources */,
 				9BAF7653215F85D000101BBA /* DayCollectionViewCell.xib in Resources */,
 				9B0C6A1E216507C10055A7CD /* NotesTableViewCell.xib in Resources */,
