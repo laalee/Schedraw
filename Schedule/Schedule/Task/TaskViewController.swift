@@ -381,7 +381,7 @@ class TaskViewController: UIViewController {
 
         self.editButton.isEnabled = false
 
-        let animationView = CustomAnimationView(jsonFile: "check")
+        let animationView = CustomAnimationView(jsonFile: "check", speed: 2)
 
         self.view.addSubview(animationView)
 

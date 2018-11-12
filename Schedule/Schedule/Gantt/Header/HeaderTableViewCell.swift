@@ -47,14 +47,21 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         _ = NotificationCenter.default.addObserver(
         forName: name, object: nil, queue: nil) { (_) in
 
-            self.dateCollectionView.setContentOffset(CGPoint(x: self.todayIndex * 50, y: 0), animated: false)
+            let scrollView = self.dateCollectionView as UIScrollView
 
-            self.scrollDelegate?.didScroll(to: CGFloat(self.todayIndex * 50))
+            let offset = scrollView.contentOffset
+            self.dateCollectionView.setContentOffset(offset, animated: false)
+
+            var scrollBounds = scrollView.bounds
+            scrollBounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
+            scrollView.bounds = scrollBounds
+
+            self.scrollDelegate?.didScroll(to: CGPoint(x: self.todayIndex * 50, y: 0))
 
         }
     }
 
-    private func addBottomCells() {
+    func addBottomCells() {
 
         dateManager.addDates(from: dateManager.numberOfDates() - todayIndex,
                              to: dateManager.numberOfDates() - todayIndex + 29)
@@ -65,7 +72,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
         }
     }
 
-    private func addTopCells() {
+    func addTopCells() {
 
         dateManager.addEarlyDates(from: -todayIndex - 30, to: -todayIndex - 1)
 
@@ -75,11 +82,10 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
             self.dateCollectionView.reloadData()
 
-            self.dateCollectionView.scrollToItem(
-                at: IndexPath(row: 32, section: 0),
-                at: UICollectionView.ScrollPosition.left,
-                animated: false
-            )
+            let scrollView = self.dateCollectionView as UIScrollView
+            var scrollBounds = scrollView.bounds
+            scrollBounds.origin = CGPoint(x: 32 * 50, y: 0)
+            scrollView.bounds = scrollBounds
         }
     }
 
@@ -227,19 +233,7 @@ extension HeaderTableViewCell: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        if postFlag {
-
-            scrollDelegate?.didScroll(to: scrollView.contentOffset.x)
-        }
-
-        if scrollView.contentOffset.x < 100 {
-
-            addTopCells()
-
-        } else if scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100) {
-
-            addBottomCells()
-        }
+        scrollDelegate?.didScroll(to: scrollView.contentOffset)
     }
 
 }
