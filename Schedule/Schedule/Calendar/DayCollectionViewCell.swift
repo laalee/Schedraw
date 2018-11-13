@@ -97,11 +97,6 @@ class DayCollectionViewCell: UICollectionViewCell {
                 if let categoryColor = tasks[index].category?.color as? UIColor {
 
                     centerBackgroundView.backgroundColor = categoryColor
-
-//                    if Int(tasks[index].consecutiveStatus) > 1 {
-//
-//                        centerBackgroundView.backgroundColor = categoryColor.lighter()
-//                    }
                 }
             } else if index == 1 {
 

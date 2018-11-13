@@ -60,15 +60,11 @@ class GanttViewController: UIViewController {
 
         ganttTableView.delegate = self
 
-        // task cell
-
         let identifier = String(describing: GanttTableViewCell.self)
 
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         ganttTableView.register(uiNib, forCellReuseIdentifier: identifier)
-
-        // header cell
 
         let headerIdentifier = String(describing: HeaderTableViewCell.self)
 

@@ -50,7 +50,6 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
 
     func setup() {
 
-        // Remove all subviews
         let views = self.subviews
 
         for view in views {
@@ -58,15 +57,12 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
             view.removeFromSuperview()
         }
 
-        // let color wheel get the maximum size that is not overflow from the frame for both width and height
         let colorWheelSize = min(self.bounds.width, self.bounds.height)
 
         let selectedColorViewHeight: CGFloat = colorWheelSize * 0.5
 
-        // let the all the subviews stay in the middle of universe horizontally
         let centeredX = (self.bounds.width - colorWheelSize) / 2.0
 
-        // Init new ColorWheel subview
         colorWheel = ColorWheel(
             frame: CGRect(x: centeredX,
                           y: (self.bounds.height - colorWheelSize)/2,
@@ -77,10 +73,8 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
 
         colorWheel.delegate = self
 
-        // Add colorWheel as a subview of this view
         self.addSubview(colorWheel)
 
-        // Init SelectedColorView subview
         selectedColorView = SelectedColorView(
             frame: CGRect(x: (self.bounds.width - selectedColorViewHeight) / 2,
                           y: (self.bounds.height - selectedColorViewHeight) / 2,
@@ -90,7 +84,6 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
 
         selectedColorView.layer.cornerRadius = selectedColorViewHeight / 2
 
-        // Add selectedColorView as a subview of this view
         self.addSubview(selectedColorView)
     }
 

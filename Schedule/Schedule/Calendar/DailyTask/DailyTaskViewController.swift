@@ -45,15 +45,11 @@ class DailyTaskViewController: UIViewController {
         
         taskTableView.delegate = self
 
-        // task cell
-
         let identifier = String(describing: DailyTaskTableViewCell.self)
 
         let uiNib = UINib(nibName: identifier, bundle: nil)
 
         taskTableView.register(uiNib, forCellReuseIdentifier: identifier)
-
-        // header cell
 
         let headerIdentifier = String(describing: DailyHeaderTableViewCell.self)
 

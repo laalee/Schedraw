@@ -26,7 +26,6 @@ class CategoryViewController: UIViewController {
     var identifiers = [
         String(describing: CategoryTitleTableViewCell.self),
         String(describing: ColorTableViewCell.self)
-//        String(describing: ColorPickerTableViewCell.self)
     ]
 
     weak var titleDelegate: CategoryDelegate?

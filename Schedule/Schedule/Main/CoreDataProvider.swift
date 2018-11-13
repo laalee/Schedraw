@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import CoreData
-//import Firebase
 
 class CoreDataProvider {
 
@@ -21,7 +20,6 @@ class CoreDataProvider {
 
     let persistentContainer: NSPersistentContainer!
 
-    //MARK: Init with dependency
     init(container: NSPersistentContainer) {
 
         self.persistentContainer = container
@@ -57,8 +55,6 @@ class CoreDataProvider {
 
             appDelegate.saveContext()
         }
-
-//        Analytics.logEvent("AddCategory", parameters: ["Title": category.title])
     }
 
     func addTask(task: Task) {

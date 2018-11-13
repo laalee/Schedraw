@@ -136,15 +136,11 @@ class CalendarViewController: UIViewController {
 
         calendarCollectionView.delegate = self
 
-        // day cell
-
         let dayIdentifier = String(describing: DayCollectionViewCell.self)
 
         let dayNib = UINib(nibName: dayIdentifier, bundle: nil)
 
         calendarCollectionView.register(dayNib, forCellWithReuseIdentifier: dayIdentifier)
-
-        // month cell
 
         let monthIdentifier = String(describing: MonthCollectionViewCell.self)
 
@@ -516,8 +512,6 @@ class CalendarViewController: UIViewController {
             self.dailyTaskBottomConstraint.constant = height
 
             self.monthTaskSection = sender.tag
-
-//            self.dailyTaskBottomConstraint.constant = dailyTaskView.bounds.height
 
             NotificationCenter.default.post(
                 name: NSNotification.Name("MONYH_TASK_UPDATE"),

@@ -15,8 +15,6 @@ protocol TaskDetailDelegate: AnyObject {
 
 class TaskDetailManager {
 
-//    static let shared = TaskDetailManager()
-
     weak var taskDetailDelegate: TaskDetailDelegate?
 
     var taskMO: TaskMO?
@@ -121,9 +119,6 @@ class TaskDetailManager {
         task.startDate = startDate
         
         updateConsecutiveDay()
-
-        print("FINAL")
-
     }
 
     func setLastDate(endDate: Date,
