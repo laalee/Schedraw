@@ -17,7 +17,6 @@ class ColorPickerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        // Setup Color Picker
         colorPicker.setViewColor(selectedColor)
     }
 

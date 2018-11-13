@@ -14,7 +14,6 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var settingTableView: UITableView!
 
     var identifiers = [
-//        String(describing: DisplayTableViewCell.self),
         String(describing: SupportTableViewCell.self)
     ]
 
@@ -97,24 +96,11 @@ extension SettingViewController: UITableViewDataSource {
             for: indexPath
         )
 
-//        switch indexPath.section {
-//        case 0:
-//            guard let displayCell = cell as? DisplayTableViewCell else { return cell }
-//
-//            return displayCell
-//
-//        case 1:
-            guard let supportCell = cell as? SupportTableViewCell else { return cell }
+        guard let supportCell = cell as? SupportTableViewCell else { return cell }
 
-            supportCell.contactUsButton.addTarget(self, action: #selector(contactUsPressed), for: .touchUpInside)
+        supportCell.contactUsButton.addTarget(self, action: #selector(contactUsPressed), for: .touchUpInside)
 
-            return supportCell
-
-//        default:
-//            break
-//        }
-//
-//        return cell
+        return supportCell
     }
 }
 

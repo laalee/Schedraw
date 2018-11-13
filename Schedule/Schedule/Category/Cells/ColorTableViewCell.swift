@@ -39,8 +39,6 @@ class ColorTableViewCell: UITableViewCell {
 
         editView.isHidden = true
 
-//        setSelectedButton(button: orangeButton, color: UIColor.ANColor.orange)
-
         setSelectedButton(button: pickerButton, color: UIColor.orange)
 
         colorBackgroundView.setShadow()
@@ -137,15 +135,7 @@ extension ColorTableViewCell: CategoryDelegate {
             return colorPicker.color as? T
         }
 
-//        if let color = selectedColor {
-
-            return selectedColor as? T
-
-//        }
-
-//        return colorPicker.color as? T
-
-//        return selectedColor as? T
+        return selectedColor as? T
     }
 
 }
