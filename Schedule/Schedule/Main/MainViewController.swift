@@ -43,11 +43,9 @@ class MainViewController: UIViewController {
     }
 
     func changeYear() {
-        
-        let name = NSNotification.Name("YEAR_CHANGED")
 
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (notification) in
+        forName: .yearChanged, object: nil, queue: nil) { (notification) in
 
             guard let userInfo = notification.userInfo else { return }
 
@@ -103,7 +101,7 @@ class MainViewController: UIViewController {
         alertPickerView.delegate = self
 
         _ = NotificationCenter.default.addObserver(
-        forName: NSNotification.Name("SETUP_PICKER_CATEGORYS"),
+        forName: .setupPickerCategorys,
         object: nil, queue: nil) { (notification) in
 
             guard let userInfo = notification.userInfo else { return }
@@ -118,7 +116,7 @@ class MainViewController: UIViewController {
         }
 
         _ = NotificationCenter.default.addObserver(
-        forName: NSNotification.Name("SHOW_ALERT_PICKER"),
+        forName: .showAlertPicker,
         object: nil, queue: nil) { (_) in
 
             UIView.animate(withDuration: 0.2) { [weak self] in
@@ -144,7 +142,7 @@ class MainViewController: UIViewController {
         }
 
         NotificationCenter.default.post(
-            name: NSNotification.Name("DISMISS_ALERT_PICKER"),
+            name: .dismissAlertPicker,
             object: nil,
             userInfo: ["selectedCategory": selectedCategory as Any]
         )

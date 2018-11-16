@@ -67,7 +67,7 @@ class CalendarViewController: UIViewController {
         guard let categorys = CategoryManager.share.getAllCategory() else { return }
 
         NotificationCenter.default.post(
-            name: NSNotification.Name("SETUP_PICKER_CATEGORYS"),
+            name: .setupPickerCategorys,
             object: nil,
             userInfo: ["categorys": categorys]
         )
@@ -76,7 +76,7 @@ class CalendarViewController: UIViewController {
     func registerObservers() {
 
         _ = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("UPDATE_CATEGORYS"),
+            forName: .updateCategorys,
             object: nil,
             queue: nil) { (_) in
 
@@ -86,7 +86,7 @@ class CalendarViewController: UIViewController {
         }
 
         _ = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("UPDATE_TASKS"),
+            forName: .updateTasks,
             object: nil,
             queue: nil) { (_) in
 
@@ -98,7 +98,7 @@ class CalendarViewController: UIViewController {
         }
 
         _ = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("DISMISS_ALERT_PICKER"),
+            forName: .dismissAlertPicker,
             object: nil,
             queue: nil) { (notification) in
 
@@ -106,7 +106,7 @@ class CalendarViewController: UIViewController {
         }
 
         _ = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name("UPDATE_DAILY_CONSTRAINT"),
+            forName: .updateDailyConstraint,
             object: nil,
             queue: nil) { (notification) in
 
@@ -402,7 +402,7 @@ class CalendarViewController: UIViewController {
             }
 
             NotificationCenter.default.post(
-                name: NSNotification.Name("DAILY_TASK_UPDATE"),
+                name: .dailyTaskUpdate,
                 object: nil,
                 userInfo: ["task": tasks as Any, "selectedCategory": self.selectedCategory as Any]
             )
@@ -514,7 +514,7 @@ class CalendarViewController: UIViewController {
             self.monthTaskSection = sender.tag
 
             NotificationCenter.default.post(
-                name: NSNotification.Name("MONYH_TASK_UPDATE"),
+                name: .monthTaskUpdate,
                 object: nil,
                 userInfo: ["task": filterTasks as Any]
             )
@@ -609,7 +609,7 @@ class CalendarViewController: UIViewController {
     @IBAction func selectCategory(_ sender: Any) {
 
         NotificationCenter.default.post(
-            name: NSNotification.Name("SHOW_ALERT_PICKER"),
+            name: .showAlertPicker,
             object: nil)
 
         self.dailyTaskBottomConstraint.constant = 0

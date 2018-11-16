@@ -42,19 +42,15 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
 
     func gotoToday() {
 
-        let name = NSNotification.Name("SCROLL_TO_TODAY")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
+        forName: .scrollToToday, object: nil, queue: nil) { (_) in
 
             let scrollView = self.dateCollectionView as UIScrollView
 
             let offset = scrollView.contentOffset
             self.dateCollectionView.setContentOffset(offset, animated: false)
 
-            var scrollBounds = scrollView.bounds
-            scrollBounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
-            scrollView.bounds = scrollBounds
+            scrollView.bounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
 
             self.scrollDelegate?.didScroll(to: CGPoint(x: self.todayIndex * 50, y: 0))
 
@@ -83,9 +79,8 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
             self.dateCollectionView.reloadData()
 
             let scrollView = self.dateCollectionView as UIScrollView
-            var scrollBounds = scrollView.bounds
-            scrollBounds.origin = CGPoint(x: 32 * 50, y: 0)
-            scrollView.bounds = scrollBounds
+
+            scrollView.bounds.origin = CGPoint(x: 32 * 50, y: 0)
         }
     }
 
@@ -149,7 +144,7 @@ class HeaderTableViewCell: UITableViewHeaderFooterView {
             currentYear = itemYear
 
             NotificationCenter.default.post(
-                name: NSNotification.Name("YEAR_CHANGED"),
+                name: .yearChanged,
                 object: nil,
                 userInfo: ["year": itemYear]
             )

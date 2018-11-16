@@ -60,10 +60,8 @@ class DailyTaskViewController: UIViewController {
 
     func updateTask() {
 
-        let name = NSNotification.Name("DAILY_TASK_UPDATE")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (notification) in
+        forName: .dailyTaskUpdate, object: nil, queue: nil) { (notification) in
 
             self.currentMode = self.dailyMode
 
@@ -111,10 +109,8 @@ class DailyTaskViewController: UIViewController {
 
     func updateMonthTask() {
 
-        let name = NSNotification.Name("MONYH_TASK_UPDATE")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (notification) in
+        forName: .monthTaskUpdate, object: nil, queue: nil) { (notification) in
 
             self.currentMode = self.monthMode
 
@@ -253,7 +249,7 @@ extension DailyTaskViewController: TaskPageDelegate {
             taskTableView.reloadData()
 
             NotificationCenter.default.post(
-                name: NSNotification.Name("UPDATE_DAILY_CONSTRAINT"),
+                name: .updateDailyConstraint,
                 object: nil,
                 userInfo: ["taskCount": tasks.count])
 

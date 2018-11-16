@@ -356,13 +356,13 @@ class TaskViewController: UIViewController {
 
             completeAnimation()
 
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+            NotificationCenter.default.post(name: .updateTasks, object: nil)
 
             taskPageDelegate?.updateTask(task: taskMO)
 
         } else {
 
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+            NotificationCenter.default.post(name: .updateTasks, object: nil)
 
             dismiss(animated: true, completion: nil)
 
@@ -544,7 +544,7 @@ extension TaskViewController: DeleteDelegate {
 
             TaskManager.shared.deleteTask(taskMO: task)
 
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+            NotificationCenter.default.post(name: .updateTasks, object: nil)
 
             self.taskPageDelegate?.updateTask(task: nil)
 

@@ -107,7 +107,7 @@ class CategoryViewController: UIViewController {
             CategoryManager.share.updateCategory(categoryMO: category, title: newTitle, color: newColor)
         }
 
-        NotificationCenter.default.post(name: NSNotification.Name("UPDATE_CATEGORYS"), object: nil)
+        NotificationCenter.default.post(name: .updateCategorys, object: nil)
         
         dismiss(animated: true, completion: nil)
     }
@@ -237,8 +237,8 @@ extension CategoryViewController: DeleteDelegate {
 
             CategoryManager.share.deleteCategory(categoryMO: category)
 
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_CATEGORYS"), object: nil)
-            NotificationCenter.default.post(name: NSNotification.Name("UPDATE_TASKS"), object: nil)
+            NotificationCenter.default.post(name: .updateCategorys, object: nil)
+            NotificationCenter.default.post(name: .updateTasks, object: nil)
 
             self.dismiss(animated: true, completion: nil)
         }

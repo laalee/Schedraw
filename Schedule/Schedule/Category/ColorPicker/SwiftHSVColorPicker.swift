@@ -96,13 +96,6 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate {
         self.color = UIColor(hue: self.hue, saturation: self.saturation, brightness: self.brightness, alpha: 1.0)
 
         selectedColorView.setViewColor(self.color)
-
-        let selectColorNotification = Notification(
-            name: Notification.Name("colorSelecting"),
-            object: color,
-            userInfo: nil)
-
-        NotificationCenter.default.post(selectColorNotification)
     }
 
 }

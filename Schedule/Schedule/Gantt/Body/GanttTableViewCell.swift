@@ -73,10 +73,8 @@ class GanttTableViewCell: UITableViewCell {
 
     private func updateDatas() {
 
-        let name = NSNotification.Name("UPDATE_TASKS")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
+        forName: .updateTasks, object: nil, queue: nil) { (_) in
 
             self.reloadItemCollectionView()
 
@@ -86,10 +84,8 @@ class GanttTableViewCell: UITableViewCell {
 
     func gotoToday() {
 
-        let name = NSNotification.Name("SCROLL_TO_TODAY")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
+        forName: .scrollToToday, object: nil, queue: nil) { (_) in
 
             let scrollView = self.itemCollectionView as UIScrollView
 
@@ -97,11 +93,7 @@ class GanttTableViewCell: UITableViewCell {
 
             self.itemCollectionView.setContentOffset(offset, animated: false)
 
-            var scrollBounds = scrollView.bounds
-
-            scrollBounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
-
-            scrollView.bounds = scrollBounds
+            scrollView.bounds.origin = CGPoint(x: self.todayIndex * 50, y: 0)
         }
     }
 
@@ -121,11 +113,7 @@ class GanttTableViewCell: UITableViewCell {
 
             let scrollView = self.itemCollectionView as UIScrollView
 
-            var scrollBounds = scrollView.bounds
-
-            scrollBounds.origin = CGPoint(x: 32 * 50, y: 0)
-
-            scrollView.bounds = scrollBounds
+            scrollView.bounds.origin = CGPoint(x: 32 * 50, y: 0)
         }
     }
 

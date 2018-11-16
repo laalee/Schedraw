@@ -37,6 +37,11 @@ class CoreDataProvider {
         self.init(container: appDelegate.persistentContainer)
     }
 
+    lazy var backgroundContext: NSManagedObjectContext = {
+
+        return self.persistentContainer.newBackgroundContext()
+    }()
+
     var fetchResultController: NSFetchedResultsController<CategoryMO>!
 
     var taskFetchResultController: NSFetchedResultsController<TaskMO>!
