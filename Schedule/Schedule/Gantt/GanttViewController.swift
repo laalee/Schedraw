@@ -75,9 +75,7 @@ class GanttViewController: UIViewController {
 
     @IBAction func scrollToToday(_ sender: Any) {
 
-        let name = NSNotification.Name("SCROLL_TO_TODAY")
-
-        NotificationCenter.default.post(name: name, object: nil)
+        NotificationCenter.default.post(name: .scrollToToday, object: nil)
     }
 
     func getCategorys() {
@@ -103,10 +101,8 @@ class GanttViewController: UIViewController {
 
     private func updateDatas() {
 
-        let name = NSNotification.Name("UPDATE_CATEGORYS")
-
         _ = NotificationCenter.default.addObserver(
-        forName: name, object: nil, queue: nil) { (_) in
+        forName: .updateCategorys, object: nil, queue: nil) { (_) in
 
             self.getCategorys()
 
@@ -131,6 +127,8 @@ extension GanttViewController: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: GanttTableViewCell.self), for: indexPath)
+
+        tableView.index
 
         guard let ganttCell = cell as? GanttTableViewCell else {
             return cell
@@ -200,9 +198,8 @@ extension GanttViewController: GanttScrollDelegate {
         }
 
         let scrollView = header.dateCollectionView as UIScrollView
-        var scrollBounds = scrollView.bounds
-        scrollBounds.origin = position
-        scrollView.bounds = scrollBounds
+
+        scrollView.bounds.origin = position
 
         let addBottomCell = scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100)
 
@@ -224,9 +221,8 @@ extension GanttViewController: GanttScrollDelegate {
             guard let ganttCell = cell as? GanttTableViewCell else { return }
 
             let scrollView = ganttCell.itemCollectionView as UIScrollView
-            var scrollBounds = scrollView.bounds
-            scrollBounds.origin = position
-            scrollView.bounds = scrollBounds
+
+            scrollView.bounds.origin = position
 
             if addBottomCell {
 
