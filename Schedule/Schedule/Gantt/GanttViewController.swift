@@ -197,13 +197,11 @@ extension GanttViewController: GanttScrollDelegate {
             return
         }
 
-        let scrollView = header.dateCollectionView as UIScrollView
+        header.dateCollectionView.bounds.origin = position
 
-        scrollView.bounds.origin = position
+        let addBottomCell = header.dateCollectionView.contentOffset.x > (header.dateCollectionView.contentSize.width - UIScreen.main.bounds.size.width - 100)
 
-        let addBottomCell = scrollView.contentOffset.x > (scrollView.contentSize.width - UIScreen.main.bounds.size.width - 100)
-
-        let addTopCell = scrollView.contentOffset.x < 100
+        let addTopCell = header.dateCollectionView.contentOffset.x < 100
 
         if addBottomCell {
 
@@ -220,9 +218,7 @@ extension GanttViewController: GanttScrollDelegate {
 
             guard let ganttCell = cell as? GanttTableViewCell else { return }
 
-            let scrollView = ganttCell.itemCollectionView as UIScrollView
-
-            scrollView.bounds.origin = position
+            ganttCell.itemCollectionView.bounds.origin = position
 
             if addBottomCell {
 

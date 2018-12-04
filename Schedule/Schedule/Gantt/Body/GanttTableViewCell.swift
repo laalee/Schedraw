@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GanttScrollDelegate: class {
+protocol GanttScrollDelegate: AnyObject {
 
     func didScroll(to position: CGPoint)
 }
