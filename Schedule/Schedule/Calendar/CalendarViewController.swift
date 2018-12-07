@@ -64,7 +64,7 @@ class CalendarViewController: UIViewController {
 
     func getCategorys() {
 
-        guard let categorys = CategoryManager.share.getAllCategory() else { return }
+        guard let categorys = CategoryManager.shared.getAllCategory() else { return }
 
         NotificationCenter.default.post(
             name: .setupPickerCategorys,

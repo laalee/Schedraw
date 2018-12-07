@@ -12,6 +12,8 @@ class GanttViewController: UIViewController {
 
     @IBOutlet weak var ganttTableView: UITableView!
 
+    private var categoryManager = CategoryManager.shared
+
     var firstFlag: Bool = true
 
     var header: HeaderTableViewCell?
@@ -23,6 +25,18 @@ class GanttViewController: UIViewController {
     fileprivate var sourceIndexPath: IndexPath?
 
     fileprivate var snapshot: UIView?
+
+    public init(categoryManager: CategoryManager) {
+
+        self.categoryManager = categoryManager
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +94,7 @@ class GanttViewController: UIViewController {
 
     func getCategorys() {
 
-        guard let categorys = CategoryManager.share.getAllCategory() else { return }
+        guard let categorys = categoryManager.getAllCategory() else { return }
 
         self.categorys = categorys
     }

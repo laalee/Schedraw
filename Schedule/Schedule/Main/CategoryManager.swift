@@ -11,7 +11,7 @@ import UIKit
 
 class CategoryManager {
 
-    static let share = CategoryManager()
+    static let shared = CategoryManager()
 
     let dataProvider = CoreDataProvider()
 

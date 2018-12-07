@@ -98,13 +98,13 @@ class CategoryViewController: UIViewController {
 
             let newId = Int(Date().timeIntervalSince1970)
 
-            CategoryManager.share.addCategory(id: newId, title: newTitle, color: newColor)
+            CategoryManager.shared.addCategory(id: newId, title: newTitle, color: newColor)
 
         } else {
 
             guard let category = category else { return }
 
-            CategoryManager.share.updateCategory(categoryMO: category, title: newTitle, color: newColor)
+            CategoryManager.shared.updateCategory(categoryMO: category, title: newTitle, color: newColor)
         }
 
         NotificationCenter.default.post(name: .updateCategorys, object: nil)
@@ -235,7 +235,7 @@ extension CategoryViewController: DeleteDelegate {
                 }
             }
 
-            CategoryManager.share.deleteCategory(categoryMO: category)
+            CategoryManager.shared.deleteCategory(categoryMO: category)
 
             NotificationCenter.default.post(name: .updateCategorys, object: nil)
             NotificationCenter.default.post(name: .updateTasks, object: nil)
