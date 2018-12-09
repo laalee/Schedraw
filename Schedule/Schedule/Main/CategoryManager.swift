@@ -17,16 +17,12 @@ class CategoryManager {
 
     func addCategory(id: Int, title: String, color: UIColor) {
 
-        let category = Category(id: id, title: title, color: color)
-
-        dataProvider.addCategory(category: category)
+        dataProvider.addCategory(id: id, title: title, color: color)
     }
 
     func updateCategory(categoryMO: CategoryMO, title: String, color: UIColor) {
 
-        let category = Category(id: Int(categoryMO.id), title: title, color: color)
-
-        dataProvider.updateCategory(categoryMO: categoryMO, category: category)
+        dataProvider.updateCategory(categoryMO: categoryMO, title: title, color: color)
     }
 
     func deleteCategory(categoryMO: CategoryMO) {
@@ -41,6 +37,6 @@ class CategoryManager {
 
     func numberOfCategory() -> Int {
 
-        return dataProvider.numberOfCategory()
+        return dataProvider.fetchAllCategory().count
     }
 }

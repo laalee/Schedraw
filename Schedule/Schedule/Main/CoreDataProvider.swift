@@ -12,8 +12,6 @@ import CoreData
 
 class CoreDataProvider {
 
-    static let shared = CoreDataProvider()
-
     var category: CategoryMO!
 
     var task: TaskMO!
@@ -42,21 +40,17 @@ class CoreDataProvider {
         return self.persistentContainer.newBackgroundContext()
     }()
 
-    var fetchResultController: NSFetchedResultsController<CategoryMO>!
+    func addCategory(id: Int, title: String, color: UIColor) {
 
-    var taskFetchResultController: NSFetchedResultsController<TaskMO>!
+        self.category = CategoryMO(context: persistentContainer.viewContext)
 
-    func addCategory(category: Category) {
+        self.category.id = Int64(id)
+
+        self.category.title = title
+
+        self.category.color = color
 
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-
-            self.category = CategoryMO(context: appDelegate.persistentContainer.viewContext)
-
-            self.category.id = Int64(category.id)
-
-            self.category.title = category.title
-
-            self.category.color = category.color
 
             appDelegate.saveContext()
         }
@@ -66,7 +60,7 @@ class CoreDataProvider {
 
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
 
-            self.task = TaskMO(context: appDelegate.persistentContainer.viewContext)
+            self.task = TaskMO(context: persistentContainer.viewContext)
 
             self.task.title = task.title
 
@@ -107,49 +101,50 @@ class CoreDataProvider {
         }
     }
 
-    func updateCategory(categoryMO: CategoryMO, category: Category) {
+    func updateCategory(categoryMO: CategoryMO, title: String, color: UIColor) {
 
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
 
-            categoryMO.title = category.title
+            categoryMO.title = title
 
-            categoryMO.color = category.color
+            categoryMO.color = color
 
             appDelegate.saveContext()
+        }
+    }
+
+    func deleteObject(objectID: NSManagedObjectID) {
+
+        let object = backgroundContext.object(with: objectID)
+
+        backgroundContext.delete(object)
+
+        save()
+    }
+
+    func save() {
+
+        if backgroundContext.hasChanges {
+
+            do {
+
+                try backgroundContext.save()
+
+            } catch {
+
+                print("Save error \(error)")
+            }
         }
     }
 
     func deleteCategory(categoryMO: CategoryMO) {
 
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-
-            let context = appDelegate.persistentContainer.viewContext
-
-            context.delete(categoryMO)
-
-            appDelegate.saveContext()
-        }
+        deleteObject(objectID: categoryMO.objectID)
     }
 
-    func deleteTask(taskMO: TaskMO) {
+    func fetchTask(byCategory category: CategoryMO, date: Date) -> [TaskMO] {
 
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-
-            let context = appDelegate.persistentContainer.viewContext
-
-            context.delete(taskMO)
-
-            appDelegate.saveContext()
-        }
-    }
-
-    func fetchTask(byCategory category: CategoryMO, date: Date) -> [TaskMO]? {
-
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-
-        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let request: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 
         let categoryKeyPredicate = NSPredicate(format: "category == %@", category)
 
@@ -157,186 +152,61 @@ class CoreDataProvider {
 
         let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [categoryKeyPredicate, dateKeyPredicate])
 
-        fetchRequest.predicate = andPredicate
+        request.predicate = andPredicate
 
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return nil }
+        let results = try? persistentContainer.viewContext.fetch(request)
 
-        let context = appDelegate.persistentContainer.viewContext
-
-        taskFetchResultController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil, cacheName: nil)
-
-        taskFetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-        do {
-            try taskFetchResultController.performFetch()
-
-            if let fetchedObjects = taskFetchResultController.fetchedObjects {
-
-                return fetchedObjects
-            }
-        } catch {
-
-            print("FetchTask Fail!!")
-            
-            return nil
-        }
-
-        return nil
+        return results ?? [TaskMO]()
     }
 
-    func fetchTask(byDate date: Date?, orCategory category: CategoryMO?) -> [TaskMO]? {
+    func fetchTask(byDate date: Date?, orCategory category: CategoryMO?) -> [TaskMO] {
 
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-
-        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let request: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 
         if let date = date {
 
-            fetchRequest.predicate = NSPredicate(format: "date == %@", date as CVarArg)
+            request.predicate = NSPredicate(format: "date == %@", date as CVarArg)
 
         } else if let category = category {
 
-            fetchRequest.predicate = NSPredicate(format: "category == %@", category)
+            request.predicate = NSPredicate(format: "category == %@", category)
         }
 
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return nil }
+        let results = try? persistentContainer.viewContext.fetch(request)
 
-        let context = appDelegate.persistentContainer.viewContext
+        return results ?? [TaskMO]()
+    }
 
-        taskFetchResultController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil, cacheName: nil)
+    func deleteTask(taskMO: TaskMO) {
 
-        taskFetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-        do {
-            try taskFetchResultController.performFetch()
-
-            if let fetchedObjects = taskFetchResultController.fetchedObjects {
-
-                return fetchedObjects
-            }
-        } catch {
-
-            print("FetchTask Fail!!")
-
-            return nil
-        }
-
-        return nil
+        deleteObject(objectID: taskMO.objectID)
     }
 
     func deleteTask(byConsecutiveId consecutiveId: Int) {
 
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let request: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 
-        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
+        request.predicate = NSPredicate(format: "consecutiveId == %i", consecutiveId)
 
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        guard let results = try? persistentContainer.viewContext.fetch(request) else { return }
 
-        fetchRequest.predicate = NSPredicate(format: "consecutiveId == %i", consecutiveId)
+        for taskMO in results {
 
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
-
-        let context = appDelegate.persistentContainer.viewContext
-
-        taskFetchResultController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil, cacheName: nil)
-
-        taskFetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-        do {
-            try taskFetchResultController.performFetch()
-
-            if let fetchedObjects = taskFetchResultController.fetchedObjects {
-
-                for object in fetchedObjects {
-
-                    context.delete(object)
-                }
-
-                appDelegate.saveContext()
-            }
-        } catch {
-
-            print("FetchTask Fail!!")
+            deleteObject(objectID: taskMO.objectID)
         }
     }
 
-    func fetchAllCategory() -> [CategoryMO]? {
+    func fetchAllCategory() -> [CategoryMO] {
 
-        let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
-
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
-
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return nil }
-
-        let context = appDelegate.persistentContainer.viewContext
-
-        fetchResultController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil, cacheName: nil)
-
-        fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-        do {
-            try fetchResultController.performFetch()
-
-            if let fetchedObjects = fetchResultController.fetchedObjects {
-
-                return fetchedObjects
-            }
-        } catch {
-
-            return nil
-        }
-
-        return nil
-    }
-
-    func numberOfCategory() -> Int {
-
-        let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
+        let request: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
 
         let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
 
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        request.sortDescriptors = [sortDescriptor]
 
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return 0 }
+        let results = try? persistentContainer.viewContext.fetch(request)
 
-        let context = appDelegate.persistentContainer.viewContext
-
-        fetchResultController = NSFetchedResultsController(
-            fetchRequest: fetchRequest,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil, cacheName: nil)
-
-        fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
-
-        do {
-            try fetchResultController.performFetch()
-
-            if let fetchedObjects = fetchResultController.fetchedObjects {
-
-                return fetchedObjects.count
-            }
-        } catch {
-
-            return 0
-        }
-
-        return 0
+        return results ?? [CategoryMO]()
     }
 
 }
