@@ -6,78 +6,80 @@
 //  Copyright © 2018 laalee. All rights reserved.
 //
 
+//swiftlint:disable variable_name
+
 import XCTest
 
 @testable import Schedule
 
 class DateManagerTests: XCTestCase {
 
-    var dateManagerTest: DateManager!
+    var sut: DateManager!
 
     override func setUp() {
         super.setUp()
 
-        dateManagerTest = DateManager()
+        sut = DateManager()
     }
 
     override func tearDown() {
 
-        dateManagerTest = nil
+        sut = nil
 
         super.tearDown()
     }
 
     func test_numberOfDates() {
 
-        // arrange
-        dateManagerTest.dates = [Date(), Date(), Date()]
+        sut.dates = [Date(), Date(), Date()]
 
-        // act
-        let testCount = dateManagerTest.numberOfDates()
+        let testCount = sut.numberOfDates()
 
-        // assert
         XCTAssertEqual(testCount, 3, "Count Dates Wrong")
     }
 
     func test_addDate() {
 
-        // arrange
-        dateManagerTest.dates = []
+        sut.dates = []
         let firsrDay = 1
         let lastDay = 10
 
-        // act
-        dateManagerTest.addDates(from: firsrDay, to: lastDay)
+        sut.addDates(from: firsrDay, to: lastDay)
 
-        // assert
-        XCTAssertEqual(dateManagerTest.dates.count, 10, "Add Dates Wrong.")
+        XCTAssertEqual(sut.dates.count, 10, "Add Dates Wrong.")
     }
 
     func test_addEarlyDates() {
 
-        // arrange
-        dateManagerTest.dates = []
+        sut.dates = []
         let firsrDay = 1
         let lastDay = 10
 
-        // act
-        dateManagerTest.addEarlyDates(from: firsrDay, to: lastDay)
+        sut.addEarlyDates(from: firsrDay, to: lastDay)
 
-        // assert
-        XCTAssertEqual(dateManagerTest.dates.count, 10, "Add Dates Wrong.")
+        XCTAssertEqual(sut.dates.count, 10, "Add Dates Wrong.")
     }
 
     func test_getDateByAddingDate() {
 
-        // arrange
         let componentsDay = 0
-        let date = dateManagerTest.transformDate(date: Date())
+        let date = sut.transformDate(date: Date())
 
-        // act
-        let testDate = dateManagerTest.getDate(byAdding: componentsDay, to: date)
+        let testDate = sut.getDate(byAdding: componentsDay, to: date)
 
-        // assert
         XCTAssertEqual(testDate, date, "Add Dates Wrong.")
+    }
+
+    func test_formatDate_forTaskPageAlert() {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy"
+        let dateString = "10 Dec 2018"
+        let date = dateFormatter.date(from: dateString)
+
+        let formatDate = sut.formatDate(forTaskPageAlert: date ?? Date())
+
+        XCTAssertEqual(formatDate, dateString)
     }
 
 }
