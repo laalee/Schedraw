@@ -366,8 +366,8 @@
 		9B54338021882C4F007919B4 /* ScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
-				9BF8BD0C21BD50B100BCF204 /* CategoryManagerTest.swift */,
 				9B35AE912192846600E61E1F /* CoreDataTest.swift */,
+				9BF8BD0C21BD50B100BCF204 /* CategoryManagerTest.swift */,
 				9B5433B72189A853007919B4 /* TaskManagerTests.swift */,
 				9B54338121882C4F007919B4 /* DateManagerTests.swift */,
 				9B54338321882C4F007919B4 /* Info.plist */,

@@ -171,11 +171,6 @@ class CoreDataProvider {
         return results ?? [TaskMO]()
     }
 
-    func deleteTask(taskMO: TaskMO) {
-
-        deleteObject(objectID: taskMO.objectID)
-    }
-
     func deleteTask(byConsecutiveId consecutiveId: Int) {
 
         let request: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()

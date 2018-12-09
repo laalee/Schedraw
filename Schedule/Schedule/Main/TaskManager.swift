@@ -18,7 +18,17 @@ class TaskManager {
 
     static let lastDay: Int = 3
 
-    let dataProvider = CoreDataProvider()
+    var dataProvider: CoreDataProvider!
+
+    init(dataProvider: CoreDataProvider) {
+
+        self.dataProvider = dataProvider
+    }
+
+    convenience init() {
+
+        self.init(dataProvider: CoreDataProvider())
+    }
 
     func addTask(task: Task) {
 
@@ -60,7 +70,7 @@ class TaskManager {
 
         } else {
 
-            dataProvider.deleteTask(taskMO: taskMO)
+            dataProvider.deleteObject(objectID: taskMO.objectID)
         }
     }
 
