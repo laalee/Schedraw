@@ -13,7 +13,17 @@ class CategoryManager {
 
     static let shared = CategoryManager()
 
-    let dataProvider = CoreDataProvider()
+    var dataProvider: CoreDataProvider!
+
+    init(dataProvider: CoreDataProvider) {
+
+        self.dataProvider = dataProvider
+    }
+
+    convenience init() {
+
+        self.init(dataProvider: CoreDataProvider())
+    }
 
     func addCategory(id: Int, title: String, color: UIColor) {
 
@@ -22,12 +32,12 @@ class CategoryManager {
 
     func updateCategory(categoryMO: CategoryMO, title: String, color: UIColor) {
 
-        dataProvider.updateCategory(categoryMO: categoryMO, title: title, color: color)
+        dataProvider.updateCategory(objectID: categoryMO.objectID, title: title, color: color)
     }
 
     func deleteCategory(categoryMO: CategoryMO) {
 
-        dataProvider.deleteCategory(categoryMO: categoryMO)
+        dataProvider.deleteObject(objectID: categoryMO.objectID)
     }
 
     func getAllCategory() -> [CategoryMO]? {

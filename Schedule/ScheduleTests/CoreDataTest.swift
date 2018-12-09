@@ -115,29 +115,23 @@ class CoreDataTest: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
 
-    func test_deleteCategory() {
-
-        let caregorys = sut.fetchAllCategory()
-        let category = caregorys[0]
-
-        let numberOfCategory = caregorys.count
-
-        sut.deleteCategory(categoryMO: category)
-
-        XCTAssertEqual(numberOfItemsInPersistentStore(), numberOfCategory - 1)
-    }
-
     func test_updateCategory() {
 
-        let caregorys = sut.fetchAllCategory()
-        let category = caregorys[0]
+        let categorys = sut.fetchAllCategory()
+        let objectID = categorys[0].objectID
 
         let title = "test_updateCategory"
         let color = UIColor.black
 
-        sut.updateCategory(categoryMO: category, title: title, color: color)
+        sut.updateCategory(objectID: objectID, title: title, color: color)
 
-        XCTAssertEqual(category.title, title)
+        let object = sut.backgroundContext.object(with: objectID)
+
+        let titleDictionary = object.dictionaryWithValues(forKeys: ["title"])
+
+        let objectTitle = titleDictionary["title"] as? String
+
+        XCTAssertEqual(objectTitle, title)
     }
 
     func test_addTask() {
@@ -160,21 +154,22 @@ extension CoreDataTest {
 
     func initStubs() {
 
-        func addCategory(title: String, color: UIColor) {
+        func addCategory(id: Int, title: String, color: UIColor) {
 
             let obj = NSEntityDescription.insertNewObject(
                 forEntityName: "Category",
                 into: mockPersistantContainer.viewContext)
 
+            obj.setValue(id, forKey: "id")
             obj.setValue(title, forKey: "title")
             obj.setValue(color, forKey: "color")
         }
 
-        addCategory(title: "category1", color: UIColor.black)
-        addCategory(title: "category2", color: UIColor.black)
-        addCategory(title: "category3", color: UIColor.black)
-        addCategory(title: "category4", color: UIColor.black)
-        addCategory(title: "category5", color: UIColor.black)
+        addCategory(id: 1, title: "category1", color: UIColor.black)
+        addCategory(id: 2, title: "category2", color: UIColor.black)
+        addCategory(id: 3, title: "category3", color: UIColor.black)
+        addCategory(id: 4, title: "category4", color: UIColor.black)
+        addCategory(id: 5, title: "category5", color: UIColor.black)
 
         do {
 
@@ -188,7 +183,7 @@ extension CoreDataTest {
 
     func flushData() {
 
-        var fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
 
         if let objs = try? mockPersistantContainer.viewContext.fetch(fetchRequest) {
 

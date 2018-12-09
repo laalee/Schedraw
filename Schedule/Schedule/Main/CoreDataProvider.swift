@@ -101,16 +101,15 @@ class CoreDataProvider {
         }
     }
 
-    func updateCategory(categoryMO: CategoryMO, title: String, color: UIColor) {
+    func updateCategory(objectID: NSManagedObjectID, title: String, color: UIColor) {
 
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+        guard let object = backgroundContext.object(with: objectID) as? CategoryMO else { return }
 
-            categoryMO.title = title
+        object.title = title
 
-            categoryMO.color = color
+        object.color = color
 
-            appDelegate.saveContext()
-        }
+        save()
     }
 
     func deleteObject(objectID: NSManagedObjectID) {
@@ -135,11 +134,6 @@ class CoreDataProvider {
                 print("Save error \(error)")
             }
         }
-    }
-
-    func deleteCategory(categoryMO: CategoryMO) {
-
-        deleteObject(objectID: categoryMO.objectID)
     }
 
     func fetchTask(byCategory category: CategoryMO, date: Date) -> [TaskMO] {

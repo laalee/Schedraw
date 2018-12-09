@@ -103,6 +103,7 @@
 		9BF12429215CE86300AC1C6A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12428215CE86300AC1C6A /* TaskViewController.swift */; };
 		9BF549BF219E9FC70050CABA /* NotificationName+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF549BE219E9FC70050CABA /* NotificationName+extension.swift */; };
 		9BF8BD0521BD004000BCF204 /* Schedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5D5E22151FDD2005F225C /* Schedule.xcdatamodeld */; };
+		9BF8BD0D21BD50B100BCF204 /* CategoryManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF8BD0C21BD50B100BCF204 /* CategoryManagerTest.swift */; };
 		9BFDBC2521673C21004132D2 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFDBC2421673C21004132D2 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +241,7 @@
 		9BF12422215C7EC400AC1C6A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9BF12428215CE86300AC1C6A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		9BF549BE219E9FC70050CABA /* NotificationName+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+extension.swift"; sourceTree = "<group>"; };
+		9BF8BD0C21BD50B100BCF204 /* CategoryManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagerTest.swift; sourceTree = "<group>"; };
 		9BFDBC2421673C21004132D2 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		B5ABCC33668CEB577E771769 /* Pods-ScheduleWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleWidget/Pods-ScheduleWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		BE8102D4A09BA6FE6E473A4F /* Pods-ScheduleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleTests/Pods-ScheduleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		9B54338021882C4F007919B4 /* ScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
+				9BF8BD0C21BD50B100BCF204 /* CategoryManagerTest.swift */,
 				9B35AE912192846600E61E1F /* CoreDataTest.swift */,
 				9B5433B72189A853007919B4 /* TaskManagerTests.swift */,
 				9B54338121882C4F007919B4 /* DateManagerTests.swift */,
@@ -869,6 +872,7 @@
 			files = (
 				9B35AE922192846600E61E1F /* CoreDataTest.swift in Sources */,
 				9B5433B82189A853007919B4 /* TaskManagerTests.swift in Sources */,
+				9BF8BD0D21BD50B100BCF204 /* CategoryManagerTest.swift in Sources */,
 				9BF8BD0521BD004000BCF204 /* Schedule.xcdatamodeld in Sources */,
 				9B54338221882C4F007919B4 /* DateManagerTests.swift in Sources */,
 			);
