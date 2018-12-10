@@ -73,7 +73,7 @@ class CoreDataTest: XCTestCase {
         return container
     }()
 
-    func test_addCategory() {
+    func test_addCategory_titleChanged() {
 
         let id = 0
         let title = "test1"
@@ -82,6 +82,17 @@ class CoreDataTest: XCTestCase {
         sut.addCategory(id: id, title: title, color: color)
 
         XCTAssertEqual(sut.category.title, title)
+    }
+
+    func test_addCategory_plusOne() {
+
+        let caregorys = sut.fetchAllCategory()
+
+        let numberOfCategory = caregorys.count
+
+        sut.addCategory(id: 0, title: "test1", color: UIColor.black)
+
+        XCTAssertEqual(numberOfItemsInPersistentStore(), numberOfCategory + 1)
     }
 
     func test_fetchAllCategory() {
@@ -108,7 +119,12 @@ class CoreDataTest: XCTestCase {
         let caregorys = sut.fetchAllCategory()
         let category = caregorys[0]
 
-        _ = expectationForSaveNotification()
+        let expect = expectation(description: "Context Saved")
+
+        waitForSavedNotification { (_) in
+
+            expect.fulfill()
+        }
 
         sut.deleteObject(objectID: category.objectID)
 
@@ -183,7 +199,8 @@ extension CoreDataTest {
 
     func flushData() {
 
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
 
         if let objs = try? mockPersistantContainer.viewContext.fetch(fetchRequest) {
 
